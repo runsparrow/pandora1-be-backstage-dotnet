@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\MISApi\MISApi.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="HttpClients\HttpModes\ColumnsMode\" />
+    <Folder Include="HttpClients\HttpModes\TreeMode\" />
+    <Folder Include="CacheControllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CacheManager.Core" Version="2.0.0-beta-1629" />
+    <PackageReference Include="CacheManager.Microsoft.Extensions.Caching.Memory" Version="2.0.0-beta-1629" />
+    <PackageReference Include="CacheManager.Serialization.Json" Version="2.0.0-beta-1629" />
+    <PackageReference Include="CacheManager.StackExchange.Redis" Version="2.0.0-beta-1629" />
+    <PackageReference Include="CacheManager.SystemRuntimeCaching" Version="2.0.0-beta-1629" />
+    <PackageReference Include="IdentityModel" Version="5.0.1" />
+    <PackageReference Include="JWT" Version="8.1.0-beta1" />
+    <PackageReference Include="LinqKit.Core" Version="1.1.23" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="5.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.0-alpha.2" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.2" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Json.Newtonsoft" Version="5.0.0-alpha.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.0.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.0.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.0.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.0.7" />
+    <PackageReference Include="Swashbuckle.Core" Version="5.6.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
+  </ItemGroup>
+
+</Project>

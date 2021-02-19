@@ -1,0 +1,1047 @@
+2021-02-07 20:51:55.5894 Info Message Template Auto Format enabled
+2021-02-07 20:51:55.6167 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 20:51:55.6661 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 20:51:55.6661 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 20:51:55.6661 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 20:51:55.6661 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 20:51:55.6661 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 20:51:55.6888 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 20:51:55.6888 Info Configuration initialized.
+2021-02-07 20:51:55.7031 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 21:48:51.9584 Info Message Template Auto Format enabled
+2021-02-07 21:48:51.9870 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 21:48:52.0307 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 21:48:52.0307 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 21:48:52.0307 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 21:48:52.0307 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 21:48:52.0307 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 21:48:52.0521 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 21:48:52.0650 Info Configuration initialized.
+2021-02-07 21:48:52.0650 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 21:50:27.0907 Info Message Template Auto Format enabled
+2021-02-07 21:50:27.1187 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 21:50:27.1662 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 21:50:27.1662 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 21:50:27.1662 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 21:50:27.1662 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 21:50:27.1662 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 21:50:27.1970 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 21:50:27.2160 Info Configuration initialized.
+2021-02-07 21:50:27.2160 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 21:50:36.5930 Info Configuring from an XML element in D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\nlog.config...
+2021-02-07 21:50:36.6043 Info Message Template Auto Format enabled
+2021-02-07 21:50:36.6043 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 21:50:36.6043 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 21:50:36.6043 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 21:50:36.6043 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 21:50:36.6091 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 21:50:36.6091 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 21:50:36.6091 Info Closing old configuration.
+2021-02-07 21:50:36.6260 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\nlog.config
+2021-02-07 21:52:36.0279 Info Message Template Auto Format enabled
+2021-02-07 21:52:36.0493 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 21:52:36.0921 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 21:52:36.0937 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 21:52:36.0937 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 21:52:36.0937 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 21:52:36.0937 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 21:52:36.1225 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 21:52:36.1394 Info Configuration initialized.
+2021-02-07 21:52:36.1404 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 21:55:45.0417 Info Message Template Auto Format enabled
+2021-02-07 21:55:45.0671 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 21:55:45.1096 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 21:55:45.1096 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 21:55:45.1096 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 21:55:45.1096 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 21:55:45.1096 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 21:55:45.1303 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 21:55:45.1432 Info Configuration initialized.
+2021-02-07 21:55:45.1432 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 21:58:02.9593 Info Message Template Auto Format enabled
+2021-02-07 21:58:02.9851 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 21:58:03.0308 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 21:58:03.0308 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 21:58:03.0308 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 21:58:03.0308 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 21:58:03.0308 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 21:58:03.0553 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 21:58:03.0694 Info Configuration initialized.
+2021-02-07 21:58:03.0694 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 22:54:07.0139 Info Message Template Auto Format enabled
+2021-02-07 22:54:07.0365 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 22:54:07.0840 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 22:54:07.0840 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 22:54:07.0840 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 22:54:07.0840 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 22:54:07.0840 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 22:54:51.0674 Info Message Template Auto Format enabled
+2021-02-07 22:54:51.1004 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 22:56:51.1566 Info Message Template Auto Format enabled
+2021-02-07 22:56:51.1826 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 22:56:51.2307 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 22:56:51.2307 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 22:56:51.2307 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 22:56:51.2307 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 22:56:51.2341 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 22:56:51.2537 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 22:58:50.7577 Info Message Template Auto Format enabled
+2021-02-07 22:58:50.7870 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 22:58:50.8317 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 22:58:50.8317 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 22:58:50.8317 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 22:58:50.8317 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 22:58:50.8317 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 22:58:50.8546 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 22:58:50.8695 Info Configuration initialized.
+2021-02-07 22:58:50.8695 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 22:59:47.9438 Info Message Template Auto Format enabled
+2021-02-07 22:59:47.9670 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 22:59:48.0145 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 22:59:48.0160 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 22:59:48.0160 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 22:59:48.0160 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 22:59:48.0160 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 22:59:48.0386 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 22:59:48.0567 Info Configuration initialized.
+2021-02-07 22:59:48.0567 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 23:01:39.9701 Info Message Template Auto Format enabled
+2021-02-07 23:01:39.9924 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 23:01:40.0368 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 23:01:40.0368 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 23:01:40.0368 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 23:01:40.0368 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 23:01:40.0368 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 23:01:40.0608 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 23:01:40.0755 Info Configuration initialized.
+2021-02-07 23:01:40.0755 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 23:03:50.1307 Info Message Template Auto Format enabled
+2021-02-07 23:03:50.1597 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 23:03:50.2098 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 23:03:50.2098 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 23:03:50.2098 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 23:03:50.2098 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 23:03:50.2098 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 23:03:50.2366 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 23:03:50.2543 Info Configuration initialized.
+2021-02-07 23:03:50.2543 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 23:05:08.3843 Info Message Template Auto Format enabled
+2021-02-07 23:05:08.4044 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 23:05:08.4449 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 23:05:08.4449 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 23:05:08.4449 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 23:05:08.4449 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 23:05:08.4449 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 23:05:08.4671 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 23:05:08.4805 Info Configuration initialized.
+2021-02-07 23:05:08.4805 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 23:08:57.7356 Info Message Template Auto Format enabled
+2021-02-07 23:08:57.7647 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 23:08:57.8134 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 23:08:57.8134 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 23:08:57.8134 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 23:08:57.8134 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 23:08:57.8134 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 23:08:57.8373 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 23:08:57.8540 Info Configuration initialized.
+2021-02-07 23:08:57.8540 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 23:13:13.6404 Info Message Template Auto Format enabled
+2021-02-07 23:13:13.6694 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 23:13:13.7210 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 23:13:13.7210 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 23:13:13.7210 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 23:13:13.7210 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 23:13:13.7210 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 23:13:13.7514 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 23:13:13.7687 Info Configuration initialized.
+2021-02-07 23:13:13.7687 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 23:18:10.8141 Info Message Template Auto Format enabled
+2021-02-07 23:18:10.8450 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 23:18:10.8928 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 23:18:10.8928 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 23:18:10.8928 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 23:18:10.8928 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 23:18:10.8928 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 23:18:10.9157 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 23:18:10.9321 Info Configuration initialized.
+2021-02-07 23:18:10.9321 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 23:23:26.0261 Info Message Template Auto Format enabled
+2021-02-07 23:23:26.0544 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 23:23:26.1109 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 23:23:26.1109 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 23:23:26.1109 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 23:23:26.1109 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 23:23:26.1109 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 23:23:26.1390 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 23:23:28.3039 Info Configuration initialized.
+2021-02-07 23:23:28.3039 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 23:25:20.4464 Info Message Template Auto Format enabled
+2021-02-07 23:25:20.4716 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 23:25:20.5177 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 23:25:20.5177 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 23:25:20.5177 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 23:25:20.5177 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 23:25:20.5177 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 23:25:20.5406 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 23:25:20.5550 Info Configuration initialized.
+2021-02-07 23:25:20.5550 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 23:26:58.0857 Info Message Template Auto Format enabled
+2021-02-07 23:26:58.1121 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 23:26:58.1546 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 23:26:58.1562 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 23:26:58.1562 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 23:26:58.1562 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 23:26:58.1562 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 23:26:58.1800 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 23:26:58.1935 Info Configuration initialized.
+2021-02-07 23:26:58.1935 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 23:29:00.6404 Info Message Template Auto Format enabled
+2021-02-07 23:29:00.6679 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 23:29:00.7198 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 23:29:00.7198 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 23:29:00.7198 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 23:29:00.7198 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 23:29:00.7198 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 23:29:00.7435 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 23:29:00.7586 Info Configuration initialized.
+2021-02-07 23:29:00.7586 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 23:29:36.9262 Info Message Template Auto Format enabled
+2021-02-07 23:29:36.9573 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 23:29:37.0004 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 23:29:37.0004 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 23:29:37.0004 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 23:29:37.0004 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 23:29:37.0004 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 23:29:37.0253 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 23:29:37.0401 Info Configuration initialized.
+2021-02-07 23:29:37.0401 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-07 23:32:29.8704 Info Message Template Auto Format enabled
+2021-02-07 23:32:29.8968 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-07 23:32:29.9461 Info Adding target FileTarget(Name=AllFile)
+2021-02-07 23:32:29.9461 Info Adding target FileTarget(Name=InfoFile)
+2021-02-07 23:32:29.9461 Info Adding target FileTarget(Name=DebugFile)
+2021-02-07 23:32:29.9461 Info Adding target FileTarget(Name=WarningFile)
+2021-02-07 23:32:29.9461 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-07 23:32:29.9679 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-07 23:32:29.9827 Info Configuration initialized.
+2021-02-07 23:32:29.9827 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-08 14:08:56.6349 Info Message Template Auto Format enabled
+2021-02-08 14:08:56.6632 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-08 14:08:56.7137 Info Adding target FileTarget(Name=AllFile)
+2021-02-08 14:08:56.7137 Info Adding target FileTarget(Name=InfoFile)
+2021-02-08 14:08:56.7137 Info Adding target FileTarget(Name=DebugFile)
+2021-02-08 14:08:56.7137 Info Adding target FileTarget(Name=WarningFile)
+2021-02-08 14:08:56.7137 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-08 14:08:56.7379 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-08 14:08:56.7538 Info Configuration initialized.
+2021-02-08 14:08:56.7538 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-08 14:17:27.3246 Info Message Template Auto Format enabled
+2021-02-08 14:17:27.3508 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-08 14:17:27.4092 Info Adding target FileTarget(Name=AllFile)
+2021-02-08 14:17:27.4092 Info Adding target FileTarget(Name=InfoFile)
+2021-02-08 14:17:27.4092 Info Adding target FileTarget(Name=DebugFile)
+2021-02-08 14:17:27.4133 Info Adding target FileTarget(Name=WarningFile)
+2021-02-08 14:17:27.4133 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-08 14:17:27.4383 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-08 14:17:27.4542 Info Configuration initialized.
+2021-02-08 14:17:27.4542 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-08 14:27:39.4177 Info Message Template Auto Format enabled
+2021-02-08 14:27:39.4549 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-08 14:27:39.5328 Info Adding target FileTarget(Name=AllFile)
+2021-02-08 14:27:39.5328 Info Adding target FileTarget(Name=InfoFile)
+2021-02-08 14:27:39.5328 Info Adding target FileTarget(Name=DebugFile)
+2021-02-08 14:27:39.5328 Info Adding target FileTarget(Name=WarningFile)
+2021-02-08 14:27:39.5392 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-08 14:27:39.5761 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-08 14:27:39.6061 Info Configuration initialized.
+2021-02-08 14:27:39.6061 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-08 14:50:53.6377 Info Message Template Auto Format enabled
+2021-02-08 14:50:53.6625 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-08 14:50:53.7088 Info Adding target FileTarget(Name=AllFile)
+2021-02-08 14:50:53.7105 Info Adding target FileTarget(Name=InfoFile)
+2021-02-08 14:50:53.7105 Info Adding target FileTarget(Name=DebugFile)
+2021-02-08 14:50:53.7105 Info Adding target FileTarget(Name=WarningFile)
+2021-02-08 14:50:53.7105 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-08 14:50:53.7332 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-08 14:50:53.7480 Info Configuration initialized.
+2021-02-08 14:50:53.7480 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-08 14:55:22.0539 Info Message Template Auto Format enabled
+2021-02-08 14:55:22.0935 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-08 14:55:22.1584 Info Adding target FileTarget(Name=AllFile)
+2021-02-08 14:55:22.1584 Info Adding target FileTarget(Name=InfoFile)
+2021-02-08 14:55:22.1584 Info Adding target FileTarget(Name=DebugFile)
+2021-02-08 14:55:22.1631 Info Adding target FileTarget(Name=WarningFile)
+2021-02-08 14:55:22.1631 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-08 14:55:22.1939 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-08 14:55:22.2224 Info Configuration initialized.
+2021-02-08 14:55:22.2224 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-08 14:56:25.7188 Info Message Template Auto Format enabled
+2021-02-08 14:56:25.7479 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-08 14:56:25.8014 Info Adding target FileTarget(Name=AllFile)
+2021-02-08 14:56:25.8014 Info Adding target FileTarget(Name=InfoFile)
+2021-02-08 14:56:25.8040 Info Adding target FileTarget(Name=DebugFile)
+2021-02-08 14:56:25.8040 Info Adding target FileTarget(Name=WarningFile)
+2021-02-08 14:56:25.8040 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-08 14:56:25.8277 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-08 14:56:25.8440 Info Configuration initialized.
+2021-02-08 14:56:25.8440 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-08 14:59:27.0076 Info Message Template Auto Format enabled
+2021-02-08 14:59:27.0525 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-08 14:59:27.1298 Info Adding target FileTarget(Name=AllFile)
+2021-02-08 14:59:27.1327 Info Adding target FileTarget(Name=InfoFile)
+2021-02-08 14:59:27.1327 Info Adding target FileTarget(Name=DebugFile)
+2021-02-08 14:59:27.1327 Info Adding target FileTarget(Name=WarningFile)
+2021-02-08 14:59:27.1327 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-08 14:59:27.1657 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-08 14:59:27.1846 Info Configuration initialized.
+2021-02-08 14:59:27.1846 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-08 15:03:59.1030 Info Message Template Auto Format enabled
+2021-02-08 15:03:59.1423 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-08 15:03:59.1971 Info Adding target FileTarget(Name=AllFile)
+2021-02-08 15:03:59.1971 Info Adding target FileTarget(Name=InfoFile)
+2021-02-08 15:03:59.1971 Info Adding target FileTarget(Name=DebugFile)
+2021-02-08 15:03:59.1971 Info Adding target FileTarget(Name=WarningFile)
+2021-02-08 15:03:59.1971 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-08 15:03:59.2215 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-08 15:03:59.2393 Info Configuration initialized.
+2021-02-08 15:03:59.2393 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-08 15:06:19.4391 Info Message Template Auto Format enabled
+2021-02-08 15:06:19.4928 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-08 15:06:19.5866 Info Adding target FileTarget(Name=AllFile)
+2021-02-08 15:06:19.5866 Info Adding target FileTarget(Name=InfoFile)
+2021-02-08 15:06:19.5866 Info Adding target FileTarget(Name=DebugFile)
+2021-02-08 15:06:19.5866 Info Adding target FileTarget(Name=WarningFile)
+2021-02-08 15:06:19.5866 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-08 15:06:19.6183 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-08 15:06:19.6400 Info Configuration initialized.
+2021-02-08 15:06:19.6400 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-08 15:12:39.0366 Info Message Template Auto Format enabled
+2021-02-08 15:12:39.0747 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-08 15:12:39.1543 Info Adding target FileTarget(Name=AllFile)
+2021-02-08 15:12:39.1543 Info Adding target FileTarget(Name=InfoFile)
+2021-02-08 15:12:39.1543 Info Adding target FileTarget(Name=DebugFile)
+2021-02-08 15:12:39.1543 Info Adding target FileTarget(Name=WarningFile)
+2021-02-08 15:12:39.1640 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-08 15:12:39.2048 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-08 15:12:39.2358 Info Configuration initialized.
+2021-02-08 15:12:39.2358 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-08 15:15:42.9778 Info Message Template Auto Format enabled
+2021-02-08 15:15:43.0143 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-08 15:15:43.0869 Info Adding target FileTarget(Name=AllFile)
+2021-02-08 15:15:43.0869 Info Adding target FileTarget(Name=InfoFile)
+2021-02-08 15:15:43.0869 Info Adding target FileTarget(Name=DebugFile)
+2021-02-08 15:15:43.0869 Info Adding target FileTarget(Name=WarningFile)
+2021-02-08 15:15:43.0869 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-08 15:15:43.1210 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-08 15:15:43.1400 Info Configuration initialized.
+2021-02-08 15:15:43.1400 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-09 22:12:01.3075 Info Message Template Auto Format enabled
+2021-02-09 22:12:01.3453 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-09 22:12:01.4339 Info Adding target FileTarget(Name=AllFile)
+2021-02-09 22:12:01.4339 Info Adding target FileTarget(Name=InfoFile)
+2021-02-09 22:12:01.4339 Info Adding target FileTarget(Name=DebugFile)
+2021-02-09 22:12:01.4339 Info Adding target FileTarget(Name=WarningFile)
+2021-02-09 22:12:01.4339 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-09 22:12:01.4726 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-09 22:12:01.4980 Info Configuration initialized.
+2021-02-09 22:12:01.4980 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-09 22:19:12.9643 Info Message Template Auto Format enabled
+2021-02-09 22:19:12.9951 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-09 22:19:13.0630 Info Adding target FileTarget(Name=AllFile)
+2021-02-09 22:19:13.0630 Info Adding target FileTarget(Name=InfoFile)
+2021-02-09 22:19:13.0630 Info Adding target FileTarget(Name=DebugFile)
+2021-02-09 22:19:13.0630 Info Adding target FileTarget(Name=WarningFile)
+2021-02-09 22:19:13.0693 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-09 22:19:13.0954 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-09 22:19:13.1197 Info Configuration initialized.
+2021-02-09 22:19:13.1197 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-09 22:21:21.0654 Info Message Template Auto Format enabled
+2021-02-09 22:21:21.0990 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-09 22:21:21.1587 Info Adding target FileTarget(Name=AllFile)
+2021-02-09 22:21:21.1587 Info Adding target FileTarget(Name=InfoFile)
+2021-02-09 22:21:21.1587 Info Adding target FileTarget(Name=DebugFile)
+2021-02-09 22:21:21.1587 Info Adding target FileTarget(Name=WarningFile)
+2021-02-09 22:21:21.1634 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-09 22:21:21.1926 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-09 22:21:21.2180 Info Configuration initialized.
+2021-02-09 22:21:21.2180 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-09 22:23:41.7977 Info Message Template Auto Format enabled
+2021-02-09 22:23:41.8288 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-09 22:23:41.8981 Info Adding target FileTarget(Name=AllFile)
+2021-02-09 22:23:41.8981 Info Adding target FileTarget(Name=InfoFile)
+2021-02-09 22:23:41.8981 Info Adding target FileTarget(Name=DebugFile)
+2021-02-09 22:23:41.8981 Info Adding target FileTarget(Name=WarningFile)
+2021-02-09 22:23:41.8981 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-09 22:23:41.9333 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-09 22:23:41.9546 Info Configuration initialized.
+2021-02-09 22:23:41.9546 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-09 22:25:00.1387 Info Message Template Auto Format enabled
+2021-02-09 22:25:00.1784 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-09 22:25:00.2542 Info Adding target FileTarget(Name=AllFile)
+2021-02-09 22:25:00.2589 Info Adding target FileTarget(Name=InfoFile)
+2021-02-09 22:25:00.2589 Info Adding target FileTarget(Name=DebugFile)
+2021-02-09 22:25:00.2589 Info Adding target FileTarget(Name=WarningFile)
+2021-02-09 22:25:00.2589 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-09 22:25:00.3177 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-09 22:25:00.3480 Info Configuration initialized.
+2021-02-09 22:25:00.3480 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-09 22:41:55.0389 Info Message Template Auto Format enabled
+2021-02-09 22:41:55.0742 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-09 22:41:55.1468 Info Adding target FileTarget(Name=AllFile)
+2021-02-09 22:41:55.1518 Info Adding target FileTarget(Name=InfoFile)
+2021-02-09 22:41:55.1518 Info Adding target FileTarget(Name=DebugFile)
+2021-02-09 22:41:55.1518 Info Adding target FileTarget(Name=WarningFile)
+2021-02-09 22:41:55.1518 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-09 22:41:55.1995 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-09 22:41:55.2305 Info Configuration initialized.
+2021-02-09 22:41:55.2305 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-09 22:58:05.8331 Info Message Template Auto Format enabled
+2021-02-09 22:58:05.8694 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-09 22:58:05.9401 Info Adding target FileTarget(Name=AllFile)
+2021-02-09 22:58:05.9401 Info Adding target FileTarget(Name=InfoFile)
+2021-02-09 22:58:05.9401 Info Adding target FileTarget(Name=DebugFile)
+2021-02-09 22:58:05.9401 Info Adding target FileTarget(Name=WarningFile)
+2021-02-09 22:58:05.9452 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-09 22:58:05.9730 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-09 22:58:05.9902 Info Configuration initialized.
+2021-02-09 22:58:05.9918 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 10:23:57.0262 Info Message Template Auto Format enabled
+2021-02-10 10:23:57.0642 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 10:23:57.1278 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 10:23:57.1278 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 10:23:57.1278 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 10:23:57.1318 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 10:23:57.1318 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 10:23:57.1612 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 10:23:57.1808 Info Configuration initialized.
+2021-02-10 10:23:57.1808 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 10:35:55.1289 Info Message Template Auto Format enabled
+2021-02-10 10:35:55.1564 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 10:35:55.1994 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 10:35:55.1994 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 10:35:55.1994 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 10:35:55.1994 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 10:35:55.1994 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 10:35:55.2267 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 10:35:55.2267 Info Configuration initialized.
+2021-02-10 10:35:55.2422 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 10:40:37.9057 Info Message Template Auto Format enabled
+2021-02-10 10:40:37.9330 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 10:40:37.9792 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 10:40:37.9792 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 10:40:37.9792 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 10:40:37.9792 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 10:40:37.9792 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 10:40:38.0052 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 10:40:38.0218 Info Configuration initialized.
+2021-02-10 10:40:38.0228 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 10:50:07.6465 Info Message Template Auto Format enabled
+2021-02-10 10:50:07.6795 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 10:50:07.7572 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 10:50:07.7572 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 10:50:07.7572 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 10:50:07.7572 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 10:50:07.7572 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 10:50:07.7941 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 10:50:07.8121 Info Configuration initialized.
+2021-02-10 10:50:07.8121 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 10:57:04.8589 Info Message Template Auto Format enabled
+2021-02-10 10:57:04.8902 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 10:57:04.9510 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 10:57:04.9510 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 10:57:04.9510 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 10:57:04.9510 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 10:57:04.9510 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 10:57:04.9891 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 10:57:05.0110 Info Configuration initialized.
+2021-02-10 10:57:05.0110 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 11:02:41.9174 Info Message Template Auto Format enabled
+2021-02-10 11:02:41.9503 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 11:02:42.0156 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 11:02:42.0156 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 11:02:42.0156 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 11:02:42.0156 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 11:02:42.0156 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 11:02:42.0542 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 11:02:42.0757 Info Configuration initialized.
+2021-02-10 11:02:42.0757 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 11:04:31.1454 Info Message Template Auto Format enabled
+2021-02-10 11:04:31.2005 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 11:04:31.2769 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 11:04:31.2769 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 11:04:31.2769 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 11:04:31.2769 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 11:04:31.2769 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 11:04:31.3177 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 11:04:31.3465 Info Configuration initialized.
+2021-02-10 11:04:31.3465 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 11:05:58.5548 Info Message Template Auto Format enabled
+2021-02-10 11:05:58.5911 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 11:05:58.6611 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 11:05:58.6633 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 11:05:58.6633 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 11:05:58.6633 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 11:05:58.6633 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 11:05:58.6899 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 11:05:58.7078 Info Configuration initialized.
+2021-02-10 11:05:58.7078 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 11:08:08.1934 Info Message Template Auto Format enabled
+2021-02-10 11:08:08.2409 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 11:08:08.3113 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 11:08:08.3113 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 11:08:08.3113 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 11:08:08.3113 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 11:08:08.3113 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 11:08:08.3459 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 11:08:08.3673 Info Configuration initialized.
+2021-02-10 11:08:08.3673 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 11:10:19.6425 Info Message Template Auto Format enabled
+2021-02-10 11:10:19.6775 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 11:10:19.7381 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 11:10:19.7381 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 11:10:19.7381 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 11:10:19.7420 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 11:10:19.7420 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 11:10:19.7795 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 11:10:19.8176 Info Configuration initialized.
+2021-02-10 11:10:19.8191 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 11:12:49.1825 Info Message Template Auto Format enabled
+2021-02-10 11:12:49.2171 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 11:12:49.2912 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 11:12:49.2912 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 11:12:49.2912 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 11:12:49.2912 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 11:12:49.2912 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 11:12:49.3228 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 11:12:49.3409 Info Configuration initialized.
+2021-02-10 11:12:49.3409 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 11:13:42.5291 Info Message Template Auto Format enabled
+2021-02-10 11:13:42.5652 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 11:13:42.6379 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 11:13:42.6379 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 11:13:42.6379 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 11:13:42.6379 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 11:13:42.6379 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 11:13:42.6739 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 11:13:42.6990 Info Configuration initialized.
+2021-02-10 11:13:42.6990 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 11:15:03.1645 Info Message Template Auto Format enabled
+2021-02-10 11:15:03.1966 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 11:15:03.2641 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 11:15:03.2641 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 11:15:03.2641 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 11:15:03.2641 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 11:15:03.2641 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 11:15:03.2987 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 11:15:03.3327 Info Configuration initialized.
+2021-02-10 11:15:03.3327 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 11:16:55.8799 Info Message Template Auto Format enabled
+2021-02-10 11:16:55.9112 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 11:16:55.9718 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 11:16:55.9718 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 11:16:55.9718 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 11:16:55.9718 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 11:16:55.9762 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 11:16:56.0041 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 11:16:56.0277 Info Configuration initialized.
+2021-02-10 11:16:56.0277 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 11:41:25.9465 Info Message Template Auto Format enabled
+2021-02-10 11:41:25.9810 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 11:41:26.0371 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 11:41:26.0405 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 11:41:26.0405 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 11:41:26.0405 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 11:41:26.0405 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 11:41:26.0765 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 11:41:26.1299 Info Configuration initialized.
+2021-02-10 11:41:26.1299 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 11:54:52.6894 Info Message Template Auto Format enabled
+2021-02-10 11:54:52.7500 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 11:54:52.8243 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 11:54:52.8243 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 11:54:52.8243 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 11:54:52.8243 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 11:54:52.8243 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 11:54:52.8573 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 11:54:52.8886 Info Configuration initialized.
+2021-02-10 11:54:52.8886 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 11:55:25.8312 Info Message Template Auto Format enabled
+2021-02-10 11:55:25.8641 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 11:55:25.9279 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 11:55:25.9301 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 11:55:25.9301 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 11:55:25.9301 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 11:55:25.9301 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 11:55:25.9685 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 11:55:25.9878 Info Configuration initialized.
+2021-02-10 11:55:25.9878 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 12:00:38.0014 Info Message Template Auto Format enabled
+2021-02-10 12:00:38.0394 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 12:00:38.1066 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 12:00:38.1066 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 12:00:38.1066 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 12:00:38.1066 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 12:00:38.1066 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 12:00:38.1418 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 12:00:38.1669 Info Configuration initialized.
+2021-02-10 12:00:38.1669 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 12:02:27.9494 Info Message Template Auto Format enabled
+2021-02-10 12:02:27.9841 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 12:02:28.0500 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 12:02:28.0500 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 12:02:28.0542 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 12:02:28.0542 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 12:02:28.0542 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 12:02:28.0906 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 12:02:28.1173 Info Configuration initialized.
+2021-02-10 12:02:28.1173 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 12:14:48.8115 Info Message Template Auto Format enabled
+2021-02-10 12:14:48.8402 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 12:14:48.8857 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 12:14:48.8857 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 12:14:48.8857 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 12:14:48.8857 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 12:14:48.8857 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 12:14:48.9106 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 12:14:48.9260 Info Configuration initialized.
+2021-02-10 12:14:48.9260 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 12:25:28.8239 Info Message Template Auto Format enabled
+2021-02-10 12:25:28.8725 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 12:25:28.9469 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 12:25:28.9469 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 12:25:28.9469 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 12:25:28.9469 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 12:25:28.9469 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 12:25:28.9921 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 12:25:29.0220 Info Configuration initialized.
+2021-02-10 12:25:29.0234 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-10 12:30:34.7359 Info Message Template Auto Format enabled
+2021-02-10 12:30:34.7635 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-10 12:30:34.8171 Info Adding target FileTarget(Name=AllFile)
+2021-02-10 12:30:34.8171 Info Adding target FileTarget(Name=InfoFile)
+2021-02-10 12:30:34.8201 Info Adding target FileTarget(Name=DebugFile)
+2021-02-10 12:30:34.8201 Info Adding target FileTarget(Name=WarningFile)
+2021-02-10 12:30:34.8201 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-10 12:30:34.8496 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-10 12:30:34.8692 Info Configuration initialized.
+2021-02-10 12:30:34.8692 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 17:48:50.7392 Info Message Template Auto Format enabled
+2021-02-15 17:48:50.7703 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 17:48:50.8227 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 17:48:50.8227 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 17:48:50.8227 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 17:48:50.8227 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 17:48:50.8227 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 17:48:50.8464 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 17:48:50.8607 Info Configuration initialized.
+2021-02-15 17:48:50.8607 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 18:02:47.6285 Info Message Template Auto Format enabled
+2021-02-15 18:02:47.6580 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 18:02:47.7145 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 18:02:47.7145 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 18:02:47.7145 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 18:02:47.7145 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 18:02:47.7145 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 18:02:47.7407 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 18:02:47.7593 Info Configuration initialized.
+2021-02-15 18:02:47.7593 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 18:04:59.6875 Info Message Template Auto Format enabled
+2021-02-15 18:04:59.7416 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 18:04:59.8145 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 18:04:59.8168 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 18:04:59.8168 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 18:04:59.8168 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 18:04:59.8168 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 18:04:59.8458 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 18:04:59.8685 Info Configuration initialized.
+2021-02-15 18:04:59.8685 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 19:00:57.5852 Info Message Template Auto Format enabled
+2021-02-15 19:00:57.6102 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 19:00:57.6555 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 19:00:57.6570 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 19:00:57.6570 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 19:00:57.6570 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 19:00:57.6570 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 19:00:57.6806 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 19:00:57.6971 Info Configuration initialized.
+2021-02-15 19:00:57.6971 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 19:02:06.7565 Info Message Template Auto Format enabled
+2021-02-15 19:02:06.7838 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 19:02:06.8316 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 19:02:06.8316 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 19:02:06.8316 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 19:02:06.8316 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 19:02:06.8316 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 19:02:06.8636 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 19:02:06.8870 Info Configuration initialized.
+2021-02-15 19:02:06.8870 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 19:02:33.8887 Info Message Template Auto Format enabled
+2021-02-15 19:02:33.9269 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 19:02:33.9737 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 19:02:33.9737 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 19:02:33.9737 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 19:02:33.9737 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 19:02:33.9737 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 19:02:33.9997 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 19:02:33.9997 Info Configuration initialized.
+2021-02-15 19:02:33.9997 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 19:03:05.9759 Info Message Template Auto Format enabled
+2021-02-15 19:03:06.0175 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 19:03:06.0783 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 19:03:06.0783 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 19:03:06.0783 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 19:03:06.0783 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 19:03:06.0783 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 19:03:06.1026 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 19:03:06.1209 Info Configuration initialized.
+2021-02-15 19:03:06.1209 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 19:03:52.8414 Info Message Template Auto Format enabled
+2021-02-15 19:03:52.8681 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 19:03:52.9164 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 19:03:52.9164 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 19:03:52.9164 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 19:03:52.9164 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 19:03:52.9164 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 19:03:52.9454 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 19:03:52.9618 Info Configuration initialized.
+2021-02-15 19:03:52.9618 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 19:04:30.1294 Info Message Template Auto Format enabled
+2021-02-15 19:04:30.1621 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 19:04:30.2148 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 19:04:30.2148 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 19:04:30.2196 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 19:04:30.2196 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 19:04:30.2196 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 19:04:30.2502 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 19:04:30.2720 Info Configuration initialized.
+2021-02-15 19:04:30.2720 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 19:05:00.4257 Info Message Template Auto Format enabled
+2021-02-15 19:05:00.4643 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 19:05:00.5144 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 19:05:00.5163 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 19:05:00.5163 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 19:05:00.5163 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 19:05:00.5163 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 19:05:00.5419 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 19:05:00.5572 Info Configuration initialized.
+2021-02-15 19:05:00.5572 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 19:06:26.7537 Info Message Template Auto Format enabled
+2021-02-15 19:06:26.7799 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 19:06:26.8295 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 19:06:26.8295 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 19:06:26.8295 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 19:06:26.8295 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 19:06:26.8295 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 19:06:26.8625 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 19:06:26.8791 Info Configuration initialized.
+2021-02-15 19:06:26.8791 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 19:08:13.1658 Info Message Template Auto Format enabled
+2021-02-15 19:08:13.2061 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 19:08:13.2569 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 19:08:13.2569 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 19:08:13.2569 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 19:08:13.2569 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 19:08:13.2569 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 19:08:13.2871 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 19:08:13.3038 Info Configuration initialized.
+2021-02-15 19:08:13.3038 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 19:09:46.5690 Info Message Template Auto Format enabled
+2021-02-15 19:09:46.6101 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 19:09:46.6739 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 19:09:46.6739 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 19:09:46.6739 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 19:09:46.6739 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 19:09:46.6739 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 19:09:46.7117 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 19:09:46.7365 Info Configuration initialized.
+2021-02-15 19:09:46.7365 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 19:12:32.3220 Info Message Template Auto Format enabled
+2021-02-15 19:12:32.3663 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 19:12:32.4399 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 19:12:32.4399 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 19:12:32.4399 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 19:12:32.4399 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 19:12:32.4399 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 19:12:32.4734 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 19:12:32.4957 Info Configuration initialized.
+2021-02-15 19:12:32.4957 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 19:13:38.5166 Info Message Template Auto Format enabled
+2021-02-15 19:13:38.5697 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 19:13:38.6366 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 19:13:38.6366 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 19:13:38.6366 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 19:13:38.6366 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 19:13:38.6413 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 19:13:38.6659 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 19:13:38.6884 Info Configuration initialized.
+2021-02-15 19:13:38.6884 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 19:14:06.8490 Info Message Template Auto Format enabled
+2021-02-15 19:14:06.8993 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 19:14:06.9606 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 19:14:06.9606 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 19:14:06.9606 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 19:14:06.9606 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 19:14:06.9606 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 19:14:06.9994 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 19:14:07.0244 Info Configuration initialized.
+2021-02-15 19:14:07.0244 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-15 19:15:02.5533 Info Message Template Auto Format enabled
+2021-02-15 19:15:02.5954 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-15 19:15:02.6712 Info Adding target FileTarget(Name=AllFile)
+2021-02-15 19:15:02.6712 Info Adding target FileTarget(Name=InfoFile)
+2021-02-15 19:15:02.6712 Info Adding target FileTarget(Name=DebugFile)
+2021-02-15 19:15:02.6712 Info Adding target FileTarget(Name=WarningFile)
+2021-02-15 19:15:02.6712 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-15 19:15:02.7119 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-15 19:15:02.7425 Info Configuration initialized.
+2021-02-15 19:15:02.7425 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 10:25:50.1144 Info Message Template Auto Format enabled
+2021-02-18 10:25:50.1406 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 10:25:50.1939 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 10:25:50.1939 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 10:25:50.1939 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 10:25:50.1939 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 10:25:50.1939 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 10:25:50.2248 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 10:25:50.2404 Info Configuration initialized.
+2021-02-18 10:25:50.2404 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 10:30:55.6052 Info Message Template Auto Format enabled
+2021-02-18 10:30:55.6405 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 10:30:55.7151 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 10:30:55.7151 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 10:30:55.7151 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 10:30:55.7151 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 10:30:55.7151 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 10:30:55.7487 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 10:30:55.7692 Info Configuration initialized.
+2021-02-18 10:30:55.7692 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 10:48:25.0670 Info Message Template Auto Format enabled
+2021-02-18 10:48:25.1029 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 10:48:25.1644 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 10:48:25.1644 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 10:48:25.1644 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 10:48:25.1644 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 10:48:25.1644 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 10:48:25.1981 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 10:48:25.2140 Info Configuration initialized.
+2021-02-18 10:48:25.2140 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 10:51:01.7055 Info Message Template Auto Format enabled
+2021-02-18 10:51:01.7425 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 10:51:01.8076 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 10:51:01.8076 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 10:51:01.8076 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 10:51:01.8076 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 10:51:01.8076 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 10:51:01.8445 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 10:51:01.8767 Info Configuration initialized.
+2021-02-18 10:51:01.8767 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 10:53:43.5288 Info Message Template Auto Format enabled
+2021-02-18 10:53:43.5759 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 10:53:43.6447 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 10:53:43.6447 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 10:53:43.6447 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 10:53:43.6447 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 10:53:43.6447 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 10:53:43.6831 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 10:53:43.7044 Info Configuration initialized.
+2021-02-18 10:53:43.7044 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 10:54:24.6291 Info Message Template Auto Format enabled
+2021-02-18 10:54:24.6719 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 10:54:24.7484 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 10:54:24.7484 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 10:54:24.7520 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 10:54:24.7520 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 10:54:24.7520 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 10:54:24.7798 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 10:54:24.8005 Info Configuration initialized.
+2021-02-18 10:54:24.8005 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 10:55:02.6420 Info Message Template Auto Format enabled
+2021-02-18 10:55:02.6821 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 10:55:02.7555 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 10:55:02.7555 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 10:55:02.7555 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 10:55:02.7555 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 10:55:02.7555 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 10:55:02.7993 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 10:55:02.8253 Info Configuration initialized.
+2021-02-18 10:55:02.8253 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 10:55:23.3923 Info Message Template Auto Format enabled
+2021-02-18 10:55:23.4427 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 10:55:23.5176 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 10:55:23.5176 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 10:55:23.5176 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 10:55:23.5176 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 10:55:23.5176 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 10:55:23.5606 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 10:55:23.5891 Info Configuration initialized.
+2021-02-18 10:55:23.5891 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 10:55:58.8251 Info Message Template Auto Format enabled
+2021-02-18 10:55:58.8742 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 10:55:58.9370 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 10:55:58.9400 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 10:55:58.9400 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 10:55:58.9400 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 10:55:58.9400 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 10:55:58.9670 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 10:55:58.9826 Info Configuration initialized.
+2021-02-18 10:55:58.9826 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 10:58:48.7018 Info Message Template Auto Format enabled
+2021-02-18 10:58:48.7498 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 10:58:48.8246 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 10:58:48.8246 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 10:58:48.8246 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 10:58:48.8298 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 10:58:48.8298 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 10:58:48.8608 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 10:58:48.8841 Info Configuration initialized.
+2021-02-18 10:58:48.8841 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 11:00:30.6189 Info Message Template Auto Format enabled
+2021-02-18 11:00:30.6649 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 11:00:30.7424 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 11:00:30.7424 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 11:00:30.7424 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 11:00:30.7424 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 11:00:30.7424 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 11:00:30.7767 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 11:00:30.7953 Info Configuration initialized.
+2021-02-18 11:00:30.7953 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 11:05:28.2093 Info Message Template Auto Format enabled
+2021-02-18 11:05:28.2488 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 11:05:28.3054 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 11:05:28.3054 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 11:05:28.3054 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 11:05:28.3054 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 11:05:28.3054 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 11:05:28.3419 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 11:05:28.3693 Info Configuration initialized.
+2021-02-18 11:05:28.3693 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 11:06:40.1401 Info Message Template Auto Format enabled
+2021-02-18 11:06:40.1785 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 11:06:40.2400 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 11:06:40.2400 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 11:06:40.2400 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 11:06:40.2400 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 11:06:40.2400 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 11:06:40.2748 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 11:06:40.3014 Info Configuration initialized.
+2021-02-18 11:06:40.3014 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 11:07:24.2048 Info Message Template Auto Format enabled
+2021-02-18 11:07:24.2515 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 11:07:24.3258 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 11:07:24.3258 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 11:07:24.3258 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 11:07:24.3299 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 11:07:24.3299 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 11:07:24.3562 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 11:07:24.3797 Info Configuration initialized.
+2021-02-18 11:07:24.3797 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 11:08:20.5343 Info Message Template Auto Format enabled
+2021-02-18 11:08:20.5789 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 11:08:20.6427 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 11:08:20.6427 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 11:08:20.6427 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 11:08:20.6427 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 11:08:20.6427 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 11:08:20.6781 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 11:08:20.7016 Info Configuration initialized.
+2021-02-18 11:08:20.7016 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 11:10:11.7420 Info Message Template Auto Format enabled
+2021-02-18 11:10:11.7778 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 11:10:11.8483 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 11:10:11.8483 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 11:10:11.8483 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 11:10:11.8483 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 11:10:11.8483 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 11:10:11.8828 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 11:10:11.9041 Info Configuration initialized.
+2021-02-18 11:10:11.9041 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 16:07:57.0596 Info Message Template Auto Format enabled
+2021-02-18 16:07:57.1240 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 16:07:57.2287 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 16:07:57.2287 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 16:07:57.2287 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 16:07:57.2365 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 16:07:57.2365 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 16:07:57.2886 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 16:07:57.3233 Info Configuration initialized.
+2021-02-18 16:07:57.3233 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 16:14:29.1594 Info Message Template Auto Format enabled
+2021-02-18 16:14:29.2506 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 16:14:29.4102 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 16:14:29.4102 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 16:14:29.4102 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 16:14:29.4102 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 16:14:29.4102 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 16:14:29.4809 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 16:14:29.5283 Info Configuration initialized.
+2021-02-18 16:14:29.5283 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 16:31:51.3246 Info Message Template Auto Format enabled
+2021-02-18 16:31:51.4117 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 16:31:51.6108 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 16:31:51.6168 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 16:31:51.6168 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 16:31:51.6168 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 16:31:51.6168 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 16:31:51.7026 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 16:31:51.7572 Info Configuration initialized.
+2021-02-18 16:31:51.7572 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 17:56:34.9610 Info Message Template Auto Format enabled
+2021-02-18 17:56:35.0298 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 17:56:35.2115 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 17:56:35.2115 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 17:56:35.2202 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 17:56:35.2202 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 17:56:35.2202 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 17:56:35.3014 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 17:56:35.3617 Info Configuration initialized.
+2021-02-18 17:56:35.3617 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 18:00:38.2874 Info Message Template Auto Format enabled
+2021-02-18 18:00:38.3561 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 18:00:38.4761 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 18:00:38.4761 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 18:00:38.4761 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 18:00:38.4761 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 18:00:38.4880 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 18:00:38.5371 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 18:00:38.5763 Info Configuration initialized.
+2021-02-18 18:00:38.5763 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 18:02:02.7592 Info Message Template Auto Format enabled
+2021-02-18 18:02:02.8550 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 18:02:03.0164 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 18:02:03.0228 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 18:02:03.0228 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 18:02:03.0228 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 18:02:03.0228 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 18:02:03.1009 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 18:02:03.1533 Info Configuration initialized.
+2021-02-18 18:02:03.1533 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 18:14:45.7532 Info Message Template Auto Format enabled
+2021-02-18 18:14:45.8593 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 18:14:46.0745 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 18:14:46.0828 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 18:14:46.0828 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 18:14:46.0828 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 18:14:46.0828 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 18:14:46.1783 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 18:14:46.2329 Info Configuration initialized.
+2021-02-18 18:14:46.2370 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 18:58:00.5314 Info Message Template Auto Format enabled
+2021-02-18 18:58:00.6075 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 18:58:00.7686 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 18:58:00.7686 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 18:58:00.7686 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 18:58:00.7686 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 18:58:00.7686 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 18:58:00.8514 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 18:58:00.8993 Info Configuration initialized.
+2021-02-18 18:58:00.8993 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False
+2021-02-18 19:06:59.5024 Info Message Template Auto Format enabled
+2021-02-18 19:06:59.5539 Info Loading assembly: NLog.Web.AspNetCore
+2021-02-18 19:06:59.6535 Info Adding target FileTarget(Name=AllFile)
+2021-02-18 19:06:59.6535 Info Adding target FileTarget(Name=InfoFile)
+2021-02-18 19:06:59.6584 Info Adding target FileTarget(Name=DebugFile)
+2021-02-18 19:06:59.6584 Info Adding target FileTarget(Name=WarningFile)
+2021-02-18 19:06:59.6584 Info Adding target FileTarget(Name=ErrorFile)
+2021-02-18 19:06:59.6997 Info Validating config: Targets=5, ConfigItems=117, FilePath=D:\WenZhuTech\WZProjects\Pandora1\pandora-be-backstage-dotnet\GatewayApi\bin\Debug\net5.0\NLog.config
+2021-02-18 19:06:59.7328 Info Configuration initialized.
+2021-02-18 19:06:59.7328 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.7.12472. Product version: 4.7.7+3755739d37c1ec92bac4de2cefad68a0f5ea7ec1. GlobalAssemblyCache: False

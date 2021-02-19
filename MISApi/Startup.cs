@@ -8,14 +8,12 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using System.Collections.Generic;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using Swashbuckle.Swagger;
-using System.Web.Http.Description;
 using IDocumentFilter = Swashbuckle.AspNetCore.SwaggerGen.IDocumentFilter;
 
 namespace MISApi

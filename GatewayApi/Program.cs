@@ -44,11 +44,11 @@ namespace GatewayApi
                 })
                 .UseUrls("http://localhost:4000")
                 .UseStartup<Startup>()
-                .ConfigureLogging(logging =>
-                {
-                    logging.ClearProviders();
-                    logging.SetMinimumLevel(LogLevel.Trace);
-                })
+                //.ConfigureLogging(logging =>
+                //{
+                //    logging.ClearProviders();
+                //    logging.SetMinimumLevel(LogLevel.Trace);
+                //})
                 .UseNLog();
             });
     }

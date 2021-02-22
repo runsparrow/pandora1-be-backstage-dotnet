@@ -42,7 +42,7 @@ namespace GatewayApi
                         .AddJsonFile("ocelot.json")
                         .AddEnvironmentVariables();
                 })
-                .UseUrls("http://localhost:4000")
+                //.UseUrls("http://localhost:4000")
                 .UseStartup<Startup>()
                 //.ConfigureLogging(logging =>
                 //{

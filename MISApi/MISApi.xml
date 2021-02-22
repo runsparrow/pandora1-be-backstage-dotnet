@@ -10398,7 +10398,7 @@
         </member>
         <member name="T:MISApi.MISDocumentFilter">
             <summary>
-            
+            用于swagger生成文档的标签描述
             </summary>
         </member>
         <member name="M:MISApi.MISDocumentFilter.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">

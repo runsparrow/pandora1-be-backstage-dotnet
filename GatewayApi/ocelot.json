@@ -5,8 +5,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 4001
+          "Host": "106.15.88.18",
+          "Port": 8001
         }
       ],
       "UpstreamPathTemplate": "/MIS/{everything}",

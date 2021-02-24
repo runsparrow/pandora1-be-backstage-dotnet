@@ -1519,6 +1519,341 @@
             
             </summary>
         </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController">
+            <summary>
+            资讯
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Create_Single(MISApi.Entities.CMS.Article)">
+            <summary>
+            创建资讯
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Create_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.Article})">
+            <summary>
+            创建资讯
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Update_Single(MISApi.Entities.CMS.Article)">
+            <summary>
+            编辑一条资讯
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Update_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.Article})">
+            <summary>
+            编辑多条资讯
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Delete_Single(MISApi.Entities.CMS.Article)">
+            <summary>
+             删除一条资讯
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Delete_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.Article})">
+            <summary>
+            删除多条资讯
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Columns_Single">
+            <summary>
+            查询资讯的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询资讯
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询资讯
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询资讯
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询资讯
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询资讯
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询资讯
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Tree_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWordWithConfig{MISApi.Entities.CMS.Article})">
+            <summary>
+            模糊查询获得树型结构的资讯
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Tree_ById(MISApi.Controllers.HttpEntities.DTO_IdWithConfig{MISApi.Entities.CMS.Article})">
+            <summary>
+            根据Id查询获得树型结构的资讯
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Tree(MISApi.Controllers.CMS.ArticleController.TreeMode.Request)">
+            <summary>
+            树形结构的复杂查询
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.CreateMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.CreateMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.CreateMode.Request.ToResponse(MISApi.Entities.CMS.Article)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.CreateMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Article})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.CreateMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.UpdateMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.UpdateMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.UpdateMode.Request.ToResponse(MISApi.Entities.CMS.Article)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.UpdateMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Article})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.UpdateMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.DeleteMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.DeleteMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.DeleteMode.Request.ToResponse(MISApi.Entities.CMS.Article)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.DeleteMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Article})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.DeleteMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.ColumnsMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.ColumnsMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.ColumnsMode.Request.ToResponse(MISApi.Entities.CMS.Article)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.ColumnsMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.RowMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.RowMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.RowMode.Request.ToResponse(MISApi.Entities.CMS.Article)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.RowMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.RowsMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.RowsMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.RowsMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Article})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.RowsMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.SingleMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.SingleMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.SingleMode.Request.ToResponse(MISApi.Entities.CMS.Article)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.SingleMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.QueryMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.QueryMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.QueryMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Article})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.QueryMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.TreeMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.TreeMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.TreeMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Article})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.ArticleController.TreeMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:MISApi.Controllers.CMS.AuthController">
             <summary>
             认证
@@ -2520,6 +2855,341 @@
             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.GoodsController.TreeMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController">
+            <summary>
+            导航
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Create_Single(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            创建导航
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Create_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.Navigation})">
+            <summary>
+            创建导航
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Update_Single(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            编辑一条导航
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Update_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.Navigation})">
+            <summary>
+            编辑多条导航
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Delete_Single(MISApi.Entities.CMS.Navigation)">
+            <summary>
+             删除一条导航
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Delete_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.Navigation})">
+            <summary>
+            删除多条导航
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Columns_Single">
+            <summary>
+            查询导航的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询导航
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询导航
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询导航
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询导航
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询导航
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询导航
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Tree_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWordWithConfig{MISApi.Entities.CMS.Navigation})">
+            <summary>
+            模糊查询获得树型结构的导航
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Tree_ById(MISApi.Controllers.HttpEntities.DTO_IdWithConfig{MISApi.Entities.CMS.Navigation})">
+            <summary>
+            根据Id查询获得树型结构的导航
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Tree(MISApi.Controllers.CMS.NavigationController.TreeMode.Request)">
+            <summary>
+            树形结构的复杂查询
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.CreateMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.CreateMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.CreateMode.Request.ToResponse(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.CreateMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Navigation})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.CreateMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.UpdateMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.UpdateMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.UpdateMode.Request.ToResponse(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.UpdateMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Navigation})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.UpdateMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.DeleteMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.DeleteMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.DeleteMode.Request.ToResponse(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.DeleteMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Navigation})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.DeleteMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.ColumnsMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.ColumnsMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.ColumnsMode.Request.ToResponse(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.ColumnsMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.RowMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.RowMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.RowMode.Request.ToResponse(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.RowMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.RowsMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.RowsMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.RowsMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Navigation})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.RowsMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.SingleMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.SingleMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.SingleMode.Request.ToResponse(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.SingleMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.QueryMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.QueryMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.QueryMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Navigation})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.QueryMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.TreeMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.TreeMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.TreeMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Navigation})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.NavigationController.TreeMode.Response">
             <summary>
             
             </summary>
@@ -4427,6 +5097,16 @@
             流水
             </summary>
         </member>
+        <member name="P:MISApi.Dal.EF.PandoraContext.CMS_Navigation">
+            <summary>
+            导航
+            </summary>
+        </member>
+        <member name="P:MISApi.Dal.EF.PandoraContext.CMS_Article">
+            <summary>
+            资讯
+            </summary>
+        </member>
         <member name="T:MISApi.Entities.ASM.Dictionary">
             <summary>
             数据字典
@@ -4764,6 +5444,156 @@
             状态
             </summary>
         </member>
+        <member name="T:MISApi.Entities.CMS.Article">
+            <summary>
+            资讯
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.Id">
+            <summary>
+            唯一标识
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.Navigationid">
+            <summary>
+            导航Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.NavigationName">
+            <summary>
+            导航名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.Publisher">
+            <summary>
+            发表人
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.PublishDateTime">
+            <summary>
+            发表时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.Source">
+            <summary>
+            文章来源
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.SourceUrl">
+            <summary>
+            文章来源路径
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.Summary">
+            <summary>
+            简介
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.Tags">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.Url">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.UrlType">
+            <summary>
+            路径类型
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.IsDisplay">
+            <summary>
+            是否显示
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.IsTop">
+            <summary>
+            是否置顶
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.IsTarget">
+            <summary>
+            是否弹出
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.Hits">
+            <summary>
+            点击量
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.Likes">
+            <summary>
+            点赞量
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.Collects">
+            <summary>
+            收藏量
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.Forwards">
+            <summary>
+            转发量
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.StatusId">
+            <summary>
+            状态Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.StatusName">
+            <summary>
+            状态名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.StatusValue">
+            <summary>
+            状态数值
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.CreateDateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.CreateUserId">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.EditDateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.EditUserId">
+            <summary>
+            最后修改用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
         <member name="T:MISApi.Entities.CMS.Auth">
             <summary>
             认证
@@ -5035,6 +5865,121 @@
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Goods.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:MISApi.Entities.CMS.Navigation">
+            <summary>
+            导航
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.Id">
+            <summary>
+            唯一标识
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.Pid">
+            <summary>
+            父节点Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.Code">
+            <summary>
+            代码
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.Group">
+            <summary>
+            分组
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.Url">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.UrlType">
+            <summary>
+            路径类型
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.IsDisplay">
+            <summary>
+            是否显示
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.IsLink">
+            <summary>
+            是否作为链接
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.IsTarget">
+            <summary>
+            是否弹出
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.StatusId">
+            <summary>
+            状态Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.StatusName">
+            <summary>
+            状态名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.StatusValue">
+            <summary>
+            状态数值
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.CreateDateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.CreateUserId">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.EditDateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.EditUserId">
+            <summary>
+            最后修改用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.Status">
             <summary>
             状态
             </summary>
@@ -7940,6 +8885,82 @@
             <typeparam name="T"></typeparam>
             <typeparam name="TContext"></typeparam>
         </member>
+        <member name="T:MISApi.Services.CMS.ArticleService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.ArticleService.CreateService">
+            <summary>
+            CreateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.ArticleService.CreateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.ArticleService.CreateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.ArticleService.CreateService.ToOpen(MISApi.Entities.CMS.Article)">
+            <summary>
+            在用
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.ArticleService.UpdateService">
+            <summary>
+            UpdateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.ArticleService.UpdateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.ArticleService.UpdateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.ArticleService.UpdateService.ToOpen(MISApi.Entities.CMS.Article)">
+            <summary>
+            在用
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.ArticleService.UpdateService.ToClose(MISApi.Entities.CMS.Article)">
+            <summary>
+            关闭
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.ArticleService.DeleteService">
+            <summary>
+            DeleteService
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.ArticleService.ColumnsService">
+            <summary>
+            ColumnsMode Service
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.ArticleService.RowService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.ArticleService.RowsService">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:MISApi.Services.CMS.AuthService">
             <summary>
             
@@ -8012,6 +9033,259 @@
             </summary>
         </member>
         <member name="T:MISApi.Services.CMS.AuthService.RowsService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.ArticleService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.ArticleService.CreateService">
+            <summary>
+            CreateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.Base.ArticleService.CreateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.CreateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.CreateService.Execute(MISApi.Entities.CMS.Article)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.CreateService.Execute(System.Collections.Generic.List{MISApi.Entities.CMS.Article})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.ArticleService.UpdateService">
+            <summary>
+            UpdateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.Base.ArticleService.UpdateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.UpdateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.UpdateService.Execute(MISApi.Entities.CMS.Article)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.UpdateService.Execute(System.Collections.Generic.List{MISApi.Entities.CMS.Article})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.ArticleService.DeleteService">
+            <summary>
+            DeleteService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.Base.ArticleService.DeleteService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.DeleteService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.DeleteService.Execute(MISApi.Entities.CMS.Article)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.DeleteService.Execute(System.Collections.Generic.List{MISApi.Entities.CMS.Article})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entitys"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.ArticleService.ColumnsService">
+            <summary>
+            ColumnsMode Service
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.ColumnsService.Single">
+            <summary>
+            返回字段集
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.ArticleService.RowService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.RowService.ById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 id 查询
+            </summary>
+            <param name="id">Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.ArticleService.RowsService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.RowsService.ByKeyWord(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据关键字查询
+            </summary>
+            <param name="keyWord">关键字</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="page"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.RowsService.PageCount(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页计数
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.RowsService.PageSummary(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页汇总
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.SQLQueryable(MISApi.Dal.EF.PandoraContext,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            默认查询
+            </summary>
+            <param name="context"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.KeyWordQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.ArticleService.SQLEntity},System.String)">
+            <summary>
+            关键字
+            </summary>
+            <param name="queryable"></param>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.KeyWordExtQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.ArticleService.SQLEntity},System.String)">
+            <summary>
+            关键字扩展
+            </summary>
+            <param name="queryable"></param>
+            <param name="keyWordExt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.DateQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.ArticleService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Date[])">
+            <summary>
+            日期
+            </summary>
+            <param name="queryable"></param>
+            <param name="dates"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.StatusQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.ArticleService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            状态
+            </summary>
+            <param name="queryable"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.SortQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.ArticleService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Sort[])">
+            <summary>
+            排序
+            </summary>
+            <param name="queryable"></param>
+            <param name="sorts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.PageQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.ArticleService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Page)">
+            <summary>
+            分页
+            </summary>
+            <param name="queryable"></param>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.SQLEntityToSingle(MISApi.Services.CMS.Base.ArticleService.SQLEntity)">
+            <summary>
+            SQLEntity转换
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.SQLEntityToList(System.Collections.Generic.List{MISApi.Services.CMS.Base.ArticleService.SQLEntity})">
+            <summary>
+            SQLEntity转换
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.ArticleService.SQLEntity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.ArticleService.SQLEntity.Article">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.ArticleService.SQLEntity.Status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.ArticleService.SummaryEntity">
             <summary>
             
             </summary>
@@ -8771,6 +10045,259 @@
             </summary>
         </member>
         <member name="T:MISApi.Services.CMS.Base.GoodsService.SummaryEntity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.NavigationService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.NavigationService.CreateService">
+            <summary>
+            CreateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.Base.NavigationService.CreateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.CreateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.CreateService.Execute(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.CreateService.Execute(System.Collections.Generic.List{MISApi.Entities.CMS.Navigation})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.NavigationService.UpdateService">
+            <summary>
+            UpdateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.Base.NavigationService.UpdateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.UpdateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.UpdateService.Execute(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.UpdateService.Execute(System.Collections.Generic.List{MISApi.Entities.CMS.Navigation})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.NavigationService.DeleteService">
+            <summary>
+            DeleteService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.Base.NavigationService.DeleteService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.DeleteService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.DeleteService.Execute(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.DeleteService.Execute(System.Collections.Generic.List{MISApi.Entities.CMS.Navigation})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entitys"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.NavigationService.ColumnsService">
+            <summary>
+            ColumnsMode Service
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.ColumnsService.Single">
+            <summary>
+            返回字段集
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.NavigationService.RowService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.RowService.ById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 id 查询
+            </summary>
+            <param name="id">Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.NavigationService.RowsService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.RowsService.ByKeyWord(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据关键字查询
+            </summary>
+            <param name="keyWord">关键字</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="page"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.RowsService.PageCount(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页计数
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.RowsService.PageSummary(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页汇总
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.SQLQueryable(MISApi.Dal.EF.PandoraContext,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            默认查询
+            </summary>
+            <param name="context"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.KeyWordQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.NavigationService.SQLEntity},System.String)">
+            <summary>
+            关键字
+            </summary>
+            <param name="queryable"></param>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.KeyWordExtQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.NavigationService.SQLEntity},System.String)">
+            <summary>
+            关键字扩展
+            </summary>
+            <param name="queryable"></param>
+            <param name="keyWordExt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.DateQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.NavigationService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Date[])">
+            <summary>
+            日期
+            </summary>
+            <param name="queryable"></param>
+            <param name="dates"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.StatusQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.NavigationService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            状态
+            </summary>
+            <param name="queryable"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.SortQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.NavigationService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Sort[])">
+            <summary>
+            排序
+            </summary>
+            <param name="queryable"></param>
+            <param name="sorts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.PageQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.NavigationService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Page)">
+            <summary>
+            分页
+            </summary>
+            <param name="queryable"></param>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.SQLEntityToSingle(MISApi.Services.CMS.Base.NavigationService.SQLEntity)">
+            <summary>
+            SQLEntity转换
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.SQLEntityToList(System.Collections.Generic.List{MISApi.Services.CMS.Base.NavigationService.SQLEntity})">
+            <summary>
+            SQLEntity转换
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.NavigationService.SQLEntity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.NavigationService.SQLEntity.Navigation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.NavigationService.SQLEntity.Status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.NavigationService.SummaryEntity">
             <summary>
             
             </summary>
@@ -9682,6 +11209,82 @@
             </summary>
         </member>
         <member name="T:MISApi.Services.CMS.GoodsService.RowsService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.NavigationService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.NavigationService.CreateService">
+            <summary>
+            CreateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.NavigationService.CreateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.NavigationService.CreateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.NavigationService.CreateService.ToOpen(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            在用
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.NavigationService.UpdateService">
+            <summary>
+            UpdateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.NavigationService.UpdateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.NavigationService.UpdateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.NavigationService.UpdateService.ToOpen(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            在用
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.NavigationService.UpdateService.ToClose(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            关闭
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.NavigationService.DeleteService">
+            <summary>
+            DeleteService
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.NavigationService.ColumnsService">
+            <summary>
+            ColumnsMode Service
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.NavigationService.RowService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.NavigationService.RowsService">
             <summary>
             
             </summary>

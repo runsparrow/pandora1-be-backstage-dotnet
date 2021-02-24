@@ -79,6 +79,14 @@ namespace MISApi.Dal.EF
         /// 流水
         /// </summary>
         public virtual DbSet<Entities.CMS.Serial> CMS_Serial { get; set; }
+        /// <summary>
+        /// 导航
+        /// </summary>
+        public virtual DbSet<Entities.CMS.Navigation> CMS_Navigation { get; set; }
+        /// <summary>
+        /// 资讯
+        /// </summary>
+        public virtual DbSet<Entities.CMS.Article> CMS_Article { get; set; }
 
         #endregion
     }

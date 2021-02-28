@@ -62,7 +62,7 @@ namespace MISApi.Dal.EF
         /// <summary>
         /// 认证
         /// </summary>
-        public virtual DbSet<Entities.CMS.Auth> CMS_Auth { get; set; }
+        public virtual DbSet<Entities.CMS.Authority> CMS_Authority { get; set; }
         /// <summary>
         /// 提现
         /// </summary>

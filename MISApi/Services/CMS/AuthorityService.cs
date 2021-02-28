@@ -8,14 +8,14 @@ namespace MISApi.Services.CMS
     /// <summary>
     /// 
     /// </summary>
-    public class AuthService
+    public class AuthorityService
     {
 
         #region CreateService
         /// <summary>
         /// CreateService
         /// </summary>
-        public class CreateService : Base.AuthService.CreateService
+        public class CreateService : Base.AuthorityService.CreateService
         {
             /// <summary>
             /// 定义事务服务
@@ -33,19 +33,19 @@ namespace MISApi.Services.CMS
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public virtual Auth ToOpen(Auth entity)
+            public virtual Authority ToOpen(Authority entity)
             {
                 try
                 {
                     // 定义
-                    Auth result = new Auth();
+                    Authority result = new Authority();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByCode("cms.auth.open");
+                        Status status = new StatusCacheService.RowService().ByCode("cms.authority.open");
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
-                        result = new AuthService.CreateService().Execute(entity);
+                        result = new AuthorityService.CreateService().Execute(entity);
                     });
                     // 提交
                     transService.TransCommit();
@@ -54,7 +54,7 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.AuthService.CreateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.AuthorityService.CreateService.ToOpen", ex);
                 }
             }
         }
@@ -65,7 +65,7 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// UpdateService
         /// </summary>
-        public class UpdateService : Base.AuthService.UpdateService
+        public class UpdateService : Base.AuthorityService.UpdateService
         {
             /// <summary>
             /// 定义事务服务
@@ -83,15 +83,15 @@ namespace MISApi.Services.CMS
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public virtual Auth ToOpen(Auth entity)
+            public virtual Authority ToOpen(Authority entity)
             {
                 try
                 {
                     // 定义
-                    Auth result = new Auth();
+                    Authority result = new Authority();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.auth.open");
+                        Status status = new StatusCacheService.RowService().ByKey("cms.authority.open");
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
@@ -104,7 +104,7 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.AuthService.UpdateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.AuthorityService.UpdateService.ToOpen", ex);
                 }
             }
             /// <summary>
@@ -112,15 +112,15 @@ namespace MISApi.Services.CMS
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public virtual Auth ToClose(Auth entity)
+            public virtual Authority ToClose(Authority entity)
             {
                 try
                 {
                     // 定义
-                    Auth result = new Auth();
+                    Authority result = new Authority();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.auth.close");
+                        Status status = new StatusCacheService.RowService().ByKey("cms.authority.close");
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
@@ -133,7 +133,7 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.AuthService.UpdateService.ToClose", ex);
+                    throw new Exception("MISApi.Services.CMS.AuthorityService.UpdateService.ToClose", ex);
                 }
             }
         }
@@ -143,7 +143,7 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// DeleteService
         /// </summary>
-        public class DeleteService : Base.AuthService.DeleteService
+        public class DeleteService : Base.AuthorityService.DeleteService
         {
 
         }
@@ -153,7 +153,7 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// ColumnsMode Service
         /// </summary>
-        public class ColumnsService : Base.AuthService.ColumnsService
+        public class ColumnsService : Base.AuthorityService.ColumnsService
         {
 
         }
@@ -165,7 +165,7 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// 
         /// </summary>
-        public class RowService : Base.AuthService.RowService
+        public class RowService : Base.AuthorityService.RowService
         {
 
         }
@@ -177,7 +177,7 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// 
         /// </summary>
-        public class RowsService : Base.AuthService.RowsService
+        public class RowsService : Base.AuthorityService.RowsService
         {
 
         }

@@ -37,6 +37,13 @@ namespace MISApi.Entities.AVM
         [JsonProperty("password")]
         public string Password { get; set; } = "";
         /// <summary>
+        /// 实名
+        /// </summary>
+        [StringLength(255)]
+        [Description("实名")]
+        [JsonProperty("realName")] 
+        public string RealName { get; set; } = "";
+        /// <summary>
         /// 邮箱
         /// </summary>
         [StringLength(255)]

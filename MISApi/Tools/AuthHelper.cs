@@ -37,7 +37,7 @@ namespace MISApi.Tools
                     }
                     if (claim.Type.ToLower().Equals("realname"))
                     {
-                        entity.EmployeeName = claim.Value;
+                        entity.RealName = claim.Value;
                     }
                 }
             }
@@ -60,7 +60,7 @@ namespace MISApi.Tools
             /// <summary>
             /// 
             /// </summary>
-            public string EmployeeName { get; set; }
+            public string RealName { get; set; }
         }
     }
 }

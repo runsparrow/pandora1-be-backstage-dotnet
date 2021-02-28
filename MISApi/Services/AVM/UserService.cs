@@ -1,7 +1,10 @@
 ﻿using MISApi.CacheServices.WFM;
+using MISApi.Dal.EF;
 using MISApi.Entities.AVM;
 using MISApi.Entities.WFM;
+using MISApi.Tools;
 using System;
+using System.Linq;
 
 namespace MISApi.Services.AVM
 {
@@ -167,7 +170,36 @@ namespace MISApi.Services.AVM
         /// </summary>
         public class RowService : Base.UserService.RowService
         {
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="key"></param>
+            /// <param name="password"></param>
+            /// <returns></returns>
+            public User Verify(string key, string password)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        // 加密
+                        var encrypt = EncryptHelper.GetBase64String(password);
+                        // 返回
+                        return SQLEntityToSingle(
+                            SQLQueryable(context)
+                                .SingleOrDefault(row => (
+                                    (row.User.Name == key && row.User.Password == encrypt) ||
+                                    (row.User.Mobile == key && row.User.Password == encrypt) ||
+                                    (row.User.Email == key && row.User.Password == encrypt)
+                                ) && row.User.StatusValue == 1)
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.AVM.UserService.RowService.Verify", ex);
+                    }
+                }
+            }
         }
 
         #endregion

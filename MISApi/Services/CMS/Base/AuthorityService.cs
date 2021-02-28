@@ -12,14 +12,14 @@ namespace MISApi.Services.CMS.Base
     /// <summary>
     /// 
     /// </summary>
-    public class AuthService : BaseService.EF<Auth, PandoraContext>
+    public class AuthorityService : BaseService.EF<Authority, PandoraContext>
     {
 
         #region CreateService
         /// <summary>
         /// CreateService
         /// </summary>
-        public class CreateService : AuthService
+        public class CreateService : AuthorityService
         {
             /// <summary>
             /// 定义事务服务
@@ -37,12 +37,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public Auth Execute(Auth entity)
+            public Authority Execute(Authority entity)
             {
                 try
                 {
                     // 定义
-                    Auth result = new Auth();
+                    Authority result = new Authority();
                     // 事务
                     transService.TransRegist(delegate {
                         result = base.Create(entity);
@@ -54,7 +54,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.AuthService.CreateService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.AuthorityService.CreateService.Execute", ex);
                 }
             }
             /// <summary>
@@ -62,12 +62,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entityList"></param>
             /// <returns></returns>
-            public List<Auth> Execute(List<Auth> entityList)
+            public List<Authority> Execute(List<Authority> entityList)
             {
                 try
                 {
                     // 定义
-                    List<Auth> resultList = new List<Auth>();
+                    List<Authority> resultList = new List<Authority>();
                     // 事务
                     transService.TransRegist(delegate {
                         // 遍历
@@ -85,7 +85,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.AuthService.CreateService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.AuthorityService.CreateService.Execute", ex);
                 }
             }
 
@@ -97,7 +97,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// UpdateService
         /// </summary>
-        public class UpdateService : AuthService
+        public class UpdateService : AuthorityService
         {
             /// <summary>
             /// 定义事务服务
@@ -115,12 +115,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public Auth Execute(Auth entity)
+            public Authority Execute(Authority entity)
             {
                 try
                 {
                     // 定义
-                    Auth result = new Auth();
+                    Authority result = new Authority();
                     // 事务
                     transService.TransRegist(delegate {
                         result = base.Update(entity);
@@ -132,7 +132,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.AuthService.UpdateService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.AuthorityService.UpdateService.Execute", ex);
                 }
             }
             /// <summary>
@@ -140,12 +140,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entityList"></param>
             /// <returns></returns>
-            public List<Auth> Execute(List<Auth> entityList)
+            public List<Authority> Execute(List<Authority> entityList)
             {
                 try
                 {
                     // 定义
-                    List<Auth> resultList = new List<Auth>();
+                    List<Authority> resultList = new List<Authority>();
                     // 事务
                     transService.TransRegist(delegate
                     {
@@ -163,7 +163,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.AuthService.UpdateService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.AuthorityService.UpdateService.Execute", ex);
                 }
             }
         }
@@ -173,7 +173,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// DeleteService
         /// </summary>
-        public class DeleteService : AuthService
+        public class DeleteService : AuthorityService
         {
             /// <summary>
             /// 定义事务服务
@@ -191,12 +191,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public Auth Execute(Auth entity)
+            public Authority Execute(Authority entity)
             {
                 try
                 {
                     // 定义
-                    Auth result = new Auth();
+                    Authority result = new Authority();
                     // 事务
                     transService.TransRegist(delegate {
                         result = base.Delete(entity);
@@ -208,7 +208,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.AuthService.DeleteService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.AuthorityService.DeleteService.Execute", ex);
                 }
             }
             /// <summary>
@@ -216,12 +216,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entitys"></param>
             /// <returns></returns>
-            public List<Auth> Execute(List<Auth> entitys)
+            public List<Authority> Execute(List<Authority> entitys)
             {
                 try
                 {
                     // 定义
-                    List<Auth> resultList = new List<Auth>();
+                    List<Authority> resultList = new List<Authority>();
                     // 事务
                     transService.TransRegist(delegate {
                         entitys.ForEach(entity =>
@@ -238,7 +238,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.AuthService.DeleteService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.AuthorityService.DeleteService.Execute", ex);
                 }
             }
         }
@@ -248,21 +248,21 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// ColumnsMode Service
         /// </summary>
-        public class ColumnsService : AuthService
+        public class ColumnsService : AuthorityService
         {
             /// <summary>
             /// 返回字段集
             /// </summary>
             /// <returns></returns>
-            public Auth Single()
+            public Authority Single()
             {
                 try
                 {
-                    return new Auth();
+                    return new Authority();
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.AuthService.ColumnsService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.AuthorityService.ColumnsService.Execute", ex);
                 }
             }
         }
@@ -274,7 +274,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// 
         /// </summary>
-        public class RowService : AuthService
+        public class RowService : AuthorityService
         {
             /// <summary>
             /// 根据 id 查询
@@ -282,7 +282,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="id">Id</param>
             /// <param name="joins">关联表</param>
             /// <returns></returns>
-            public Auth ById(int id, params BaseMode.Join[] joins)
+            public Authority ById(int id, params BaseMode.Join[] joins)
             {
                 using (PandoraContext context = new PandoraContext())
                 {
@@ -290,13 +290,13 @@ namespace MISApi.Services.CMS.Base
                     {
                         return SQLEntityToSingle(
                             SQLQueryable(context, joins)
-                                .Where(row => row.Auth.Id == id)
+                                .Where(row => row.Authority.Id == id)
                                 .SingleOrDefault()
                         );
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.AuthService.RowService.ById", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.AuthorityService.RowService.ById", ex);
                     }
                 }
             }
@@ -309,7 +309,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// 
         /// </summary>
-        public class RowsService : AuthService
+        public class RowsService : AuthorityService
         {
             /// <summary>
             /// 根据关键字查询
@@ -317,7 +317,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="keyWord">关键字</param>
             /// <param name="joins">关联表</param>
             /// <returns></returns>
-            public List<Auth> ByKeyWord(BaseMode.KeyWord keyWord, params BaseMode.Join[] joins)
+            public List<Authority> ByKeyWord(BaseMode.KeyWord keyWord, params BaseMode.Join[] joins)
             {
                 try
                 {
@@ -325,7 +325,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.AuthService.RowsService.ByKeyWord", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.AuthorityService.RowsService.ByKeyWord", ex);
                 }
             }
             /// <summary>
@@ -338,7 +338,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="sorts"></param>
             /// <param name="status"></param>
             /// <returns></returns>
-            public List<Auth> Page(BaseMode.KeyWord keyWord, BaseMode.Join[] joins, BaseMode.Page page, BaseMode.Date[] dates, BaseMode.Sort[] sorts, BaseMode.Status status)
+            public List<Authority> Page(BaseMode.KeyWord keyWord, BaseMode.Join[] joins, BaseMode.Page page, BaseMode.Date[] dates, BaseMode.Sort[] sorts, BaseMode.Status status)
             {
                 using (PandoraContext context = new PandoraContext())
                 {
@@ -365,7 +365,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.AuthService.RowsService.Page", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.AuthorityService.RowsService.Page", ex);
                     }
                 }
             }
@@ -401,7 +401,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.AuthService.RowsService.PageCount", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.AuthorityService.RowsService.PageCount", ex);
                     }
                 }
             }
@@ -425,7 +425,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.AuthService.RowsService.PageSummary", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.AuthorityService.RowsService.PageSummary", ex);
                     }
                 }
             }
@@ -444,9 +444,9 @@ namespace MISApi.Services.CMS.Base
         protected IQueryable<SQLEntity> SQLQueryable(PandoraContext context, params BaseMode.Join[] joins)
         {
             // 定义
-            var left = context.CMS_Auth.Select(Main => new SQLEntity
+            var left = context.CMS_Authority.Select(Main => new SQLEntity
             {
-                Auth = Main
+                Authority = Main
             });
             // 遍历
             foreach (var join in joins)
@@ -454,9 +454,9 @@ namespace MISApi.Services.CMS.Base
                 // SQLEntity.Status
                 if (join.Name.ToLower().Equals("status"))
                 {
-                    left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Auth.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Authority.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
                     {
-                        Auth = Main.Auth,
+                        Authority = Main.Authority,
                         Status = Left
                     });
                 }
@@ -464,7 +464,7 @@ namespace MISApi.Services.CMS.Base
             // 一对多
             var group = left.Select(Main => new SQLEntity
             {
-                Auth = Main.Auth,
+                Authority = Main.Authority,
                 Status = Main.Status
             });
             // 遍历
@@ -496,26 +496,26 @@ namespace MISApi.Services.CMS.Base
                     {
                         var andKeyWord = ands[i];
                         queryable = queryable.Where(row =>
-                                row.Auth.UserName.Contains(andKeyWord) ||
-                                row.Auth.Remark.Contains(andKeyWord) ||
-                                row.Auth.StatusName.Contains(andKeyWord)
+                                row.Authority.UserName.Contains(andKeyWord) ||
+                                row.Authority.Remark.Contains(andKeyWord) ||
+                                row.Authority.StatusName.Contains(andKeyWord)
                             );
                     }
                 }
                 else if (ors.Length > 1)
                 {
                     queryable = queryable.Where(row =>
-                            ors.Contains(row.Auth.UserName) ||
-                            ors.Contains(row.Auth.Remark) ||
-                            ors.Contains(row.Auth.StatusName)
+                            ors.Contains(row.Authority.UserName) ||
+                            ors.Contains(row.Authority.Remark) ||
+                            ors.Contains(row.Authority.StatusName)
                         );
                 }
                 else
                 {
                     queryable = queryable.Where(row =>
-                            row.Auth.UserName.Contains(keyWord) ||
-                            row.Auth.Remark.Contains(keyWord) ||
-                            row.Auth.StatusName.Contains(keyWord)
+                            row.Authority.UserName.Contains(keyWord) ||
+                            row.Authority.Remark.Contains(keyWord) ||
+                            row.Authority.StatusName.Contains(keyWord)
                         );
                 }
                 // 返回
@@ -523,7 +523,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.AuthService.KeyWordQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.AuthorityService.KeyWordQueryable", ex);
             }
         }
         /// <summary>
@@ -544,14 +544,14 @@ namespace MISApi.Services.CMS.Base
                     if (splits[i].ToLower().Contains("statusid"))
                     {
                         int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Auth.StatusId == statusId);
+                        queryable = queryable.Where(row => row.Authority.StatusId == statusId);
                     }
                 }
                 return queryable;
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.AuthService.KeyWordExtQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.AuthorityService.KeyWordExtQueryable", ex);
             }
         }
         /// <summary>
@@ -575,7 +575,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.AuthService.DateQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.AuthorityService.DateQueryable", ex);
             }
         }
         /// <summary>
@@ -590,13 +590,13 @@ namespace MISApi.Services.CMS.Base
             {
                 if (status != null && status.Values.Count() > 0)
                 {
-                    return queryable.Where(row => status.Values.Contains(row.Auth.StatusValue));
+                    return queryable.Where(row => status.Values.Contains(row.Authority.StatusValue));
                 }
                 return queryable;
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.AuthService.StatusQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.AuthorityService.StatusQueryable", ex);
             }
         }
         /// <summary>
@@ -627,7 +627,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.AuthService.SortQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.AuthorityService.SortQueryable", ex);
             }
         }
         /// <summary>
@@ -650,7 +650,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.AuthService.PageQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.AuthorityService.PageQueryable", ex);
             }
         }
         /// <summary>
@@ -658,7 +658,7 @@ namespace MISApi.Services.CMS.Base
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        protected Auth SQLEntityToSingle(SQLEntity entity)
+        protected Authority SQLEntityToSingle(SQLEntity entity)
         {
             try
             {
@@ -666,15 +666,15 @@ namespace MISApi.Services.CMS.Base
                 if (entity == null)
                     return null;
                 // 主表
-                Auth authEntity = entity.Auth;
+                Authority authorityEntity = entity.Authority;
                 // 状态
-                authEntity.Status = entity.Status ?? null;
+                authorityEntity.Status = entity.Status ?? null;
                 // 返回
-                return authEntity;
+                return authorityEntity;
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.AuthService.SQLEntityToSingle", ex);
+                throw new Exception("MISApi.Services.CMS.Base.AuthorityService.SQLEntityToSingle", ex);
             }
         }
         /// <summary>
@@ -682,7 +682,7 @@ namespace MISApi.Services.CMS.Base
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        protected List<Auth> SQLEntityToList(List<SQLEntity> list)
+        protected List<Authority> SQLEntityToList(List<SQLEntity> list)
         {
             try
             {
@@ -690,7 +690,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.AuthService.SQLEntityToList", ex);
+                throw new Exception("MISApi.Services.CMS.Base.AuthorityService.SQLEntityToList", ex);
             }
         }
 
@@ -705,7 +705,7 @@ namespace MISApi.Services.CMS.Base
             /// <summary>
             /// 
             /// </summary>
-            public Auth Auth { get; set; }
+            public Authority Authority { get; set; }
             /// <summary>
             /// 
             /// </summary>

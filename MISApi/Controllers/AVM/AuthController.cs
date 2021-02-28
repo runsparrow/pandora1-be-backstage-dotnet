@@ -1,5 +1,5 @@
-﻿using MISApi.Entities.CMS;
-using MISApi.Services.CMS;
+﻿using MISApi.Entities.AVM;
+using MISApi.Services.AVM;
 using IdentityModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -9,10 +9,10 @@ using System.ComponentModel;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using static MISApi.Controllers.CMS.AuthController.HttpEntity;
+using static MISApi.Controllers.AVM.AuthController.HttpEntity;
 using static MISApi.Tools.AuthHelper;
 
-namespace MISApi.Controllers.CMS
+namespace MISApi.Controllers.AVM
 {
     /// <summary>
     /// 验证
@@ -25,7 +25,7 @@ namespace MISApi.Controllers.CMS
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Auth/GetToken", Name = "MIS_CMS_Auth_Get_Token")]
+        [Route("MIS/AVM/Auth/GetToken", Name = "MIS_AVM_Auth_Get_Token")]
         [HttpPost]
         public IActionResult GetToken(DTO_AccountNameAndAccountPwd dto)
         {
@@ -71,9 +71,9 @@ namespace MISApi.Controllers.CMS
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Auth/GetEntity", Name = "MIS_CMS_Auth_Get_Entity")]
+        [Route("MIS/AVM/Auth/GetEntity", Name = "MIS_AVM_Auth_Get_Entity")]
         [HttpPost]
-        public IActionResult GetAuthEntity([FromBody] DTO_Token dto)
+        public IActionResult GetEntity([FromBody] DTO_Token dto)
         {
             ClaimEntity claim = GetClaimFromToken(dto.Token);
 

@@ -10,10 +10,10 @@ namespace MISApi.Entities.CMS
     /// <summary>
     /// 认证
     /// </summary>
-    [Table("CMS_Auth")]
+    [Table("CMS_Authority")]
     [JsonObject(MemberSerialization.OptOut)]
     [Serializable]
-    public partial class Auth : BaseCacheEntity<Auth>
+    public partial class Authority : BaseCacheEntity<Authority>
     {
         #region Property
         /// <summary>

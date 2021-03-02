@@ -297,7 +297,7 @@ namespace MISApi.HttpClients.HttpModes.BaseMode
             Values = values;
         }
         /// <summary>
-        /// 协议格式：id:asc
+        /// 协议格式：1^2^3^4^5
         /// </summary>
         /// <param name="protocal"></param>
         public Status(string protocal)

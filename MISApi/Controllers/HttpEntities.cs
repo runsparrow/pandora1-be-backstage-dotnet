@@ -90,31 +90,41 @@ namespace MISApi.Controllers.HttpEntities
     public class DTO_Page
     {
         /// <summary>
-        /// 关键字
+        /// <p>关键字</p>
+        /// <p>规则: 模糊查询值^指定查询字段=指定查询值^指定查询字段=指定查询值^......以此类推</p>
+        /// <p>第一部模糊查询值一般用于最大的字符串模糊查询</p>
+        /// <p>第二部分根据^拆分，拆分后字段代表特定的查询条件，值代表查询值，可在方法KeyWordExtQueryable中找到对应的处理代码</p>
         /// </summary>
         [Description("关键字")]
         [JsonProperty("keyWord")]
         public string KeyWord { get; set; } = "";
         /// <summary>
-        /// 分页
+        /// <p>分页</p>
+        /// <p>规则: 当前页码^每页记录数</p>
         /// </summary>
         [Description("分页")]
         [JsonProperty("page")]
-        public string Page { get; set; } = "1,20";
+        public string Page { get; set; } = "1^20";
         /// <summary>
-        /// 日期
+        /// <p>日期</p>
+        /// <p>规则：时间字段^起始时间^结束时间;时间字段^起始时间^结束时间;......以此类推</p>
+        /// <p>参考：CreateDateTime^2020-8-1^2020-8-2;EditDateTime^2020-8-1^2020-8-2;</p>
         /// </summary>
         [Description("日期")]
         [JsonProperty("date")]
         public string Date { get; set; } = "";
         /// <summary>
-        /// 排序
+        /// <p>排序</p>
+        /// <p>规则：排序字段^排序方式;排序字段^排序方式;......以此类推</p>
+        /// <p>参考：id^asc;name^desc</p>
         /// </summary>
         [Description("排序")]
         [JsonProperty("sort")]
         public string Sort { get; set; } = "";
         /// <summary>
-        /// 状态
+        /// <p>状态</p>
+        /// <p>规则：[状态值,状态值,状态值,......以此类推]</p>
+        /// <p>参考：[1,2,3,4,5]</p>
         /// </summary>
         [Description("状态")]
         [JsonProperty("status")]

@@ -1,7 +1,11 @@
 ﻿using MISApi.CacheServices.WFM;
+using MISApi.Dal.EF;
 using MISApi.Entities.CMS;
 using MISApi.Entities.WFM;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using BaseMode = MISApi.HttpClients.HttpModes.BaseMode;
 
 namespace MISApi.Services.CMS
 {
@@ -179,7 +183,78 @@ namespace MISApi.Services.CMS
         /// </summary>
         public class RowsService : Base.OrderService.RowsService
         {
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="ownerId"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Order> ByOwnerId(int ownerId, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Order.OwnerId == ownerId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.OrderService.RowService.ByOwnerId", ex);
+                    }
+                }
+            }
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="goodsId"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Order> ByGoodsId(int goodsId, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Order.GoodsId == goodsId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.OrderService.RowService.ByGoodsId", ex);
+                    }
+                }
+            }
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="buyerId"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Order> ByBuyerId(int buyerId, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Order.BuyerId == buyerId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.OrderService.RowService.ByBuyerId", ex);
+                    }
+                }
+            }
         }
 
         #endregion

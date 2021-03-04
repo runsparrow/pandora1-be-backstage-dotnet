@@ -30,12 +30,26 @@ namespace MISApi.Entities.CMS
         [JsonProperty("name")]
         public string Name { get; set; } = "";
         /// <summary>
+        /// 商品编号
+        /// </summary>
+        [StringLength(50)]
+        [Description("商品编号")]
+        [JsonProperty("goodsNo")]
+        public string GoodsNo { get; set; } = "";
+        /// <summary>
         /// 描述
         /// </summary>
-        [StringLength(4000)]
+        [StringLength(2000)]
         [Description("描述")]
         [JsonProperty("desc")]
         public string Desc { get; set; } = "";
+        /// <summary>
+        /// 授权说明
+        /// </summary>
+        [StringLength(2000)]
+        [Description("授权说明")]
+        [JsonProperty("authDesc")]
+        public string AuthDesc { get; set; } = "";
         /// <summary>
         /// 归类Id
         /// </summary>
@@ -49,6 +63,41 @@ namespace MISApi.Entities.CMS
         [Description("归类名称")]
         [JsonProperty("classifyName")]
         public string ClassifyName { get; set; } = "";
+        /// <summary>
+        /// 扩展名
+        /// </summary>
+        [StringLength(50)]
+        [Description("扩展名")]
+        [JsonProperty("ext")]
+        public string Ext { get; set; } = "";
+        /// <summary>
+        /// 分辨率
+        /// </summary>
+        [StringLength(50)]
+        [Description("分辨率")]
+        [JsonProperty("dpi")]
+        public string DPI { get; set; } = "";
+        /// <summary>
+        /// 尺寸
+        /// </summary>
+        [StringLength(50)]
+        [Description("尺寸")]
+        [JsonProperty("ratio")]
+        public string Ratio { get; set; } = "";
+        /// <summary>
+        /// 颜色
+        /// </summary>
+        [StringLength(50)]
+        [Description("颜色")]
+        [JsonProperty("rgb")]
+        public string RGB { get; set; } = "";
+        /// <summary>
+        /// 大小
+        /// </summary>
+        [StringLength(50)]
+        [Description("大小")]
+        [JsonProperty("size")]
+        public string Size { get; set; } = "";
         /// <summary>
         /// 等级
         /// </summary>

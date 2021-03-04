@@ -496,17 +496,31 @@ namespace MISApi.Services.CMS.Base
                     {
                         var andKeyWord = ands[i];
                         queryable = queryable.Where(row =>
-                                row.Goods.Name.Contains(andKeyWord) ||
-                                row.Goods.ClassifyName.Contains(andKeyWord) ||
-                                row.Goods.Remark.Contains(andKeyWord) ||
-                                row.Goods.StatusName.Contains(andKeyWord)
-                            );
+                            row.Goods.Name.Contains(andKeyWord) ||
+                            row.Goods.Desc.Contains(andKeyWord) ||
+                            row.Goods.AuthDesc.Contains(andKeyWord) ||
+                            row.Goods.Ext.Contains(andKeyWord) ||
+                            row.Goods.DPI.Contains(andKeyWord) ||
+                            row.Goods.Ratio.Contains(andKeyWord) ||
+                            row.Goods.RGB.Contains(andKeyWord) ||
+                            row.Goods.Size.Contains(andKeyWord) ||
+                            row.Goods.ClassifyName.Contains(andKeyWord) ||
+                            row.Goods.Remark.Contains(andKeyWord) ||
+                            row.Goods.StatusName.Contains(andKeyWord)
+                        );
                     }
                 }
                 else if (ors.Length > 1)
                 {
                     queryable = queryable.Where(row =>
                             ors.Contains(row.Goods.Name) ||
+                            ors.Contains(row.Goods.Desc) ||
+                            ors.Contains(row.Goods.AuthDesc) ||
+                            ors.Contains(row.Goods.Ext) ||
+                            ors.Contains(row.Goods.DPI) ||
+                            ors.Contains(row.Goods.Ratio) ||
+                            ors.Contains(row.Goods.RGB) ||
+                            ors.Contains(row.Goods.Size) ||
                             ors.Contains(row.Goods.ClassifyName) ||
                             ors.Contains(row.Goods.Remark) ||
                             ors.Contains(row.Goods.StatusName)
@@ -516,6 +530,13 @@ namespace MISApi.Services.CMS.Base
                 {
                     queryable = queryable.Where(row =>
                             row.Goods.Name.Contains(keyWord) ||
+                            row.Goods.Desc.Contains(keyWord) ||
+                            row.Goods.AuthDesc.Contains(keyWord) ||
+                            row.Goods.Ext.Contains(keyWord) ||
+                            row.Goods.DPI.Contains(keyWord) ||
+                            row.Goods.Ratio.Contains(keyWord) ||
+                            row.Goods.RGB.Contains(keyWord) ||
+                            row.Goods.Size.Contains(keyWord) ||
                             row.Goods.ClassifyName.Contains(keyWord) ||
                             row.Goods.Remark.Contains(keyWord) ||
                             row.Goods.StatusName.Contains(keyWord)
@@ -549,6 +570,52 @@ namespace MISApi.Services.CMS.Base
                         int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                         queryable = queryable.Where(row => row.Goods.StatusId == statusId);
                     }
+                    if (splits[i].ToLower().Contains("classifyid"))
+                    {
+                        int classifyId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Goods.ClassifyId == classifyId);
+                    }
+                    if (splits[i].ToLower().Contains("ownerid"))
+                    {
+                        int ownerId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Goods.OwnerId == ownerId);
+                    }
+                    if (splits[i].ToLower().Contains("level"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Goods.Level >= min && row.Goods.Level <= max);
+                    }
+                    if (splits[i].ToLower().Contains("price"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Goods.Price >= min && row.Goods.Price <= max);
+                    }
+                    if (splits[i].ToLower().Contains("quantity"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Goods.Quantity >= min && row.Goods.Quantity <= max);
+                    }
+                    if (splits[i].ToLower().Contains("downcount"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Goods.DownCount >= min && row.Goods.DownCount <= max);
+                    }
+                    if (splits[i].ToLower().Contains("collectcount"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Goods.CollectCount >= min && row.Goods.CollectCount <= max);
+                    }
+                    if (splits[i].ToLower().Contains("buycount"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Goods.BuyCount >= min && row.Goods.BuyCount <= max);
+                    }
                 }
                 return queryable;
             }
@@ -571,7 +638,34 @@ namespace MISApi.Services.CMS.Base
                 {
                     dates.ToList().ForEach(date =>
                     {
-
+                        if (date.Name.ToLower().Equals("publicdatetime"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.Goods.PublicDateTime >= date.MinDate && row.Goods.PublicDateTime <= date.MaxDate
+                                );
+                        }
+                        if (date.Name.ToLower().Equals("finaldatetime"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.Goods.FinalDateTime >= date.MinDate && row.Goods.FinalDateTime <= date.MaxDate
+                                );
+                        }
+                        if (date.Name.ToLower().Equals("createdatetime"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.Goods.CreateDateTime >= date.MinDate && row.Goods.CreateDateTime <= date.MaxDate
+                                );
+                        }
+                        if (date.Name.ToLower().Equals("editdatetime"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.Goods.EditDateTime >= date.MinDate && row.Goods.EditDateTime <= date.MaxDate
+                                );
+                        }
                     });
                 }
                 return queryable;

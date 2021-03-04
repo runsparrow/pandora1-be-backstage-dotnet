@@ -2790,6 +2790,20 @@
             <param name="keyWord"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Rows_ByOwnerId_OwnerId(System.Int32)">
+            <summary>
+            根据OwnerId查询商品
+            </summary>
+            <param name="ownerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Rows_ByClassifyId_ClassifyId(System.Int32)">
+            <summary>
+            根据ClassifyId查询商品
+            </summary>
+            <param name="classifyId"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.GoodsController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
             <summary>
             根据Id查询商品
@@ -3458,6 +3472,27 @@
             根据关键字模糊查询订单
             </summary>
             <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderController.Rows_ByOwnerId_OwnerId(System.Int32)">
+            <summary>
+            根据OwnerId查询订单
+            </summary>
+            <param name="ownerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderController.Rows_ByGoodsId_GoodsId(System.Int32)">
+            <summary>
+            根据GoodsId查询订单
+            </summary>
+            <param name="goodsId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderController.Rows_ByBuyerId_BuyerId(System.Int32)">
+            <summary>
+            根据BuyerId查询订单
+            </summary>
+            <param name="buyerId"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.OrderController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
@@ -6086,9 +6121,19 @@
             名称
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Goods.GoodsNo">
+            <summary>
+            商品编号
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Goods.Desc">
             <summary>
             描述
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.AuthDesc">
+            <summary>
+            授权说明
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Goods.ClassifyId">
@@ -6099,6 +6144,31 @@
         <member name="P:MISApi.Entities.CMS.Goods.ClassifyName">
             <summary>
             归类名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.Ext">
+            <summary>
+            扩展名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.DPI">
+            <summary>
+            分辨率
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.Ratio">
+            <summary>
+            尺寸
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.RGB">
+            <summary>
+            颜色
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.Size">
+            <summary>
+            大小
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Goods.Level">
@@ -11553,6 +11623,22 @@
             
             </summary>
         </member>
+        <member name="M:MISApi.Services.CMS.GoodsService.RowsService.ByOwnerId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="ownerId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.GoodsService.RowsService.ByClassifyId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="classifyId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Services.CMS.NavigationService">
             <summary>
             
@@ -11704,6 +11790,30 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.OrderService.RowsService.ByOwnerId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="ownerId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.OrderService.RowsService.ByGoodsId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="goodsId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.OrderService.RowsService.ByBuyerId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="buyerId"></param>
+            <param name="joins"></param>
+            <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.SerialService">
             <summary>

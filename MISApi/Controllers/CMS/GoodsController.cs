@@ -322,6 +322,52 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.GoodsController.Rows_ByKeyWord_KeyWord", ex);
             }
         }
+        /// <summary>
+        /// 根据OwnerId查询商品
+        /// </summary>
+        /// <param name="ownerId"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Goods/Rows/ByOwnerId/{ownerId}", Name = "MIS_CMS_Goods_Rows_ByOwnerId_OwnerId")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_ByOwnerId_OwnerId(int ownerId)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new GoodsService.RowsService().ByOwnerId(ownerId)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.GoodsController.Rows_ByOwnerId_OwnerId", ex);
+            }
+        }
+        /// <summary>
+        /// 根据ClassifyId查询商品
+        /// </summary>
+        /// <param name="classifyId"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Goods/Rows/ByClassifyId/{classifyId}", Name = "MIS_CMS_Goods_Rows_ByClassifyId_ClassifyId")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_ByClassifyId_ClassifyId(int classifyId)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new GoodsService.RowsService().ByClassifyId(classifyId)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.GoodsController.Rows_ByClassifyId_ClassifyId", ex);
+            }
+        }
         #endregion
 
         #region SingleMode

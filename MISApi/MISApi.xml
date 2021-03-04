@@ -5821,6 +5821,131 @@
             用户名
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Authority.IdentityId">
+            <summary>
+            身份Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.IdentityName">
+            <summary>
+            身份名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.NationCode">
+            <summary>
+            国家代码
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.NationName">
+            <summary>
+            国家名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.ProvinceCode">
+            <summary>
+            省代码
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.ProvinceName">
+            <summary>
+            省名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.CityCode">
+            <summary>
+            城市代码
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.CityName">
+            <summary>
+            城市名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.DivisionCode">
+            <summary>
+            区县代码
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.DivisionName">
+            <summary>
+            区县名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.UnitId">
+            <summary>
+            单位Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.UnitName">
+            <summary>
+            单位名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.OfficeId">
+            <summary>
+            科室Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.OfficeName">
+            <summary>
+            科室名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.DutyId">
+            <summary>
+            职务Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.DutyName">
+            <summary>
+            职务名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.JobNo">
+            <summary>
+            工号
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.JobUrl">
+            <summary>
+            工号文件路径
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.CertificateNo">
+            <summary>
+            证书
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.CertificateUrl">
+            <summary>
+            证书文件路径
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.IdCard">
+            <summary>
+            身份证
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.IdCardFUrl">
+            <summary>
+            身份证正面
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.IdCardBUrl">
+            <summary>
+            身份证背面
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.Mobile">
+            <summary>
+            手机
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.Email">
+            <summary>
+            邮件
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Authority.Remark">
             <summary>
             备注

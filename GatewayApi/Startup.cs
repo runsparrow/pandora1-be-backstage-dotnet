@@ -71,13 +71,6 @@ namespace GatewayApi
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            // ¿çÓò
-            app.UseCors(builder => builder
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-            //.AllowCredentials()
-            );
             // ocelot
             app.UseOcelot().Wait();
         }

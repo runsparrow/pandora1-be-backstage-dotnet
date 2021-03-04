@@ -109,16 +109,7 @@ namespace MISApi
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("This is ocelot security key"))
                 };
             });
-            services.AddCors(c =>
-            {
-                c.AddPolicy("AllowCorsPolicys", policy =>
-                {
-                    policy
-                    .AllowAnyOrigin()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod();
-                });
-            });
+            
         }
         /// <summary>
         /// 
@@ -135,7 +126,7 @@ namespace MISApi
                 options.RoutePrefix = string.Empty;
                 options.DocumentTitle = "MIS API";
             });
-            app.UseCors("AllowCorsPolicys");
+          
             // 启用中间件服务进行异常处理
             app.UseMiddleware(typeof(ExceptionHandlerMiddleWare));
             // 启用路由

@@ -45,7 +45,7 @@ namespace MISApi.Services.ASM.Base
                     Dictionary result = new Dictionary();
                     // 事务
                     transService.TransRegist(delegate {
-                        result = base.Create(entity);
+                        entity = base.Create(entity);
                     });
                     // 提交
                     transService.TransCommit();
@@ -456,7 +456,6 @@ namespace MISApi.Services.ASM.Base
         #endregion
 
         #region Inner Methods
-
         /// <summary>
         /// 默认查询
         /// </summary>
@@ -465,49 +464,56 @@ namespace MISApi.Services.ASM.Base
         /// <returns></returns>
         protected IQueryable<SQLEntity> SQLQueryable(PandoraContext context, params BaseMode.Join[] joins)
         {
-            // 定义
-            var left = context.ASM_Dictionary.Select(Main => new SQLEntity
+            try
             {
-                Dictionary = Main
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
-                // SQLEntity.ParentDictionary
-                if (join.Name.ToLower().Equals("parentdictionary"))
+                // 定义
+                var left = context.ASM_Dictionary.Select(Main => new SQLEntity
                 {
-                    left = left.LeftOuterJoin(context.ASM_Dictionary, Main => Main.Dictionary.Pid, Left => Left.Id, (Main, Left) => new SQLEntity
-                    {
-                        Dictionary = Main.Dictionary,
-                        ParentDictionary = Left,
-                        Status = Main.Status
-                    });
-                }
-                // SQLEntity.Status
-                if (join.Name.ToLower().Equals("status"))
+                    Dictionary = Main
+                });
+                // 遍历
+                foreach (var join in joins)
                 {
-                    left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Dictionary.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    // SQLEntity.ParentDictionary
+                    if (join.Name.ToLower().Equals("parentdictionary"))
                     {
-                        Dictionary = Main.Dictionary,
-                        ParentDictionary = Main.ParentDictionary,
-                        Status = Left
-                    });
+                        left = left.LeftOuterJoin(context.ASM_Dictionary, Main => Main.Dictionary.Pid, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Dictionary = Main.Dictionary,
+                            ParentDictionary = Left,
+                            Status = Main.Status
+                        });
+                    }
+                    // SQLEntity.Status
+                    if (join.Name.ToLower().Equals("status"))
+                    {
+                        left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Dictionary.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Dictionary = Main.Dictionary,
+                            ParentDictionary = Main.ParentDictionary,
+                            Status = Left
+                        });
+                    }
                 }
-            }
-            // 一对多
-            var group = left.Select(Main => new SQLEntity
-            {
-                Dictionary = Main.Dictionary,
-                ParentDictionary = Main.ParentDictionary,
-                Status = Main.Status
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
+                // 一对多
+                var group = left.Select(Main => new SQLEntity
+                {
+                    Dictionary = Main.Dictionary,
+                    ParentDictionary = Main.ParentDictionary,
+                    Status = Main.Status
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
 
+                }
+                // 返回
+                return group;
             }
-            // 返回
-            return group;
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Services.ASM.Base.DictionaryService.SQLQueryable", ex);
+            }
         }
         /// <summary>
         /// 关键字

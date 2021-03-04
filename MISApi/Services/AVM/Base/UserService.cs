@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using MISApi.Entities.AVM;
 using MISApi.Entities.WFM;
+using MISApi.Tools;
 
 namespace MISApi.Services.AVM.Base
 {

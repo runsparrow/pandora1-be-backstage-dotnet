@@ -1103,6 +1103,13 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.AVM.UserController.Update_Password(MISApi.Entities.AVM.User)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.AVM.UserController.Delete_Single(MISApi.Entities.AVM.User)">
             <summary>
              删除一条用户
@@ -4073,6 +4080,13 @@
             编辑多条用户
             </summary>
             <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.UserController.Update_Password(MISApi.Entities.CMS.User)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.UserController.Delete_Single(MISApi.Entities.CMS.User)">

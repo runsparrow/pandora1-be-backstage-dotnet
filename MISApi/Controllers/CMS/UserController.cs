@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MISApi.Controllers.HttpEntities;
 using MISApi.Entities.CMS;
 using MISApi.Services.CMS;
+using MISApi.Tools;
 using System;
 using System.Collections.Generic;
 using BaseMode = MISApi.HttpClients.HttpModes.BaseMode;
@@ -32,7 +33,7 @@ namespace MISApi.Controllers.CMS
                 // Entity
                 if (entity != null)
                 {
-
+                    entity.Password = EncryptHelper.GetBase64String(entity.Password);
                 }
                 // 返回
                 return ResponseOk(
@@ -62,7 +63,7 @@ namespace MISApi.Controllers.CMS
                 if (entities != null)
                 {
                     entities.ForEach(entity => {
-
+                        entity.Password = EncryptHelper.GetBase64String(entity.Password);
                     });
                 }
                 // 返回
@@ -139,6 +140,35 @@ namespace MISApi.Controllers.CMS
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.CMS.UserController.Update_Multiple", ex);
+            }
+        }
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/User/Update/Password", Name = "MIS_CMS_User_Update_Password")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_Password(User entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.Password = EncryptHelper.GetBase64String(entity.Password);
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new UserService.UpdateService().Execute(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.UserController.Update_Password", ex);
             }
         }
         #endregion

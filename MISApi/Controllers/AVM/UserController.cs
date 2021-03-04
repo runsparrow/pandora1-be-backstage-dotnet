@@ -33,6 +33,7 @@ namespace MISApi.Controllers.AVM
                 // Entity
                 if (entity != null)
                 {
+                    entity.Password = EncryptHelper.GetBase64String(entity.Password);
                     entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).UserId;
                     entity.CreateDateTime = DateTime.Now;
                     entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
@@ -66,6 +67,7 @@ namespace MISApi.Controllers.AVM
                 if (entities != null)
                 {
                     entities.ForEach(entity => {
+                        entity.Password = EncryptHelper.GetBase64String(entity.Password);
                         entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).UserId;
                         entity.CreateDateTime = DateTime.Now;
                         entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
@@ -150,6 +152,38 @@ namespace MISApi.Controllers.AVM
                 throw new Exception("MISApi.Controllers.AVM.UserController.Update_Multiple", ex);
             }
         }
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/AVM/User/Update/Password", Name = "MIS_AVM_User_Update_Password")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_Password(User entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.Password = EncryptHelper.GetBase64String(entity.Password);
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditDateTime = DateTime.Now;
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new UserService.UpdateService().Execute(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.AVM.UserController.Update_Password", ex);
+            }
+        }
+
         #endregion
 
         #region DeleteMode

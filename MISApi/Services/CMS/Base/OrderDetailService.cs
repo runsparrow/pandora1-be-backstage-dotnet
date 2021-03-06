@@ -348,7 +348,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.OrderDetailService.RowService.ByOrderId", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.OrderDetailService.RowsService.ByOrderId", ex);
                     }
                 }
             }
@@ -372,7 +372,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.OrderDetailService.RowService.ByOwnerId", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.OrderDetailService.RowsService.ByOwnerId", ex);
                     }
                 }
             }
@@ -396,7 +396,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.OrderDetailService.RowService.ByGoodsId", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.OrderDetailService.RowsService.ByGoodsId", ex);
                     }
                 }
             }
@@ -420,7 +420,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.OrderDetailService.RowService.ByBuyerId", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.OrderDetailService.RowsService.ByBuyerId", ex);
                     }
                 }
             }

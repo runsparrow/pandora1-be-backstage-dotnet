@@ -43,6 +43,12 @@ namespace MISApi.Entities.CMS
         [JsonProperty("applierName")]
         public string ApplierName { get; set; } = "";
         /// <summary>
+        /// 申请时间
+        /// </summary>
+        [Description("申请时间")]
+        [JsonProperty("applierDate")]
+        public DateTime ApplierDate { get; set; } = DateTime.MinValue;
+        /// <summary>
         /// 提现账号Id
         /// </summary>
         [Description("提现账号Id")]
@@ -134,6 +140,27 @@ namespace MISApi.Entities.CMS
         #endregion
 
         #region Not Mapped Property
+        /// <summary>
+        /// 申请人
+        /// </summary>
+        [Description("申请人")]
+        [JsonProperty("applier")]
+        [NotMapped]
+        public User Applier { get; set; }
+        /// <summary>
+        /// 审批人
+        /// </summary>
+        [Description("审批人")]
+        [JsonProperty("approver")]
+        [NotMapped]
+        public AVM.User Approver { get; set; }
+        /// <summary>
+        /// 放款人
+        /// </summary>
+        [Description("放款人")]
+        [JsonProperty("loaner")]
+        [NotMapped]
+        public AVM.User Loaner { get; set; }
         /// <summary>
         /// 状态
         /// </summary>

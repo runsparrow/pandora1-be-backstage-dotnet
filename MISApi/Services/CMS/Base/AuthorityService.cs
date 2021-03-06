@@ -329,6 +329,54 @@ namespace MISApi.Services.CMS.Base
                 }
             }
             /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="applierId"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Authority> ByApplierId(int applierId, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Authority.ApplierId == applierId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.AuthorityService.RowsService.ByApplierId", ex);
+                    }
+                }
+            }
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="approverId"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Authority> ByApproverId(int approverId, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Authority.ApproverId == approverId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.AuthorityService.RowsService.ByApproverId", ex);
+                    }
+                }
+            }
+            /// <summary>
             /// 分页
             /// </summary>
             /// <param name="keyWord"></param>
@@ -497,6 +545,21 @@ namespace MISApi.Services.CMS.Base
                         var andKeyWord = ands[i];
                         queryable = queryable.Where(row =>
                                 row.Authority.UserName.Contains(andKeyWord) ||
+                                row.Authority.IdentityName.Contains(andKeyWord) ||
+                                row.Authority.NationName.Contains(andKeyWord) ||
+                                row.Authority.ProvinceName.Contains(andKeyWord) ||
+                                row.Authority.CityName.Contains(andKeyWord) ||
+                                row.Authority.DivisionName.Contains(andKeyWord) ||
+                                row.Authority.UnitName.Contains(andKeyWord) ||
+                                row.Authority.OfficeName.Contains(andKeyWord) ||
+                                row.Authority.DutyName.Contains(andKeyWord) ||
+                                row.Authority.JobNo.Contains(andKeyWord) ||
+                                row.Authority.IdCard.Contains(andKeyWord) ||
+                                row.Authority.CertificateNo.Contains(andKeyWord) ||
+                                row.Authority.Mobile.Contains(andKeyWord) ||
+                                row.Authority.Email.Contains(andKeyWord) ||
+                                row.Authority.ApplierName.Contains(andKeyWord) ||
+                                row.Authority.ApproverName.Contains(andKeyWord) ||
                                 row.Authority.Remark.Contains(andKeyWord) ||
                                 row.Authority.StatusName.Contains(andKeyWord)
                             );
@@ -506,6 +569,20 @@ namespace MISApi.Services.CMS.Base
                 {
                     queryable = queryable.Where(row =>
                             ors.Contains(row.Authority.UserName) ||
+                            ors.Contains(row.Authority.IdentityName) ||
+                            ors.Contains(row.Authority.NationName) ||
+                            ors.Contains(row.Authority.ProvinceName) ||
+                            ors.Contains(row.Authority.CityName) ||
+                            ors.Contains(row.Authority.DivisionName) ||
+                            ors.Contains(row.Authority.OfficeName) ||
+                            ors.Contains(row.Authority.DutyName) ||
+                            ors.Contains(row.Authority.JobNo) ||
+                            ors.Contains(row.Authority.IdCard) ||
+                            ors.Contains(row.Authority.CertificateNo) ||
+                            ors.Contains(row.Authority.Mobile) ||
+                            ors.Contains(row.Authority.Email) ||
+                            ors.Contains(row.Authority.ApplierName) ||
+                            ors.Contains(row.Authority.ApproverName) ||
                             ors.Contains(row.Authority.Remark) ||
                             ors.Contains(row.Authority.StatusName)
                         );
@@ -514,6 +591,20 @@ namespace MISApi.Services.CMS.Base
                 {
                     queryable = queryable.Where(row =>
                             row.Authority.UserName.Contains(keyWord) ||
+                            row.Authority.IdentityName.Contains(keyWord) ||
+                            row.Authority.NationName.Contains(keyWord) ||
+                            row.Authority.ProvinceName.Contains(keyWord) ||
+                            row.Authority.CityName.Contains(keyWord) ||
+                            row.Authority.DivisionName.Contains(keyWord) ||
+                            row.Authority.OfficeName.Contains(keyWord) ||
+                            row.Authority.DutyName.Contains(keyWord) ||
+                            row.Authority.JobNo.Contains(keyWord) ||
+                            row.Authority.IdCard.Contains(keyWord) ||
+                            row.Authority.CertificateNo.Contains(keyWord) ||
+                            row.Authority.Mobile.Contains(keyWord) ||
+                            row.Authority.Email.Contains(keyWord) ||
+                            row.Authority.ApplierName.Contains(keyWord) ||
+                            row.Authority.ApproverName.Contains(keyWord) ||
                             row.Authority.Remark.Contains(keyWord) ||
                             row.Authority.StatusName.Contains(keyWord)
                         );
@@ -541,6 +632,46 @@ namespace MISApi.Services.CMS.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
+                    if (splits[i].ToLower().Contains("identityid"))
+                    {
+                        int identityId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Authority.IdentityId == identityId);
+                    }
+                    if (splits[i].ToLower().Contains("unitid"))
+                    {
+                        int unitId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Authority.UnitId == unitId);
+                    }
+                    if (splits[i].ToLower().Contains("officeId"))
+                    {
+                        int officeId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Authority.OfficeId == officeId);
+                    }
+                    if (splits[i].ToLower().Contains("dutyid"))
+                    {
+                        int dutyId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Authority.DutyId == dutyId);
+                    }
+                    if (splits[i].ToLower().Contains("nationcode"))
+                    {
+                        string nationCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                        queryable = queryable.Where(row => row.Authority.NationCode == nationCode);
+                    }
+                    if (splits[i].ToLower().Contains("provincecode"))
+                    {
+                        string provinceCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                        queryable = queryable.Where(row => row.Authority.ProvinceCode == provinceCode);
+                    }
+                    if (splits[i].ToLower().Contains("citycode"))
+                    {
+                        string cityCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                        queryable = queryable.Where(row => row.Authority.CityCode == cityCode);
+                    }
+                    if (splits[i].ToLower().Contains("divisioncode"))
+                    {
+                        string divisionCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                        queryable = queryable.Where(row => row.Authority.DivisionCode == divisionCode);
+                    }
                     if (splits[i].ToLower().Contains("statusid"))
                     {
                         int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
@@ -568,7 +699,20 @@ namespace MISApi.Services.CMS.Base
                 {
                     dates.ToList().ForEach(date =>
                     {
-
+                        if (date.Name.ToLower().Equals("applierdate"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.Authority.ApplierDate >= date.MinDate && row.Authority.ApplierDate <= date.MaxDate
+                                );
+                        }
+                        if (date.Name.ToLower().Equals("approverdate"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.Authority.ApproverDate >= date.MinDate && row.Authority.ApproverDate <= date.MaxDate
+                                );
+                        }
                     });
                 }
                 return queryable;
@@ -667,6 +811,10 @@ namespace MISApi.Services.CMS.Base
                     return null;
                 // 主表
                 Authority authorityEntity = entity.Authority;
+                // 申请人
+                authorityEntity.Applier = entity.Applier ?? null;
+                // 审批人
+                authorityEntity.Approver = entity.Approver ?? null;
                 // 状态
                 authorityEntity.Status = entity.Status ?? null;
                 // 返回
@@ -706,6 +854,14 @@ namespace MISApi.Services.CMS.Base
             /// 
             /// </summary>
             public Authority Authority { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public User Applier { get; set; }
+            /// <summary>
+            /// 审批人
+            /// </summary>
+            public Entities.AVM.User Approver { get; set; }
             /// <summary>
             /// 
             /// </summary>

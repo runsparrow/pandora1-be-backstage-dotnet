@@ -329,6 +329,78 @@ namespace MISApi.Services.CMS.Base
                 }
             }
             /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="applierId"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<CashOut> ByApplierId(int applierId, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.CashOut.ApplierId == applierId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.CashOutService.RowsService.ByApplierId", ex);
+                    }
+                }
+            }
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="approverId"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<CashOut> ByApproverId(int approverId, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.CashOut.ApproverId == approverId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.CashOutService.RowsService.ByApproverId", ex);
+                    }
+                }
+            }
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="loanerId"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<CashOut> ByLoanerId(int loanerId, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.CashOut.LoanerId == loanerId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.CashOutService.RowsService.ByLoanerId", ex);
+                    }
+                }
+            }
+            /// <summary>
             /// 分页
             /// </summary>
             /// <param name="keyWord"></param>
@@ -550,10 +622,31 @@ namespace MISApi.Services.CMS.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
+                    if (splits[i].ToLower().Contains("applierid"))
+                    {
+                        int applierId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.CashOut.ApplierId == applierId);
+                    }
+                    if (splits[i].ToLower().Contains("approverid"))
+                    {
+                        int approverId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.CashOut.ApproverId == approverId);
+                    }
+                    if (splits[i].ToLower().Contains("loanerid"))
+                    {
+                        int loanerId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.CashOut.LoanerId == loanerId) ;
+                    }
                     if (splits[i].ToLower().Contains("statusid"))
                     {
                         int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                         queryable = queryable.Where(row => row.CashOut.StatusId == statusId);
+                    }
+                    if (splits[i].ToLower().Contains("dealamount"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.CashOut.DealAmount >= min && row.CashOut.DealAmount <= max);
                     }
                 }
                 return queryable;
@@ -577,7 +670,34 @@ namespace MISApi.Services.CMS.Base
                 {
                     dates.ToList().ForEach(date =>
                     {
-
+                        if (date.Name.ToLower().Equals("dealdatetime"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.CashOut.DealDateTime >= date.MinDate && row.CashOut.DealDateTime <= date.MaxDate
+                                );
+                        }
+                        if (date.Name.ToLower().Equals("applierdate"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.CashOut.ApplierDate >= date.MinDate && row.CashOut.ApplierDate <= date.MaxDate
+                                );
+                        }
+                        if (date.Name.ToLower().Equals("approverdate"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.CashOut.ApproverDate >= date.MinDate && row.CashOut.ApproverDate <= date.MaxDate
+                                );
+                        }
+                        if (date.Name.ToLower().Equals("loanerdate"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.CashOut.LoanerDate >= date.MinDate && row.CashOut.LoanerDate <= date.MaxDate
+                                );
+                        }
                     });
                 }
                 return queryable;
@@ -676,6 +796,12 @@ namespace MISApi.Services.CMS.Base
                     return null;
                 // 主表
                 CashOut cashOutEntity = entity.CashOut;
+                // 申请人
+                cashOutEntity.Applier = entity.Applier ?? null;
+                // 审批人
+                cashOutEntity.Approver = entity.Approver ?? null;
+                // 放款人
+                cashOutEntity.Loaner = entity.Loaner ?? null;
                 // 状态
                 cashOutEntity.Status = entity.Status ?? null;
                 // 返回
@@ -715,6 +841,18 @@ namespace MISApi.Services.CMS.Base
             /// 
             /// </summary>
             public CashOut CashOut { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public User Applier { get; set; }
+            /// <summary>
+            /// 审批人
+            /// </summary>
+            public Entities.AVM.User Approver { get; set; }
+            /// <summary>
+            /// 放款人
+            /// </summary>
+            public Entities.AVM.User Loaner { get; set; }
             /// <summary>
             /// 
             /// </summary>

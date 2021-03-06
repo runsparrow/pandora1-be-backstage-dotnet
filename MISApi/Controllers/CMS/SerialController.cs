@@ -314,6 +314,52 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.SerialController.Rows_ByKeyWord_KeyWord", ex);
             }
         }
+        /// <summary>
+        /// 根据PayerId查询订单
+        /// </summary>
+        /// <param name="payerId"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Serial/Rows/ByPayerId/{payerId}", Name = "MIS_CMS_Serial_Rows_ByPayerId_PayerId")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_ByPayerId_PayerId(int payerId)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new SerialService.RowsService().ByPayerId(payerId)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.SerialController.Rows_ByPayerId_PayerId", ex);
+            }
+        }
+        /// <summary>
+        /// 根据ReceiverId查询订单
+        /// </summary>
+        /// <param name="receiverId"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Serial/Rows/ByReceiverId/{receiverId}", Name = "MIS_CMS_Serial_Rows_ByReceiverId_ReceiverId")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_ByReceiverId_ReceiverId(int receiverId)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new SerialService.RowsService().ByReceiverId(receiverId)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.SerialController.Rows_ByReceiverId_ReceiverId", ex);
+            }
+        }
         #endregion
 
         #region SingleMode

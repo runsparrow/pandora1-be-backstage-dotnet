@@ -314,6 +314,52 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.AuthorityController.Rows_ByKeyWord_KeyWord", ex);
             }
         }
+        /// <summary>
+        /// 根据ApplierId查询提现记录
+        /// </summary>
+        /// <param name="applierId"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Authority/Rows/ByApplierId/{applierId}", Name = "MIS_CMS_Authority_Rows_ByApplierId_ApplierId")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_ByApplierId_ApplierId(int applierId)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new AuthorityService.RowsService().ByApplierId(applierId)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Rows_ByApplierId_ApplierId", ex);
+            }
+        }
+        /// <summary>
+        /// 根据ApproverId查询提现记录
+        /// </summary>
+        /// <param name="approverId"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Authority/Rows/ByApproverId/{approverId}", Name = "MIS_CMS_Authority_Rows_ByApproverId_ApproverId")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_ByApproverId_ApproverId(int approverId)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new AuthorityService.RowsService().ByApproverId(approverId)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Rows_ByApproverId_ApproverId", ex);
+            }
+        }
         #endregion
 
         #region SingleMode

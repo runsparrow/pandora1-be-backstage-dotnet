@@ -2134,6 +2134,20 @@
             <param name="keyWord"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Rows_ByApplierId_ApplierId(System.Int32)">
+            <summary>
+            根据ApplierId查询提现记录
+            </summary>
+            <param name="applierId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Rows_ByApproverId_ApproverId(System.Int32)">
+            <summary>
+            根据ApproverId查询提现记录
+            </summary>
+            <param name="approverId"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
             <summary>
             根据Id查询认证
@@ -2467,6 +2481,27 @@
             根据关键字模糊查询提现
             </summary>
             <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Rows_ByApplierId_ApplierId(System.Int32)">
+            <summary>
+            根据ApplierId查询提现记录
+            </summary>
+            <param name="applierId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Rows_ByApproverId_ApproverId(System.Int32)">
+            <summary>
+            根据ApproverId查询提现记录
+            </summary>
+            <param name="approverId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Rows_ByLoanerId_LoanerId(System.Int32)">
+            <summary>
+            根据LoanerId查询提现记录
+            </summary>
+            <param name="loanerId"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.CashOutController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
@@ -4205,6 +4240,20 @@
             根据关键字模糊查询流水
             </summary>
             <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.SerialController.Rows_ByPayerId_PayerId(System.Int32)">
+            <summary>
+            根据PayerId查询订单
+            </summary>
+            <param name="payerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.SerialController.Rows_ByReceiverId_ReceiverId(System.Int32)">
+            <summary>
+            根据ReceiverId查询订单
+            </summary>
+            <param name="receiverId"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.SerialController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
@@ -6382,6 +6431,36 @@
             邮件
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Authority.ApplierId">
+            <summary>
+            申请人Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.ApplierName">
+            <summary>
+            申请人姓名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.ApplierDate">
+            <summary>
+            申请时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.ApproverId">
+            <summary>
+            审批人Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.ApproverName">
+            <summary>
+            审批人姓名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.ApproverDate">
+            <summary>
+            审批时间
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Authority.Remark">
             <summary>
             备注
@@ -6400,6 +6479,16 @@
         <member name="P:MISApi.Entities.CMS.Authority.StatusValue">
             <summary>
             状态数值
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.Applier">
+            <summary>
+            申请人
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.Approver">
+            <summary>
+            审批人
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Authority.Status">
@@ -6430,6 +6519,11 @@
         <member name="P:MISApi.Entities.CMS.CashOut.ApplierName">
             <summary>
             申请人姓名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.CashOut.ApplierDate">
+            <summary>
+            申请时间
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.CashOut.AccountId">
@@ -6500,6 +6594,21 @@
         <member name="P:MISApi.Entities.CMS.CashOut.StatusValue">
             <summary>
             状态数值
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.CashOut.Applier">
+            <summary>
+            申请人
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.CashOut.Approver">
+            <summary>
+            审批人
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.CashOut.Loaner">
+            <summary>
+            放款人
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.CashOut.Status">
@@ -7072,6 +7181,11 @@
             收款人账号
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Serial.DealDateTime">
+            <summary>
+            交易时间
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Serial.DealAmount">
             <summary>
             交易金额
@@ -7100,6 +7214,16 @@
         <member name="P:MISApi.Entities.CMS.Serial.StatusValue">
             <summary>
             状态数值
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Serial.Payer">
+            <summary>
+            付款人
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Serial.Receiver">
+            <summary>
+            收款人
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Serial.Status">
@@ -10375,6 +10499,22 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.Base.AuthorityService.RowsService.ByApplierId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="applierId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.AuthorityService.RowsService.ByApproverId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="approverId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.CMS.Base.AuthorityService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
             <summary>
             分页
@@ -10487,6 +10627,16 @@
         <member name="P:MISApi.Services.CMS.Base.AuthorityService.SQLEntity.Authority">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.AuthorityService.SQLEntity.Applier">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.AuthorityService.SQLEntity.Approver">
+            <summary>
+            审批人
             </summary>
         </member>
         <member name="P:MISApi.Services.CMS.Base.AuthorityService.SQLEntity.Status">
@@ -10628,6 +10778,30 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.Base.CashOutService.RowsService.ByApplierId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="applierId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CashOutService.RowsService.ByApproverId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="approverId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CashOutService.RowsService.ByLoanerId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="loanerId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.CMS.Base.CashOutService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
             <summary>
             分页
@@ -10740,6 +10914,21 @@
         <member name="P:MISApi.Services.CMS.Base.CashOutService.SQLEntity.CashOut">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.CashOutService.SQLEntity.Applier">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.CashOutService.SQLEntity.Approver">
+            <summary>
+            审批人
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.CashOutService.SQLEntity.Loaner">
+            <summary>
+            放款人
             </summary>
         </member>
         <member name="P:MISApi.Services.CMS.Base.CashOutService.SQLEntity.Status">
@@ -11991,6 +12180,22 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.Base.SerialService.RowsService.ByPayerId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="payerId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.SerialService.RowsService.ByReceiverId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="receiverId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.CMS.Base.SerialService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
             <summary>
             分页
@@ -12101,6 +12306,16 @@
             </summary>
         </member>
         <member name="P:MISApi.Services.CMS.Base.SerialService.SQLEntity.Serial">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.SerialService.SQLEntity.Payer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.SerialService.SQLEntity.Receiver">
             <summary>
             
             </summary>

@@ -207,6 +207,44 @@ namespace MISApi.Entities.CMS
         [JsonProperty("email")]
         public string Email { get; set; } = "";
         /// <summary>
+        /// 申请人Id
+        /// </summary>
+        [Description("申请人Id")]
+        [JsonProperty("applierId")]
+        public int ApplierId { get; set; } = -1;
+        /// <summary>
+        /// 申请人姓名
+        /// </summary>
+        [StringLength(255)]
+        [Description("申请人姓名")]
+        [JsonProperty("applierName")]
+        public string ApplierName { get; set; } = "";
+        /// <summary>
+        /// 申请时间
+        /// </summary>
+        [Description("申请时间")]
+        [JsonProperty("applierDate")]
+        public DateTime ApplierDate { get; set; } = DateTime.MinValue;
+        /// <summary>
+        /// 审批人Id
+        /// </summary>
+        [Description("审批人Id")]
+        [JsonProperty("approverId")]
+        public int ApproverId { get; set; } = -1;
+        /// <summary>
+        /// 审批人姓名
+        /// </summary>
+        [StringLength(255)]
+        [Description("审批人姓名")]
+        [JsonProperty("approverName")]
+        public string ApproverName { get; set; } = "";
+        /// <summary>
+        /// 审批时间
+        /// </summary>
+        [Description("审批时间")]
+        [JsonProperty("approverDate")]
+        public DateTime ApproverDate { get; set; } = DateTime.MinValue;
+        /// <summary>
         /// 备注
         /// </summary>
         [StringLength(255)]
@@ -235,6 +273,20 @@ namespace MISApi.Entities.CMS
         #endregion
 
         #region Not Mapped Property
+        /// <summary>
+        /// 申请人
+        /// </summary>
+        [Description("申请人")]
+        [JsonProperty("applier")]
+        [NotMapped]
+        public User Applier { get; set; }
+        /// <summary>
+        /// 审批人
+        /// </summary>
+        [Description("审批人")]
+        [JsonProperty("approver")]
+        [NotMapped]
+        public AVM.User Approver { get; set; }
         /// <summary>
         /// 状态
         /// </summary>

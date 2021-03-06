@@ -329,6 +329,54 @@ namespace MISApi.Services.CMS.Base
                 }
             }
             /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="payerId"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Serial> ByPayerId(int payerId, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Serial.PayerId == payerId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.SerialService.RowService.ByPayerId", ex);
+                    }
+                }
+            }
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="receiverId"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Serial> ByReceiverId(int receiverId, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Serial.ReceiverId == receiverId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.SerialService.RowService.ByReceiverId", ex);
+                    }
+                }
+            }
+            /// <summary>
             /// 分页
             /// </summary>
             /// <param name="keyWord"></param>
@@ -451,12 +499,36 @@ namespace MISApi.Services.CMS.Base
             // 遍历
             foreach (var join in joins)
             {
+                // SQLEntity.Payer
+                if (join.Name.ToLower().Equals("payer"))
+                {
+                    left = left.LeftOuterJoin(context.CMS_User, Main => Main.Serial.PayerId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    {
+                        Serial = Main.Serial,
+                        Payer = Left,
+                        Receiver = Main.Receiver,
+                        Status = Main.Status
+                    });
+                }
+                // SQLEntity.Receiver
+                if (join.Name.ToLower().Equals("receiver"))
+                {
+                    left = left.LeftOuterJoin(context.CMS_User, Main => Main.Serial.ReceiverId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    {
+                        Serial = Main.Serial,
+                        Payer = Main.Payer,
+                        Receiver = Left,
+                        Status = Main.Status
+                    });
+                }
                 // SQLEntity.Status
                 if (join.Name.ToLower().Equals("status"))
                 {
                     left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Serial.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
                     {
                         Serial = Main.Serial,
+                        Payer = Main.Payer,
+                        Receiver = Main.Receiver,
                         Status = Left
                     });
                 }
@@ -465,6 +537,8 @@ namespace MISApi.Services.CMS.Base
             var group = left.Select(Main => new SQLEntity
             {
                 Serial = Main.Serial,
+                Payer = Main.Payer,
+                Receiver = Main.Receiver,
                 Status = Main.Status
             });
             // 遍历
@@ -553,10 +627,26 @@ namespace MISApi.Services.CMS.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
+                    if (splits[i].ToLower().Contains("payerid"))
+                    {
+                        int payerId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Serial.PayerId == payerId);
+                    }
+                    if (splits[i].ToLower().Contains("receiverid"))
+                    {
+                        int receiverId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Serial.ReceiverId == receiverId);
+                    }
                     if (splits[i].ToLower().Contains("statusid"))
                     {
                         int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                         queryable = queryable.Where(row => row.Serial.StatusId == statusId);
+                    }
+                    if (splits[i].ToLower().Contains("dealamount"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Serial.DealAmount >= min && row.Serial.DealAmount <= max);
                     }
                 }
                 return queryable;
@@ -580,7 +670,13 @@ namespace MISApi.Services.CMS.Base
                 {
                     dates.ToList().ForEach(date =>
                     {
-
+                        if (date.Name.ToLower().Equals("dealdatetime"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.Serial.DealDateTime >= date.MinDate && row.Serial.DealDateTime <= date.MaxDate
+                                );
+                        }
                     });
                 }
                 return queryable;
@@ -679,6 +775,10 @@ namespace MISApi.Services.CMS.Base
                     return null;
                 // 主表
                 Serial serialEntity = entity.Serial;
+                // 付款人
+                serialEntity.Payer = entity.Payer ?? null;
+                // 收款人
+                serialEntity.Receiver = entity.Receiver ?? null;
                 // 状态
                 serialEntity.Status = entity.Status ?? null;
                 // 返回
@@ -718,6 +818,14 @@ namespace MISApi.Services.CMS.Base
             /// 
             /// </summary>
             public Serial Serial { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public User Payer { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public User Receiver { get; set; }
             /// <summary>
             /// 
             /// </summary>

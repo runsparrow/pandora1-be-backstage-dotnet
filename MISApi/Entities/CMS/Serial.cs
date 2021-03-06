@@ -84,6 +84,12 @@ namespace MISApi.Entities.CMS
         [JsonProperty("receiverAccount")]
         public string ReceiverAccount { get; set; } = "";
         /// <summary>
+        /// 交易时间
+        /// </summary>
+        [Description("交易时间")]
+        [JsonProperty("dealDateTime")]
+        public DateTime DealDateTime { get; set; } = DateTime.MinValue;
+        /// <summary>
         /// 交易金额
         /// </summary>
         [Description("交易金额")]
@@ -125,6 +131,20 @@ namespace MISApi.Entities.CMS
         #endregion
 
         #region Not Mapped Property
+        /// <summary>
+        /// 付款人
+        /// </summary>
+        [Description("付款人")]
+        [JsonProperty("payer")]
+        [NotMapped]
+        public User Payer { get; set; }
+        /// <summary>
+        /// 收款人
+        /// </summary>
+        [Description("收款人")]
+        [JsonProperty("receiver")]
+        [NotMapped]
+        public User Receiver { get; set; }
         /// <summary>
         /// 状态
         /// </summary>

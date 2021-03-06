@@ -348,7 +348,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.OrderService.RowService.ByBuyerId", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.OrderService.RowsService.ByBuyerId", ex);
                     }
                 }
             }

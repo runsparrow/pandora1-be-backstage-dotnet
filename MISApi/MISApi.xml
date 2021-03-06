@@ -727,6 +727,13 @@
             <param name="keyWord"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Rows_SubsetById(System.Int32)">
+            <summary>
+            根据Id查询字典子集
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
             <summary>
             根据Id查询字典
@@ -753,6 +760,13 @@
             根据Id查询获得树型结构的字典
             </summary>
             <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Tree_SubsetById(System.Int32)">
+            <summary>
+            根据Id查询获得树型结构的字典
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Tree(MISApi.Controllers.ASM.DictionaryController.TreeMode.Request)">
@@ -3139,6 +3153,13 @@
             <param name="keyWord"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Rows_SubsetById(System.Int32)">
+            <summary>
+            根据Id查询字典子集
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.NavigationController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
             <summary>
             根据Id查询导航
@@ -3165,6 +3186,13 @@
             根据Id查询获得树型结构的导航
             </summary>
             <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Tree_SubsetById(System.Int32)">
+            <summary>
+            根据Id查询获得树型结构的字典
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.NavigationController.Tree(MISApi.Controllers.CMS.NavigationController.TreeMode.Request)">
@@ -3474,20 +3502,6 @@
             <param name="keyWord"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.OrderController.Rows_ByOwnerId_OwnerId(System.Int32)">
-            <summary>
-            根据OwnerId查询订单
-            </summary>
-            <param name="ownerId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Controllers.CMS.OrderController.Rows_ByGoodsId_GoodsId(System.Int32)">
-            <summary>
-            根据GoodsId查询订单
-            </summary>
-            <param name="goodsId"></param>
-            <returns></returns>
-        </member>
         <member name="M:MISApi.Controllers.CMS.OrderController.Rows_ByBuyerId_BuyerId(System.Int32)">
             <summary>
             根据BuyerId查询订单
@@ -3745,6 +3759,369 @@
             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.OrderController.TreeMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController">
+            <summary>
+            订单明细
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Create_Single(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            创建订单明细
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Create_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.OrderDetail})">
+            <summary>
+            创建订单明细
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Update_Single(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            编辑一条订单明细
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Update_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.OrderDetail})">
+            <summary>
+            编辑多条订单明细
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Delete_Single(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+             删除一条订单明细
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Delete_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.OrderDetail})">
+            <summary>
+            删除多条订单明细
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Columns_Single">
+            <summary>
+            查询订单明细的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询订单明细
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询订单明细
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询订单明细
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询订单明细
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Rows_ByOrderId_OrderId(System.Int32)">
+            <summary>
+            根据OrderId查询订单明细
+            </summary>
+            <param name="orderId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Rows_ByOwnerId_OwnerId(System.Int32)">
+            <summary>
+            根据OwnerId查询订单明细
+            </summary>
+            <param name="ownerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Rows_ByGoodsId_GoodsId(System.Int32)">
+            <summary>
+            根据GoodsId查询订单明细
+            </summary>
+            <param name="goodsId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Rows_ByBuyerId_BuyerId(System.Int32)">
+            <summary>
+            根据BuyerId查询订单明细
+            </summary>
+            <param name="buyerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询订单明细
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询订单明细
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Tree_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWordWithConfig{MISApi.Entities.CMS.OrderDetail})">
+            <summary>
+            模糊查询获得树型结构的订单明细
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Tree_ById(MISApi.Controllers.HttpEntities.DTO_IdWithConfig{MISApi.Entities.CMS.OrderDetail})">
+            <summary>
+            根据Id查询获得树型结构的订单明细
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Tree(MISApi.Controllers.CMS.OrderDetailController.TreeMode.Request)">
+            <summary>
+            树形结构的复杂查询
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.CreateMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.CreateMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.CreateMode.Request.ToResponse(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.CreateMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.OrderDetail})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.CreateMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.UpdateMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.UpdateMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.UpdateMode.Request.ToResponse(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.UpdateMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.OrderDetail})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.UpdateMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.DeleteMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.DeleteMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.DeleteMode.Request.ToResponse(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.DeleteMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.OrderDetail})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.DeleteMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.ColumnsMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.ColumnsMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.ColumnsMode.Request.ToResponse(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.ColumnsMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.RowMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.RowMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.RowMode.Request.ToResponse(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.RowMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.RowsMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.RowsMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.RowsMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.OrderDetail})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.RowsMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.SingleMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.SingleMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.SingleMode.Request.ToResponse(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.SingleMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.QueryMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.QueryMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.QueryMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.OrderDetail})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.QueryMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.TreeMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.TreeMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.TreeMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.OrderDetail})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.OrderDetailController.TreeMode.Response">
             <summary>
             
             </summary>
@@ -4805,6 +5182,13 @@
             <param name="keyWord"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.WFM.StatusController.Rows_SubsetById(System.Int32)">
+            <summary>
+            根据Id查询字典子集
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.WFM.StatusController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
             <summary>
             根据Id查询状态
@@ -4831,6 +5215,13 @@
             根据Id查询获得树型结构的状态
             </summary>
             <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.WFM.StatusController.Tree_SubsetById(System.Int32)">
+            <summary>
+            根据Id查询获得树型结构的字典
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.WFM.StatusController.Tree(MISApi.Controllers.WFM.StatusController.TreeMode.Request)">
@@ -5327,6 +5718,11 @@
         <member name="P:MISApi.Dal.EF.PandoraContext.CMS_Order">
             <summary>
             订单
+            </summary>
+        </member>
+        <member name="P:MISApi.Dal.EF.PandoraContext.CMS_OrderDetail">
+            <summary>
+            订单明细
             </summary>
         </member>
         <member name="P:MISApi.Dal.EF.PandoraContext.CMS_Serial">
@@ -5829,6 +6225,11 @@
         <member name="P:MISApi.Entities.CMS.Article.EditUserId">
             <summary>
             最后修改用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Article.Navigation">
+            <summary>
+            导航
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Article.Status">
@@ -6406,31 +6807,6 @@
             下单时间
             </summary>
         </member>
-        <member name="P:MISApi.Entities.CMS.Order.GoodsId">
-            <summary>
-            商品Id
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Order.GoodsName">
-            <summary>
-            商品名称
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Order.OwnerId">
-            <summary>
-            所有权用户Id
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Order.UnitPrice">
-            <summary>
-            单价
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Order.Quantity">
-            <summary>
-            数量
-            </summary>
-        </member>
         <member name="P:MISApi.Entities.CMS.Order.Discount">
             <summary>
             折扣
@@ -6444,6 +6820,11 @@
         <member name="P:MISApi.Entities.CMS.Order.BuyerId">
             <summary>
             买家
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Order.BuyerName">
+            <summary>
+            买家名称
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Order.PayMode">
@@ -6496,7 +6877,142 @@
             最后修改用户Id
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Order.Buyer">
+            <summary>
+            买家
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Order.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.Id">
+            <summary>
+            唯一标识
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.OrderId">
+            <summary>
+            订单Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.OrderNo">
+            <summary>
+            订单编号
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.BuyerId">
+            <summary>
+            买家Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.BuyerName">
+            <summary>
+            买家名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.GoodsId">
+            <summary>
+            商品Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.GoodsName">
+            <summary>
+            商品名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.OwnerId">
+            <summary>
+            所有权用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.OwnerName">
+            <summary>
+            所有权用户名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.UnitPrice">
+            <summary>
+            单价
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.Quantity">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.Discount">
+            <summary>
+            折扣
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.TotalPrice">
+            <summary>
+            总价
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.StatusId">
+            <summary>
+            状态Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.StatusName">
+            <summary>
+            状态名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.StatusValue">
+            <summary>
+            状态数值
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.CreateDateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.CreateUserId">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.EditDateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.EditUserId">
+            <summary>
+            最后修改用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.Order">
+            <summary>
+            订单
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.Goods">
+            <summary>
+            商品
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.Buyer">
+            <summary>
+            买家
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.Owner">
+            <summary>
+            所有人
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.OrderDetail.Status">
             <summary>
             状态
             </summary>
@@ -8741,6 +9257,14 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.ASM.Base.DictionaryService.RowsService.SubsetById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id查询所有子节点（递归并包含Id自身）
+            </summary>
+            <param name="id"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.ASM.Base.DictionaryService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
             <summary>
             分页
@@ -8773,6 +9297,15 @@
             <param name="dates"></param>
             <param name="sorts"></param>
             <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.DictionaryService.SubsetByIdRecursion(System.Collections.Generic.List{MISApi.Entities.ASM.Dictionary},System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id递归获取Dictionary
+            </summary>
+            <param name="list"></param>
+            <param name="id"></param>
+            <param name="joins"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Services.ASM.Base.DictionaryService.SQLQueryable(MISApi.Dal.EF.PandoraContext,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
@@ -9576,6 +10109,14 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.Base.ArticleService.RowsService.ByNavigationId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据导航Id查询
+            </summary>
+            <param name="navigationId">导航Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.CMS.Base.ArticleService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
             <summary>
             分页
@@ -9686,6 +10227,11 @@
             </summary>
         </member>
         <member name="P:MISApi.Services.CMS.Base.ArticleService.SQLEntity.Article">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.ArticleService.SQLEntity.Navigation">
             <summary>
             
             </summary>
@@ -10335,6 +10881,22 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.Base.GoodsService.RowsService.ByOwnerId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="ownerId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.GoodsService.RowsService.ByClassifyId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="classifyId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.CMS.Base.GoodsService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
             <summary>
             分页
@@ -10588,6 +11150,14 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.RowsService.SubsetById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id查询所有子节点（递归并包含Id自身）
+            </summary>
+            <param name="id"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.CMS.Base.NavigationService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
             <summary>
             分页
@@ -10620,6 +11190,15 @@
             <param name="dates"></param>
             <param name="sorts"></param>
             <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.SubsetByIdRecursion(System.Collections.Generic.List{MISApi.Entities.CMS.Navigation},System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id递归获取Dictionary
+            </summary>
+            <param name="list"></param>
+            <param name="id"></param>
+            <param name="joins"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Services.CMS.Base.NavigationService.SQLQueryable(MISApi.Dal.EF.PandoraContext,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
@@ -10708,6 +11287,311 @@
             </summary>
         </member>
         <member name="T:MISApi.Services.CMS.Base.NavigationService.SummaryEntity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.OrderDetailService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.OrderDetailService.CreateService">
+            <summary>
+            CreateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.Base.OrderDetailService.CreateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.CreateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.CreateService.Execute(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.CreateService.Execute(System.Collections.Generic.List{MISApi.Entities.CMS.OrderDetail})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.OrderDetailService.UpdateService">
+            <summary>
+            UpdateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.Base.OrderDetailService.UpdateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.UpdateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.UpdateService.Execute(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.UpdateService.Execute(System.Collections.Generic.List{MISApi.Entities.CMS.OrderDetail})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.OrderDetailService.DeleteService">
+            <summary>
+            DeleteService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.Base.OrderDetailService.DeleteService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.DeleteService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.DeleteService.Execute(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.DeleteService.Execute(System.Collections.Generic.List{MISApi.Entities.CMS.OrderDetail})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entitys"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.OrderDetailService.ColumnsService">
+            <summary>
+            ColumnsMode Service
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.ColumnsService.Single">
+            <summary>
+            返回字段集
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.OrderDetailService.RowService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.RowService.ById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 id 查询
+            </summary>
+            <param name="id">Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.OrderDetailService.RowsService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.RowsService.ByKeyWord(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据关键字查询
+            </summary>
+            <param name="keyWord">关键字</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.RowsService.ByOrderId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="orderId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.RowsService.ByOwnerId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="ownerId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.RowsService.ByGoodsId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="goodsId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.RowsService.ByBuyerId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="buyerId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="page"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.RowsService.PageCount(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页计数
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.RowsService.PageSummary(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页汇总
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.SQLQueryable(MISApi.Dal.EF.PandoraContext,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            默认查询
+            </summary>
+            <param name="context"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.KeyWordQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.OrderDetailService.SQLEntity},System.String)">
+            <summary>
+            关键字
+            </summary>
+            <param name="queryable"></param>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.KeyWordExtQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.OrderDetailService.SQLEntity},System.String)">
+            <summary>
+            关键字扩展
+            </summary>
+            <param name="queryable"></param>
+            <param name="keyWordExt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.DateQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.OrderDetailService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Date[])">
+            <summary>
+            日期
+            </summary>
+            <param name="queryable"></param>
+            <param name="dates"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.StatusQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.OrderDetailService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            状态
+            </summary>
+            <param name="queryable"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.SortQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.OrderDetailService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Sort[])">
+            <summary>
+            排序
+            </summary>
+            <param name="queryable"></param>
+            <param name="sorts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.PageQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.OrderDetailService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Page)">
+            <summary>
+            分页
+            </summary>
+            <param name="queryable"></param>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.SQLEntityToSingle(MISApi.Services.CMS.Base.OrderDetailService.SQLEntity)">
+            <summary>
+            SQLEntity转换
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderDetailService.SQLEntityToList(System.Collections.Generic.List{MISApi.Services.CMS.Base.OrderDetailService.SQLEntity})">
+            <summary>
+            SQLEntity转换
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.OrderDetailService.SQLEntity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.OrderDetailService.SQLEntity.OrderDetail">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.OrderDetailService.SQLEntity.Order">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.OrderDetailService.SQLEntity.Goods">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.OrderDetailService.SQLEntity.Buyer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.OrderDetailService.SQLEntity.Owner">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.OrderDetailService.SQLEntity.Status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.OrderDetailService.SummaryEntity">
             <summary>
             
             </summary>
@@ -10841,6 +11725,14 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderService.RowsService.ByBuyerId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="buyerId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.CMS.Base.OrderService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
             <summary>
             分页
@@ -10951,6 +11843,11 @@
             </summary>
         </member>
         <member name="P:MISApi.Services.CMS.Base.OrderService.SQLEntity.Order">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.OrderService.SQLEntity.Buyer">
             <summary>
             
             </summary>
@@ -11623,22 +12520,6 @@
             
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.GoodsService.RowsService.ByOwnerId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
-            <summary>
-            
-            </summary>
-            <param name="ownerId"></param>
-            <param name="joins"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.GoodsService.RowsService.ByClassifyId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
-            <summary>
-            
-            </summary>
-            <param name="classifyId"></param>
-            <param name="joins"></param>
-            <returns></returns>
-        </member>
         <member name="T:MISApi.Services.CMS.NavigationService">
             <summary>
             
@@ -11711,6 +12592,82 @@
             </summary>
         </member>
         <member name="T:MISApi.Services.CMS.NavigationService.RowsService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.OrderDetailService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.OrderDetailService.CreateService">
+            <summary>
+            CreateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.OrderDetailService.CreateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.OrderDetailService.CreateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.OrderDetailService.CreateService.ToOpen(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            在用
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.OrderDetailService.UpdateService">
+            <summary>
+            UpdateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.OrderDetailService.UpdateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.OrderDetailService.UpdateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.OrderDetailService.UpdateService.ToOpen(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            在用
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.OrderDetailService.UpdateService.ToClose(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            关闭
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.OrderDetailService.DeleteService">
+            <summary>
+            DeleteService
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.OrderDetailService.ColumnsService">
+            <summary>
+            ColumnsMode Service
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.OrderDetailService.RowService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.OrderDetailService.RowsService">
             <summary>
             
             </summary>
@@ -11790,30 +12747,6 @@
             <summary>
             
             </summary>
-        </member>
-        <member name="M:MISApi.Services.CMS.OrderService.RowsService.ByOwnerId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
-            <summary>
-            
-            </summary>
-            <param name="ownerId"></param>
-            <param name="joins"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.OrderService.RowsService.ByGoodsId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
-            <summary>
-            
-            </summary>
-            <param name="goodsId"></param>
-            <param name="joins"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.OrderService.RowsService.ByBuyerId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
-            <summary>
-            
-            </summary>
-            <param name="buyerId"></param>
-            <param name="joins"></param>
-            <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.SerialService">
             <summary>
@@ -12250,6 +13183,14 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.WFM.Base.StatusService.RowsService.SubsetById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id查询所有子节点（递归并包含Id自身）
+            </summary>
+            <param name="id"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.WFM.Base.StatusService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
             <summary>
             分页
@@ -12282,6 +13223,15 @@
             <param name="dates"></param>
             <param name="sorts"></param>
             <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.WFM.Base.StatusService.SubsetByIdRecursion(System.Collections.Generic.List{MISApi.Entities.WFM.Status},System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id递归获取Status
+            </summary>
+            <param name="list"></param>
+            <param name="id"></param>
+            <param name="joins"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Services.WFM.Base.StatusService.SQLQueryable(MISApi.Dal.EF.PandoraContext,MISApi.HttpClients.HttpModes.BaseMode.Join[])">

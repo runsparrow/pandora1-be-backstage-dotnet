@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using BaseMode = MISApi.HttpClients.HttpModes.BaseMode;
 using MISApi.Services.ASM;
 using MISApi.Tools;
+using MISApi.HttpClients.HttpModes.TreeMode.BootstrapTreeView;
 
 namespace MISApi.Controllers.ASM
 {
@@ -323,6 +324,29 @@ namespace MISApi.Controllers.ASM
                 throw new Exception("MISApi.Controllers.ASM.DictionaryController.Rows_ByKeyWord_KeyWord", ex);
             }
         }
+        /// <summary>
+        /// 根据Id查询字典子集
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Dictionary/Rows/SubsetById/{id}", Name = "MIS_ASM_Dictionary_Rows_SubsetById_Id")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_SubsetById(int id)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new DictionaryService.RowsService().SubsetById(id)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Rows_SubsetById", ex);
+            }
+        }
         #endregion
 
         #region SingleMode
@@ -442,6 +466,38 @@ namespace MISApi.Controllers.ASM
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.ASM.DictionaryController.Tree_ById", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询获得树型结构的字典
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Dictionary/Tree/SubsetById/{id}", Name = "MIS_ASM_Dictionary_Tree_SubsetById_Id")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Tree_SubsetById(int id)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Dictionary>("DictionaryKey", "Name", "Id", "Pid", "true"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SubsetById",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(id),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Tree_SubsetById", ex);
             }
         }
         /// <summary>

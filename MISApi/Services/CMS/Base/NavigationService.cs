@@ -329,6 +329,23 @@ namespace MISApi.Services.CMS.Base
                 }
             }
             /// <summary>
+            /// 根据Id查询所有子节点（递归并包含Id自身）
+            /// </summary>
+            /// <param name="id"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Navigation> SubsetById(int id, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    return SubsetByIdRecursion(new List<Navigation> { new RowService().ById(id) }, id, joins);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.NavigationService.RowsService.SubsetById", ex);
+                }
+            }
+            /// <summary>
             /// 分页
             /// </summary>
             /// <param name="keyWord"></param>
@@ -434,7 +451,31 @@ namespace MISApi.Services.CMS.Base
         #endregion
 
         #region Inner Methods
-
+        /// <summary>
+        /// 根据Id递归获取Dictionary
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="id"></param>
+        /// <param name="joins"></param>
+        /// <returns></returns>
+        private List<Navigation> SubsetByIdRecursion(List<Navigation> list, int id, params BaseMode.Join[] joins)
+        {
+            using (PandoraContext context = new PandoraContext())
+            {
+                try
+                {
+                    SQLQueryable(context, joins).Where(row => row.Navigation.Pid == id).ToList().ForEach(sqlEntity => {
+                        list.Add(sqlEntity.Navigation);
+                        SubsetByIdRecursion(list, sqlEntity.Navigation.Id, joins);
+                    });
+                    return list;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.NavigationService.SubsetByIdRecursion", ex);
+                }
+            }
+        }
         /// <summary>
         /// 默认查询
         /// </summary>
@@ -498,7 +539,7 @@ namespace MISApi.Services.CMS.Base
                         queryable = queryable.Where(row =>
                                 row.Navigation.Name.Contains(andKeyWord) ||
                                 row.Navigation.Group.Contains(andKeyWord) ||
-                                row.Navigation.Path.Contains(andKeyWord) ||
+                                row.Navigation.Url.Contains(andKeyWord) ||
                                 row.Navigation.Remark.Contains(andKeyWord) ||
                                 row.Navigation.StatusName.Contains(andKeyWord)
                             );
@@ -509,7 +550,7 @@ namespace MISApi.Services.CMS.Base
                     queryable = queryable.Where(row =>
                             ors.Contains(row.Navigation.Name) ||
                             ors.Contains(row.Navigation.Group) ||
-                            ors.Contains(row.Navigation.Path) ||
+                            ors.Contains(row.Navigation.Url) ||
                             ors.Contains(row.Navigation.Remark) ||
                             ors.Contains(row.Navigation.StatusName)
                         );
@@ -519,7 +560,7 @@ namespace MISApi.Services.CMS.Base
                     queryable = queryable.Where(row =>
                             row.Navigation.Name.Contains(keyWord) ||
                             row.Navigation.Group.Contains(keyWord) ||
-                            row.Navigation.Path.Contains(keyWord) ||
+                            row.Navigation.Url.Contains(keyWord) ||
                             row.Navigation.Remark.Contains(keyWord) ||
                             row.Navigation.StatusName.Contains(keyWord)
                         );
@@ -552,6 +593,26 @@ namespace MISApi.Services.CMS.Base
                         int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                         queryable = queryable.Where(row => row.Navigation.StatusId == statusId);
                     }
+                    if (splits[i].ToLower().Contains("isdisplay"))
+                    {
+                        bool isDisplay = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Navigation.IsDisplay == isDisplay);
+                    }
+                    if (splits[i].ToLower().Contains("isdisplay"))
+                    {
+                        bool isDisplay = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Navigation.IsDisplay == isDisplay);
+                    }
+                    if (splits[i].ToLower().Contains("islink"))
+                    {
+                        bool isLink = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Navigation.IsLink == isLink);
+                    }
+                    if (splits[i].ToLower().Contains("istarget"))
+                    {
+                        bool isTarget = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Navigation.IsTarget == isTarget);
+                    }
                 }
                 return queryable;
             }
@@ -574,7 +635,20 @@ namespace MISApi.Services.CMS.Base
                 {
                     dates.ToList().ForEach(date =>
                     {
-
+                        if (date.Name.ToLower().Equals("createdatetime"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.Navigation.CreateDateTime >= date.MinDate && row.Navigation.CreateDateTime <= date.MaxDate
+                                );
+                        }
+                        if (date.Name.ToLower().Equals("editdatetime"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.Navigation.EditDateTime >= date.MinDate && row.Navigation.EditDateTime <= date.MaxDate
+                                );
+                        }
                     });
                 }
                 return queryable;

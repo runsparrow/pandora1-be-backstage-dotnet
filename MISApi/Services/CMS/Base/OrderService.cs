@@ -329,6 +329,30 @@ namespace MISApi.Services.CMS.Base
                 }
             }
             /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="buyerId"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Order> ByBuyerId(int buyerId, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Order.BuyerId == buyerId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.OrderService.RowService.ByBuyerId", ex);
+                    }
+                }
+            }
+            /// <summary>
             /// 分页
             /// </summary>
             /// <param name="keyWord"></param>
@@ -451,12 +475,23 @@ namespace MISApi.Services.CMS.Base
             // 遍历
             foreach (var join in joins)
             {
+                // SQLEntity.Buyer
+                if (join.Name.ToLower().Equals("buyer"))
+                {
+                    left = left.LeftOuterJoin(context.CMS_User, Main => Main.Order.BuyerId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    {
+                        Order = Main.Order,
+                        Buyer = Left,
+                        Status = Main.Status
+                    });
+                }
                 // SQLEntity.Status
                 if (join.Name.ToLower().Equals("status"))
                 {
                     left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Order.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
                     {
                         Order = Main.Order,
+                        Buyer = Main.Buyer,
                         Status = Left
                     });
                 }
@@ -465,6 +500,7 @@ namespace MISApi.Services.CMS.Base
             var group = left.Select(Main => new SQLEntity
             {
                 Order = Main.Order,
+                Buyer = Main.Buyer,
                 Status = Main.Status
             });
             // 遍历
@@ -497,7 +533,7 @@ namespace MISApi.Services.CMS.Base
                         var andKeyWord = ands[i];
                         queryable = queryable.Where(row =>
                             row.Order.OrderNo.Contains(andKeyWord) ||
-                            row.Order.GoodsName.Contains(andKeyWord) ||
+                            row.Order.BuyerName.Contains(andKeyWord) ||
                             row.Order.SerialNo.Contains(andKeyWord) ||
                             row.Order.Remark.Contains(andKeyWord) ||
                             row.Order.StatusName.Contains(andKeyWord)
@@ -508,7 +544,7 @@ namespace MISApi.Services.CMS.Base
                 {
                     queryable = queryable.Where(row =>
                             ors.Contains(row.Order.OrderNo) ||
-                            ors.Contains(row.Order.GoodsName) ||
+                            ors.Contains(row.Order.BuyerName) ||
                             ors.Contains(row.Order.SerialNo) ||
                             ors.Contains(row.Order.Remark) ||
                             ors.Contains(row.Order.StatusName)
@@ -518,7 +554,7 @@ namespace MISApi.Services.CMS.Base
                 {
                     queryable = queryable.Where(row =>
                             row.Order.OrderNo.Contains(keyWord) ||
-                            row.Order.GoodsName.Contains(keyWord) ||
+                            row.Order.BuyerName.Contains(keyWord) ||
                             row.Order.SerialNo.Contains(keyWord) ||
                             row.Order.Remark.Contains(keyWord) ||
                             row.Order.StatusName.Contains(keyWord)
@@ -552,38 +588,16 @@ namespace MISApi.Services.CMS.Base
                         int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                         queryable = queryable.Where(row => row.Order.StatusId == statusId);
                     }
-                    if (splits[i].ToLower().Contains("goodsid"))
-                    {
-                        int goodsId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Order.GoodsId == goodsId);
-                    }
-                    if (splits[i].ToLower().Contains("ownerid"))
-                    {
-                        int ownerId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Order.OwnerId == ownerId);
-                    }
                     if (splits[i].ToLower().Contains("buyerid"))
                     {
                         int buyerId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                         queryable = queryable.Where(row => row.Order.BuyerId == buyerId);
-                    }
-                    if (splits[i].ToLower().Contains("unitprice"))
-                    {
-                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                        queryable = queryable.Where(row => row.Order.UnitPrice >= min && row.Order.UnitPrice <= max);
                     }
                     if (splits[i].ToLower().Contains("totalprice"))
                     {
                         decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
                         decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
                         queryable = queryable.Where(row => row.Order.TotalPrice >= min && row.Order.TotalPrice <= max);
-                    }
-                    if (splits[i].ToLower().Contains("quantity"))
-                    {
-                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                        queryable = queryable.Where(row => row.Order.Quantity >= min && row.Order.Quantity <= max);
                     }
                     if (splits[i].ToLower().Contains("discount"))
                     {
@@ -737,6 +751,8 @@ namespace MISApi.Services.CMS.Base
                     return null;
                 // 主表
                 Order orderEntity = entity.Order;
+                // 买家
+                orderEntity.Buyer = entity.Buyer ?? null;
                 // 状态
                 orderEntity.Status = entity.Status ?? null;
                 // 返回
@@ -776,6 +792,10 @@ namespace MISApi.Services.CMS.Base
             /// 
             /// </summary>
             public Order Order { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public User Buyer { get; set; }
             /// <summary>
             /// 
             /// </summary>

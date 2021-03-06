@@ -8,14 +8,14 @@ namespace MISApi.Services.CMS
     /// <summary>
     /// 
     /// </summary>
-    public class GoodsService
+    public class OrderDetailService
     {
 
         #region CreateService
         /// <summary>
         /// CreateService
         /// </summary>
-        public class CreateService : Base.GoodsService.CreateService
+        public class CreateService : Base.OrderDetailService.CreateService
         {
             /// <summary>
             /// 定义事务服务
@@ -33,19 +33,19 @@ namespace MISApi.Services.CMS
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public virtual Goods ToOpen(Goods entity)
+            public virtual OrderDetail ToOpen(OrderDetail entity)
             {
                 try
                 {
                     // 定义
-                    Goods result = new Goods();
+                    OrderDetail result = new OrderDetail();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByCode("cms.goods.open");
+                        Status status = new StatusCacheService.RowService().ByCode("cms.orderdetail.open");
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
-                        result = new GoodsService.CreateService().Execute(entity);
+                        result = new OrderDetailService.CreateService().Execute(entity);
                     });
                     // 提交
                     transService.TransCommit();
@@ -54,7 +54,7 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.GoodsService.CreateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.OrderDetailService.CreateService.ToOpen", ex);
                 }
             }
         }
@@ -65,7 +65,7 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// UpdateService
         /// </summary>
-        public class UpdateService : Base.GoodsService.UpdateService
+        public class UpdateService : Base.OrderDetailService.UpdateService
         {
             /// <summary>
             /// 定义事务服务
@@ -83,15 +83,15 @@ namespace MISApi.Services.CMS
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public virtual Goods ToOpen(Goods entity)
+            public virtual OrderDetail ToOpen(OrderDetail entity)
             {
                 try
                 {
                     // 定义
-                    Goods result = new Goods();
+                    OrderDetail result = new OrderDetail();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.goods.open");
+                        Status status = new StatusCacheService.RowService().ByKey("cms.orderdetail.open");
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
@@ -104,7 +104,7 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.GoodsService.UpdateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.OrderDetailService.UpdateService.ToOpen", ex);
                 }
             }
             /// <summary>
@@ -112,15 +112,15 @@ namespace MISApi.Services.CMS
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public virtual Goods ToClose(Goods entity)
+            public virtual OrderDetail ToClose(OrderDetail entity)
             {
                 try
                 {
                     // 定义
-                    Goods result = new Goods();
+                    OrderDetail result = new OrderDetail();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.goods.close");
+                        Status status = new StatusCacheService.RowService().ByKey("cms.orderdetail.close");
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
@@ -133,7 +133,7 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.GoodsService.UpdateService.ToClose", ex);
+                    throw new Exception("MISApi.Services.CMS.OrderDetailService.UpdateService.ToClose", ex);
                 }
             }
         }
@@ -143,7 +143,7 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// DeleteService
         /// </summary>
-        public class DeleteService : Base.GoodsService.DeleteService
+        public class DeleteService : Base.OrderDetailService.DeleteService
         {
 
         }
@@ -153,7 +153,7 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// ColumnsMode Service
         /// </summary>
-        public class ColumnsService : Base.GoodsService.ColumnsService
+        public class ColumnsService : Base.OrderDetailService.ColumnsService
         {
 
         }
@@ -165,7 +165,7 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// 
         /// </summary>
-        public class RowService : Base.GoodsService.RowService
+        public class RowService : Base.OrderDetailService.RowService
         {
 
         }
@@ -177,7 +177,7 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// 
         /// </summary>
-        public class RowsService : Base.GoodsService.RowsService
+        public class RowsService : Base.OrderDetailService.RowsService
         {
 
         }

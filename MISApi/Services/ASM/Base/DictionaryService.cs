@@ -351,6 +351,23 @@ namespace MISApi.Services.ASM.Base
                 }
             }
             /// <summary>
+            /// 根据Id查询所有子节点（递归并包含Id自身）
+            /// </summary>
+            /// <param name="id"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Dictionary> SubsetById(int id, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    return SubsetByIdRecursion(new List<Dictionary> { new RowService().ById(id) }, id, joins);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.DictionaryService.RowsService.SubsetById", ex);
+                }
+            }
+            /// <summary>
             /// 分页
             /// </summary>
             /// <param name="keyWord"></param>
@@ -457,6 +474,31 @@ namespace MISApi.Services.ASM.Base
 
         #region Inner Methods
         /// <summary>
+        /// 根据Id递归获取Dictionary
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="id"></param>
+        /// <param name="joins"></param>
+        /// <returns></returns>
+        private List<Dictionary> SubsetByIdRecursion(List<Dictionary> list, int id, params BaseMode.Join[] joins)
+        {
+            using (PandoraContext context = new PandoraContext())
+            {
+                try
+                {
+                    SQLQueryable(context, joins).Where(row => row.Dictionary.Pid == id).ToList().ForEach(sqlEntity => {
+                        list.Add(sqlEntity.Dictionary);
+                        SubsetByIdRecursion(list, sqlEntity.Dictionary.Id, joins);
+                    });
+                    return list;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.DictionaryService.SubsetByIdRecursion", ex);
+                }
+            }
+        }
+        /// <summary>
         /// 默认查询
         /// </summary>
         /// <param name="context"></param>
@@ -537,8 +579,7 @@ namespace MISApi.Services.ASM.Base
                         var andKeyWord = ands[i];
                         queryable = queryable.Where(row =>
                                 row.Dictionary.Name.Contains(andKeyWord) ||
-                                row.Dictionary.Path.Contains(andKeyWord) ||
-                                row.Dictionary.Code.Contains(andKeyWord) ||
+                                row.Dictionary.Key.Contains(andKeyWord) ||
                                 row.Dictionary.Desc.Contains(andKeyWord) ||
                                 row.Dictionary.StatusName.Contains(andKeyWord)
                             );
@@ -548,8 +589,7 @@ namespace MISApi.Services.ASM.Base
                 {
                     queryable = queryable.Where(row =>
                             ors.Contains(row.Dictionary.Name) ||
-                            ors.Contains(row.Dictionary.Path) ||
-                            ors.Contains(row.Dictionary.Code) ||
+                            ors.Contains(row.Dictionary.Key) ||
                             ors.Contains(row.Dictionary.Desc) ||
                             ors.Contains(row.Dictionary.StatusName)
                         );
@@ -558,8 +598,7 @@ namespace MISApi.Services.ASM.Base
                 {
                     queryable = queryable.Where(row =>
                             row.Dictionary.Name.Contains(keyWord) ||
-                            row.Dictionary.Path.Contains(keyWord) ||
-                            row.Dictionary.Code.Contains(keyWord) ||
+                            row.Dictionary.Key.Contains(keyWord) ||
                             row.Dictionary.Desc.Contains(keyWord) ||
                             row.Dictionary.StatusName.Contains(keyWord)
                         );

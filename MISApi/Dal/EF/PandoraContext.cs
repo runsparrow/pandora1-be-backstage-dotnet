@@ -76,6 +76,10 @@ namespace MISApi.Dal.EF
         /// </summary>
         public virtual DbSet<Entities.CMS.Order> CMS_Order { get; set; }
         /// <summary>
+        /// 订单明细
+        /// </summary>
+        public virtual DbSet<Entities.CMS.OrderDetail> CMS_OrderDetail { get; set; }
+        /// <summary>
         /// 流水
         /// </summary>
         public virtual DbSet<Entities.CMS.Serial> CMS_Serial { get; set; }

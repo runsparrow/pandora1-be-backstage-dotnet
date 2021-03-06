@@ -323,52 +323,6 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 根据OwnerId查询订单
-        /// </summary>
-        /// <param name="ownerId"></param>
-        /// <returns></returns>
-        [Route("MIS/CMS/Order/Rows/ByOwnerId/{ownerId}", Name = "MIS_CMS_Order_Rows_ByOwnerId_OwnerId")]
-        [HttpGet]
-        [Authorize]
-        public IActionResult Rows_ByOwnerId_OwnerId(int ownerId)
-        {
-            try
-            {
-                return ResponseOk(
-                    new RowsMode.Request().ToResponse(
-                        new OrderService.RowsService().ByOwnerId(ownerId)
-                    )
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.CMS.OrderController.Rows_ByOwnerId_OwnerId", ex);
-            }
-        }
-        /// <summary>
-        /// 根据GoodsId查询订单
-        /// </summary>
-        /// <param name="goodsId"></param>
-        /// <returns></returns>
-        [Route("MIS/CMS/Order/Rows/ByGoodsId/{goodsId}", Name = "MIS_CMS_Order_Rows_ByGoodsId_GoodsId")]
-        [HttpGet]
-        [Authorize]
-        public IActionResult Rows_ByGoodsId_GoodsId(int goodsId)
-        {
-            try
-            {
-                return ResponseOk(
-                    new RowsMode.Request().ToResponse(
-                        new OrderService.RowsService().ByGoodsId(goodsId)
-                    )
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.CMS.OrderController.Rows_ByGoodsId_GoodsId", ex);
-            }
-        }
-        /// <summary>
         /// 根据BuyerId查询订单
         /// </summary>
         /// <param name="buyerId"></param>

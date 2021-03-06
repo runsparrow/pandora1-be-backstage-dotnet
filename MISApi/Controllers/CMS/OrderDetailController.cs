@@ -1,33 +1,32 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MISApi.Controllers.HttpEntities;
-using MISApi.Entities.WFM;
-using MISApi.HttpClients.HttpModes.TreeMode.BootstrapTreeView;
-using MISApi.Services.WFM;
+using MISApi.Entities.CMS;
+using MISApi.Services.CMS;
 using MISApi.Tools;
 using System;
 using System.Collections.Generic;
 using BaseMode = MISApi.HttpClients.HttpModes.BaseMode;
 
-namespace MISApi.Controllers.WFM
+namespace MISApi.Controllers.CMS
 {
     /// <summary>
-    /// 状态
+    /// 订单明细
     /// </summary>
-    public class StatusController : BaseController<Status>
+    public class OrderDetailController : BaseController<OrderDetail>
     {
         #region RPC
 
         #region CreateMode
         /// <summary>
-        /// 创建状态
+        /// 创建订单明细
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Create/Single", Name = "MIS_WFM_Status_Create_Single")]
+        [Route("MIS/CMS/OrderDetail/Create/Single", Name = "MIS_CMS_OrderDetail_Create_Single")]
         [HttpPost]
         [Authorize]
-        public IActionResult Create_Single(Status entity)
+        public IActionResult Create_Single(OrderDetail entity)
         {
             try
             {
@@ -42,24 +41,24 @@ namespace MISApi.Controllers.WFM
                 // 返回
                 return ResponseOk(
                     new CreateMode.Request().ToResponse(
-                        new StatusService.CreateService().Execute(entity)
+                        new OrderDetailService.CreateService().Execute(entity)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Create_Single", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Create_Single", ex);
             }
         }
         /// <summary>
-        /// 创建状态
+        /// 创建订单明细
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Create/Multiple", Name = "MIS_WFM_Status_Create_Multiple")]
+        [Route("MIS/CMS/OrderDetail/Create/Multiple", Name = "MIS_CMS_OrderDetail_Create_Multiple")]
         [HttpPost]
         [Authorize]
-        public IActionResult Create_Multiple(List<Status> entities)
+        public IActionResult Create_Multiple(List<OrderDetail> entities)
         {
             try
             {
@@ -76,27 +75,27 @@ namespace MISApi.Controllers.WFM
                 // 返回
                 return ResponseOk(
                     new CreateMode.Request().ToResponse(
-                        new StatusService.CreateService().Execute(entities)
+                        new OrderDetailService.CreateService().Execute(entities)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Create_Multiple", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Create_Multiple", ex);
             }
         }
         #endregion
 
         #region UpdateMode
         /// <summary>
-        /// 编辑一条状态
+        /// 编辑一条订单明细
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Update/Single", Name = "MIS_WFM_Status_Update_Single")]
+        [Route("MIS/CMS/OrderDetail/Update/Single", Name = "MIS_CMS_OrderDetail_Update_Single")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_Single(Status entity)
+        public IActionResult Update_Single(OrderDetail entity)
         {
             try
             {
@@ -109,24 +108,24 @@ namespace MISApi.Controllers.WFM
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new StatusService.UpdateService().Execute(entity)
+                        new OrderDetailService.UpdateService().Execute(entity)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Update_Single", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Update_Single", ex);
             }
         }
         /// <summary>
-        /// 编辑多条状态
+        /// 编辑多条订单明细
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Update/Multiple", Name = "MIS_WFM_Status_Update_Multiple")]
+        [Route("MIS/CMS/OrderDetail/Update/Multiple", Name = "MIS_CMS_OrderDetail_Update_Multiple")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_Multiple(List<Status> entities)
+        public IActionResult Update_Multiple(List<OrderDetail> entities)
         {
             try
             {
@@ -142,72 +141,72 @@ namespace MISApi.Controllers.WFM
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new StatusService.UpdateService().Execute(entities)
+                        new OrderDetailService.UpdateService().Execute(entities)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Update_Multiple", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Update_Multiple", ex);
             }
         }
         #endregion
 
         #region DeleteMode
         /// <summary>
-        ///  删除一条状态
+        ///  删除一条订单明细
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Delete/Single", Name = "MIS_WFM_Status_Delete_Single")]
+        [Route("MIS/CMS/OrderDetail/Delete/Single", Name = "MIS_CMS_OrderDetail_Delete_Single")]
         [HttpPost]
         [Authorize]
-        public IActionResult Delete_Single(Status entity)
+        public IActionResult Delete_Single(OrderDetail entity)
         {
             try
             {
                 return ResponseOk(
                     new DeleteMode.Request().ToResponse(
-                        new StatusService.DeleteService().Execute(entity)
+                        new OrderDetailService.DeleteService().Execute(entity)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Delete_Single", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Delete_Single", ex);
             }
         }
         /// <summary>
-        /// 删除多条状态
+        /// 删除多条订单明细
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Delete/Multiple", Name = "MIS_WFM_Status_Delete_Multiple")]
+        [Route("MIS/CMS/OrderDetail/Delete/Multiple", Name = "MIS_CMS_OrderDetail_Delete_Multiple")]
         [HttpPost]
         [Authorize]
-        public IActionResult Delete_Multiple(List<Status> entities)
+        public IActionResult Delete_Multiple(List<OrderDetail> entities)
         {
             try
             {
                 return ResponseOk(
                     new DeleteMode.Request().ToResponse(
-                        new StatusService.DeleteService().Execute(entities)
+                        new OrderDetailService.DeleteService().Execute(entities)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Delete_Multiple", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Delete_Multiple", ex);
             }
         }
         #endregion
 
         #region ColumnsMode
         /// <summary>
-        /// 查询状态的字段
+        /// 查询订单明细的字段
         /// </summary>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Columns/Single", Name = "MIS_WFM_Status_Columns_Single")]
+        [Route("MIS/CMS/OrderDetail/Columns/Single", Name = "MIS_CMS_OrderDetail_Columns_Single")]
         [HttpPost]
         [Authorize]
         public IActionResult Columns_Single()
@@ -216,24 +215,24 @@ namespace MISApi.Controllers.WFM
             {
                 return ResponseOk(
                     new ColumnsMode.Request().ToResponse(
-                        new StatusService.ColumnsService().Single()
+                        new OrderDetailService.ColumnsService().Single()
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Columns_Single", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Columns_Single", ex);
             }
         }
         #endregion
 
         #region RowMode
         /// <summary>
-        /// 根据Id查询状态
+        /// 根据Id查询订单明细
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Row/ById", Name = "MIS_WFM_Status_Row_ById")]
+        [Route("MIS/CMS/OrderDetail/Row/ById", Name = "MIS_CMS_OrderDetail_Row_ById")]
         [HttpPost]
         [Authorize]
         public IActionResult Row_ById(DTO_Id dto)
@@ -242,21 +241,21 @@ namespace MISApi.Controllers.WFM
             {
                 return ResponseOk(
                     new RowMode.Request().ToResponse(
-                        new StatusService.RowService().ById(dto.Id)
+                        new OrderDetailService.RowService().ById(dto.Id)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Row_ById", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Row_ById", ex);
             }
         }
         /// <summary>
-        /// 根据Id查询状态
+        /// 根据Id查询订单明细
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Row/ById/{id}", Name = "MIS_WFM_Status_Row_ById_Id")]
+        [Route("MIS/CMS/OrderDetail/Row/ById/{id}", Name = "MIS_CMS_OrderDetail_Row_ById_Id")]
         [HttpGet]
         [Authorize]
         public IActionResult Row_ById_Id(int id)
@@ -265,24 +264,24 @@ namespace MISApi.Controllers.WFM
             {
                 return ResponseOk(
                     new RowMode.Request().ToResponse(
-                        new StatusService.RowService().ById(id)
+                        new OrderDetailService.RowService().ById(id)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Row_ById_Id", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Row_ById_Id", ex);
             }
         }
         #endregion
 
         #region RowsMode
         /// <summary>
-        /// 根据关键字模糊查询状态
+        /// 根据关键字模糊查询订单明细
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Rows/ByKeyWord", Name = "MIS_WFM_Status_Rows_ByKeyWord")]
+        [Route("MIS/CMS/OrderDetail/Rows/ByKeyWord", Name = "MIS_CMS_OrderDetail_Rows_ByKeyWord")]
         [HttpPost]
         [Authorize]
         public IActionResult Rows_ByKeyWord(DTO_KeyWord dto)
@@ -291,21 +290,21 @@ namespace MISApi.Controllers.WFM
             {
                 return ResponseOk(
                     new RowsMode.Request().ToResponse(
-                        new StatusService.RowsService().ByKeyWord(new BaseMode.KeyWord(dto.KeyWord))
+                        new OrderDetailService.RowsService().ByKeyWord(new BaseMode.KeyWord(dto.KeyWord))
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.ByKeyWord", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.ByKeyWord", ex);
             }
         }
         /// <summary>
-        /// 根据关键字模糊查询状态
+        /// 根据关键字模糊查询订单明细
         /// </summary>
         /// <param name="keyWord"></param>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Rows/ByKeyWord/{keyWord}", Name = "MIS_WFM_Status_Rows_ByKeyWord_KeyWord")]
+        [Route("MIS/CMS/OrderDetail/Rows/ByKeyWord/{keyWord}", Name = "MIS_CMS_OrderDetail_Rows_ByKeyWord_KeyWord")]
         [HttpGet]
         [Authorize]
         public IActionResult Rows_ByKeyWord_KeyWord(string keyWord)
@@ -314,47 +313,116 @@ namespace MISApi.Controllers.WFM
             {
                 return ResponseOk(
                     new RowsMode.Request().ToResponse(
-                        new StatusService.RowsService().ByKeyWord(new BaseMode.KeyWord(keyWord))
+                        new OrderDetailService.RowsService().ByKeyWord(new BaseMode.KeyWord(keyWord))
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Rows_ByKeyWord_KeyWord", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Rows_ByKeyWord_KeyWord", ex);
             }
         }
         /// <summary>
-        /// 根据Id查询字典子集
+        /// 根据OrderId查询订单明细
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="orderId"></param>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Rows/SubsetById/{id}", Name = "MIS_WFM_Status_Rows_SubsetById_Id")]
+        [Route("MIS/CMS/OrderDetail/Rows/ByOrderId/{orderId}", Name = "MIS_CMS_OrderDetail_Rows_ByOrderId_OrderId")]
         [HttpGet]
         [Authorize]
-        public IActionResult Rows_SubsetById(int id)
+        public IActionResult Rows_ByOrderId_OrderId(int orderId)
         {
             try
             {
                 return ResponseOk(
                     new RowsMode.Request().ToResponse(
-                        new StatusService.RowsService().SubsetById(id)
+                        new OrderDetailService.RowsService().ByOrderId(orderId)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Rows_SubsetById", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Rows_ByOrderId_OrderId", ex);
+            }
+        }
+        /// <summary>
+        /// 根据OwnerId查询订单明细
+        /// </summary>
+        /// <param name="ownerId"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/OrderDetail/Rows/ByOwnerId/{ownerId}", Name = "MIS_CMS_OrderDetail_Rows_ByOwnerId_OwnerId")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_ByOwnerId_OwnerId(int ownerId)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new OrderDetailService.RowsService().ByOwnerId(ownerId)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Rows_ByOwnerId_OwnerId", ex);
+            }
+        }
+        /// <summary>
+        /// 根据GoodsId查询订单明细
+        /// </summary>
+        /// <param name="goodsId"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/OrderDetail/Rows/ByGoodsId/{goodsId}", Name = "MIS_CMS_OrderDetail_Rows_ByGoodsId_GoodsId")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_ByGoodsId_GoodsId(int goodsId)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new OrderDetailService.RowsService().ByGoodsId(goodsId)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Rows_ByGoodsId_GoodsId", ex);
+            }
+        }
+        /// <summary>
+        /// 根据BuyerId查询订单明细
+        /// </summary>
+        /// <param name="buyerId"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/OrderDetail/Rows/ByBuyerId/{buyerId}", Name = "MIS_CMS_OrderDetail_Rows_ByBuyerId_BuyerId")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_ByBuyerId_BuyerId(int buyerId)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new OrderDetailService.RowsService().ByBuyerId(buyerId)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Rows_ByBuyerId_BuyerId", ex);
             }
         }
         #endregion
 
         #region SingleMode
         /// <summary>
-        /// 根据Id查询状态
+        /// 根据Id查询订单明细
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Single/ById", Name = "MIS_WFM_Status_Single_ById")]
+        [Route("MIS/CMS/OrderDetail/Single/ById", Name = "MIS_CMS_OrderDetail_Single_ById")]
         [HttpPost]
         [Authorize]
         public IActionResult Single_ById(DTO_Id dto)
@@ -363,24 +431,24 @@ namespace MISApi.Controllers.WFM
             {
                 return ResponseOk(
                     new SingleMode.Request().ToResponse(
-                        new StatusService.RowService().ById(dto.Id)
+                        new OrderDetailService.RowService().ById(dto.Id)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Single_ById", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Single_ById", ex);
             }
         }
         #endregion
 
         #region QueryMode
         /// <summary>
-        /// 分页查询状态
+        /// 分页查询订单明细
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Query/Page", Name = "MIS_WFM_Status_Query_Page")]
+        [Route("MIS/CMS/OrderDetail/Query/Page", Name = "MIS_CMS_OrderDetail_Query_Page")]
         [HttpPost]
         [Authorize]
         public IActionResult Query_Page(DTO_Page dto)
@@ -389,29 +457,29 @@ namespace MISApi.Controllers.WFM
             {
                 return ResponseOk(
                     new QueryMode.Request().ToResponse(
-                        new StatusService.RowsService().Page(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Page(dto.Page), new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status)),
-                        new StatusService.RowsService().PageCount(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status)),
-                        new StatusService.RowsService().PageSummary(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status))
+                        new OrderDetailService.RowsService().Page(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Page(dto.Page), new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status)),
+                        new OrderDetailService.RowsService().PageCount(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status)),
+                        new OrderDetailService.RowsService().PageSummary(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status))
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Query_Page", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Query_Page", ex);
             }
         }
         #endregion
 
         #region TreeMode
         /// <summary>
-        /// 模糊查询获得树型结构的状态
+        /// 模糊查询获得树型结构的订单明细
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Tree/ByKeyWord", Name = "MIS_WFM_Status_Tree_ByKeyWord")]
+        [Route("MIS/CMS/OrderDetail/Tree/ByKeyWord", Name = "MIS_CMS_OrderDetail_Tree_ByKeyWord")]
         [HttpPost]
         [Authorize]
-        protected IActionResult Tree_ByKeyWord(DTO_KeyWordWithConfig<Status> dto)
+        protected IActionResult Tree_ByKeyWord(DTO_KeyWordWithConfig<OrderDetail> dto)
         {
             try
             {
@@ -432,18 +500,18 @@ namespace MISApi.Controllers.WFM
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Tree_ByKeyWord", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Tree_ByKeyWord", ex);
             }
         }
         /// <summary>
-        /// 根据Id查询获得树型结构的状态
+        /// 根据Id查询获得树型结构的订单明细
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Tree/ById", Name = "MIS_WFM_Status_Tree_ById")]
+        [Route("MIS/CMS/OrderDetail/Tree/ById", Name = "MIS_CMS_OrderDetail_Tree_ById")]
         [HttpPost]
         [Authorize]
-        protected IActionResult Tree_ById(DTO_IdWithConfig<Status> dto)
+        protected IActionResult Tree_ById(DTO_IdWithConfig<OrderDetail> dto)
         {
             try
             {
@@ -464,39 +532,7 @@ namespace MISApi.Controllers.WFM
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Tree_ById", ex);
-            }
-        }
-        /// <summary>
-        /// 根据Id查询获得树型结构的字典
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [Route("MIS/WFM/Status/Tree/SubsetById/{id}", Name = "MIS_WFM_Status_Tree_SubsetById_Id")]
-        [HttpGet]
-        [Authorize]
-        public IActionResult Tree_SubsetById(int id)
-        {
-            try
-            {
-                return Tree(
-                    new TreeMode.Request
-                    {
-                        Config = new Config<Status>("StatusKey", "Name", "Id", "Pid", "true"),
-                        Function = new BaseMode.Function
-                        {
-                            Name = "SubsetById",
-                            Args = new BaseMode.Arg[] {
-                                new BaseMode.Arg(id),
-                                new BaseMode.Arg(new BaseMode.Join [] {})
-                            }
-                        }
-                    }
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Tree_SubsetById", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Tree_ById", ex);
             }
         }
         /// <summary>
@@ -504,7 +540,7 @@ namespace MISApi.Controllers.WFM
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [Route("MIS/WFM/Status/Tree", Name = "MIS_WFM_Status_Tree")]
+        [Route("MIS/CMS/OrderDetail/Tree", Name = "MIS_CMS_OrderDetail_Tree")]
         [HttpPost]
         [Authorize]
         protected IActionResult Tree(TreeMode.Request request)
@@ -521,7 +557,7 @@ namespace MISApi.Controllers.WFM
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.WFM.StatusController.Tree", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Tree", ex);
             }
         }
         #endregion
@@ -539,14 +575,14 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.CreateMode.Request<Status>
+            public class Request : HttpClients.HttpModes.CreateMode.Request<OrderDetail>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.CreateMode.Response<Status> ToResponse(Status entity)
+                public override HttpClients.HttpModes.CreateMode.Response<OrderDetail> ToResponse(OrderDetail entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -555,7 +591,7 @@ namespace MISApi.Controllers.WFM
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.CreateMode.Response<Status> ToResponse(List<Status> entityList)
+                public override HttpClients.HttpModes.CreateMode.Response<OrderDetail> ToResponse(List<OrderDetail> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -563,7 +599,7 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.CreateMode.Response<Status>
+            public class Response : HttpClients.HttpModes.CreateMode.Response<OrderDetail>
             {
 
             }
@@ -579,14 +615,14 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.UpdateMode.Request<Status>
+            public class Request : HttpClients.HttpModes.UpdateMode.Request<OrderDetail>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.UpdateMode.Response<Status> ToResponse(Status entity)
+                public override HttpClients.HttpModes.UpdateMode.Response<OrderDetail> ToResponse(OrderDetail entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -595,7 +631,7 @@ namespace MISApi.Controllers.WFM
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.UpdateMode.Response<Status> ToResponse(List<Status> entityList)
+                public override HttpClients.HttpModes.UpdateMode.Response<OrderDetail> ToResponse(List<OrderDetail> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -603,7 +639,7 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.UpdateMode.Response<Status>
+            public class Response : HttpClients.HttpModes.UpdateMode.Response<OrderDetail>
             {
 
             }
@@ -619,14 +655,14 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.DeleteMode.Request<Status>
+            public class Request : HttpClients.HttpModes.DeleteMode.Request<OrderDetail>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.DeleteMode.Response<Status> ToResponse(Status entity)
+                public override HttpClients.HttpModes.DeleteMode.Response<OrderDetail> ToResponse(OrderDetail entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -635,7 +671,7 @@ namespace MISApi.Controllers.WFM
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.DeleteMode.Response<Status> ToResponse(List<Status> entityList)
+                public override HttpClients.HttpModes.DeleteMode.Response<OrderDetail> ToResponse(List<OrderDetail> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -643,7 +679,7 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.DeleteMode.Response<Status>
+            public class Response : HttpClients.HttpModes.DeleteMode.Response<OrderDetail>
             {
 
             }
@@ -659,14 +695,14 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.ColumnsMode.Request<Status>
+            public class Request : HttpClients.HttpModes.ColumnsMode.Request<OrderDetail>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.ColumnsMode.Response<Status> ToResponse(Status entity)
+                public override HttpClients.HttpModes.ColumnsMode.Response<OrderDetail> ToResponse(OrderDetail entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -674,7 +710,7 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.ColumnsMode.Response<Status>
+            public class Response : HttpClients.HttpModes.ColumnsMode.Response<OrderDetail>
             {
 
             }
@@ -690,14 +726,14 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.RowMode.Request<Status>
+            public class Request : HttpClients.HttpModes.RowMode.Request<OrderDetail>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.RowMode.Response<Status> ToResponse(Status entity)
+                public override HttpClients.HttpModes.RowMode.Response<OrderDetail> ToResponse(OrderDetail entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -705,7 +741,7 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.RowMode.Response<Status>
+            public class Response : HttpClients.HttpModes.RowMode.Response<OrderDetail>
             {
 
             }
@@ -721,14 +757,14 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.RowsMode.Request<Status>
+            public class Request : HttpClients.HttpModes.RowsMode.Request<OrderDetail>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.RowsMode.Response<Status> ToResponse(List<Status> entityList)
+                public override HttpClients.HttpModes.RowsMode.Response<OrderDetail> ToResponse(List<OrderDetail> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -736,7 +772,7 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.RowsMode.Response<Status>
+            public class Response : HttpClients.HttpModes.RowsMode.Response<OrderDetail>
             {
 
             }
@@ -752,14 +788,14 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.SingleMode.Request<Status>
+            public class Request : HttpClients.HttpModes.SingleMode.Request<OrderDetail>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.SingleMode.Response<Status> ToResponse(Status entity)
+                public override HttpClients.HttpModes.SingleMode.Response<OrderDetail> ToResponse(OrderDetail entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -767,7 +803,7 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.SingleMode.Response<Status>
+            public class Response : HttpClients.HttpModes.SingleMode.Response<OrderDetail>
             {
 
             }
@@ -783,14 +819,14 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.QueryMode.Request<Status>
+            public class Request : HttpClients.HttpModes.QueryMode.Request<OrderDetail>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.QueryMode.Response<Status> ToResponse(List<Status> entityList)
+                public override HttpClients.HttpModes.QueryMode.Response<OrderDetail> ToResponse(List<OrderDetail> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -798,7 +834,7 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.QueryMode.Response<Status>
+            public class Response : HttpClients.HttpModes.QueryMode.Response<OrderDetail>
             {
 
             }
@@ -814,14 +850,14 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<Status>
+            public class Request : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<OrderDetail>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.TreeMode.BootstrapTreeViewResponse<Status> ToResponse(List<Status> entityList)
+                public override HttpClients.HttpModes.TreeMode.BootstrapTreeViewResponse<OrderDetail> ToResponse(List<OrderDetail> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -829,7 +865,7 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<Status>
+            public class Response : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<OrderDetail>
             {
 
             }

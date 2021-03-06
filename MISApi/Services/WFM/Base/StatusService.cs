@@ -350,6 +350,23 @@ namespace MISApi.Services.WFM.Base
                 }
             }
             /// <summary>
+            /// 根据Id查询所有子节点（递归并包含Id自身）
+            /// </summary>
+            /// <param name="id"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Status> SubsetById(int id, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    return SubsetByIdRecursion(new List<Status> { new RowService().ById(id) }, id, joins);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.WFM.Base.StatusService.RowsService.SubsetById", ex);
+                }
+            }
+            /// <summary>
             /// 分页
             /// </summary>
             /// <param name="keyWord"></param>
@@ -455,7 +472,31 @@ namespace MISApi.Services.WFM.Base
         #endregion
 
         #region Inner Methods
-
+        /// <summary>
+        /// 根据Id递归获取Status
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="id"></param>
+        /// <param name="joins"></param>
+        /// <returns></returns>
+        private List<Status> SubsetByIdRecursion(List<Status> list, int id, params BaseMode.Join[] joins)
+        {
+            using (PandoraContext context = new PandoraContext())
+            {
+                try
+                {
+                    SQLQueryable(context, joins).Where(row => row.Status.Pid == id).ToList().ForEach(sqlEntity => {
+                        list.Add(sqlEntity.Status);
+                        SubsetByIdRecursion(list, sqlEntity.Status.Id, joins);
+                    });
+                    return list;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.WFM.Base.StatusService.SubsetByIdRecursion", ex);
+                }
+            }
+        }
         /// <summary>
         /// 默认查询
         /// </summary>

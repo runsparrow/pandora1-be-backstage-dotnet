@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MISApi.Controllers.HttpEntities;
 using MISApi.Entities.CMS;
+using MISApi.HttpClients.HttpModes.TreeMode.BootstrapTreeView;
 using MISApi.Services.CMS;
 using MISApi.Tools;
 using System;
@@ -322,6 +323,29 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.NavigationController.Rows_ByKeyWord_KeyWord", ex);
             }
         }
+        /// <summary>
+        /// 根据Id查询字典子集
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Navigation/Rows/SubsetById/{id}", Name = "MIS_CMS_Navigation_Rows_SubsetById_Id")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_SubsetById(int id)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new NavigationService.RowsService().SubsetById(id)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Rows_SubsetById", ex);
+            }
+        }
         #endregion
 
         #region SingleMode
@@ -441,6 +465,38 @@ namespace MISApi.Controllers.CMS
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.CMS.NavigationController.Tree_ById", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询获得树型结构的字典
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Navigation/Tree/SubsetById/{id}", Name = "MIS_CMS_Navigation_Tree_SubsetById_Id")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Tree_SubsetById(int id)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Navigation>("NavigationKey", "Name", "Id", "Pid", "true"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SubsetById",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(id),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.DictionaryController.Tree_SubsetById", ex);
             }
         }
         /// <summary>

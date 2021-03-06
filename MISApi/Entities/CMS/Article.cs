@@ -200,6 +200,13 @@ namespace MISApi.Entities.CMS
 
         #region Not Mapped Property
         /// <summary>
+        /// 导航
+        /// </summary>
+        [Description("导航")]
+        [JsonProperty("navigation")]
+        [NotMapped]
+        public Navigation Navigation { get; set; }
+        /// <summary>
         /// 状态
         /// </summary>
         [Description("状态")]

@@ -329,6 +329,28 @@ namespace MISApi.Services.CMS.Base
                 }
             }
             /// <summary>
+            /// 根据导航Id查询
+            /// </summary>
+            /// <param name="navigationId">导航Id</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Article> ByNavigationId(int navigationId, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins).Where(row=>row.Article.Navigationid == navigationId).ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.ArticleService.RowsService.ByNavigationId", ex);
+                    }
+                }
+            }
+            /// <summary>
             /// 分页
             /// </summary>
             /// <param name="keyWord"></param>
@@ -451,12 +473,23 @@ namespace MISApi.Services.CMS.Base
             // 遍历
             foreach (var join in joins)
             {
+                // SQLEntity.Navigation
+                if (join.Name.ToLower().Equals("navigation"))
+                {
+                    left = left.LeftOuterJoin(context.CMS_Navigation, Main => Main.Article.Navigationid, Left => Left.Id, (Main, Left) => new SQLEntity
+                    {
+                        Article = Main.Article,
+                        Navigation = Left,
+                        Status = Main.Status
+                    });
+                }
                 // SQLEntity.Status
                 if (join.Name.ToLower().Equals("status"))
                 {
                     left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Article.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
                     {
                         Article = Main.Article,
+                        Navigation = Main.Navigation,
                         Status = Left
                     });
                 }
@@ -465,6 +498,7 @@ namespace MISApi.Services.CMS.Base
             var group = left.Select(Main => new SQLEntity
             {
                 Article = Main.Article,
+                Navigation = Main.Navigation,
                 Status = Main.Status
             });
             // 遍历
@@ -496,9 +530,13 @@ namespace MISApi.Services.CMS.Base
                     {
                         var andKeyWord = ands[i];
                         queryable = queryable.Where(row =>
+                                row.Article.NavigationName.Contains(andKeyWord) ||
                                 row.Article.Title.Contains(andKeyWord) ||
                                 row.Article.Content.Contains(andKeyWord) ||
                                 row.Article.Publisher.Contains(andKeyWord) ||
+                                row.Article.Summary.Contains(andKeyWord) ||
+                                row.Article.Tags.Contains(andKeyWord) ||
+                                row.Article.Url.Contains(andKeyWord) ||
                                 row.Article.Remark.Contains(andKeyWord) ||
                                 row.Article.StatusName.Contains(andKeyWord)
                             );
@@ -507,9 +545,13 @@ namespace MISApi.Services.CMS.Base
                 else if (ors.Length > 1)
                 {
                     queryable = queryable.Where(row =>
+                            ors.Contains(row.Article.NavigationName) ||
                             ors.Contains(row.Article.Title) ||
                             ors.Contains(row.Article.Content) ||
                             ors.Contains(row.Article.Publisher) ||
+                            ors.Contains(row.Article.Summary) ||
+                            ors.Contains(row.Article.Tags) ||
+                            ors.Contains(row.Article.Url) ||
                             ors.Contains(row.Article.Remark) ||
                             ors.Contains(row.Article.StatusName)
                         );
@@ -517,9 +559,13 @@ namespace MISApi.Services.CMS.Base
                 else
                 {
                     queryable = queryable.Where(row =>
+                            row.Article.NavigationName.Contains(keyWord) ||
                             row.Article.Title.Contains(keyWord) ||
                             row.Article.Content.Contains(keyWord) ||
                             row.Article.Publisher.Contains(keyWord) ||
+                            row.Article.Summary.Contains(keyWord) ||
+                            row.Article.Tags.Contains(keyWord) ||
+                            row.Article.Url.Contains(keyWord) ||
                             row.Article.Remark.Contains(keyWord) ||
                             row.Article.StatusName.Contains(keyWord)
                         );
@@ -552,6 +598,55 @@ namespace MISApi.Services.CMS.Base
                         int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                         queryable = queryable.Where(row => row.Article.StatusId == statusId);
                     }
+                    if (splits[i].ToLower().Contains("navigationid"))
+                    {
+                        int navigationid = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Article.Navigationid == navigationid);
+                    }
+                    if (splits[i].ToLower().Contains("urltype"))
+                    {
+                        string urlType = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                        queryable = queryable.Where(row => row.Article.UrlType == urlType);
+                    }
+                    if (splits[i].ToLower().Contains("isdisplay"))
+                    {
+                        bool isDisplay = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Article.IsDisplay == isDisplay);
+                    }
+                    if (splits[i].ToLower().Contains("istop"))
+                    {
+                        bool isTop = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Article.IsTop == isTop);
+                    }
+                    if (splits[i].ToLower().Contains("istarget"))
+                    {
+                        bool isTarget = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Article.IsTarget == isTarget);
+                    }
+                    if (splits[i].ToLower().Contains("hits"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Article.Hits >= min && row.Article.Hits <= max);
+                    }
+                    if (splits[i].ToLower().Contains("likes"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Article.Likes >= min && row.Article.Likes <= max);
+                    }
+                    if (splits[i].ToLower().Contains("collects"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Article.Collects >= min && row.Article.Collects <= max);
+                    }
+                    if (splits[i].ToLower().Contains("forwards"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Article.Forwards >= min && row.Article.Forwards <= max);
+                    }
                 }
                 return queryable;
             }
@@ -574,7 +669,20 @@ namespace MISApi.Services.CMS.Base
                 {
                     dates.ToList().ForEach(date =>
                     {
-
+                        if (date.Name.ToLower().Equals("createdatetime"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.Article.CreateDateTime >= date.MinDate && row.Article.CreateDateTime <= date.MaxDate
+                                );
+                        }
+                        if (date.Name.ToLower().Equals("editdatetime"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.Article.EditDateTime >= date.MinDate && row.Article.EditDateTime <= date.MaxDate
+                                );
+                        }
                     });
                 }
                 return queryable;
@@ -673,6 +781,8 @@ namespace MISApi.Services.CMS.Base
                     return null;
                 // 主表
                 Article articleEntity = entity.Article;
+                // 导航
+                articleEntity.Navigation = entity.Navigation ?? null;
                 // 状态
                 articleEntity.Status = entity.Status ?? null;
                 // 返回
@@ -712,6 +822,10 @@ namespace MISApi.Services.CMS.Base
             /// 
             /// </summary>
             public Article Article { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public Navigation Navigation { get; set; }
             /// <summary>
             /// 
             /// </summary>

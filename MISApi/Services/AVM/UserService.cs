@@ -44,7 +44,7 @@ namespace MISApi.Services.AVM
                     User result = new User();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByCode("avm.user.open");
+                        Status status = new StatusCacheService.RowService().ByKey("avm.user.open");
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;

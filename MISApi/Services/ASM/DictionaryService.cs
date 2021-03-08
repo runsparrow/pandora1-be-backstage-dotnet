@@ -41,7 +41,7 @@ namespace MISApi.Services.ASM
                     Dictionary result = new Dictionary();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByCode("asm.dictionary.open");
+                        Status status = new StatusCacheService.RowService().ByKey("asm.dictionary.open");
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;

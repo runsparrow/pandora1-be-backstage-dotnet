@@ -367,6 +367,32 @@ namespace MISApi.Services.WFM.Base
                 }
             }
             /// <summary>
+            /// 根据Id查询所有父节点（递归并包含Id自身）
+            /// </summary>
+            /// <param name="id"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Status> SupersetById(int id, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    Status currentStatus = new RowService().ById(id);
+                    List<Status> result = SupersetByIdRecursion(new List<Status>(), currentStatus.Pid, joins);
+                    result.Add(currentStatus);
+                    string path = "^";
+                    // 生成path
+                    result.ForEach(status =>
+                    {
+                        path = status.Path = $"{path}{status.Name}^";
+                    });
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.StatusService.RowsService.SupersetById", ex);
+                }
+            }
+            /// <summary>
             /// 分页
             /// </summary>
             /// <param name="keyWord"></param>
@@ -498,6 +524,31 @@ namespace MISApi.Services.WFM.Base
             }
         }
         /// <summary>
+        /// 根据Id递归获取Status
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="pid"></param>
+        /// <param name="joins"></param>
+        /// <returns></returns>
+        private List<Status> SupersetByIdRecursion(List<Status> list, int pid, params BaseMode.Join[] joins)
+        {
+            using (PandoraContext context = new PandoraContext())
+            {
+                try
+                {
+                    SQLQueryable(context, joins).Where(row => row.Status.Id == pid).ToList().ForEach(sqlEntity => {
+                        SupersetByIdRecursion(list, sqlEntity.Status.Pid, joins);
+                        list.Add(sqlEntity.Status);
+                    });
+                    return list;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.StatusService.SupersetByIdRecursion", ex);
+                }
+            }
+        }
+        /// <summary>
         /// 默认查询
         /// </summary>
         /// <param name="context"></param>
@@ -559,8 +610,6 @@ namespace MISApi.Services.WFM.Base
                         var andKeyWord = ands[i];
                         queryable = queryable.Where(row =>
                                 row.Status.Name.Contains(andKeyWord) ||
-                                row.Status.Path.Contains(andKeyWord) ||
-                                row.Status.Code.Contains(andKeyWord) ||
                                 row.Status.Desc.Contains(andKeyWord)
                             );
                     }
@@ -569,8 +618,6 @@ namespace MISApi.Services.WFM.Base
                 {
                     queryable = queryable.Where(row =>
                             ors.Contains(row.Status.Name) ||
-                            ors.Contains(row.Status.Path) ||
-                            ors.Contains(row.Status.Code) ||
                             ors.Contains(row.Status.Desc)
                         );
                 }
@@ -578,8 +625,6 @@ namespace MISApi.Services.WFM.Base
                 {
                     queryable = queryable.Where(row =>
                             row.Status.Name.Contains(keyWord) ||
-                            row.Status.Path.Contains(keyWord) ||
-                            row.Status.Code.Contains(keyWord) ||
                             row.Status.Desc.Contains(keyWord)
                         );
                 }

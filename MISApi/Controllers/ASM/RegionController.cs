@@ -339,6 +339,29 @@ namespace MISApi.Controllers.ASM
                 throw new Exception("MISApi.Controllers.ASM.RegionController.Rows_SubsetById", ex);
             }
         }
+        /// <summary>
+        /// 根据Id查询行政区划父集
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Region/Rows/SupersetById/{id}", Name = "MIS_ASM_Region_Rows_SupersetById_Id")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_SupersetById(int id)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new RegionService.RowsService().SupersetById(id)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Rows_SupersetById", ex);
+            }
+        }
         #endregion
 
         #region SingleMode
@@ -490,6 +513,38 @@ namespace MISApi.Controllers.ASM
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.ASM.RegionController.Tree_SubsetById", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询获得树型结构的行政区划
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Region/Tree/SupersetById/{id}", Name = "MIS_ASM_Region_Tree_SupersetById_Id")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Tree_SupersetById(int id)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Region>("RegionKey", "Name", "Id", "Pid", "true"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SupersetById",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(id),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Tree_SupersetById", ex);
             }
         }
         /// <summary>

@@ -184,27 +184,6 @@ namespace MISApi.CacheServices.ASM
                 }
             }
             /// <summary>
-            /// 根据 code 查询
-            /// </summary>
-            /// <param name="code"></param>
-            /// <param name="joins"></param>
-            /// <returns></returns>
-            public Dictionary ByCode(string code, params BaseMode.Join[] joins)
-            {
-                try
-                {
-                    return SQLEntityToSingle(
-                            SQLToList()
-                                .Where(row => row.Code == code)
-                                .SingleOrDefault()
-                        );
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("MISApi.CacheServices.ASM.DictionaryCacheService.RowService.ByCode", ex);
-                }
-            }
-            /// <summary>
             /// 根据 key 查询
             /// </summary>
             /// <param name="key"></param>
@@ -440,7 +419,7 @@ namespace MISApi.CacheServices.ASM
             /// <param name="joins"></param>
             /// <param name="dates"></param>
             /// <param name="sorts"></param>
-            /// <param name="dictionary"></param>
+            /// <param name="status"></param>
             /// <returns></returns>
             public SummaryEntity PageSummary(BaseMode.KeyWord keyWord, BaseMode.Join[] joins, BaseMode.Date[] dates, BaseMode.Sort[] sorts, BaseMode.Status status)
             {
@@ -614,8 +593,6 @@ namespace MISApi.CacheServices.ASM
                         var andKeyWord = ands[i];
                         list = list.Where(row =>
                                 row.Name.Contains(andKeyWord) ||
-                                row.Code.Contains(andKeyWord) ||
-                                row.Path.Contains(andKeyWord) ||
                                 row.Desc.Contains(andKeyWord)
                             ).ToList();
                     }
@@ -624,8 +601,6 @@ namespace MISApi.CacheServices.ASM
                 {
                     list = list.Where(row =>
                             ors.Contains(row.Name) ||
-                            ors.Contains(row.Code) ||
-                            ors.Contains(row.Path) ||
                             ors.Contains(row.Desc)
                         ).ToList();
                 }
@@ -633,8 +608,6 @@ namespace MISApi.CacheServices.ASM
                 {
                     list = list.Where(row =>
                             row.Name.Contains(keyWord) ||
-                            row.Code.Contains(keyWord) ||
-                            row.Path.Contains(keyWord) ||
                             row.Desc.Contains(keyWord)
                         ).ToList();
                 }
@@ -702,10 +675,10 @@ namespace MISApi.CacheServices.ASM
             }
         }
         /// <summary>
-        /// 字典
+        /// 数据字典
         /// </summary>
         /// <param name="list"></param>
-        /// <param name="dictionary"></param>
+        /// <param name="status"></param>
         /// <returns></returns>
         private List<Dictionary> StatusToList(List<Dictionary> list, BaseMode.Status status)
         {

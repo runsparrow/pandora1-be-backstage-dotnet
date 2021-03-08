@@ -58,6 +58,14 @@ namespace MISApi.Entities.ASM
 
         #region Not Mapped Property
         /// <summary>
+        /// 路径
+        /// </summary>
+        [StringLength(2000)]
+        [Description("路径")]
+        [JsonProperty("path")]
+        [NotMapped]
+        public string Path { get; set; } = "";
+        /// <summary>
         /// 上级字典
         /// </summary>
         [Description("上级字典")]

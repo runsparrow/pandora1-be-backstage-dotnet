@@ -41,7 +41,7 @@ namespace MISApi.Services.CMS
                     Authority result = new Authority();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByCode("cms.authority.open");
+                        Status status = new StatusCacheService.RowService().ByKey("cms.authority.open");
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;

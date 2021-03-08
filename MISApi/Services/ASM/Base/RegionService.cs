@@ -368,6 +368,32 @@ namespace MISApi.Services.ASM.Base
                 }
             }
             /// <summary>
+            /// 根据Id查询所有父节点（递归并包含Id自身）
+            /// </summary>
+            /// <param name="id"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Region> SupersetById(int id, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    Region currentRegion = new RowService().ById(id);
+                    List<Region> result = SupersetByIdRecursion(new List<Region>(), currentRegion.Pid, joins);
+                    result.Add(currentRegion);
+                    string path = "^";
+                    // 生成path
+                    result.ForEach(region =>
+                    {
+                        path = region.Path = $"{path}{region.Name}^";
+                    });
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.RegionService.RowsService.SupersetById", ex);
+                }
+            }
+            /// <summary>
             /// 分页
             /// </summary>
             /// <param name="keyWord"></param>
@@ -495,6 +521,31 @@ namespace MISApi.Services.ASM.Base
                 catch (Exception ex)
                 {
                     throw new Exception("MISApi.Services.ASM.Base.RegionService.SubsetByIdRecursion", ex);
+                }
+            }
+        }
+        /// <summary>
+        /// 根据Id递归获取Region
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="pid"></param>
+        /// <param name="joins"></param>
+        /// <returns></returns>
+        private List<Region> SupersetByIdRecursion(List<Region> list, int pid, params BaseMode.Join[] joins)
+        {
+            using (PandoraContext context = new PandoraContext())
+            {
+                try
+                {
+                    SQLQueryable(context, joins).Where(row => row.Region.Id == pid).ToList().ForEach(sqlEntity => {
+                        SupersetByIdRecursion(list, sqlEntity.Region.Pid, joins);
+                        list.Add(sqlEntity.Region);
+                    });
+                    return list;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.RegionService.SupersetByIdRecursion", ex);
                 }
             }
         }

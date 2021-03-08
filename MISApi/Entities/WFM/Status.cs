@@ -36,20 +36,6 @@ namespace MISApi.Entities.WFM
         [JsonProperty("name")]
         public string Name { get; set; } = "";
         /// <summary>
-        /// 节点路径
-        /// </summary>
-        [StringLength(255)]
-        [Description("节点路径")]
-        [JsonProperty("path")]
-        public string Path { get; set; } = "";
-        /// <summary>
-        /// 代码
-        /// </summary>
-        [StringLength(255)]
-        [Description("代码")]
-        [JsonProperty("code")]
-        public string Code { get; set; } = "";
-        /// <summary>
         /// 键名
         /// </summary>
         [StringLength(255)]
@@ -96,6 +82,14 @@ namespace MISApi.Entities.WFM
         #endregion
 
         #region Not Mapped Property
+        /// <summary>
+        /// 节点路径
+        /// </summary>
+        [StringLength(255)]
+        [Description("节点路径")]
+        [JsonProperty("path")]
+        [NotMapped]
+        public string Path { get; set; } = "";
         /// <summary>
         /// 上级状态
         /// </summary>

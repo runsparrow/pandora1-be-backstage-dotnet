@@ -96,14 +96,6 @@
             <param name="joins"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.CacheServices.ASM.DictionaryCacheService.RowService.ByCode(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
-            <summary>
-            根据 code 查询
-            </summary>
-            <param name="code"></param>
-            <param name="joins"></param>
-            <returns></returns>
-        </member>
         <member name="M:MISApi.CacheServices.ASM.DictionaryCacheService.RowService.ByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
             <summary>
             根据 key 查询
@@ -190,7 +182,7 @@
             <param name="joins"></param>
             <param name="dates"></param>
             <param name="sorts"></param>
-            <param name="dictionary"></param>
+            <param name="status"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.CacheServices.ASM.DictionaryCacheService.SingleService">
@@ -281,10 +273,10 @@
         </member>
         <member name="M:MISApi.CacheServices.ASM.DictionaryCacheService.StatusToList(System.Collections.Generic.List{MISApi.Entities.ASM.Dictionary},MISApi.HttpClients.HttpModes.BaseMode.Status)">
             <summary>
-            字典
+            数据字典
             </summary>
             <param name="list"></param>
-            <param name="dictionary"></param>
+            <param name="status"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.CacheServices.ASM.DictionaryCacheService.SortToList(System.Collections.Generic.List{MISApi.Entities.ASM.Dictionary},MISApi.HttpClients.HttpModes.BaseMode.Sort[])">
@@ -415,14 +407,6 @@
             根据 id 查询
             </summary>
             <param name="id">Id</param>
-            <param name="joins"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.CacheServices.WFM.StatusCacheService.RowService.ByCode(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
-            <summary>
-            根据 code 查询
-            </summary>
-            <param name="code"></param>
             <param name="joins"></param>
             <returns></returns>
         </member>
@@ -734,6 +718,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Rows_SupersetById(System.Int32)">
+            <summary>
+            根据Id查询数据字典父集
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
             <summary>
             根据Id查询数据字典
@@ -763,6 +754,13 @@
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Tree_SubsetById(System.Int32)">
+            <summary>
+            根据Id查询获得树型结构的数据字典
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Tree_SupersetById(System.Int32)">
             <summary>
             根据Id查询获得树型结构的数据字典
             </summary>
@@ -1083,6 +1081,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Rows_SupersetById(System.Int32)">
+            <summary>
+            根据Id查询行政区划父集
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.ASM.RegionController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
             <summary>
             根据Id查询行政区划
@@ -1112,6 +1117,13 @@
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.RegionController.Tree_SubsetById(System.Int32)">
+            <summary>
+            根据Id查询获得树型结构的行政区划
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Tree_SupersetById(System.Int32)">
             <summary>
             根据Id查询获得树型结构的行政区划
             </summary>
@@ -3539,7 +3551,14 @@
         </member>
         <member name="M:MISApi.Controllers.CMS.NavigationController.Rows_SubsetById(System.Int32)">
             <summary>
-            根据Id查询字典子集
+            根据Id查询导航子集
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Rows_SupersetById(System.Int32)">
+            <summary>
+            根据Id查询导航父集
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -3574,7 +3593,14 @@
         </member>
         <member name="M:MISApi.Controllers.CMS.NavigationController.Tree_SubsetById(System.Int32)">
             <summary>
-            根据Id查询获得树型结构的字典
+            根据Id查询获得树型结构的导航
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Tree_SupersetById(System.Int32)">
+            <summary>
+            根据Id查询获得树型结构的导航
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -4878,6 +4904,13 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.UserController.Create_Regist(MISApi.Entities.CMS.User)">
+            <summary>
+            注册用户
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.UserController.Update_Single(MISApi.Entities.CMS.User)">
             <summary>
             编辑一条用户
@@ -5587,6 +5620,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.WFM.StatusController.Rows_SupersetById(System.Int32)">
+            <summary>
+            根据Id查询状态父集
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.WFM.StatusController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
             <summary>
             根据Id查询状态
@@ -5618,6 +5658,13 @@
         <member name="M:MISApi.Controllers.WFM.StatusController.Tree_SubsetById(System.Int32)">
             <summary>
             根据Id查询获得树型结构的字典
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.WFM.StatusController.Tree_SupersetById(System.Int32)">
+            <summary>
+            根据Id查询获得树型结构的状态
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -6163,16 +6210,6 @@
             名称
             </summary>
         </member>
-        <member name="P:MISApi.Entities.ASM.Dictionary.Path">
-            <summary>
-            路径
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.ASM.Dictionary.Code">
-            <summary>
-            代码
-            </summary>
-        </member>
         <member name="P:MISApi.Entities.ASM.Dictionary.Key">
             <summary>
             键名
@@ -6223,6 +6260,11 @@
             最后修改用户Id
             </summary>
         </member>
+        <member name="P:MISApi.Entities.ASM.Dictionary.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.ASM.Dictionary.ParentDictionary">
             <summary>
             上级字典
@@ -6266,6 +6308,11 @@
         <member name="P:MISApi.Entities.ASM.Region.ImportDateTime">
             <summary>
             导入时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Region.Path">
+            <summary>
+            路径
             </summary>
         </member>
         <member name="P:MISApi.Entities.ASM.Region.ParentRegion">
@@ -7195,16 +7242,6 @@
             名称
             </summary>
         </member>
-        <member name="P:MISApi.Entities.CMS.Navigation.Path">
-            <summary>
-            路径
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Navigation.Code">
-            <summary>
-            代码
-            </summary>
-        </member>
         <member name="P:MISApi.Entities.CMS.Navigation.Sort">
             <summary>
             排序
@@ -7283,6 +7320,11 @@
         <member name="P:MISApi.Entities.CMS.Navigation.EditUserId">
             <summary>
             最后修改用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.Path">
+            <summary>
+            路径
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Navigation.Status">
@@ -7388,6 +7430,11 @@
         <member name="P:MISApi.Entities.CMS.Order.Status">
             <summary>
             状态
+            </summary>
+        </member>
+        <member name="T:MISApi.Entities.CMS.OrderDetail">
+            <summary>
+            
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.OrderDetail.Id">
@@ -7750,16 +7797,6 @@
             名称
             </summary>
         </member>
-        <member name="P:MISApi.Entities.WFM.Status.Path">
-            <summary>
-            节点路径
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.WFM.Status.Code">
-            <summary>
-            代码
-            </summary>
-        </member>
         <member name="P:MISApi.Entities.WFM.Status.Key">
             <summary>
             键名
@@ -7793,6 +7830,11 @@
         <member name="P:MISApi.Entities.WFM.Status.EditUserId">
             <summary>
             最后修改用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.WFM.Status.Path">
+            <summary>
+            节点路径
             </summary>
         </member>
         <member name="P:MISApi.Entities.WFM.Status.ParentStatus">
@@ -9783,6 +9825,14 @@
             <param name="joins"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.ASM.Base.DictionaryService.RowsService.SupersetById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id查询所有父节点（递归并包含Id自身）
+            </summary>
+            <param name="id"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.ASM.Base.DictionaryService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
             <summary>
             分页
@@ -9823,6 +9873,15 @@
             </summary>
             <param name="list"></param>
             <param name="id"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.DictionaryService.SupersetByIdRecursion(System.Collections.Generic.List{MISApi.Entities.ASM.Dictionary},System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id递归获取Dictionary
+            </summary>
+            <param name="list"></param>
+            <param name="pid"></param>
             <param name="joins"></param>
             <returns></returns>
         </member>
@@ -10066,6 +10125,14 @@
             <param name="joins"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.RowsService.SupersetById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id查询所有父节点（递归并包含Id自身）
+            </summary>
+            <param name="id"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.ASM.Base.RegionService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
             <summary>
             分页
@@ -10106,6 +10173,15 @@
             </summary>
             <param name="list"></param>
             <param name="id"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.SupersetByIdRecursion(System.Collections.Generic.List{MISApi.Entities.ASM.Region},System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id递归获取Region
+            </summary>
+            <param name="list"></param>
+            <param name="pid"></param>
             <param name="joins"></param>
             <returns></returns>
         </member>
@@ -12074,6 +12150,14 @@
             <param name="joins"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.RowsService.SupersetById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id查询所有父节点（递归并包含Id自身）
+            </summary>
+            <param name="id"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.CMS.Base.NavigationService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
             <summary>
             分页
@@ -12114,6 +12198,15 @@
             </summary>
             <param name="list"></param>
             <param name="id"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.SupersetByIdRecursion(System.Collections.Generic.List{MISApi.Entities.CMS.Navigation},System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id递归获取Navigation
+            </summary>
+            <param name="list"></param>
+            <param name="pid"></param>
             <param name="joins"></param>
             <returns></returns>
         </member>
@@ -13793,6 +13886,13 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.UserService.CreateService.Regist(MISApi.Entities.CMS.User)">
+            <summary>
+            注册
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Services.CMS.UserService.UpdateService">
             <summary>
             UpdateService
@@ -14133,6 +14233,14 @@
             <param name="joins"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.WFM.Base.StatusService.RowsService.SupersetById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id查询所有父节点（递归并包含Id自身）
+            </summary>
+            <param name="id"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.WFM.Base.StatusService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
             <summary>
             分页
@@ -14173,6 +14281,15 @@
             </summary>
             <param name="list"></param>
             <param name="id"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.WFM.Base.StatusService.SupersetByIdRecursion(System.Collections.Generic.List{MISApi.Entities.WFM.Status},System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id递归获取Status
+            </summary>
+            <param name="list"></param>
+            <param name="pid"></param>
             <param name="joins"></param>
             <returns></returns>
         </member>

@@ -184,27 +184,6 @@ namespace MISApi.CacheServices.WFM
                 }
             }
             /// <summary>
-            /// 根据 code 查询
-            /// </summary>
-            /// <param name="code"></param>
-            /// <param name="joins"></param>
-            /// <returns></returns>
-            public Status ByCode(string code, params BaseMode.Join[] joins)
-            {
-                try
-                {
-                    return SQLEntityToSingle(
-                            SQLToList()
-                                .Where(row => row.Code == code)
-                                .SingleOrDefault()
-                        );
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("MISApi.CacheServices.WFM.StatusCacheService.RowService.ByCode", ex);
-                }
-            }
-            /// <summary>
             /// 根据 key 查询
             /// </summary>
             /// <param name="key"></param>
@@ -614,8 +593,6 @@ namespace MISApi.CacheServices.WFM
                         var andKeyWord = ands[i];
                         list = list.Where(row =>
                                 row.Name.Contains(andKeyWord) ||
-                                row.Code.Contains(andKeyWord) ||
-                                row.Path.Contains(andKeyWord) ||
                                 row.Desc.Contains(andKeyWord)
                             ).ToList();
                     }
@@ -624,8 +601,6 @@ namespace MISApi.CacheServices.WFM
                 {
                     list = list.Where(row =>
                             ors.Contains(row.Name) ||
-                            ors.Contains(row.Code) ||
-                            ors.Contains(row.Path) ||
                             ors.Contains(row.Desc)
                         ).ToList();
                 }
@@ -633,8 +608,6 @@ namespace MISApi.CacheServices.WFM
                 {
                     list = list.Where(row =>
                             row.Name.Contains(keyWord) ||
-                            row.Code.Contains(keyWord) ||
-                            row.Path.Contains(keyWord) ||
                             row.Desc.Contains(keyWord)
                         ).ToList();
                 }

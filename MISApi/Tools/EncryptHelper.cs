@@ -101,7 +101,7 @@ namespace MISApi.Tools
                     }
                     catch (System.Exception ex)
                     {
-                        throw ex;
+                        throw new Exception("MISApi.Tools.EncryptHelper.GetFileBase64String", ex);
                     }
                 }
             }

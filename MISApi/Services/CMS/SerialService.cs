@@ -41,7 +41,7 @@ namespace MISApi.Services.CMS
                     Serial result = new Serial();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByCode("cms.serial.open");
+                        Status status = new StatusCacheService.RowService().ByKey("cms.serial.open");
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;

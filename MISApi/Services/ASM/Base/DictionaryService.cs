@@ -368,6 +368,32 @@ namespace MISApi.Services.ASM.Base
                 }
             }
             /// <summary>
+            /// 根据Id查询所有父节点（递归并包含Id自身）
+            /// </summary>
+            /// <param name="id"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Dictionary> SupersetById(int id, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    Dictionary currentDictionary = new RowService().ById(id);
+                    List<Dictionary> result = SupersetByIdRecursion(new List<Dictionary>(), currentDictionary.Pid, joins);
+                    result.Add(currentDictionary);
+                    string path = "^";
+                    // 生成path
+                    result.ForEach(dictionary =>
+                    {
+                        path = dictionary.Path = $"{path}{dictionary.Name}^";
+                    });
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.DictionaryService.RowsService.SupersetById", ex);
+                }
+            }
+            /// <summary>
             /// 分页
             /// </summary>
             /// <param name="keyWord"></param>
@@ -495,6 +521,31 @@ namespace MISApi.Services.ASM.Base
                 catch (Exception ex)
                 {
                     throw new Exception("MISApi.Services.ASM.Base.DictionaryService.SubsetByIdRecursion", ex);
+                }
+            }
+        }
+        /// <summary>
+        /// 根据Id递归获取Dictionary
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="pid"></param>
+        /// <param name="joins"></param>
+        /// <returns></returns>
+        private List<Dictionary> SupersetByIdRecursion(List<Dictionary> list, int pid, params BaseMode.Join[] joins)
+        {
+            using (PandoraContext context = new PandoraContext())
+            {
+                try
+                {
+                    SQLQueryable(context, joins).Where(row => row.Dictionary.Id == pid).ToList().ForEach(sqlEntity => {
+                        SupersetByIdRecursion(list, sqlEntity.Dictionary.Pid, joins);
+                        list.Add(sqlEntity.Dictionary);
+                    });
+                    return list;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.DictionaryService.SupersetByIdRecursion", ex);
                 }
             }
         }

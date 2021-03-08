@@ -54,7 +54,7 @@ namespace MISApi.HttpClients
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("MISApi.HttpClients.HttpClientHelper.HttpGetResponse", ex);
             }
         }
         /// <summary>
@@ -102,7 +102,7 @@ namespace MISApi.HttpClients
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("MISApi.HttpClients.HttpClientHelper.HttpPostRequestAsync", ex);
             }
         }
         /// <summary>
@@ -140,7 +140,7 @@ namespace MISApi.HttpClients
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("MISApi.HttpClients.HttpClientHelper.HttpGetRequestAsync", ex);
             }
         }
         #endregion

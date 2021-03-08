@@ -324,7 +324,7 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 根据Id查询字典子集
+        /// 根据Id查询导航子集
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -344,6 +344,29 @@ namespace MISApi.Controllers.CMS
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.CMS.NavigationController.Rows_SubsetById", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询导航父集
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Navigation/Rows/SupersetById/{id}", Name = "MIS_CMS_Navigation_Rows_SupersetById_Id")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_SupersetById(int id)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new NavigationService.RowsService().SupersetById(id)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.NavigationController.Rows_SupersetById", ex);
             }
         }
         #endregion
@@ -468,7 +491,7 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 根据Id查询获得树型结构的字典
+        /// 根据Id查询获得树型结构的导航
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -497,6 +520,38 @@ namespace MISApi.Controllers.CMS
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.CMS.DictionaryController.Tree_SubsetById", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询获得树型结构的导航
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Navigation/Tree/SupersetById/{id}", Name = "MIS_CMS_Navigation_Tree_SupersetById_Id")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Tree_SupersetById(int id)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Navigation>("NavigationKey", "Name", "Id", "Pid", "true"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SupersetById",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(id),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.NavigationController.Tree_SupersetById", ex);
             }
         }
         /// <summary>

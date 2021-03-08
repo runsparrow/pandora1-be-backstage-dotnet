@@ -41,7 +41,7 @@ namespace MISApi.Services.CMS
                     CashOut result = new CashOut();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByCode("cms.cashout.open");
+                        Status status = new StatusCacheService.RowService().ByKey("cms.cashout.open");
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;

@@ -346,6 +346,29 @@ namespace MISApi.Controllers.WFM
                 throw new Exception("MISApi.Controllers.WFM.StatusController.Rows_SubsetById", ex);
             }
         }
+        /// <summary>
+        /// 根据Id查询状态父集
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("MIS/WFM/Status/Rows/SupersetById/{id}", Name = "MIS_WFM_Status_Rows_SupersetById_Id")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_SupersetById(int id)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new StatusService.RowsService().SupersetById(id)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.StatusController.Rows_SupersetById", ex);
+            }
+        }
         #endregion
 
         #region SingleMode
@@ -497,6 +520,38 @@ namespace MISApi.Controllers.WFM
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.WFM.StatusController.Tree_SubsetById", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询获得树型结构的状态
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("MIS/WFM/Status/Tree/SupersetById/{id}", Name = "MIS_WFM_Status_Tree_SupersetById_Id")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Tree_SupersetById(int id)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Status>("StatusKey", "Name", "Id", "Pid", "true"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SupersetById",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(id),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.WFM.StatusController.Tree_SupersetById", ex);
             }
         }
         /// <summary>

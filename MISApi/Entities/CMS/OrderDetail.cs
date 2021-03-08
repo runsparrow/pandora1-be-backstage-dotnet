@@ -7,6 +7,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MISApi.Entities.CMS
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class OrderDetail
     {
         #region Property

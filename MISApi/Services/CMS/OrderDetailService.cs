@@ -41,7 +41,7 @@ namespace MISApi.Services.CMS
                     OrderDetail result = new OrderDetail();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByCode("cms.orderdetail.open");
+                        Status status = new StatusCacheService.RowService().ByKey("cms.orderdetail.open");
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;

@@ -346,6 +346,32 @@ namespace MISApi.Services.CMS.Base
                 }
             }
             /// <summary>
+            /// 根据Id查询所有父节点（递归并包含Id自身）
+            /// </summary>
+            /// <param name="id"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Navigation> SupersetById(int id, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    Navigation currentNavigation = new RowService().ById(id);
+                    List<Navigation> result = SupersetByIdRecursion(new List<Navigation>(), currentNavigation.Pid, joins);
+                    result.Add(currentNavigation);
+                    string path = "^";
+                    // 生成path
+                    result.ForEach(navigation =>
+                    {
+                        path = navigation.Path = $"{path}{navigation.Name}^";
+                    });
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.NavigationService.RowsService.SupersetById", ex);
+                }
+            }
+            /// <summary>
             /// 分页
             /// </summary>
             /// <param name="keyWord"></param>
@@ -473,6 +499,31 @@ namespace MISApi.Services.CMS.Base
                 catch (Exception ex)
                 {
                     throw new Exception("MISApi.Services.ASM.Base.NavigationService.SubsetByIdRecursion", ex);
+                }
+            }
+        }
+        /// <summary>
+        /// 根据Id递归获取Navigation
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="pid"></param>
+        /// <param name="joins"></param>
+        /// <returns></returns>
+        private List<Navigation> SupersetByIdRecursion(List<Navigation> list, int pid, params BaseMode.Join[] joins)
+        {
+            using (PandoraContext context = new PandoraContext())
+            {
+                try
+                {
+                    SQLQueryable(context, joins).Where(row => row.Navigation.Id == pid).ToList().ForEach(sqlEntity => {
+                        SupersetByIdRecursion(list, sqlEntity.Navigation.Pid, joins);
+                        list.Add(sqlEntity.Navigation);
+                    });
+                    return list;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.NavigationService.SupersetByIdRecursion", ex);
                 }
             }
         }

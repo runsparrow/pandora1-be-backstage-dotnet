@@ -13,15 +13,15 @@ using MISApi.HttpClients.HttpModes.TreeMode.BootstrapTreeView;
 namespace MISApi.Controllers.ASM
 {
     /// <summary>
-    /// 字典
+    /// 数据字典
     /// </summary>
     public class DictionaryController : BaseController<Dictionary>
     {
         #region RPC
-
+        
         #region CreateMode
         /// <summary>
-        /// 创建字典
+        /// 创建数据字典
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -53,7 +53,7 @@ namespace MISApi.Controllers.ASM
             }
         }
         /// <summary>
-        /// 创建字典
+        /// 创建数据字典
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
@@ -90,7 +90,7 @@ namespace MISApi.Controllers.ASM
 
         #region UpdateMode
         /// <summary>
-        /// 编辑一条字典
+        /// 编辑一条数据字典
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -120,7 +120,7 @@ namespace MISApi.Controllers.ASM
             }
         }
         /// <summary>
-        /// 编辑多条字典
+        /// 编辑多条数据字典
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
@@ -156,7 +156,7 @@ namespace MISApi.Controllers.ASM
 
         #region DeleteMode
         /// <summary>
-        ///  删除一条字典
+        ///  删除一条数据字典
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -179,7 +179,7 @@ namespace MISApi.Controllers.ASM
             }
         }
         /// <summary>
-        /// 删除多条字典
+        /// 删除多条数据字典
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
@@ -205,7 +205,7 @@ namespace MISApi.Controllers.ASM
 
         #region ColumnsMode
         /// <summary>
-        /// 查询字典的字段
+        /// 查询数据字典的字段
         /// </summary>
         /// <returns></returns>
         [Route("MIS/ASM/Dictionary/Columns/Single", Name = "MIS_ASM_Dictionary_Columns_Single")]
@@ -230,7 +230,7 @@ namespace MISApi.Controllers.ASM
 
         #region RowMode
         /// <summary>
-        /// 根据Id查询字典
+        /// 根据Id查询数据字典
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
@@ -253,7 +253,7 @@ namespace MISApi.Controllers.ASM
             }
         }
         /// <summary>
-        /// 根据Id查询字典
+        /// 根据Id查询数据字典
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -279,7 +279,7 @@ namespace MISApi.Controllers.ASM
 
         #region RowsMode
         /// <summary>
-        /// 根据关键字模糊查询字典
+        /// 根据关键字模糊查询数据字典
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
@@ -302,7 +302,7 @@ namespace MISApi.Controllers.ASM
             }
         }
         /// <summary>
-        /// 根据关键字模糊查询字典
+        /// 根据关键字模糊查询数据字典
         /// </summary>
         /// <param name="keyWord"></param>
         /// <returns></returns>
@@ -325,7 +325,7 @@ namespace MISApi.Controllers.ASM
             }
         }
         /// <summary>
-        /// 根据Id查询字典子集
+        /// 根据Id查询数据字典子集
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -351,7 +351,7 @@ namespace MISApi.Controllers.ASM
 
         #region SingleMode
         /// <summary>
-        /// 根据Id查询字典
+        /// 根据Id查询数据字典
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
@@ -377,7 +377,7 @@ namespace MISApi.Controllers.ASM
 
         #region QueryMode
         /// <summary>
-        /// 分页查询字典
+        /// 分页查询数据字典
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
@@ -405,7 +405,7 @@ namespace MISApi.Controllers.ASM
 
         #region TreeMode
         /// <summary>
-        /// 模糊查询获得树型结构的字典
+        /// 模糊查询获得树型结构的数据字典
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
@@ -437,7 +437,7 @@ namespace MISApi.Controllers.ASM
             }
         }
         /// <summary>
-        /// 根据Id查询获得树型结构的字典
+        /// 根据Id查询获得树型结构的数据字典
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
@@ -469,7 +469,7 @@ namespace MISApi.Controllers.ASM
             }
         }
         /// <summary>
-        /// 根据Id查询获得树型结构的字典
+        /// 根据Id查询获得树型结构的数据字典
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

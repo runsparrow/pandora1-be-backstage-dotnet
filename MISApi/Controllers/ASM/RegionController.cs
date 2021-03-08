@@ -1,61 +1,63 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using MISApi.CacheServices.ASM;
 using MISApi.Controllers.HttpEntities;
-using MISApi.Entities.CMS;
-using MISApi.Services.CMS;
-using MISApi.Tools;
+using MISApi.Entities.ASM;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using BaseMode = MISApi.HttpClients.HttpModes.BaseMode;
+using MISApi.Services.ASM;
+using MISApi.Tools;
+using MISApi.HttpClients.HttpModes.TreeMode.BootstrapTreeView;
 
-namespace MISApi.Controllers.CMS
+namespace MISApi.Controllers.ASM
 {
     /// <summary>
-    /// 用户
+    /// 行政区划
     /// </summary>
-    public class UserController : BaseController<User>
+    public class RegionController : BaseController<Region>
     {
         #region RPC
 
         #region CreateMode
         /// <summary>
-        /// 创建用户
+        /// 创建行政区划
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Create/Single", Name = "MIS_CMS_User_Create_Single")]
+        [Route("MIS/ASM/Region/Create/Single", Name = "MIS_ASM_Region_Create_Single")]
         [HttpPost]
         [Authorize]
-        public IActionResult Create_Single(User entity)
+        public IActionResult Create_Single(Region entity)
         {
             try
             {
                 // Entity
                 if (entity != null)
                 {
-                    entity.Password = EncryptHelper.GetBase64String(entity.Password);
+                    entity.ImportDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
                     new CreateMode.Request().ToResponse(
-                        new UserService.CreateService().Execute(entity)
+                        new RegionService.CreateService().Execute(entity)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Create_Single", ex);
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Create_Single", ex);
             }
         }
         /// <summary>
-        /// 创建用户
+        /// 创建行政区划
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Create/Multiple", Name = "MIS_CMS_User_Create_Multiple")]
+        [Route("MIS/ASM/Region/Create/Multiple", Name = "MIS_ASM_Region_Create_Multiple")]
         [HttpPost]
         [Authorize]
-        public IActionResult Create_Multiple(List<User> entities)
+        public IActionResult Create_Multiple(List<Region> entities)
         {
             try
             {
@@ -63,91 +65,62 @@ namespace MISApi.Controllers.CMS
                 if (entities != null)
                 {
                     entities.ForEach(entity => {
-                        entity.Password = EncryptHelper.GetBase64String(entity.Password);
+                        entity.ImportDateTime = DateTime.Now;
                     });
                 }
                 // 返回
                 return ResponseOk(
                     new CreateMode.Request().ToResponse(
-                        new UserService.CreateService().Execute(entities)
+                        new RegionService.CreateService().Execute(entities)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Create_Multiple", ex);
-            }
-        }
-        /// <summary>
-        /// 注册用户
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        [Route("MIS/CMS/User/Create/Regist", Name = "MIS_CMS_User_Create_Regist")]
-        [HttpPost]
-        [Authorize]
-        public IActionResult Create_Regist(User entity)
-        {
-            try
-            {
-                // Entity
-                if (entity != null)
-                {
-                    entity.Password = EncryptHelper.GetBase64String(entity.Password);
-                }
-                // 返回
-                return ResponseOk(
-                    new CreateMode.Request().ToResponse(
-                        new UserService.CreateService().Regist(entity)
-                    )
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Create_Regist", ex);
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Create_Multiple", ex);
             }
         }
         #endregion
 
         #region UpdateMode
         /// <summary>
-        /// 编辑一条用户
+        /// 编辑一条行政区划
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Update/Single", Name = "MIS_CMS_User_Update_Single")]
+        [Route("MIS/ASM/Region/Update/Single", Name = "MIS_ASM_Region_Update_Single")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_Single(User entity)
+        public IActionResult Update_Single(Region entity)
         {
             try
             {
                 // Entity
                 if (entity != null)
                 {
-
+                    entity.ImportDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new UserService.UpdateService().Execute(entity)
+                        new RegionService.UpdateService().Execute(entity)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Update_Single", ex);
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Update_Single", ex);
             }
         }
         /// <summary>
-        /// 编辑多条用户
+        /// 编辑多条行政区划
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Update/Multiple", Name = "MIS_CMS_User_Update_Multiple")]
+        [Route("MIS/ASM/Region/Update/Multiple", Name = "MIS_ASM_Region_Update_Multiple")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_Multiple(List<User> entities)
+        public IActionResult Update_Multiple(List<Region> entities)
         {
             try
             {
@@ -156,107 +129,78 @@ namespace MISApi.Controllers.CMS
                 {
                     entities.ForEach(entity =>
                     {
-
+                        entity.ImportDateTime = DateTime.Now;
                     });
                 }
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new UserService.UpdateService().Execute(entities)
+                        new RegionService.UpdateService().Execute(entities)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Update_Multiple", ex);
-            }
-        }
-        /// <summary>
-        /// 修改密码
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        [Route("MIS/CMS/User/Update/Password", Name = "MIS_CMS_User_Update_Password")]
-        [HttpPost]
-        [Authorize]
-        public IActionResult Update_Password(User entity)
-        {
-            try
-            {
-                // Entity
-                if (entity != null)
-                {
-                    entity.Password = EncryptHelper.GetBase64String(entity.Password);
-                }
-                // 返回
-                return ResponseOk(
-                    new UpdateMode.Request().ToResponse(
-                        new UserService.UpdateService().Execute(entity)
-                    )
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Update_Password", ex);
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Update_Multiple", ex);
             }
         }
         #endregion
 
         #region DeleteMode
         /// <summary>
-        ///  删除一条用户
+        ///  删除一条行政区划
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Delete/Single", Name = "MIS_CMS_User_Delete_Single")]
+        [Route("MIS/ASM/Region/Delete/Single", Name = "MIS_ASM_Region_Delete_Single")]
         [HttpPost]
         [Authorize]
-        public IActionResult Delete_Single(User entity)
+        public IActionResult Delete_Single(Region entity)
         {
             try
             {
                 return ResponseOk(
                     new DeleteMode.Request().ToResponse(
-                        new UserService.DeleteService().Execute(entity)
+                        new RegionService.DeleteService().Execute(entity)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Delete_Single", ex);
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Delete_Single", ex);
             }
         }
         /// <summary>
-        /// 删除多条用户
+        /// 删除多条行政区划
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Delete/Multiple", Name = "MIS_CMS_User_Delete_Multiple")]
+        [Route("MIS/ASM/Region/Delete/Multiple", Name = "MIS_ASM_Region_Delete_Multiple")]
         [HttpPost]
         [Authorize]
-        public IActionResult Delete_Multiple(List<User> entities)
+        public IActionResult Delete_Multiple(List<Region> entities)
         {
             try
             {
                 return ResponseOk(
                     new DeleteMode.Request().ToResponse(
-                        new UserService.DeleteService().Execute(entities)
+                        new RegionService.DeleteService().Execute(entities)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Delete_Multiple", ex);
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Delete_Multiple", ex);
             }
         }
         #endregion
 
         #region ColumnsMode
         /// <summary>
-        /// 查询用户的字段
+        /// 查询行政区划的字段
         /// </summary>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Columns/Single", Name = "MIS_CMS_User_Columns_Single")]
+        [Route("MIS/ASM/Region/Columns/Single", Name = "MIS_ASM_Region_Columns_Single")]
         [HttpPost]
         [Authorize]
         public IActionResult Columns_Single()
@@ -265,24 +209,24 @@ namespace MISApi.Controllers.CMS
             {
                 return ResponseOk(
                     new ColumnsMode.Request().ToResponse(
-                        new UserService.ColumnsService().Single()
+                        new RegionService.ColumnsService().Single()
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Columns_Single", ex);
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Columns_Single", ex);
             }
         }
         #endregion
 
         #region RowMode
         /// <summary>
-        /// 根据Id查询用户
+        /// 根据Id查询行政区划
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Row/ById", Name = "MIS_CMS_User_Row_ById")]
+        [Route("MIS/ASM/Region/Row/ById", Name = "MIS_ASM_Region_Row_ById")]
         [HttpPost]
         [Authorize]
         public IActionResult Row_ById(DTO_Id dto)
@@ -291,21 +235,21 @@ namespace MISApi.Controllers.CMS
             {
                 return ResponseOk(
                     new RowMode.Request().ToResponse(
-                        new UserService.RowService().ById(dto.Id)
+                        new RegionService.RowService().ById(dto.Id)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Row_ById", ex);
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Row_ById", ex);
             }
         }
         /// <summary>
-        /// 根据Id查询用户
+        /// 根据Id查询行政区划
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Row/ById/{id}", Name = "MIS_CMS_User_Row_ById_Id")]
+        [Route("MIS/ASM/Region/Row/ById/{id}", Name = "MIS_ASM_Region_Row_ById_Id")]
         [HttpGet]
         [Authorize]
         public IActionResult Row_ById_Id(int id)
@@ -314,24 +258,24 @@ namespace MISApi.Controllers.CMS
             {
                 return ResponseOk(
                     new RowMode.Request().ToResponse(
-                        new UserService.RowService().ById(id)
+                        new RegionService.RowService().ById(id)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Row_ById_Id", ex);
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Row_ById_Id", ex);
             }
         }
         #endregion
 
         #region RowsMode
         /// <summary>
-        /// 根据关键字模糊查询用户
+        /// 根据关键字模糊查询行政区划
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Rows/ByKeyWord", Name = "MIS_CMS_User_Rows_ByKeyWord")]
+        [Route("MIS/ASM/Region/Rows/ByKeyWord", Name = "MIS_ASM_Region_Rows_ByKeyWord")]
         [HttpPost]
         [Authorize]
         public IActionResult Rows_ByKeyWord(DTO_KeyWord dto)
@@ -340,21 +284,21 @@ namespace MISApi.Controllers.CMS
             {
                 return ResponseOk(
                     new RowsMode.Request().ToResponse(
-                        new UserService.RowsService().ByKeyWord(new BaseMode.KeyWord(dto.KeyWord))
+                        new RegionService.RowsService().ByKeyWord(new BaseMode.KeyWord(dto.KeyWord))
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.ByKeyWord", ex);
+                throw new Exception("MISApi.Controllers.ASM.RegionController.ByKeyWord", ex);
             }
         }
         /// <summary>
-        /// 根据关键字模糊查询用户
+        /// 根据关键字模糊查询行政区划
         /// </summary>
         /// <param name="keyWord"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Rows/ByKeyWord/{keyWord}", Name = "MIS_CMS_User_Rows_ByKeyWord_KeyWord")]
+        [Route("MIS/ASM/Region/Rows/ByKeyWord/{keyWord}", Name = "MIS_ASM_Region_Rows_ByKeyWord_KeyWord")]
         [HttpGet]
         [Authorize]
         public IActionResult Rows_ByKeyWord_KeyWord(string keyWord)
@@ -363,24 +307,47 @@ namespace MISApi.Controllers.CMS
             {
                 return ResponseOk(
                     new RowsMode.Request().ToResponse(
-                        new UserService.RowsService().ByKeyWord(new BaseMode.KeyWord(keyWord))
+                        new RegionService.RowsService().ByKeyWord(new BaseMode.KeyWord(keyWord))
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Rows_ByKeyWord_KeyWord", ex);
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Rows_ByKeyWord_KeyWord", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询行政区划子集
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Region/Rows/SubsetById/{id}", Name = "MIS_ASM_Region_Rows_SubsetById_Id")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_SubsetById(int id)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new RegionService.RowsService().SubsetById(id)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Rows_SubsetById", ex);
             }
         }
         #endregion
 
         #region SingleMode
         /// <summary>
-        /// 根据Id查询用户
+        /// 根据Id查询行政区划
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Single/ById", Name = "MIS_CMS_User_Single_ById")]
+        [Route("MIS/ASM/Region/Single/ById", Name = "MIS_ASM_Region_Single_ById")]
         [HttpPost]
         [Authorize]
         public IActionResult Single_ById(DTO_Id dto)
@@ -389,24 +356,24 @@ namespace MISApi.Controllers.CMS
             {
                 return ResponseOk(
                     new SingleMode.Request().ToResponse(
-                        new UserService.RowService().ById(dto.Id)
+                        new RegionService.RowService().ById(dto.Id)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Single_ById", ex);
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Single_ById", ex);
             }
         }
         #endregion
 
         #region QueryMode
         /// <summary>
-        /// 分页查询用户
+        /// 分页查询行政区划
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Query/Page", Name = "MIS_CMS_User_Query_Page")]
+        [Route("MIS/ASM/Region/Query/Page", Name = "MIS_ASM_Region_Query_Page")]
         [HttpPost]
         [Authorize]
         public IActionResult Query_Page(DTO_Page dto)
@@ -415,29 +382,29 @@ namespace MISApi.Controllers.CMS
             {
                 return ResponseOk(
                     new QueryMode.Request().ToResponse(
-                        new UserService.RowsService().Page(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Page(dto.Page), new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status)),
-                        new UserService.RowsService().PageCount(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status)),
-                        new UserService.RowsService().PageSummary(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status))
+                        new RegionService.RowsService().Page(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Page(dto.Page), new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status)),
+                        new RegionService.RowsService().PageCount(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status)),
+                        new RegionService.RowsService().PageSummary(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status))
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Query_Page", ex);
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Query_Page", ex);
             }
         }
         #endregion
 
         #region TreeMode
         /// <summary>
-        /// 模糊查询获得树型结构的用户
+        /// 模糊查询获得树型结构的行政区划
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Tree/ByKeyWord", Name = "MIS_CMS_User_Tree_ByKeyWord")]
+        [Route("MIS/ASM/Region/Tree/ByKeyWord", Name = "MIS_ASM_Region_Tree_ByKeyWord")]
         [HttpPost]
         [Authorize]
-        protected IActionResult Tree_ByKeyWord(DTO_KeyWordWithConfig<User> dto)
+        protected IActionResult Tree_ByKeyWord(DTO_KeyWordWithConfig<Region> dto)
         {
             try
             {
@@ -458,18 +425,18 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Tree_ByKeyWord", ex);
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Tree_ByKeyWord", ex);
             }
         }
         /// <summary>
-        /// 根据Id查询获得树型结构的用户
+        /// 根据Id查询获得树型结构的行政区划
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Tree/ById", Name = "MIS_CMS_User_Tree_ById")]
+        [Route("MIS/ASM/Region/Tree/ById", Name = "MIS_ASM_Region_Tree_ById")]
         [HttpPost]
         [Authorize]
-        protected IActionResult Tree_ById(DTO_IdWithConfig<User> dto)
+        protected IActionResult Tree_ById(DTO_IdWithConfig<Region> dto)
         {
             try
             {
@@ -490,7 +457,39 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Tree_ById", ex);
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Tree_ById", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询获得树型结构的行政区划
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Region/Tree/SubsetById/{id}", Name = "MIS_ASM_Region_Tree_SubsetById_Id")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Tree_SubsetById(int id)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Region>("RegionKey", "Name", "Id", "Pid", "true"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SubsetById",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(id),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Tree_SubsetById", ex);
             }
         }
         /// <summary>
@@ -498,7 +497,7 @@ namespace MISApi.Controllers.CMS
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Tree", Name = "MIS_CMS_User_Tree")]
+        [Route("MIS/ASM/Region/Tree", Name = "MIS_ASM_Region_Tree")]
         [HttpPost]
         [Authorize]
         protected IActionResult Tree(TreeMode.Request request)
@@ -515,7 +514,7 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Tree", ex);
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Tree", ex);
             }
         }
         #endregion
@@ -533,14 +532,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.CreateMode.Request<User>
+            public class Request : HttpClients.HttpModes.CreateMode.Request<Region>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.CreateMode.Response<User> ToResponse(User entity)
+                public override HttpClients.HttpModes.CreateMode.Response<Region> ToResponse(Region entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -549,7 +548,7 @@ namespace MISApi.Controllers.CMS
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.CreateMode.Response<User> ToResponse(List<User> entityList)
+                public override HttpClients.HttpModes.CreateMode.Response<Region> ToResponse(List<Region> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -557,7 +556,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.CreateMode.Response<User>
+            public class Response : HttpClients.HttpModes.CreateMode.Response<Region>
             {
 
             }
@@ -573,14 +572,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.UpdateMode.Request<User>
+            public class Request : HttpClients.HttpModes.UpdateMode.Request<Region>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.UpdateMode.Response<User> ToResponse(User entity)
+                public override HttpClients.HttpModes.UpdateMode.Response<Region> ToResponse(Region entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -589,7 +588,7 @@ namespace MISApi.Controllers.CMS
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.UpdateMode.Response<User> ToResponse(List<User> entityList)
+                public override HttpClients.HttpModes.UpdateMode.Response<Region> ToResponse(List<Region> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -597,7 +596,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.UpdateMode.Response<User>
+            public class Response : HttpClients.HttpModes.UpdateMode.Response<Region>
             {
 
             }
@@ -613,14 +612,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.DeleteMode.Request<User>
+            public class Request : HttpClients.HttpModes.DeleteMode.Request<Region>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.DeleteMode.Response<User> ToResponse(User entity)
+                public override HttpClients.HttpModes.DeleteMode.Response<Region> ToResponse(Region entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -629,7 +628,7 @@ namespace MISApi.Controllers.CMS
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.DeleteMode.Response<User> ToResponse(List<User> entityList)
+                public override HttpClients.HttpModes.DeleteMode.Response<Region> ToResponse(List<Region> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -637,7 +636,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.DeleteMode.Response<User>
+            public class Response : HttpClients.HttpModes.DeleteMode.Response<Region>
             {
 
             }
@@ -653,14 +652,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.ColumnsMode.Request<User>
+            public class Request : HttpClients.HttpModes.ColumnsMode.Request<Region>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.ColumnsMode.Response<User> ToResponse(User entity)
+                public override HttpClients.HttpModes.ColumnsMode.Response<Region> ToResponse(Region entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -668,7 +667,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.ColumnsMode.Response<User>
+            public class Response : HttpClients.HttpModes.ColumnsMode.Response<Region>
             {
 
             }
@@ -684,14 +683,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.RowMode.Request<User>
+            public class Request : HttpClients.HttpModes.RowMode.Request<Region>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.RowMode.Response<User> ToResponse(User entity)
+                public override HttpClients.HttpModes.RowMode.Response<Region> ToResponse(Region entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -699,7 +698,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.RowMode.Response<User>
+            public class Response : HttpClients.HttpModes.RowMode.Response<Region>
             {
 
             }
@@ -715,14 +714,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.RowsMode.Request<User>
+            public class Request : HttpClients.HttpModes.RowsMode.Request<Region>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.RowsMode.Response<User> ToResponse(List<User> entityList)
+                public override HttpClients.HttpModes.RowsMode.Response<Region> ToResponse(List<Region> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -730,7 +729,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.RowsMode.Response<User>
+            public class Response : HttpClients.HttpModes.RowsMode.Response<Region>
             {
 
             }
@@ -746,14 +745,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.SingleMode.Request<User>
+            public class Request : HttpClients.HttpModes.SingleMode.Request<Region>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.SingleMode.Response<User> ToResponse(User entity)
+                public override HttpClients.HttpModes.SingleMode.Response<Region> ToResponse(Region entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -761,7 +760,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.SingleMode.Response<User>
+            public class Response : HttpClients.HttpModes.SingleMode.Response<Region>
             {
 
             }
@@ -777,14 +776,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.QueryMode.Request<User>
+            public class Request : HttpClients.HttpModes.QueryMode.Request<Region>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.QueryMode.Response<User> ToResponse(List<User> entityList)
+                public override HttpClients.HttpModes.QueryMode.Response<Region> ToResponse(List<Region> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -792,7 +791,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.QueryMode.Response<User>
+            public class Response : HttpClients.HttpModes.QueryMode.Response<Region>
             {
 
             }
@@ -808,14 +807,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<User>
+            public class Request : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<Region>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.TreeMode.BootstrapTreeViewResponse<User> ToResponse(List<User> entityList)
+                public override HttpClients.HttpModes.TreeMode.BootstrapTreeViewResponse<Region> ToResponse(List<Region> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -823,7 +822,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<User>
+            public class Response : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<Region>
             {
 
             }

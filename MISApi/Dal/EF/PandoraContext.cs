@@ -31,6 +31,10 @@ namespace MISApi.Dal.EF
         /// 数据字典
         /// </summary>
         public virtual DbSet<Entities.ASM.Dictionary> ASM_Dictionary { get; set; }
+        /// <summary>
+        /// 行政区划
+        /// </summary>
+        public virtual DbSet<Entities.ASM.Region> ASM_Region { get; set; }
 
         #endregion
 

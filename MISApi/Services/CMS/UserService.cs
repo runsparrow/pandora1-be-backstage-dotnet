@@ -60,6 +60,31 @@ namespace MISApi.Services.CMS
                     throw new Exception("MISApi.Services.CMS.UserService.CreateService.ToOpen", ex);
                 }
             }
+            /// <summary>
+            /// 注册
+            /// </summary>
+            /// <param name="entity"></param>
+            /// <returns></returns>
+            public virtual User Regist(User entity)
+            {
+                try
+                {
+                    // 定义
+                    User result = new User();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        result = new UserService.CreateService().ToOpen(entity);
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.UserService.CreateService.Regist", ex);
+                }
+            }
         }
 
         #endregion

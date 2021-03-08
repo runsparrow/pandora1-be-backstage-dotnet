@@ -648,123 +648,123 @@
         </member>
         <member name="T:MISApi.Controllers.ASM.DictionaryController">
             <summary>
-            字典
+            数据字典
             </summary>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Create_Single(MISApi.Entities.ASM.Dictionary)">
             <summary>
-            创建字典
+            创建数据字典
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Create_Multiple(System.Collections.Generic.List{MISApi.Entities.ASM.Dictionary})">
             <summary>
-            创建字典
+            创建数据字典
             </summary>
             <param name="entities"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Update_Single(MISApi.Entities.ASM.Dictionary)">
             <summary>
-            编辑一条字典
+            编辑一条数据字典
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Update_Multiple(System.Collections.Generic.List{MISApi.Entities.ASM.Dictionary})">
             <summary>
-            编辑多条字典
+            编辑多条数据字典
             </summary>
             <param name="entities"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Delete_Single(MISApi.Entities.ASM.Dictionary)">
             <summary>
-             删除一条字典
+             删除一条数据字典
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Delete_Multiple(System.Collections.Generic.List{MISApi.Entities.ASM.Dictionary})">
             <summary>
-            删除多条字典
+            删除多条数据字典
             </summary>
             <param name="entities"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Columns_Single">
             <summary>
-            查询字典的字段
+            查询数据字典的字段
             </summary>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
             <summary>
-            根据Id查询字典
+            根据Id查询数据字典
             </summary>
             <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Row_ById_Id(System.Int32)">
             <summary>
-            根据Id查询字典
+            根据Id查询数据字典
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
             <summary>
-            根据关键字模糊查询字典
+            根据关键字模糊查询数据字典
             </summary>
             <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Rows_ByKeyWord_KeyWord(System.String)">
             <summary>
-            根据关键字模糊查询字典
+            根据关键字模糊查询数据字典
             </summary>
             <param name="keyWord"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Rows_SubsetById(System.Int32)">
             <summary>
-            根据Id查询字典子集
+            根据Id查询数据字典子集
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
             <summary>
-            根据Id查询字典
+            根据Id查询数据字典
             </summary>
             <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
             <summary>
-            分页查询字典
+            分页查询数据字典
             </summary>
             <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Tree_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWordWithConfig{MISApi.Entities.ASM.Dictionary})">
             <summary>
-            模糊查询获得树型结构的字典
+            模糊查询获得树型结构的数据字典
             </summary>
             <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Tree_ById(MISApi.Controllers.HttpEntities.DTO_IdWithConfig{MISApi.Entities.ASM.Dictionary})">
             <summary>
-            根据Id查询获得树型结构的字典
+            根据Id查询获得树型结构的数据字典
             </summary>
             <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Tree_SubsetById(System.Int32)">
             <summary>
-            根据Id查询获得树型结构的字典
+            根据Id查询获得树型结构的数据字典
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -991,6 +991,355 @@
             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.ASM.DictionaryController.TreeMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController">
+            <summary>
+            行政区划
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Create_Single(MISApi.Entities.ASM.Region)">
+            <summary>
+            创建行政区划
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Create_Multiple(System.Collections.Generic.List{MISApi.Entities.ASM.Region})">
+            <summary>
+            创建行政区划
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Update_Single(MISApi.Entities.ASM.Region)">
+            <summary>
+            编辑一条行政区划
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Update_Multiple(System.Collections.Generic.List{MISApi.Entities.ASM.Region})">
+            <summary>
+            编辑多条行政区划
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Delete_Single(MISApi.Entities.ASM.Region)">
+            <summary>
+             删除一条行政区划
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Delete_Multiple(System.Collections.Generic.List{MISApi.Entities.ASM.Region})">
+            <summary>
+            删除多条行政区划
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Columns_Single">
+            <summary>
+            查询行政区划的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询行政区划
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询行政区划
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询行政区划
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询行政区划
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Rows_SubsetById(System.Int32)">
+            <summary>
+            根据Id查询行政区划子集
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询行政区划
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询行政区划
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Tree_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWordWithConfig{MISApi.Entities.ASM.Region})">
+            <summary>
+            模糊查询获得树型结构的行政区划
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Tree_ById(MISApi.Controllers.HttpEntities.DTO_IdWithConfig{MISApi.Entities.ASM.Region})">
+            <summary>
+            根据Id查询获得树型结构的行政区划
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Tree_SubsetById(System.Int32)">
+            <summary>
+            根据Id查询获得树型结构的行政区划
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Tree(MISApi.Controllers.ASM.RegionController.TreeMode.Request)">
+            <summary>
+            树形结构的复杂查询
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.CreateMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.CreateMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.CreateMode.Request.ToResponse(MISApi.Entities.ASM.Region)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.CreateMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.ASM.Region})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.CreateMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.UpdateMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.UpdateMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.UpdateMode.Request.ToResponse(MISApi.Entities.ASM.Region)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.UpdateMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.ASM.Region})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.UpdateMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.DeleteMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.DeleteMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.DeleteMode.Request.ToResponse(MISApi.Entities.ASM.Region)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.DeleteMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.ASM.Region})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.DeleteMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.ColumnsMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.ColumnsMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.ColumnsMode.Request.ToResponse(MISApi.Entities.ASM.Region)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.ColumnsMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.RowMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.RowMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.RowMode.Request.ToResponse(MISApi.Entities.ASM.Region)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.RowMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.RowsMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.RowsMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.RowsMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.ASM.Region})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.RowsMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.SingleMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.SingleMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.SingleMode.Request.ToResponse(MISApi.Entities.ASM.Region)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.SingleMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.QueryMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.QueryMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.QueryMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.ASM.Region})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.QueryMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.TreeMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.TreeMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.TreeMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.ASM.Region})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.RegionController.TreeMode.Response">
             <summary>
             
             </summary>
@@ -5729,6 +6078,11 @@
             数据字典
             </summary>
         </member>
+        <member name="P:MISApi.Dal.EF.PandoraContext.ASM_Region">
+            <summary>
+            行政区划
+            </summary>
+        </member>
         <member name="P:MISApi.Dal.EF.PandoraContext.AVM_User">
             <summary>
             用户
@@ -5877,6 +6231,46 @@
         <member name="P:MISApi.Entities.ASM.Dictionary.Status">
             <summary>
             状态
+            </summary>
+        </member>
+        <member name="T:MISApi.Entities.ASM.Region">
+            <summary>
+            行政区划
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Region.Id">
+            <summary>
+            唯一标识
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Region.Pid">
+            <summary>
+            父节点Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Region.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Region.Code">
+            <summary>
+            代码
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Region.ImportVersion">
+            <summary>
+            导入版本
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Region.ImportDateTime">
+            <summary>
+            导入时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Region.ParentRegion">
+            <summary>
+            上级字典
             </summary>
         </member>
         <member name="T:MISApi.Entities.AVM.User">
@@ -9527,6 +9921,284 @@
             
             </summary>
         </member>
+        <member name="T:MISApi.Services.ASM.Base.RegionService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.ASM.Base.RegionService.CreateService">
+            <summary>
+            CreateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.ASM.Base.RegionService.CreateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.CreateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.CreateService.Execute(MISApi.Entities.ASM.Region)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.CreateService.Execute(System.Collections.Generic.List{MISApi.Entities.ASM.Region})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.ASM.Base.RegionService.UpdateService">
+            <summary>
+            UpdateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.ASM.Base.RegionService.UpdateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.UpdateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.UpdateService.Execute(MISApi.Entities.ASM.Region)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.UpdateService.Execute(System.Collections.Generic.List{MISApi.Entities.ASM.Region})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.ASM.Base.RegionService.DeleteService">
+            <summary>
+            DeleteService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.ASM.Base.RegionService.DeleteService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.DeleteService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.DeleteService.Execute(MISApi.Entities.ASM.Region)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.DeleteService.Execute(System.Collections.Generic.List{MISApi.Entities.ASM.Region})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entitys"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.ASM.Base.RegionService.ColumnsService">
+            <summary>
+            ColumnsMode Service
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.ColumnsService.Single">
+            <summary>
+            返回字段集
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.ASM.Base.RegionService.RowService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.RowService.ById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 id 查询
+            </summary>
+            <param name="id">Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.ASM.Base.RegionService.RowsService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.RowsService.ByKeyWord(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据关键字查询
+            </summary>
+            <param name="keyWord">关键字</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.RowsService.ByPid(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据父节点Id查询
+            </summary>
+            <param name="pid">父节点Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.RowsService.SubsetById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id查询所有子节点（递归并包含Id自身）
+            </summary>
+            <param name="id"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="page"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.RowsService.PageCount(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页计数
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.RowsService.PageSummary(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页汇总
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.SubsetByIdRecursion(System.Collections.Generic.List{MISApi.Entities.ASM.Region},System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id递归获取Region
+            </summary>
+            <param name="list"></param>
+            <param name="id"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.SQLQueryable(MISApi.Dal.EF.PandoraContext,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            默认查询
+            </summary>
+            <param name="context"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.KeyWordQueryable(System.Linq.IQueryable{MISApi.Services.ASM.Base.RegionService.SQLEntity},System.String)">
+            <summary>
+            关键字
+            </summary>
+            <param name="queryable"></param>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.KeyWordExtQueryable(System.Linq.IQueryable{MISApi.Services.ASM.Base.RegionService.SQLEntity},System.String)">
+            <summary>
+            关键字扩展
+            </summary>
+            <param name="queryable"></param>
+            <param name="keyWordExt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.DateQueryable(System.Linq.IQueryable{MISApi.Services.ASM.Base.RegionService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Date[])">
+            <summary>
+            日期
+            </summary>
+            <param name="queryable"></param>
+            <param name="dates"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.StatusQueryable(System.Linq.IQueryable{MISApi.Services.ASM.Base.RegionService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            状态
+            </summary>
+            <param name="queryable"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.SortQueryable(System.Linq.IQueryable{MISApi.Services.ASM.Base.RegionService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Sort[])">
+            <summary>
+            排序
+            </summary>
+            <param name="queryable"></param>
+            <param name="sorts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.PageQueryable(System.Linq.IQueryable{MISApi.Services.ASM.Base.RegionService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Page)">
+            <summary>
+            分页
+            </summary>
+            <param name="queryable"></param>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.SQLEntityToSingle(MISApi.Services.ASM.Base.RegionService.SQLEntity)">
+            <summary>
+            SQLEntity转换
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.SQLEntityToList(System.Collections.Generic.List{MISApi.Services.ASM.Base.RegionService.SQLEntity})">
+            <summary>
+            SQLEntity转换
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.ASM.Base.RegionService.SQLEntity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.ASM.Base.RegionService.SQLEntity.Region">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.ASM.Base.RegionService.SQLEntity.ParentRegion">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.ASM.Base.RegionService.SummaryEntity">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:MISApi.Services.ASM.DictionaryService">
             <summary>
             
@@ -9599,6 +10271,61 @@
             </summary>
         </member>
         <member name="T:MISApi.Services.ASM.DictionaryService.RowsService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.ASM.RegionService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.ASM.RegionService.CreateService">
+            <summary>
+            CreateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.ASM.RegionService.CreateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.RegionService.CreateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.ASM.RegionService.UpdateService">
+            <summary>
+            UpdateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.ASM.RegionService.UpdateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.RegionService.UpdateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.ASM.RegionService.DeleteService">
+            <summary>
+            DeleteService
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.ASM.RegionService.ColumnsService">
+            <summary>
+            ColumnsMode Service
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.ASM.RegionService.RowService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.ASM.RegionService.RowsService">
             <summary>
             
             </summary>

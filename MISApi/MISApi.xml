@@ -649,6 +649,13 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Create_ToOpen(MISApi.Entities.ASM.Dictionary)">
+            <summary>
+            创建数据字典
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Update_Single(MISApi.Entities.ASM.Dictionary)">
             <summary>
             编辑一条数据字典
@@ -661,6 +668,20 @@
             编辑多条数据字典
             </summary>
             <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Update_ToOpen(MISApi.Entities.ASM.Dictionary)">
+            <summary>
+            编辑一条数据字典
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Update_ToClose(MISApi.Entities.ASM.Dictionary)">
+            <summary>
+            编辑一条数据字典
+            </summary>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Delete_Single(MISApi.Entities.ASM.Dictionary)">
@@ -1464,6 +1485,13 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.AVM.UserController.Create_ToOpen(MISApi.Entities.AVM.User)">
+            <summary>
+            创建用户
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.AVM.UserController.Update_Single(MISApi.Entities.AVM.User)">
             <summary>
             编辑一条用户
@@ -1476,6 +1504,20 @@
             编辑多条用户
             </summary>
             <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.AVM.UserController.Update_ToOpen(MISApi.Entities.AVM.User)">
+            <summary>
+            编辑一条用户
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.AVM.UserController.Update_ToClose(MISApi.Entities.AVM.User)">
+            <summary>
+            编辑一条用户
+            </summary>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.AVM.UserController.Update_Password(MISApi.Entities.AVM.User)">
@@ -2009,6 +2051,13 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Create_ToOpen(MISApi.Entities.CMS.Article)">
+            <summary>
+            创建资讯
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.ArticleController.Update_Single(MISApi.Entities.CMS.Article)">
             <summary>
             编辑一条资讯
@@ -2021,6 +2070,20 @@
             编辑多条资讯
             </summary>
             <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Update_ToOpen(MISApi.Entities.CMS.Article)">
+            <summary>
+            编辑一条资讯
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Update_ToClose(MISApi.Entities.CMS.Article)">
+            <summary>
+            编辑一条资讯
+            </summary>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.ArticleController.Delete_Single(MISApi.Entities.CMS.Article)">
@@ -2481,6 +2544,13 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Create_ToOpen(MISApi.Entities.CMS.Authority)">
+            <summary>
+            创建认证
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_Single(MISApi.Entities.CMS.Authority)">
             <summary>
             编辑一条认证
@@ -2493,6 +2563,20 @@
             编辑多条认证
             </summary>
             <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_ToOpen(MISApi.Entities.CMS.Authority)">
+            <summary>
+            编辑一条认证
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_ToClose(MISApi.Entities.CMS.Authority)">
+            <summary>
+            编辑一条认证
+            </summary>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Delete_Single(MISApi.Entities.CMS.Authority)">
@@ -2892,6 +2976,13 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Create_ToOpen(MISApi.Entities.CMS.CashOut)">
+            <summary>
+            创建提现
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.CashOutController.Update_Single(MISApi.Entities.CMS.CashOut)">
             <summary>
             编辑一条提现
@@ -2904,6 +2995,20 @@
             编辑多条提现
             </summary>
             <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Update_ToOpen(MISApi.Entities.CMS.CashOut)">
+            <summary>
+            编辑一条提现
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Update_ToClose(MISApi.Entities.CMS.CashOut)">
+            <summary>
+            编辑一条提现
+            </summary>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.CashOutController.Delete_Single(MISApi.Entities.CMS.CashOut)">
@@ -3008,6 +3113,75 @@
             树形结构的复杂查询
             </summary>
             <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Unauthorized_Columns_Single">
+            <summary>
+            查询提现的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Unauthorized_Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询提现
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Unauthorized_Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询提现
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Unauthorized_Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询提现
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Unauthorized_Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询提现
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Unauthorized_Rows_ByApplierId_ApplierId(System.Int32)">
+            <summary>
+            根据ApplierId查询提现记录
+            </summary>
+            <param name="applierId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Unauthorized_Rows_ByApproverId_ApproverId(System.Int32)">
+            <summary>
+            根据ApproverId查询提现记录
+            </summary>
+            <param name="approverId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Unauthorized_Rows_ByLoanerId_LoanerId(System.Int32)">
+            <summary>
+            根据LoanerId查询提现记录
+            </summary>
+            <param name="loanerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Unauthorized_Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询提现
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询提现
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.CashOutController.CreateMode">
@@ -3248,6 +3422,13 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Create_ToOpen(MISApi.Entities.CMS.Goods)">
+            <summary>
+            创建商品
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.GoodsController.Update_Single(MISApi.Entities.CMS.Goods)">
             <summary>
             编辑一条商品
@@ -3260,6 +3441,20 @@
             编辑多条商品
             </summary>
             <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Update_ToOpen(MISApi.Entities.CMS.Goods)">
+            <summary>
+            编辑一条商品
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Update_ToClose(MISApi.Entities.CMS.Goods)">
+            <summary>
+            编辑一条商品
+            </summary>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.GoodsController.Delete_Single(MISApi.Entities.CMS.Goods)">
@@ -3659,6 +3854,13 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Create_ToOpen(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            创建导航
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.NavigationController.Update_Single(MISApi.Entities.CMS.Navigation)">
             <summary>
             编辑一条导航
@@ -3671,6 +3873,20 @@
             编辑多条导航
             </summary>
             <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Update_ToOpen(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            编辑一条导航
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Update_ToClose(MISApi.Entities.CMS.Navigation)">
+            <summary>
+            编辑一条导航
+            </summary>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.NavigationController.Delete_Single(MISApi.Entities.CMS.Navigation)">
@@ -4098,6 +4314,13 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.OrderController.Create_ToOpen(MISApi.Entities.CMS.Order)">
+            <summary>
+            创建订单
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.OrderController.Update_Single(MISApi.Entities.CMS.Order)">
             <summary>
             编辑一条订单
@@ -4110,6 +4333,20 @@
             编辑多条订单
             </summary>
             <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderController.Update_ToOpen(MISApi.Entities.CMS.Order)">
+            <summary>
+            编辑一条订单
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderController.Update_ToClose(MISApi.Entities.CMS.Order)">
+            <summary>
+            编辑一条订单
+            </summary>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.OrderController.Delete_Single(MISApi.Entities.CMS.Order)">
@@ -4495,6 +4732,13 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Create_ToOpen(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            创建订单明细
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.OrderDetailController.Update_Single(MISApi.Entities.CMS.OrderDetail)">
             <summary>
             编辑一条订单明细
@@ -4507,6 +4751,20 @@
             编辑多条订单明细
             </summary>
             <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Update_ToOpen(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            编辑一条订单明细
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Update_ToClose(MISApi.Entities.CMS.OrderDetail)">
+            <summary>
+            编辑一条订单明细
+            </summary>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.OrderDetailController.Delete_Single(MISApi.Entities.CMS.OrderDetail)">
@@ -4934,6 +5192,13 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.SerialController.Create_ToOpen(MISApi.Entities.CMS.Serial)">
+            <summary>
+            创建流水
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.SerialController.Update_Single(MISApi.Entities.CMS.Serial)">
             <summary>
             编辑一条流水
@@ -4946,6 +5211,20 @@
             编辑多条流水
             </summary>
             <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.SerialController.Update_ToOpen(MISApi.Entities.CMS.Serial)">
+            <summary>
+            编辑一条流水
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.SerialController.Update_ToClose(MISApi.Entities.CMS.Serial)">
+            <summary>
+            编辑一条流水
+            </summary>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.SerialController.Delete_Single(MISApi.Entities.CMS.Serial)">
@@ -5369,6 +5648,20 @@
         <member name="M:MISApi.Controllers.CMS.UserController.Update_Password(MISApi.Entities.CMS.User)">
             <summary>
             修改密码
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.UserController.Update_ToOpen(MISApi.Entities.CMS.User)">
+            <summary>
+            编辑一条用户
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.UserController.Update_ToClose(MISApi.Entities.CMS.User)">
+            <summary>
+            编辑一条用户
             </summary>
             <param name="entity"></param>
             <returns></returns>

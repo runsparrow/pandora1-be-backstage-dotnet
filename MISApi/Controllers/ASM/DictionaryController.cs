@@ -18,7 +18,7 @@ namespace MISApi.Controllers.ASM
     public class DictionaryController : BaseController<Dictionary>
     {
         #region RPC
-        
+
         #region CreateMode
         /// <summary>
         /// 创建数据字典
@@ -86,6 +86,38 @@ namespace MISApi.Controllers.ASM
                 throw new Exception("MISApi.Controllers.ASM.DictionaryController.Create_Multiple", ex);
             }
         }
+        /// <summary>
+        /// 创建数据字典
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Dictionary/Create/ToOpen", Name = "MIS_ASM_Dictionary_Create_ToOpen")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create_ToOpen(Dictionary entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.CreateDateTime = DateTime.Now;
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditDateTime = DateTime.Now;
+                }
+                // 返回
+                return ResponseOk(
+                    new CreateMode.Request().ToResponse(
+                        new DictionaryService.CreateService().ToOpen(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Create_ToOpen", ex);
+            }
+        }
         #endregion
 
         #region UpdateMode
@@ -150,6 +182,66 @@ namespace MISApi.Controllers.ASM
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.ASM.DictionaryController.Update_Multiple", ex);
+            }
+        }
+        /// <summary>
+        /// 编辑一条数据字典
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Dictionary/Update/ToOpen", Name = "MIS_ASM_Dictionary_Update_ToOpen")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToOpen(Dictionary entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditDateTime = DateTime.Now;
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new DictionaryService.UpdateService().ToOpen(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Update_ToOpen", ex);
+            }
+        }
+        /// <summary>
+        /// 编辑一条数据字典
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Dictionary/Update/ToClose", Name = "MIS_ASM_Dictionary_Update_ToClose")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToClose(Dictionary entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditDateTime = DateTime.Now;
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new DictionaryService.UpdateService().ToClose(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Update_ToClose", ex);
             }
         }
         #endregion

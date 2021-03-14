@@ -84,6 +84,38 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.GoodsController.Create_Multiple", ex);
             }
         }
+        /// <summary>
+        /// 创建商品
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Goods/Create/ToOpen", Name = "MIS_CMS_Goods_Create_ToOpen")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create_ToOpen(Goods entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.CreateDateTime = DateTime.Now;
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditDateTime = DateTime.Now;
+                }
+                // 返回
+                return ResponseOk(
+                    new CreateMode.Request().ToResponse(
+                        new GoodsService.CreateService().ToOpen(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.GoodsController.Create_ToOpen", ex);
+            }
+        }
         #endregion
 
         #region UpdateMode
@@ -148,6 +180,66 @@ namespace MISApi.Controllers.CMS
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.CMS.GoodsController.Update_Multiple", ex);
+            }
+        }
+        /// <summary>
+        /// 编辑一条商品
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Goods/Update/ToOpen", Name = "MIS_CMS_Goods_Update_ToOpen")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToOpen(Goods entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditDateTime = DateTime.Now;
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new GoodsService.UpdateService().ToOpen(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.GoodsController.Update_ToOpen", ex);
+            }
+        }
+        /// <summary>
+        /// 编辑一条商品
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Goods/Update/ToClose", Name = "MIS_CMS_Goods_Update_ToClose")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToClose(Goods entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditDateTime = DateTime.Now;
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new GoodsService.UpdateService().ToClose(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.GoodsController.Update_ToClose", ex);
             }
         }
         #endregion

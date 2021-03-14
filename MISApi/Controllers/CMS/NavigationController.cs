@@ -85,6 +85,38 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.NavigationController.Create_Multiple", ex);
             }
         }
+        /// <summary>
+        /// 创建导航
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Navigation/Create/ToOpen", Name = "MIS_CMS_Navigation_Create_ToOpen")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create_ToOpen(Navigation entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.CreateDateTime = DateTime.Now;
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditDateTime = DateTime.Now;
+                }
+                // 返回
+                return ResponseOk(
+                    new CreateMode.Request().ToResponse(
+                        new NavigationService.CreateService().ToOpen(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Create_ToOpen", ex);
+            }
+        }
         #endregion
 
         #region UpdateMode
@@ -149,6 +181,66 @@ namespace MISApi.Controllers.CMS
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.CMS.NavigationController.Update_Multiple", ex);
+            }
+        }
+        /// <summary>
+        /// 编辑一条导航
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Navigation/Update/ToOpen", Name = "MIS_CMS_Navigation_Update_ToOpen")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToOpen(Navigation entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditDateTime = DateTime.Now;
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new NavigationService.UpdateService().ToOpen(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Update_ToOpen", ex);
+            }
+        }
+        /// <summary>
+        /// 编辑一条导航
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Navigation/Update/ToClose", Name = "MIS_CMS_Navigation_Update_ToClose")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToClose(Navigation entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditDateTime = DateTime.Now;
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new NavigationService.UpdateService().ToClose(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Update_ToClose", ex);
             }
         }
         #endregion

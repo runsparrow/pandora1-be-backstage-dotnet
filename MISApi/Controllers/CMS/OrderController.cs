@@ -84,6 +84,38 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.OrderController.Create_Multiple", ex);
             }
         }
+        /// <summary>
+        /// 创建订单
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Order/Create/ToOpen", Name = "MIS_CMS_Order_Create_ToOpen")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create_ToOpen(Order entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.CreateDateTime = DateTime.Now;
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditDateTime = DateTime.Now;
+                }
+                // 返回
+                return ResponseOk(
+                    new CreateMode.Request().ToResponse(
+                        new OrderService.CreateService().ToOpen(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderController.Create_ToOpen", ex);
+            }
+        }
         #endregion
 
         #region UpdateMode
@@ -148,6 +180,66 @@ namespace MISApi.Controllers.CMS
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.CMS.OrderController.Update_Multiple", ex);
+            }
+        }
+        /// <summary>
+        /// 编辑一条订单
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Order/Update/ToOpen", Name = "MIS_CMS_Order_Update_ToOpen")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToOpen(Order entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditDateTime = DateTime.Now;
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new OrderService.UpdateService().ToOpen(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderController.Update_ToOpen", ex);
+            }
+        }
+        /// <summary>
+        /// 编辑一条订单
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Order/Update/ToClose", Name = "MIS_CMS_Order_Update_ToClose")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToClose(Order entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditDateTime = DateTime.Now;
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new OrderService.UpdateService().ToClose(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderController.Update_ToClose", ex);
             }
         }
         #endregion

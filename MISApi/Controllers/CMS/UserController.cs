@@ -200,6 +200,64 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.UserController.Update_Password", ex);
             }
         }
+        /// <summary>
+        /// 编辑一条用户
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/User/Update/ToOpen", Name = "MIS_CMS_User_Update_ToOpen")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToOpen(User entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new UserService.UpdateService().ToOpen(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.UserController.Update_ToOpen", ex);
+            }
+        }
+        /// <summary>
+        /// 编辑一条用户
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/User/Update/ToClose", Name = "MIS_CMS_User_Update_ToClose")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToClose(User entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new UserService.UpdateService().ToClose(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.UserController.Update_ToClose", ex);
+            }
+        }
         #endregion
 
         #region DeleteMode

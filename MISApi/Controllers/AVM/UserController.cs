@@ -86,6 +86,39 @@ namespace MISApi.Controllers.AVM
                 throw new Exception("MISApi.Controllers.AVM.UserController.Create_Multiple", ex);
             }
         }
+        /// <summary>
+        /// 创建用户
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/AVM/User/Create/ToOpen", Name = "MIS_AVM_User_Create_ToOpen")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create_ToOpen(User entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.Password = EncryptHelper.GetBase64String(entity.Password);
+                    entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.CreateDateTime = DateTime.Now;
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditDateTime = DateTime.Now;
+                }
+                // 返回
+                return ResponseOk(
+                    new CreateMode.Request().ToResponse(
+                        new UserService.CreateService().ToOpen(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.AVM.UserController.Create_ToOpen", ex);
+            }
+        }
         #endregion
 
         #region UpdateMode
@@ -150,6 +183,66 @@ namespace MISApi.Controllers.AVM
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.AVM.UserController.Update_Multiple", ex);
+            }
+        }
+        /// <summary>
+        /// 编辑一条用户
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/AVM/User/Update/ToOpen", Name = "MIS_AVM_User_Update_ToOpen")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToOpen(User entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditDateTime = DateTime.Now;
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new UserService.UpdateService().ToOpen(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.AVM.UserController.Update_ToOpen", ex);
+            }
+        }
+        /// <summary>
+        /// 编辑一条用户
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/AVM/User/Update/ToClose", Name = "MIS_AVM_User_Update_ToClose")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToClose(User entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditDateTime = DateTime.Now;
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new UserService.UpdateService().ToClose(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.AVM.UserController.Update_ToClose", ex);
             }
         }
         /// <summary>

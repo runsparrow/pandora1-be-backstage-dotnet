@@ -78,6 +78,35 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CashOutController.Create_Multiple", ex);
             }
         }
+        /// <summary>
+        /// 创建提现
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/CashOut/Create/ToOpen", Name = "MIS_CMS_CashOut_Create_ToOpen")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create_ToOpen(CashOut entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+
+                }
+                // 返回
+                return ResponseOk(
+                    new CreateMode.Request().ToResponse(
+                        new CashOutService.CreateService().ToOpen(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Create_ToOpen", ex);
+            }
+        }
         #endregion
 
         #region UpdateMode
@@ -140,6 +169,64 @@ namespace MISApi.Controllers.CMS
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.CMS.CashOutController.Update_Multiple", ex);
+            }
+        }
+        /// <summary>
+        /// 编辑一条提现
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/CashOut/Update/ToOpen", Name = "MIS_CMS_CashOut_Update_ToOpen")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToOpen(CashOut entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new CashOutService.UpdateService().ToOpen(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Update_ToOpen", ex);
+            }
+        }
+        /// <summary>
+        /// 编辑一条提现
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/CashOut/Update/ToClose", Name = "MIS_CMS_CashOut_Update_ToClose")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToClose(CashOut entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new CashOutService.UpdateService().ToClose(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Update_ToClose", ex);
             }
         }
         #endregion

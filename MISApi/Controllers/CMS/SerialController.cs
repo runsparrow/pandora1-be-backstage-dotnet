@@ -288,7 +288,7 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.SerialController.ByKeyWord", ex);
+                throw new Exception("MISApi.Controllers.CMS.SerialController.Rows_ByKeyWord", ex);
             }
         }
         /// <summary>
@@ -506,6 +506,190 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.SerialController.Tree", ex);
             }
         }
+        #endregion
+
+        #endregion
+
+        #region Unauthorized
+
+        #region ColumnsMode
+        /// <summary>
+        /// 查询流水的字段
+        /// </summary>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Serial/Columns/Single", Name = "Unauthorized_MIS_CMS_Serial_Columns_Single")]
+        [HttpPost]
+        public IActionResult Unauthorized_Columns_Single()
+        {
+            try
+            {
+                return Columns_Single();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.SerialController.Unauthorized_Columns_Single", ex);
+            }
+        }
+        #endregion
+
+        #region RowMode
+        /// <summary>
+        /// 根据Id查询流水
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Serial/Row/ById", Name = "Unauthorized_MIS_CMS_Serial_Row_ById")]
+        [HttpPost]
+        public IActionResult Unauthorized_Row_ById(DTO_Id dto)
+        {
+            try
+            {
+                return Row_ById(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.SerialController.Unauthorized_Row_ById", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询流水
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Serial/Row/ById/{id}", Name = "Unauthorized_MIS_CMS_Serial_Row_ById_Id")]
+        [HttpGet]
+        public IActionResult Unauthorized_Row_ById_Id(int id)
+        {
+            try
+            {
+                return Row_ById_Id(id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.SerialController.Unauthorized_Row_ById_Id", ex);
+            }
+        }
+        #endregion
+
+        #region RowsMode
+        /// <summary>
+        /// 根据关键字模糊查询流水
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Serial/Rows/ByKeyWord", Name = "Unauthorized_MIS_CMS_Serial_Rows_ByKeyWord")]
+        [HttpPost]
+        public IActionResult Unauthorized_Rows_ByKeyWord(DTO_KeyWord dto)
+        {
+            try
+            {
+                return Rows_ByKeyWord(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.SerialController.Unauthorized_Rows_ByKeyWord", ex);
+            }
+        }
+        /// <summary>
+        /// 根据关键字模糊查询流水
+        /// </summary>
+        /// <param name="keyWord"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Serial/Rows/ByKeyWord/{keyWord}", Name = "Unauthorized_MIS_CMS_Serial_Rows_ByKeyWord_KeyWord")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByKeyWord_KeyWord(string keyWord)
+        {
+            try
+            {
+                return Rows_ByKeyWord_KeyWord(keyWord);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.SerialController.Unauthorized_Rows_ByKeyWord_KeyWord", ex);
+            }
+        }
+        /// <summary>
+        /// 根据PayerId查询订单
+        /// </summary>
+        /// <param name="payerId"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Serial/Rows/ByPayerId/{payerId}", Name = "Unauthorized_MIS_CMS_Serial_Rows_ByPayerId_PayerId")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByPayerId_PayerId(int payerId)
+        {
+            try
+            {
+                return Rows_ByPayerId_PayerId(payerId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.SerialController.Unauthorized_Rows_ByPayerId_PayerId", ex);
+            }
+        }
+        /// <summary>
+        /// 根据ReceiverId查询订单
+        /// </summary>
+        /// <param name="receiverId"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Serial/Rows/ByReceiverId/{receiverId}", Name = "Unauthorized_MIS_CMS_Serial_Rows_ByReceiverId_ReceiverId")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByReceiverId_ReceiverId(int receiverId)
+        {
+            try
+            {
+                return Rows_ByReceiverId_ReceiverId(receiverId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.SerialController.Unauthorized_Rows_ByReceiverId_ReceiverId", ex);
+            }
+        }
+        #endregion
+
+        #region SingleMode
+        /// <summary>
+        /// 根据Id查询流水
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Serial/Single/ById", Name = "Unauthorized_MIS_CMS_Serial_Single_ById")]
+        [HttpPost]
+        public IActionResult Unauthorized_Single_ById(DTO_Id dto)
+        {
+            try
+            {
+                return Single_ById(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.SerialController.Unauthorized_Single_ById", ex);
+            }
+        }
+        #endregion
+
+        #region QueryMode
+        /// <summary>
+        /// 分页查询流水
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Serial/Query/Page", Name = "Unauthorized_MIS_CMS_Serial_Query_Page")]
+        [HttpPost]
+        public IActionResult Unauthorized_Query_Page(DTO_Page dto)
+        {
+            try
+            {
+                return Query_Page(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.SerialController.Unauthorized_Query_Page", ex);
+            }
+        }
+        #endregion
+
+        #region TreeMode
+
         #endregion
 
         #endregion

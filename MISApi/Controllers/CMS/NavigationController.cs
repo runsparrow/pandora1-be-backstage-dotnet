@@ -297,7 +297,7 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.NavigationController.ByKeyWord", ex);
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Rows_ByKeyWord", ex);
             }
         }
         /// <summary>
@@ -366,7 +366,7 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.ASM.NavigationController.Rows_SupersetById", ex);
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Rows_SupersetById", ex);
             }
         }
         #endregion
@@ -519,7 +519,7 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.DictionaryController.Tree_SubsetById", ex);
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Tree_SubsetById", ex);
             }
         }
         /// <summary>
@@ -551,7 +551,7 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.ASM.NavigationController.Tree_SupersetById", ex);
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Tree_SupersetById", ex);
             }
         }
         /// <summary>
@@ -577,6 +577,225 @@ namespace MISApi.Controllers.CMS
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.CMS.NavigationController.Tree", ex);
+            }
+        }
+        #endregion
+
+        #endregion
+
+        #region Unauthorized
+
+        #region ColumnsMode
+        /// <summary>
+        /// 查询导航的字段
+        /// </summary>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Navigation/Columns/Single", Name = "Unauthorized_MIS_CMS_Navigation_Columns_Single")]
+        [HttpPost]
+        public IActionResult Unauthorized_Columns_Single()
+        {
+            try
+            {
+                return Columns_Single();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Unauthorized_Columns_Single", ex);
+            }
+        }
+        #endregion
+
+        #region RowMode
+        /// <summary>
+        /// 根据Id查询导航
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Navigation/Row/ById", Name = "Unauthorized_MIS_CMS_Navigation_Row_ById")]
+        [HttpPost]
+        public IActionResult Unauthorized_Row_ById(DTO_Id dto)
+        {
+            try
+            {
+                return Row_ById(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Unauthorized_Row_ById", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询导航
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Navigation/Row/ById/{id}", Name = "Unauthorized_MIS_CMS_Navigation_Row_ById_Id")]
+        [HttpGet]
+        public IActionResult Unauthorized_Row_ById_Id(int id)
+        {
+            try
+            {
+                return Row_ById_Id(id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Unauthorized_Row_ById_Id", ex);
+            }
+        }
+        #endregion
+
+        #region RowsMode
+        /// <summary>
+        /// 根据关键字模糊查询导航
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Navigation/Rows/ByKeyWord", Name = "Unauthorized_MIS_CMS_Navigation_Rows_ByKeyWord")]
+        [HttpPost]
+        public IActionResult Unauthorized_Rows_ByKeyWord(DTO_KeyWord dto)
+        {
+            try
+            {
+                return Rows_ByKeyWord(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Unauthorized_Rows_ByKeyWord", ex);
+            }
+        }
+        /// <summary>
+        /// 根据关键字模糊查询导航
+        /// </summary>
+        /// <param name="keyWord"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Navigation/Rows/ByKeyWord/{keyWord}", Name = "Unauthorized_MIS_CMS_Navigation_Rows_ByKeyWord_KeyWord")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByKeyWord_KeyWord(string keyWord)
+        {
+            try
+            {
+                return Rows_ByKeyWord_KeyWord(keyWord);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Unauthorized_Rows_ByKeyWord_KeyWord", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询导航子集
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Navigation/Rows/SubsetById/{id}", Name = "Unauthorized_MIS_CMS_Navigation_Rows_SubsetById_Id")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_SubsetById(int id)
+        {
+            try
+            {
+                return Rows_SubsetById(id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Unauthorized_Rows_SubsetById", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询导航父集
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Navigation/Rows/SupersetById/{id}", Name = "Unauthorized_MIS_CMS_Navigation_Rows_SupersetById_Id")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_SupersetById(int id)
+        {
+            try
+            {
+                return Rows_SupersetById(id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Unauthorized_Rows_SupersetById", ex);
+            }
+        }
+        #endregion
+
+        #region SingleMode
+        /// <summary>
+        /// 根据Id查询导航
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Navigation/Single/ById", Name = "Unauthorized_MIS_CMS_Navigation_Single_ById")]
+        [HttpPost]
+        public IActionResult Unauthorized_Single_ById(DTO_Id dto)
+        {
+            try
+            {
+                return Single_ById(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Unauthorized_Single_ById", ex);
+            }
+        }
+        #endregion
+
+        #region QueryMode
+        /// <summary>
+        /// 分页查询导航
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Navigation/Query/Page", Name = "Unauthorized_MIS_CMS_Navigation_Query_Page")]
+        [HttpPost]
+        public IActionResult Unauthorized_Query_Page(DTO_Page dto)
+        {
+            try
+            {
+                return Query_Page(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Unauthorized_Query_Page", ex);
+            }
+        }
+        #endregion
+
+        #region TreeMode
+        /// <summary>
+        /// 根据Id查询获得树型结构的导航
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Navigation/Tree/SubsetById/{id}", Name = "Unauthorized_MIS_CMS_Navigation_Tree_SubsetById_Id")]
+        [HttpGet]
+        public IActionResult Unauthorized_Tree_SubsetById(int id)
+        {
+            try
+            {
+                return Tree_SubsetById(id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Unauthorized_Tree_SubsetById", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询获得树型结构的导航
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Navigation/Tree/SupersetById/{id}", Name = "Unauthorized_MIS_CMS_Navigation_Tree_SupersetById_Id")]
+        [HttpGet]
+        public IActionResult Unauthorized_Tree_SupersetById(int id)
+        {
+            try
+            {
+                return Tree_SupersetById(id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Unauthorized_Tree_SupersetById", ex);
             }
         }
         #endregion
@@ -893,4 +1112,6 @@ namespace MISApi.Controllers.CMS
 
         #endregion
     }
+
+
 }

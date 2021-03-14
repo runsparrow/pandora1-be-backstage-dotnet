@@ -288,7 +288,7 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.CashOutController.ByKeyWord", ex);
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Rows_ByKeyWord", ex);
             }
         }
         /// <summary>
@@ -529,6 +529,208 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CashOutController.Tree", ex);
             }
         }
+        #endregion
+
+        #endregion
+
+        #region Unauthorized
+
+        #region ColumnsMode
+        /// <summary>
+        /// 查询提现的字段
+        /// </summary>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/CashOut/Columns/Single", Name = "Unauthorized_MIS_CMS_CashOut_Columns_Single")]
+        [HttpPost]
+        public IActionResult Unauthorized_Columns_Single()
+        {
+            try
+            {
+                return Columns_Single();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Unauthorized_Columns_Single", ex);
+            }
+        }
+        #endregion
+
+        #region RowMode
+        /// <summary>
+        /// 根据Id查询提现
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/CashOut/Row/ById", Name = "Unauthorized_MIS_CMS_CashOut_Row_ById")]
+        [HttpPost]
+        public IActionResult Unauthorized_Row_ById(DTO_Id dto)
+        {
+            try
+            {
+                return Row_ById(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Unauthorized_Row_ById", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询提现
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/CashOut/Row/ById/{id}", Name = "Unauthorized_MIS_CMS_CashOut_Row_ById_Id")]
+        [HttpGet]
+        public IActionResult Unauthorized_Row_ById_Id(int id)
+        {
+            try
+            {
+                return Row_ById_Id(id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Unauthorized_Row_ById_Id", ex);
+            }
+        }
+        #endregion
+
+        #region RowsMode
+        /// <summary>
+        /// 根据关键字模糊查询提现
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/CashOut/Rows/ByKeyWord", Name = "Unauthorized_MIS_CMS_CashOut_Rows_ByKeyWord")]
+        [HttpPost]
+        public IActionResult Unauthorized_Rows_ByKeyWord(DTO_KeyWord dto)
+        {
+            try
+            {
+                return Rows_ByKeyWord(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Unauthorized_Rows_ByKeyWord", ex);
+            }
+        }
+        /// <summary>
+        /// 根据关键字模糊查询提现
+        /// </summary>
+        /// <param name="keyWord"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/CashOut/Rows/ByKeyWord/{keyWord}", Name = "Unauthorized_MIS_CMS_CashOut_Rows_ByKeyWord_KeyWord")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByKeyWord_KeyWord(string keyWord)
+        {
+            try
+            {
+                return Rows_ByKeyWord_KeyWord(keyWord);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Unauthorized_Rows_ByKeyWord_KeyWord", ex);
+            }
+        }
+        /// <summary>
+        /// 根据ApplierId查询提现记录
+        /// </summary>
+        /// <param name="applierId"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/CashOut/Rows/ByApplierId/{applierId}", Name = "Unauthorized_MIS_CMS_CashOut_Rows_ByApplierId_ApplierId")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByApplierId_ApplierId(int applierId)
+        {
+            try
+            {
+                return Rows_ByApplierId_ApplierId(applierId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Unauthorized_Rows_ByApplierId_ApplierId", ex);
+            }
+        }
+        /// <summary>
+        /// 根据ApproverId查询提现记录
+        /// </summary>
+        /// <param name="approverId"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/CashOut/Rows/ByApproverId/{approverId}", Name = "Unauthorized_MIS_CMS_CashOut_Rows_ByApproverId_ApproverId")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByApproverId_ApproverId(int approverId)
+        {
+            try
+            {
+                return Rows_ByApproverId_ApproverId(approverId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Unauthorized_Rows_ByApproverId_ApproverId", ex);
+            }
+        }
+        /// <summary>
+        /// 根据LoanerId查询提现记录
+        /// </summary>
+        /// <param name="loanerId"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/CashOut/Rows/ByLoanerId/{loanerId}", Name = "Unauthorized_MIS_CMS_CashOut_Rows_ByLoanerId_LoanerId")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByLoanerId_LoanerId(int loanerId)
+        {
+            try
+            {
+                return Rows_ByLoanerId_LoanerId(loanerId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Unauthorized_Rows_ByLoanerId_LoanerId", ex);
+            }
+        }
+        #endregion
+
+        #region SingleMode
+        /// <summary>
+        /// 根据Id查询提现
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/CashOut/Single/ById", Name = "Unauthorized_MIS_CMS_CashOut_Single_ById")]
+        [HttpPost]
+        public IActionResult Unauthorized_Single_ById(DTO_Id dto)
+        {
+            try
+            {
+                return Single_ById(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Unauthorized_Single_ById", ex);
+            }
+        }
+        #endregion
+
+        #region QueryMode
+        /// <summary>
+        /// 分页查询提现
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/CashOut/Query/Page", Name = "Unauthorized_MIS_CMS_CashOut_Query_Page")]
+        [HttpPost]
+        public IActionResult Unauthorized_Query_Page(DTO_Page dto)
+        {
+            try
+            {
+                return Query_Page(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Unauthorized_Query_Page", ex);
+            }
+        }
+        #endregion
+
+        #region TreeMode
+
         #endregion
 
         #endregion

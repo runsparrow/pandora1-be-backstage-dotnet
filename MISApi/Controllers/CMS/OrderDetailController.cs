@@ -296,7 +296,7 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.ByKeyWord", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Rows_ByKeyWord", ex);
             }
         }
         /// <summary>
@@ -560,6 +560,226 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Tree", ex);
             }
         }
+        #endregion
+
+        #endregion
+
+        #region Unauthorized
+
+        #region ColumnsMode
+        /// <summary>
+        /// 查询订单明细的字段
+        /// </summary>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/OrderDetail/Columns/Single", Name = "Unauthorized_MIS_CMS_OrderDetail_Columns_Single")]
+        [HttpPost]
+        public IActionResult Unauthorized_Columns_Single()
+        {
+            try
+            {
+                return Columns_Single();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Columns_Single", ex);
+            }
+        }
+        #endregion
+
+        #region RowMode
+        /// <summary>
+        /// 根据Id查询订单明细
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/OrderDetail/Row/ById", Name = "Unauthorized_MIS_CMS_OrderDetail_Row_ById")]
+        [HttpPost]
+        public IActionResult Unauthorized_Row_ById(DTO_Id dto)
+        {
+            try
+            {
+                return Row_ById(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Row_ById", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询订单明细
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/OrderDetail/Row/ById/{id}", Name = "Unauthorized_MIS_CMS_OrderDetail_Row_ById_Id")]
+        [HttpGet]
+        public IActionResult Unauthorized_Row_ById_Id(int id)
+        {
+            try
+            {
+                return Row_ById_Id(id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Row_ById_Id", ex);
+            }
+        }
+        #endregion
+
+        #region RowsMode
+        /// <summary>
+        /// 根据关键字模糊查询订单明细
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/OrderDetail/Rows/ByKeyWord", Name = "Unauthorized_MIS_CMS_OrderDetail_Rows_ByKeyWord")]
+        [HttpPost]
+        public IActionResult Unauthorized_Rows_ByKeyWord(DTO_KeyWord dto)
+        {
+            try
+            {
+                return Rows_ByKeyWord(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Rows_ByKeyWord", ex);
+            }
+        }
+        /// <summary>
+        /// 根据关键字模糊查询订单明细
+        /// </summary>
+        /// <param name="keyWord"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/OrderDetail/Rows/ByKeyWord/{keyWord}", Name = "Unauthorized_MIS_CMS_OrderDetail_Rows_ByKeyWord_KeyWord")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByKeyWord_KeyWord(string keyWord)
+        {
+            try
+            {
+                return Rows_ByKeyWord_KeyWord(keyWord);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Rows_ByKeyWord_KeyWord", ex);
+            }
+        }
+        /// <summary>
+        /// 根据OrderId查询订单明细
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/OrderDetail/Rows/ByOrderId/{orderId}", Name = "Unauthorized_MIS_CMS_OrderDetail_Rows_ByOrderId_OrderId")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByOrderId_OrderId(int orderId)
+        {
+            try
+            {
+                return Rows_ByOrderId_OrderId(orderId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Rows_ByOrderId_OrderId", ex);
+            }
+        }
+        /// <summary>
+        /// 根据OwnerId查询订单明细
+        /// </summary>
+        /// <param name="ownerId"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/OrderDetail/Rows/ByOwnerId/{ownerId}", Name = "Unauthorized_MIS_CMS_OrderDetail_Rows_ByOwnerId_OwnerId")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByOwnerId_OwnerId(int ownerId)
+        {
+            try
+            {
+                return Rows_ByOrderId_OrderId(ownerId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Rows_ByOwnerId_OwnerId", ex);
+            }
+        }
+        /// <summary>
+        /// 根据GoodsId查询订单明细
+        /// </summary>
+        /// <param name="goodsId"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/OrderDetail/Rows/ByGoodsId/{goodsId}", Name = "Unauthorized_MIS_CMS_OrderDetail_Rows_ByGoodsId_GoodsId")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByGoodsId_GoodsId(int goodsId)
+        {
+            try
+            {
+                return Rows_ByGoodsId_GoodsId(goodsId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Rows_ByGoodsId_GoodsId", ex);
+            }
+        }
+        /// <summary>
+        /// 根据BuyerId查询订单明细
+        /// </summary>
+        /// <param name="buyerId"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/OrderDetail/Rows/ByBuyerId/{buyerId}", Name = "Unauthorized_MIS_CMS_OrderDetail_Rows_ByBuyerId_BuyerId")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByBuyerId_BuyerId(int buyerId)
+        {
+            try
+            {
+                return Rows_ByBuyerId_BuyerId(buyerId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Rows_ByBuyerId_BuyerId", ex);
+            }
+        }
+        #endregion
+
+        #region SingleMode
+        /// <summary>
+        /// 根据Id查询订单明细
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/OrderDetail/Single/ById", Name = "Unauthorized_MIS_CMS_OrderDetail_Single_ById")]
+        [HttpPost]
+        public IActionResult Unauthorized_Single_ById(DTO_Id dto)
+        {
+            try
+            {
+                return Single_ById(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Single_ById", ex);
+            }
+        }
+        #endregion
+
+        #region QueryMode
+        /// <summary>
+        /// 分页查询订单明细
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/OrderDetail/Query/Page", Name = "Unauthorized_MIS_CMS_OrderDetail_Query_Page")]
+        [HttpPost]
+        public IActionResult Unauthorized_Query_Page(DTO_Page dto)
+        {
+            try
+            {
+                return Query_Page(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Query_Page", ex);
+            }
+        }
+        #endregion
+
+        #region TreeMode
+
         #endregion
 
         #endregion

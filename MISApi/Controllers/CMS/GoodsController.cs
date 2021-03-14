@@ -518,6 +518,190 @@ namespace MISApi.Controllers.CMS
 
         #endregion
 
+        #region Unauthorized
+
+        #region ColumnsMode
+        /// <summary>
+        /// 查询商品的字段
+        /// </summary>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Goods/Columns/Single", Name = "Unauthorized_MIS_CMS_Goods_Columns_Single")]
+        [HttpPost]
+        public IActionResult Unauthorized_Columns_Single()
+        {
+            try
+            {
+                return Columns_Single();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.GoodsController. Unauthorized_Columns_Single", ex);
+            }
+        }
+        #endregion
+
+        #region RowMode
+        /// <summary>
+        /// 根据Id查询商品
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Goods/Row/ById", Name = "Unauthorized_MIS_CMS_Goods_Row_ById")]
+        [HttpPost]
+        public IActionResult Unauthorized_Row_ById(DTO_Id dto)
+        {
+            try
+            {
+                return Row_ById(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.GoodsController.Unauthorized_Row_ById", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询商品
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Goods/Row/ById/{id}", Name = "Unauthorized_MIS_CMS_Goods_Row_ById_Id")]
+        [HttpGet]
+        public IActionResult Unauthorized_Row_ById_Id(int id)
+        {
+            try
+            {
+                return Row_ById_Id(id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.GoodsController.Unauthorized_Row_ById_Id", ex);
+            }
+        }
+        #endregion
+
+        #region RowsMode
+        /// <summary>
+        /// 根据关键字模糊查询商品
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Goods/Rows/ByKeyWord", Name = "Unauthorized_MIS_CMS_Goods_Rows_ByKeyWord")]
+        [HttpPost]
+        public IActionResult Unauthorized_Rows_ByKeyWord(DTO_KeyWord dto)
+        {
+            try
+            {
+                return Rows_ByKeyWord(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.GoodsController.Unauthorized_Rows_ByKeyWord", ex);
+            }
+        }
+        /// <summary>
+        /// 根据关键字模糊查询商品
+        /// </summary>
+        /// <param name="keyWord"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Goods/Rows/ByKeyWord/{keyWord}", Name = "Unauthorized_MIS_CMS_Goods_Rows_ByKeyWord_KeyWord")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByKeyWord_KeyWord(string keyWord)
+        {
+            try
+            {
+                return Rows_ByKeyWord_KeyWord(keyWord);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.GoodsController.Unauthorized_Rows_ByKeyWord_KeyWord", ex);
+            }
+        }
+        /// <summary>
+        /// 根据OwnerId查询商品
+        /// </summary>
+        /// <param name="ownerId"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Goods/Rows/ByOwnerId/{ownerId}", Name = "Unauthorized_MIS_CMS_Goods_Rows_ByOwnerId_OwnerId")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByOwnerId_OwnerId(int ownerId)
+        {
+            try
+            {
+                return Rows_ByOwnerId_OwnerId(ownerId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.GoodsController.Unauthorized_Rows_ByOwnerId_OwnerId", ex);
+            }
+        }
+        /// <summary>
+        /// 根据ClassifyId查询商品
+        /// </summary>
+        /// <param name="classifyId"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Goods/Rows/ByClassifyId/{classifyId}", Name = "Unauthorized_MIS_CMS_Goods_Rows_ByClassifyId_ClassifyId")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByClassifyId_ClassifyId(int classifyId)
+        {
+            try
+            {
+                return Unauthorized_Rows_ByClassifyId_ClassifyId(classifyId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.GoodsController.Unauthorized_Rows_ByClassifyId_ClassifyId", ex);
+            }
+        }
+        #endregion
+
+        #region SingleMode
+        /// <summary>
+        /// 根据Id查询商品
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Goods/Single/ById", Name = "Unauthorized_MIS_CMS_Goods_Single_ById")]
+        [HttpPost]
+        public IActionResult Unauthorized_Single_ById(DTO_Id dto)
+        {
+            try
+            {
+                return Single_ById(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.GoodsController.Unauthorized_Single_ById", ex);
+            }
+        }
+        #endregion
+
+        #region QueryMode
+        /// <summary>
+        /// 分页查询商品
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Goods/Query/Page", Name = "Unauthorized_MIS_CMS_Goods_Query_Page")]
+        [HttpPost]
+        public IActionResult Unauthorized_Query_Page(DTO_Page dto)
+        {
+            try
+            {
+                return Query_Page(dto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.GoodsController.Unauthorized_Query_Page", ex);
+            }
+        }
+        #endregion
+
+        #region TreeMode
+
+        #endregion
+
+        #endregion
+
         #region Mode
 
         #region Create

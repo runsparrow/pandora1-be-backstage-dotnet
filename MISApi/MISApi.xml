@@ -2106,6 +2106,54 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Unauthorized_Columns_Single">
+            <summary>
+            查询资讯的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Unauthorized_Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询资讯
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Unauthorized_Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询资讯
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Unauthorized_Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询资讯
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Unauthorized_Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询资讯
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Unauthorized_Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询资讯
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询资讯
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Controllers.CMS.ArticleController.CreateMode">
             <summary>
             
@@ -2542,6 +2590,68 @@
             树形结构的复杂查询
             </summary>
             <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Unauthorized_Columns_Single">
+            <summary>
+            查询认证的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Unauthorized_Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询认证
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Unauthorized_Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询认证
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Unauthorized_Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询认证
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Unauthorized_Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询认证
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Unauthorized_Rows_ByApplierId_ApplierId(System.Int32)">
+            <summary>
+            根据ApplierId查询提现记录
+            </summary>
+            <param name="applierId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Unauthorized_Rows_ByApproverId_ApproverId(System.Int32)">
+            <summary>
+            根据ApproverId查询提现记录
+            </summary>
+            <param name="approverId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Unauthorized_Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询认证
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询认证
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.AuthorityController.CreateMode">
@@ -3249,6 +3359,68 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Unauthorized_Columns_Single">
+            <summary>
+            查询商品的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Unauthorized_Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询商品
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Unauthorized_Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询商品
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Unauthorized_Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询商品
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Unauthorized_Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询商品
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Unauthorized_Rows_ByOwnerId_OwnerId(System.Int32)">
+            <summary>
+            根据OwnerId查询商品
+            </summary>
+            <param name="ownerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Unauthorized_Rows_ByClassifyId_ClassifyId(System.Int32)">
+            <summary>
+            根据ClassifyId查询商品
+            </summary>
+            <param name="classifyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Unauthorized_Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询商品
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询商品
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Controllers.CMS.GoodsController.CreateMode">
             <summary>
             
@@ -3612,6 +3784,82 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Unauthorized_Columns_Single">
+            <summary>
+            查询导航的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Unauthorized_Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询导航
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Unauthorized_Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询导航
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Unauthorized_Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询导航
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Unauthorized_Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询导航
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Unauthorized_Rows_SubsetById(System.Int32)">
+            <summary>
+            根据Id查询导航子集
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Unauthorized_Rows_SupersetById(System.Int32)">
+            <summary>
+            根据Id查询导航父集
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Unauthorized_Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询导航
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询导航
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Unauthorized_Tree_SubsetById(System.Int32)">
+            <summary>
+            根据Id查询获得树型结构的导航
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Unauthorized_Tree_SupersetById(System.Int32)">
+            <summary>
+            根据Id查询获得树型结构的导航
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Controllers.CMS.NavigationController.CreateMode">
             <summary>
             
@@ -3952,6 +4200,61 @@
             树形结构的复杂查询
             </summary>
             <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderController.Unauthorized_Columns_Single">
+            <summary>
+            查询订单的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderController.Unauthorized_Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询订单
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderController.Unauthorized_Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询订单
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderController.Unauthorized_Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询订单
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderController.Unauthorized_Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询订单
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderController.Unauthorized_Rows_ByBuyerId_BuyerId(System.Int32)">
+            <summary>
+            根据BuyerId查询订单
+            </summary>
+            <param name="buyerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderController.Unauthorized_Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询订单
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询订单
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.OrderController.CreateMode">
@@ -4317,6 +4620,82 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Columns_Single">
+            <summary>
+            查询订单明细的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询订单明细
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询订单明细
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询订单明细
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询订单明细
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Rows_ByOrderId_OrderId(System.Int32)">
+            <summary>
+            根据OrderId查询订单明细
+            </summary>
+            <param name="orderId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Rows_ByOwnerId_OwnerId(System.Int32)">
+            <summary>
+            根据OwnerId查询订单明细
+            </summary>
+            <param name="ownerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Rows_ByGoodsId_GoodsId(System.Int32)">
+            <summary>
+            根据GoodsId查询订单明细
+            </summary>
+            <param name="goodsId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Rows_ByBuyerId_BuyerId(System.Int32)">
+            <summary>
+            根据BuyerId查询订单明细
+            </summary>
+            <param name="buyerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询订单明细
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询订单明细
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Controllers.CMS.OrderDetailController.CreateMode">
             <summary>
             
@@ -4666,6 +5045,68 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.SerialController.Unauthorized_Columns_Single">
+            <summary>
+            查询流水的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.SerialController.Unauthorized_Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询流水
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.SerialController.Unauthorized_Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询流水
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.SerialController.Unauthorized_Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询流水
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.SerialController.Unauthorized_Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询流水
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.SerialController.Unauthorized_Rows_ByPayerId_PayerId(System.Int32)">
+            <summary>
+            根据PayerId查询订单
+            </summary>
+            <param name="payerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.SerialController.Unauthorized_Rows_ByReceiverId_ReceiverId(System.Int32)">
+            <summary>
+            根据ReceiverId查询订单
+            </summary>
+            <param name="receiverId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.SerialController.Unauthorized_Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询流水
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.SerialController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询流水
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Controllers.CMS.SerialController.CreateMode">
             <summary>
             
@@ -5013,6 +5454,54 @@
             树形结构的复杂查询
             </summary>
             <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.UserController.Unauthorized_Columns_Single">
+            <summary>
+            查询用户的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.UserController.Unauthorized_Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询用户
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.UserController.Unauthorized_Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询用户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.UserController.Unauthorized_Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询用户
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.UserController.Unauthorized_Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询用户
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.UserController.Unauthorized_Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询用户
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.UserController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询用户
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.UserController.CreateMode">

@@ -746,6 +746,20 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Rows_SubsetByKey(System.String)">
+            <summary>
+            根据Key查询数据字典子集
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Rows_SupersetByKey(System.String)">
+            <summary>
+            根据Key查询数据字典父集
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
             <summary>
             根据Id查询数据字典
@@ -786,6 +800,20 @@
             根据Id查询获得树型结构的数据字典
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Tree_SubsetByKey(System.String)">
+            <summary>
+            根据Key查询获得树型结构的数据字典
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Tree_SupersetByKey(System.String)">
+            <summary>
+            根据Key查询获得树型结构的数据字典
+            </summary>
+            <param name="key"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Tree(MISApi.Controllers.ASM.DictionaryController.TreeMode.Request)">
@@ -2455,6 +2483,20 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.AuthController.GetAuthCode(MISApi.Controllers.CMS.AuthController.HttpEntity.DTO_Auth)">
+            <summary>
+            
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthController.GetAuth(MISApi.Controllers.CMS.AuthController.HttpEntity.DTO_Auth)">
+            <summary>
+            
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Controllers.CMS.AuthController.HttpEntity">
             <summary>
             
@@ -2483,6 +2525,26 @@
         <member name="P:MISApi.Controllers.CMS.AuthController.HttpEntity.DTO_Token.Token">
             <summary>
             Token
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.AuthController.HttpEntity.DTO_Auth">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.HttpEntity.DTO_Auth.Mobile">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.HttpEntity.DTO_Auth.Code">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.HttpEntity.DTO_Auth.Result">
+            <summary>
+            结果
             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.AuthController.HttpEntity.DTO_Result">
@@ -10578,6 +10640,14 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.ASM.Base.DictionaryService.RowService.ByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 key 查询
+            </summary>
+            <param name="key">Key</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Services.ASM.Base.DictionaryService.RowsService">
             <summary>
             
@@ -10597,6 +10667,22 @@
             </summary>
             <param name="pid">父节点Id</param>
             <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.DictionaryService.RowsService.SubsetByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Key查询所有子节点（递归并包含Key自身）
+            </summary>
+            <param name="key"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.DictionaryService.RowsService.SupersetByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Key查询所有父节点（递归并包含Key自身）
+            </summary>
+            <param name="key"></param>
+            <param name="joins"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Services.ASM.Base.DictionaryService.RowsService.SubsetById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
@@ -10647,6 +10733,24 @@
             <param name="dates"></param>
             <param name="sorts"></param>
             <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.DictionaryService.SubsetByKeyRecursion(System.Collections.Generic.List{MISApi.Entities.ASM.Dictionary},System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Key递归获取Dictionary
+            </summary>
+            <param name="list"></param>
+            <param name="key"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.DictionaryService.SupersetByKeyRecursion(System.Collections.Generic.List{MISApi.Entities.ASM.Dictionary},System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Key递归获取Dictionary
+            </summary>
+            <param name="list"></param>
+            <param name="key"></param>
+            <param name="joins"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Services.ASM.Base.DictionaryService.SubsetByIdRecursion(System.Collections.Generic.List{MISApi.Entities.ASM.Dictionary},System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
@@ -15335,6 +15439,13 @@
             <param name="key"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Tools.ConfigurationHelper.GetRedisConnectionString(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Tools.EncryptHelper">
             <summary>
             
@@ -15430,6 +15541,76 @@
             </summary>
             <param name="data"></param>
             <returns></returns>
+        </member>
+        <member name="T:MISApi.Tools.RandHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MISApi.Tools.RandHelper.RANDOM_NUMBER_CONSTANT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Tools.RandHelper.GenerateRandomNumber(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="Length"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Tools.RedisHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Tools.RedisHelper.#cctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Tools.RedisHelper.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="connectionString"></param>
+            <param name="instanceName"></param>
+        </member>
+        <member name="M:MISApi.Tools.RedisHelper.SetStringValue(System.String,System.String,System.Int32)">
+            <summary>
+            添加string数据
+            </summary>
+            <param name="key">键</param>
+            <param name="value">值</param>
+            <param name="exprireTime">过期时间 单位分钟</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.RedisHelper.GetStringValue(System.String)">
+            <summary>
+            获取string数据
+            </summary>
+            <param name="key">键</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.RedisHelper.Remove(System.String)">
+            <summary>
+            移除数据
+            </summary>
+            <param name="key">键</param>
+        </member>
+        <member name="M:MISApi.Tools.RedisHelper.Refresh(System.String)">
+            <summary>
+            刷新数据
+            </summary>
+            <param name="key">键</param>
+        </member>
+        <member name="M:MISApi.Tools.RedisHelper.Replace(System.String,System.String,System.Int32)">
+            <summary>
+            重置数据
+            </summary>
+            <param name="key">键</param>
+            <param name="value">值</param>
+            <param name="expireTime">过期时间 单位小时</param>
         </member>
     </members>
 </doc>

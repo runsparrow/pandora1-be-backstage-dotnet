@@ -462,6 +462,52 @@ namespace MISApi.Controllers.ASM
                 throw new Exception("MISApi.Controllers.ASM.DictionaryController.Rows_SupersetById", ex);
             }
         }
+        /// <summary>
+        /// 根据Key查询数据字典子集
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Dictionary/Rows/SubsetByKey/{key}", Name = "MIS_ASM_Dictionary_Rows_SubsetByKey_Key")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_SubsetByKey(string key)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new DictionaryService.RowsService().SubsetByKey(key)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Rows_SubsetByKey", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Key查询数据字典父集
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Dictionary/Rows/SupersetByKey/{key}", Name = "MIS_ASM_Dictionary_Rows_SupersetByKey_Key")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_SupersetByKey(string key)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new DictionaryService.RowsService().SupersetByKey(key)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Rows_SupersetByKey", ex);
+            }
+        }
         #endregion
 
         #region SingleMode
@@ -645,6 +691,70 @@ namespace MISApi.Controllers.ASM
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.ASM.DictionaryController.Tree_SupersetById", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Key查询获得树型结构的数据字典
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Dictionary/Tree/SubsetByKey/{key}", Name = "MIS_ASM_Dictionary_Tree_SubsetByKey_Key")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Tree_SubsetByKey(string key)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Dictionary>("DictionaryKey", "Name", "Id", "Pid", "true"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SubsetByKey",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(key),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Tree_SubsetByKey", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Key查询获得树型结构的数据字典
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Dictionary/Tree/SupersetByKey/{key}", Name = "MIS_ASM_Dictionary_Tree_SupersetByKey_Key")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Tree_SupersetByKey(string key)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Dictionary>("DictionaryKey", "Name", "Id", "Pid", "true"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SupersetByKey",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(key),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Tree_SupersetByKey", ex);
             }
         }
         /// <summary>

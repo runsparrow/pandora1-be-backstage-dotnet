@@ -67,5 +67,14 @@ namespace MISApi.Tools
         {
             return Configuration.GetSection("Version").GetValue<string>(key);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static string GetRedisConnectionString(string key)
+        {
+            return Configuration.GetSection("RedisConnectionStrings").GetValue<string>(key);
+        }
     }
 }

@@ -85,7 +85,6 @@ namespace MISApi.Controllers.CMS
         /// <returns></returns>
         [Route("MIS/CMS/User/Create/Regist", Name = "MIS_CMS_User_Create_Regist")]
         [HttpPost]
-        [Authorize]
         public IActionResult Create_Regist(User entity)
         {
             try

@@ -300,6 +300,30 @@ namespace MISApi.Services.ASM.Base
                     }
                 }
             }
+            /// <summary>
+            /// 根据 key 查询
+            /// </summary>
+            /// <param name="key">Key</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public Dictionary ByKey(string key, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToSingle(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Dictionary.Key == key)
+                                .SingleOrDefault()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.ASM.Base.DictionaryService.RowService.ByKey", ex);
+                    }
+                }
+            }
         }
 
         #endregion
@@ -348,6 +372,40 @@ namespace MISApi.Services.ASM.Base
                     {
                         throw new Exception("MISApi.Services.ASM.Base.DictionaryService.RowsService.ByPid", ex);
                     }
+                }
+            }
+            /// <summary>
+            /// 根据Key查询所有子节点（递归并包含Key自身）
+            /// </summary>
+            /// <param name="key"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Dictionary> SubsetByKey(string key, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    return SubsetByKeyRecursion(new List<Dictionary> { new RowService().ByKey(key) }, key, joins);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.DictionaryService.RowsService.SubsetByKey", ex);
+                }
+            }
+            /// <summary>
+            /// 根据Key查询所有父节点（递归并包含Key自身）
+            /// </summary>
+            /// <param name="key"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Dictionary> SupersetByKey(string key, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    return SupersetByKeyRecursion(new List<Dictionary> { new RowService().ByKey(key) }, key, joins);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.DictionaryService.RowsService.SubsetByKey", ex);
                 }
             }
             /// <summary>
@@ -499,6 +557,58 @@ namespace MISApi.Services.ASM.Base
         #endregion
 
         #region Inner Methods
+        /// <summary>
+        /// 根据Key递归获取Dictionary
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="key"></param>
+        /// <param name="joins"></param>
+        /// <returns></returns>
+        private List<Dictionary> SubsetByKeyRecursion(List<Dictionary> list, string key, params BaseMode.Join[] joins)
+        {
+            using (PandoraContext context = new PandoraContext())
+            {
+                try
+                {
+                    var entity = new RowService().ByKey(key);
+                    if(entity != null)
+                    {
+                        SubsetByIdRecursion(list, entity.Id, joins);
+                    }
+                    return list;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.DictionaryService.SubsetByKeyRecursion", ex);
+                }
+            }
+        }
+        /// <summary>
+        /// 根据Key递归获取Dictionary
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="key"></param>
+        /// <param name="joins"></param>
+        /// <returns></returns>
+        private List<Dictionary> SupersetByKeyRecursion(List<Dictionary> list, string key, params BaseMode.Join[] joins)
+        {
+            using (PandoraContext context = new PandoraContext())
+            {
+                try
+                {
+                    var entity = new RowService().ByKey(key);
+                    if (entity != null)
+                    {
+                        SupersetByIdRecursion(list, entity.Id, joins);
+                    }
+                    return list;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.DictionaryService.SupersetByKeyRecursion", ex);
+                }
+            }
+        }
         /// <summary>
         /// 根据Id递归获取Dictionary
         /// </summary>

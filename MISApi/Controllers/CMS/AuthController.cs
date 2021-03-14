@@ -11,6 +11,9 @@ using System.Security.Claims;
 using System.Text;
 using static MISApi.Controllers.CMS.AuthController.HttpEntity;
 using static MISApi.Tools.AuthHelper;
+using MISApi.Tools;
+using MISApi.HttpClients;
+using System.Collections.Generic;
 
 namespace MISApi.Controllers.CMS
 {
@@ -79,6 +82,57 @@ namespace MISApi.Controllers.CMS
 
             return new JsonResult(new DTO_Result { Result = true, Token = dto.Token, UserInfo = new DTO_User { UserId = claim.UserId, UserName = claim.UserName, RealName = claim.RealName } });
         }
+        /// <summary>
+        /// 获取短信验证码
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Auth/GetAuthCode", Name = "MIS_CMS_Auth_Get_AuthCode")]
+        [HttpPost]
+        public IActionResult GetAuthCode([FromBody] DTO_Auth dto)
+        {
+            var account = "manyun106vgx2";
+            var timestamps = Convert.ToInt64((DateTime.Now.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalMilliseconds).ToString();
+            var mobile = dto.Mobile;
+            // 接口密码(msvZrIhi) + 手机号 + 时间戳 MD5
+            var password = EncryptHelper.GetMD5($"msvZrIhi{dto.Mobile}{timestamps}");
+            var code = RandHelper.GenerateRandomNumber(6);
+            var content = $"您的验证码是：{code}，有效时间10分钟。";
+            // 调用短信API
+            HttpClientHelper.HttpGetResponse(
+                new List<KeyValuePair<string, string>>
+                {
+                    new KeyValuePair<string, string>("account", account),
+                    new KeyValuePair<string, string>("password", password),
+                    new KeyValuePair<string, string>("mobile", mobile),
+                    new KeyValuePair<string, string>("content", content),
+                    new KeyValuePair<string, string>("timestamps", timestamps),
+                    new KeyValuePair<string, string>("extNumber", ""),
+                    new KeyValuePair<string, string>("extInfo", "")
+                },
+                "http://sapi.appsms.cn:8088/msgHttp/json/mt"
+            );
+            // 存Redis
+            RedisHelper.SetStringValue("DTO_Auth", $"{dto.Mobile}^{code}");
+            // 返回
+            return new JsonResult(new DTO_Auth { Mobile = dto.Mobile, Code = code, Result = true });
+        }
+        /// <summary>
+        /// 校验短信验证码
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Auth/GetAuth", Name = "MIS_CMS_Auth_Get_Auth")]
+        [HttpPost]
+        public IActionResult GetAuth([FromBody] DTO_Auth dto)
+        {
+            return new JsonResult(new DTO_Auth { 
+                Mobile = dto.Mobile, 
+                Code = dto.Code, 
+                Result = RedisHelper.GetStringValue("DTO_Auth").Equals($"{dto.Mobile}^{dto.Code}")
+            });
+
+        }
         #endregion
 
         #region HttpEntity
@@ -118,6 +172,30 @@ namespace MISApi.Controllers.CMS
                 [Description("Token")]
                 [JsonProperty("token")]
                 public string Token { get; set; } = "";
+            }
+            /// <summary>
+            /// 
+            /// </summary>
+            public class DTO_Auth
+            {
+                /// <summary>
+                /// 手机号
+                /// </summary>
+                [Description("手机号")]
+                [JsonProperty("mobile")]
+                public string Mobile { get; set; } = "";
+                /// <summary>
+                /// 验证码
+                /// </summary>
+                [Description("验证码")]
+                [JsonProperty("code")]
+                public string Code { get; set; } = "";
+                /// <summary>
+                /// 结果
+                /// </summary>
+                [Description("结果")]
+                [JsonProperty("result")]
+                public bool Result { get; set; } = false;
             }
             /// <summary>
             /// 

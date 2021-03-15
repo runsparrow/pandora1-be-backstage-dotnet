@@ -94,7 +94,7 @@ namespace MISApi.Controllers.CMS
             var account = "manyun106vgx2";
             var timestamps = Convert.ToInt64((DateTime.Now.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalMilliseconds).ToString();
             var mobile = dto.Mobile;
-            // 接口密码(msvZrIhi) + 手机号 + 时间戳 MD5
+            // 接口密码(msvZrIhi) + 手机号 + 时间戳 MD5加密
             var password = EncryptHelper.GetMD5($"msvZrIhi{dto.Mobile}{timestamps}");
             var code = RandHelper.GenerateRandomNumber(6);
             var content = $"您的验证码是：{code}，有效时间10分钟。";
@@ -113,7 +113,7 @@ namespace MISApi.Controllers.CMS
                 "http://sapi.appsms.cn:8088/msgHttp/json/mt"
             );
             // 存Redis
-            RedisHelper.SetStringValue("DTO_Auth", $"{dto.Mobile}^{code}");
+            RedisHelper.SetStringValue(dto.Mobile, $"{dto.Mobile}^{code}");
             // 返回
             return new JsonResult(new DTO_Auth { Mobile = dto.Mobile, Code = code, Result = true });
         }
@@ -129,7 +129,7 @@ namespace MISApi.Controllers.CMS
             return new JsonResult(new DTO_Auth { 
                 Mobile = dto.Mobile, 
                 Code = dto.Code, 
-                Result = RedisHelper.GetStringValue("DTO_Auth").Equals($"{dto.Mobile}^{dto.Code}")
+                Result = RedisHelper.GetStringValue(dto.Mobile).Equals($"{dto.Mobile}^{dto.Code}")
             });
 
         }

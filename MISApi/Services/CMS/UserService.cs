@@ -73,35 +73,13 @@ namespace MISApi.Services.CMS
                 {
                     // 定义
                     User result = new User();
-
-
-                    // 接口密码(msvZrIhi)+手机号+时间戳 MD5 
-                    var account = "manyun106vgx2";
-                    var timestamps = Convert.ToInt64((DateTime.Now.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalMilliseconds).ToString();
-                    var mobile = entity.Mobile;
-                    var password = EncryptHelper.GetMD5($"msvZrIhi{entity.Mobile}{timestamps}");
-                    var content = $"您的验证码是：{RandHelper.GenerateRandomNumber(6)}，有效时间10分钟。";
-
-                    HttpClientHelper.HttpGetResponse(
-                        new List<KeyValuePair<string, string>>
-                        {
-                            new KeyValuePair<string, string>("account", account),
-                            new KeyValuePair<string, string>("password", password),
-                            new KeyValuePair<string, string>("mobile", mobile),
-                            new KeyValuePair<string, string>("content", content),
-                            new KeyValuePair<string, string>("timestamps", timestamps),
-                            new KeyValuePair<string, string>("extNumber", ""),
-                            new KeyValuePair<string, string>("extInfo", "")
-                        },
-                        "http://sapi.appsms.cn:8088/msgHttp/json/mt"
-                    );
-
-                    //// 事务
-                    //transService.TransRegist(delegate {
-                    //    result = new UserService.CreateService().ToOpen(entity);
-                    //});
-                    //// 提交
-                    //transService.TransCommit();
+                    // 事务
+                    transService.TransRegist(delegate
+                    {
+                        result = new UserService.CreateService().ToOpen(entity);
+                    });
+                    // 提交
+                    transService.TransCommit();
                     // 返回
                     return result;
                 }

@@ -68,17 +68,49 @@ namespace MISApi.Tools
         /// <returns></returns>
         public static string GetStringValue(string key)
         {
-            if (string.IsNullOrEmpty(key))
-            {
-                return null;
-            }
             try
             {
-                return redisCache.GetString(key);
+                if (string.IsNullOrEmpty(key))
+                {
+                    return null;
+                }
+                else
+                {
+                    return redisCache.GetString(key);
+                }
             }
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Tools.RedisHelper.GetStringValue", ex);
+            }
+        }
+        /// <summary>
+        /// 添加string数据
+        /// </summary>
+        /// <param name="key">键</param>
+        /// <param name="value">值</param>
+        /// <param name="exprireTime">过期时间 单位分钟</param>
+        /// <returns></returns>
+        public static bool SetValue<T>(string key, string value, int exprireTime = 10)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(key))
+                {
+                    return false;
+                }
+                else
+                {
+                    redisCache.SetString(key, value, new DistributedCacheEntryOptions()
+                    {
+                        AbsoluteExpiration = DateTime.Now.AddMinutes(exprireTime)
+                    });
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Tools.RedisHelper.SetStringValue", ex);
             }
         }
         /// <summary>

@@ -91,7 +91,7 @@ namespace MISApi.Controllers.CMS
             {
                 // Entity
                 if (entity != null)
-                {
+                { 
                     entity.Password = EncryptHelper.GetBase64String(entity.Password);
                 }
                 // 返回

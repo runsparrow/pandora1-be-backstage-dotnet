@@ -119,7 +119,7 @@ namespace MISApi.Controllers.CMS
         }
         /// <summary>
         /// 校验短信验证码
-        /// </summary>
+        /// </summary> 
         /// <param name="dto"></param>
         /// <returns></returns>
         [Route("MIS/CMS/Auth/GetAuth", Name = "MIS_CMS_Auth_Get_Auth")]

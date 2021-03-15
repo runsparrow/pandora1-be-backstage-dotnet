@@ -30,7 +30,7 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             public CreateService()
             {
-                transService = new TransService();
+                transService = new TransService(); 
             }
             /// <summary>
             /// 默认的事务方法

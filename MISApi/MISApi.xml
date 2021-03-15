@@ -2485,14 +2485,14 @@
         </member>
         <member name="M:MISApi.Controllers.CMS.AuthController.GetAuthCode(MISApi.Controllers.CMS.AuthController.HttpEntity.DTO_Auth)">
             <summary>
-            
+            获取短信验证码
             </summary>
             <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.AuthController.GetAuth(MISApi.Controllers.CMS.AuthController.HttpEntity.DTO_Auth)">
             <summary>
-            
+            校验短信验证码
             </summary>
             <param name="dto"></param>
             <returns></returns>

@@ -2493,7 +2493,7 @@
         <member name="M:MISApi.Controllers.CMS.AuthController.GetAuth(MISApi.Controllers.CMS.AuthController.HttpEntity.DTO_Auth)">
             <summary>
             校验短信验证码
-            </summary>
+            </summary> 
             <param name="dto"></param>
             <returns></returns>
         </member>
@@ -5686,13 +5686,6 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.UserController.Create_Regist(MISApi.Entities.CMS.User)">
-            <summary>
-            注册用户
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
         <member name="M:MISApi.Controllers.CMS.UserController.Update_Single(MISApi.Entities.CMS.User)">
             <summary>
             编辑一条用户
@@ -5809,6 +5802,13 @@
             树形结构的复杂查询
             </summary>
             <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.UserController.Unauthorized_Create_Regist(MISApi.Entities.CMS.User)">
+            <summary>
+            注册用户
+            </summary>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.UserController.Unauthorized_Columns_Single">
@@ -6165,9 +6165,9 @@
             用户名
             </summary>
         </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_User.EmployeeName">
+        <member name="P:MISApi.Controllers.HttpEntities.DTO_User.RealName">
             <summary>
-            姓名
+            实名
             </summary>
         </member>
         <member name="T:MISApi.Controllers.HttpEntities.DTO_Page">
@@ -15590,6 +15590,15 @@
             获取string数据
             </summary>
             <param name="key">键</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.RedisHelper.SetValue``1(System.String,System.String,System.Int32)">
+            <summary>
+            添加string数据
+            </summary>
+            <param name="key">键</param>
+            <param name="value">值</param>
+            <param name="exprireTime">过期时间 单位分钟</param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Tools.RedisHelper.Remove(System.String)">

@@ -78,34 +78,6 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.UserController.Create_Multiple", ex);
             }
         }
-        /// <summary>
-        /// 注册用户
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        [Route("MIS/CMS/User/Create/Regist", Name = "MIS_CMS_User_Create_Regist")]
-        [HttpPost]
-        public IActionResult Create_Regist(User entity)
-        {
-            try
-            {
-                // Entity
-                if (entity != null)
-                { 
-                    entity.Password = EncryptHelper.GetBase64String(entity.Password);
-                }
-                // 返回
-                return ResponseOk(
-                    new CreateMode.Request().ToResponse(
-                        new UserService.CreateService().Regist(entity)
-                    )
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Create_Regist", ex);
-            }
-        }
         #endregion
 
         #region UpdateMode
@@ -580,6 +552,51 @@ namespace MISApi.Controllers.CMS
         #endregion
 
         #region Unauthorized
+
+        #region CreateMode
+        /// <summary>
+        /// 注册用户
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/User/Create/Regist", Name = "Unauthorized_MIS_CMS_User_Create_Regist")]
+        [HttpPost]
+        public IActionResult Unauthorized_Create_Regist(User entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.Password = EncryptHelper.GetBase64String(entity.Password);
+                    entity.RegistDateTime = DateTime.Now;
+                }
+                try
+                {
+                    var user = new UserService.CreateService().Regist(entity);
+                    // 返回
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = true,
+                        UserInfo = new DTO_User { UserId = user.Id, UserName = user.Name, RealName = user.RealName }
+                    });
+                }
+                catch
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        UserInfo = null
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.UserController.Unauthorized_Create_Regist", ex);
+            }
+        }
+
+        #endregion
 
         #region ColumnsMode
         /// <summary>

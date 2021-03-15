@@ -78,11 +78,11 @@ namespace MISApi.Controllers.HttpEntities
         [JsonProperty("userName")]
         public string UserName { get; set; } = "";
         /// <summary>
-        /// 姓名
+        /// 实名
         /// </summary>
-        [Description("姓名")]
-        [JsonProperty("employeeName")]
-        public string EmployeeName { get; set; } = "";
+        [Description("实名")]
+        [JsonProperty("realName")]
+        public string RealName { get; set; } = "";
     }
     /// <summary>
     /// 

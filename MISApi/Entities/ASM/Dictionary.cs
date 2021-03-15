@@ -21,6 +21,8 @@ namespace MISApi.Entities.ASM
         /// </summary>
         [Description("#")]
         [JsonProperty("id")]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         /// <summary>
         /// 父节点Id

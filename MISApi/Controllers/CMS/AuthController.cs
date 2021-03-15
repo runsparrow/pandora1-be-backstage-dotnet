@@ -35,6 +35,10 @@ namespace MISApi.Controllers.CMS
             var user = new UserService.RowService().Verify(dto.AccountName, dto.AccountPwd);
             if (user != null)
             {
+                // 更新登录时间
+                user.LoginDateTime = DateTime.Now;
+                new UserService.UpdateService().Execute(user);
+                // 获取Token
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var key = Encoding.ASCII.GetBytes("This is ocelot security key");
                 var authTime = DateTime.Now;
@@ -58,7 +62,6 @@ namespace MISApi.Controllers.CMS
                     Token = token,
                     UserInfo = new DTO_User { UserId = user.Id, UserName = user.Name, RealName = user.RealName }
                 });
-
             }
             else
             {

@@ -21,6 +21,8 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("#")]
         [JsonProperty("id")]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         /// <summary>
         /// 名称

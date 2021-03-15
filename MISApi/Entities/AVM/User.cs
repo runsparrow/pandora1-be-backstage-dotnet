@@ -21,6 +21,8 @@ namespace MISApi.Entities.AVM
         /// </summary>
         [Description("#")]
         [JsonProperty("id")]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         /// <summary>
         /// 用户名

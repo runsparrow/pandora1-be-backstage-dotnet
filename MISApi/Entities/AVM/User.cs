@@ -37,7 +37,6 @@ namespace MISApi.Entities.AVM
         [StringLength(255)]
         [Description("密码")]
         [JsonProperty("password")]
-        [JsonIgnore]
         public string Password { get; set; } = "";
         /// <summary>
         /// 实名

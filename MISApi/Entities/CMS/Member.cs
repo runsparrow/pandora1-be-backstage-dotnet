@@ -10,10 +10,10 @@ namespace MISApi.Entities.CMS
     /// <summary>
     /// 用户
     /// </summary>
-    [Table("CMS_User")]
+    [Table("CMS_Member")]
     [JsonObject(MemberSerialization.OptOut)]
     [Serializable]
-    public partial class User : BaseCacheEntity<User>
+    public partial class Member : BaseCacheEntity<Member>
     {
         #region Property
         /// <summary>

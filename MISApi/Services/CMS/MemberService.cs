@@ -13,14 +13,14 @@ namespace MISApi.Services.CMS
     /// <summary>
     /// 
     /// </summary>
-    public class UserService
+    public class MemberService
     {
 
         #region CreateService
         /// <summary>
         /// CreateService
         /// </summary>
-        public class CreateService : Base.UserService.CreateService
+        public class CreateService : Base.MemberService.CreateService
         {
             /// <summary>
             /// 定义事务服务
@@ -38,19 +38,19 @@ namespace MISApi.Services.CMS
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public virtual User ToOpen(User entity)
+            public virtual Member ToOpen(Member entity)
             {
                 try
                 {
                     // 定义
-                    User result = new User();
+                    Member result = new Member();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.user.open");
+                        Status status = new StatusCacheService.RowService().ByKey("cms.member.open");
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
-                        result = new UserService.CreateService().Execute(entity);
+                        result = new MemberService.CreateService().Execute(entity);
                     });
                     // 提交
                     transService.TransCommit();
@@ -59,7 +59,7 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.UserService.CreateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.MemberService.CreateService.ToOpen", ex);
                 }
             }
             /// <summary>
@@ -67,18 +67,18 @@ namespace MISApi.Services.CMS
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public virtual User Regist(User entity)
+            public virtual Member Regist(Member entity)
             {
                 try
                 {
                     // 定义
-                    User result = new User();
+                    Member result = new Member();
                     // 事务
                     transService.TransRegist(delegate
                     {
-                        if(new UserService.RowService().ByMobile(entity.Mobile) == null)
+                        if(new MemberService.RowService().ByMobile(entity.Mobile) == null)
                         {
-                            result = new UserService.CreateService().ToOpen(entity);
+                            result = new MemberService.CreateService().ToOpen(entity);
                         }
                         else
                         {
@@ -92,7 +92,7 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.UserService.CreateService.Regist", ex);
+                    throw new Exception("MISApi.Services.CMS.MemberService.CreateService.Regist", ex);
                 }
             }
         }
@@ -103,7 +103,7 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// UpdateService
         /// </summary>
-        public class UpdateService : Base.UserService.UpdateService
+        public class UpdateService : Base.MemberService.UpdateService
         {
             /// <summary>
             /// 定义事务服务
@@ -121,15 +121,15 @@ namespace MISApi.Services.CMS
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public virtual User ToOpen(User entity)
+            public virtual Member ToOpen(Member entity)
             {
                 try
                 {
                     // 定义
-                    User result = new User();
+                    Member result = new Member();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.user.open");
+                        Status status = new StatusCacheService.RowService().ByKey("cms.member.open");
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
@@ -142,7 +142,7 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.UserService.UpdateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.MemberService.UpdateService.ToOpen", ex);
                 }
             }
             /// <summary>
@@ -150,15 +150,15 @@ namespace MISApi.Services.CMS
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public virtual User ToClose(User entity)
+            public virtual Member ToClose(Member entity)
             {
                 try
                 {
                     // 定义
-                    User result = new User();
+                    Member result = new Member();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.user.close");
+                        Status status = new StatusCacheService.RowService().ByKey("cms.member.close");
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
@@ -171,7 +171,7 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.UserService.UpdateService.ToClose", ex);
+                    throw new Exception("MISApi.Services.CMS.MemberService.UpdateService.ToClose", ex);
                 }
             }
         }
@@ -181,7 +181,7 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// DeleteService
         /// </summary>
-        public class DeleteService : Base.UserService.DeleteService
+        public class DeleteService : Base.MemberService.DeleteService
         {
 
         }
@@ -191,7 +191,7 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// ColumnsMode Service
         /// </summary>
-        public class ColumnsService : Base.UserService.ColumnsService
+        public class ColumnsService : Base.MemberService.ColumnsService
         {
 
         }
@@ -203,7 +203,7 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// 
         /// </summary>
-        public class RowService : Base.UserService.RowService
+        public class RowService : Base.MemberService.RowService
         {
             /// <summary>
             /// 
@@ -211,7 +211,7 @@ namespace MISApi.Services.CMS
             /// <param name="key"></param>
             /// <param name="password"></param>
             /// <returns></returns>
-            public User Verify(string key, string password)
+            public Member Verify(string key, string password)
             {
                 using (PandoraContext context = new PandoraContext())
                 {
@@ -223,15 +223,15 @@ namespace MISApi.Services.CMS
                         return SQLEntityToSingle(
                             SQLQueryable(context)
                                 .SingleOrDefault(row => (
-                                    (row.User.Name == key && row.User.Password == encrypt) ||
-                                    (row.User.Mobile == key && row.User.Password == encrypt) ||
-                                    (row.User.Email == key && row.User.Password == encrypt)
-                                ) && row.User.StatusValue == 1)
+                                    (row.Member.Name == key && row.Member.Password == encrypt) ||
+                                    (row.Member.Mobile == key && row.Member.Password == encrypt) ||
+                                    (row.Member.Email == key && row.Member.Password == encrypt)
+                                ) && row.Member.StatusValue == 1)
                         );
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.AVM.UserService.RowService.Verify", ex);
+                        throw new Exception("MISApi.Services.AVM.MemberService.RowService.Verify", ex);
                     }
                 }
             }
@@ -244,7 +244,7 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// 
         /// </summary>
-        public class RowsService : Base.UserService.RowsService
+        public class RowsService : Base.MemberService.RowsService
         {
 
         }

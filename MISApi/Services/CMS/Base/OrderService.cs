@@ -478,7 +478,7 @@ namespace MISApi.Services.CMS.Base
                 // SQLEntity.Buyer
                 if (join.Name.ToLower().Equals("buyer"))
                 {
-                    left = left.LeftOuterJoin(context.CMS_User, Main => Main.Order.BuyerId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    left = left.LeftOuterJoin(context.CMS_Member, Main => Main.Order.BuyerId, Left => Left.Id, (Main, Left) => new SQLEntity
                     {
                         Order = Main.Order,
                         Buyer = Left,
@@ -795,7 +795,7 @@ namespace MISApi.Services.CMS.Base
             /// <summary>
             /// 
             /// </summary>
-            public User Buyer { get; set; }
+            public Member Buyer { get; set; }
             /// <summary>
             /// 
             /// </summary>

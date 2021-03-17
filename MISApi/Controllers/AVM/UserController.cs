@@ -34,9 +34,9 @@ namespace MISApi.Controllers.AVM
                 if (entity != null)
                 {
                     entity.Password = EncryptHelper.GetBase64String(entity.Password);
-                    entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
                     entity.CreateDateTime = DateTime.Now;
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
                     entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
@@ -68,9 +68,9 @@ namespace MISApi.Controllers.AVM
                 {
                     entities.ForEach(entity => {
                         entity.Password = EncryptHelper.GetBase64String(entity.Password);
-                        entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                        entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
                         entity.CreateDateTime = DateTime.Now;
-                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
                         entity.EditDateTime = DateTime.Now;
                     });
                 }
@@ -102,9 +102,9 @@ namespace MISApi.Controllers.AVM
                 if (entity != null)
                 {
                     entity.Password = EncryptHelper.GetBase64String(entity.Password);
-                    entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
                     entity.CreateDateTime = DateTime.Now;
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
                     entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
@@ -137,7 +137,7 @@ namespace MISApi.Controllers.AVM
                 // Entity
                 if (entity != null)
                 {
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
                     entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
@@ -169,7 +169,7 @@ namespace MISApi.Controllers.AVM
                 {
                     entities.ForEach(entity =>
                     {
-                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
                         entity.EditDateTime = DateTime.Now;
                     });
                 }
@@ -200,7 +200,7 @@ namespace MISApi.Controllers.AVM
                 // Entity
                 if (entity != null)
                 {
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
                     entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
@@ -230,7 +230,7 @@ namespace MISApi.Controllers.AVM
                 // Entity
                 if (entity != null)
                 {
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
                     entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
@@ -261,7 +261,7 @@ namespace MISApi.Controllers.AVM
                 if (entity != null)
                 {
                     entity.Password = EncryptHelper.GetBase64String(entity.Password);
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).UserId;
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
                     entity.EditDateTime = DateTime.Now;
                 }
                 // 返回

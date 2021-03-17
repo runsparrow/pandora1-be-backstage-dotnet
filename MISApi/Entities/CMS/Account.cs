@@ -25,18 +25,18 @@ namespace MISApi.Entities.CMS
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         /// <summary>
-        /// 用户Id
+        /// 会员Id
         /// </summary>
-        [Description("用户Id")]
-        [JsonProperty("userId")]
-        public int UserId { get; set; } = -1;
+        [Description("会员Id")]
+        [JsonProperty("memberId")]
+        public int MemberId { get; set; } = -1;
         /// <summary>
-        /// 用户名
+        /// 会员名
         /// </summary>
         [StringLength(255)]
-        [Description("用户名")]
-        [JsonProperty("userName")]
-        public string UserName { get; set; } = "";
+        [Description("会员名")]
+        [JsonProperty("memberName")]
+        public string MemberName { get; set; } = "";
         /// <summary>
         /// 账号
         /// </summary>

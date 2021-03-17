@@ -1,15 +1,13 @@
-﻿using MISApi.Entities.AVM;
-using MISApi.Services.AVM;
-using IdentityModel;
+﻿using IdentityModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
+using MISApi.Controllers.HttpEntities;
+using MISApi.Entities.AVM;
+using MISApi.Services.AVM;
 using System;
-using System.ComponentModel;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using static MISApi.Controllers.AVM.AuthController.HttpEntity;
 using static MISApi.Tools.AuthHelper;
 
 namespace MISApi.Controllers.AVM
@@ -21,7 +19,7 @@ namespace MISApi.Controllers.AVM
     {
         #region IActionResult
         /// <summary>
-        /// 
+        /// 验证获取用户Token
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
@@ -67,7 +65,7 @@ namespace MISApi.Controllers.AVM
             }
         }
         /// <summary>
-        /// 
+        /// 根据Token获取用户
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
@@ -77,97 +75,7 @@ namespace MISApi.Controllers.AVM
         {
             ClaimEntity claim = GetClaimFromToken(dto.Token);
 
-            return new JsonResult(new DTO_Result { Result = true, Token = dto.Token, UserInfo = new DTO_User { UserId = claim.UserId, UserName = claim.UserName, RealName = claim.RealName } });
-        }
-        #endregion
-
-        #region HttpEntity
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public class HttpEntity
-        {
-            #region DTO
-            /// <summary>
-            /// 
-            /// </summary>
-            public class DTO_AccountNameAndAccountPwd
-            {
-                /// <summary>
-                /// 账户名
-                /// </summary>
-                [Description("账户名")]
-                [JsonProperty("accountName")]
-                public string AccountName { get; set; } = "";
-                /// <summary>
-                /// 账户密码
-                /// </summary>
-                [Description("账户密码")]
-                [JsonProperty("accountPwd")]
-                public string AccountPwd { get; set; } = "";
-            }
-            /// <summary>
-            /// 
-            /// </summary>
-            public class DTO_Token
-            {
-                /// <summary>
-                /// Token
-                /// </summary>
-                [Description("Token")]
-                [JsonProperty("token")]
-                public string Token { get; set; } = "";
-            }
-            /// <summary>
-            /// 
-            /// </summary>
-            public class DTO_Result
-            {
-                /// <summary>
-                /// 结果
-                /// </summary>
-                [Description("结果")]
-                [JsonProperty("result")]
-                public bool Result { get; set; } = false;
-                /// <summary>
-                /// Token
-                /// </summary>
-                [Description("Token")]
-                [JsonProperty("token")]
-                public string Token { get; set; } = "";
-                /// <summary>
-                /// 用户
-                /// </summary>
-                [Description("用户")]
-                [JsonProperty("userInfo")]
-                public DTO_User UserInfo { get; set; } = new DTO_User();
-            }
-            /// <summary>
-            /// 
-            /// </summary>
-            public class DTO_User
-            {
-                /// <summary>
-                /// 用户Id
-                /// </summary>
-                [Description("用户Id")]
-                [JsonProperty("userId")]
-                public int UserId { get; set; } = -1;
-                /// <summary>
-                /// 用户名
-                /// </summary>
-                [Description("用户名")]
-                [JsonProperty("userName")]
-                public string UserName { get; set; } = "";
-                /// <summary>
-                /// 实名
-                /// </summary>
-                [Description("实名")]
-                [JsonProperty("realName")]
-                public string RealName { get; set; } = "";
-            }
-            #endregion
+            return new JsonResult(new DTO_Result { Result = true, Token = dto.Token, UserInfo = new DTO_User { UserId = claim.Id, UserName = claim.Name, RealName = claim.RealName } });
         }
         #endregion
 

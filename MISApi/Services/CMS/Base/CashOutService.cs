@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using MISApi.Entities.CMS;
 using MISApi.Entities.WFM;
+using MISApi.Entities.AVM;
 
 namespace MISApi.Services.CMS.Base
 {
@@ -844,15 +845,15 @@ namespace MISApi.Services.CMS.Base
             /// <summary>
             /// 
             /// </summary>
-            public User Applier { get; set; }
+            public Member Applier { get; set; }
             /// <summary>
             /// 审批人
             /// </summary>
-            public Entities.AVM.User Approver { get; set; }
+            public User Approver { get; set; }
             /// <summary>
             /// 放款人
             /// </summary>
-            public Entities.AVM.User Loaner { get; set; }
+            public User Loaner { get; set; }
             /// <summary>
             /// 
             /// </summary>

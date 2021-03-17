@@ -170,14 +170,14 @@ namespace MISApi.Entities.CMS
         [Description("买家")]
         [JsonProperty("buyer")]
         [NotMapped]
-        public User Buyer { get; set; }
+        public Member Buyer { get; set; }
         /// <summary>
         /// 所有人
         /// </summary>
         [Description("所有人")]
         [JsonProperty("owner")]
         [NotMapped]
-        public User Owner { get; set; }
+        public Member Owner { get; set; }
         /// <summary>
         /// 状态
         /// </summary>

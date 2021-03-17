@@ -11,22 +11,22 @@ using BaseMode = MISApi.HttpClients.HttpModes.BaseMode;
 namespace MISApi.Controllers.CMS
 {
     /// <summary>
-    /// 用户
+    /// 会员
     /// </summary>
-    public class UserController : BaseController<User>
+    public class MemberController : BaseController<Member>
     {
         #region RPC
 
         #region CreateMode
         /// <summary>
-        /// 创建用户
+        /// 创建会员
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Create/Single", Name = "MIS_CMS_User_Create_Single")]
+        [Route("MIS/CMS/Member/Create/Single", Name = "MIS_CMS_Member_Create_Single")]
         [HttpPost]
         [Authorize]
-        public IActionResult Create_Single(User entity)
+        public IActionResult Create_Single(Member entity)
         {
             try
             {
@@ -38,24 +38,24 @@ namespace MISApi.Controllers.CMS
                 // 返回
                 return ResponseOk(
                     new CreateMode.Request().ToResponse(
-                        new UserService.CreateService().Execute(entity)
+                        new MemberService.CreateService().Execute(entity)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Create_Single", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Create_Single", ex);
             }
         }
         /// <summary>
-        /// 创建用户
+        /// 创建会员
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Create/Multiple", Name = "MIS_CMS_User_Create_Multiple")]
+        [Route("MIS/CMS/Member/Create/Multiple", Name = "MIS_CMS_Member_Create_Multiple")]
         [HttpPost]
         [Authorize]
-        public IActionResult Create_Multiple(List<User> entities)
+        public IActionResult Create_Multiple(List<Member> entities)
         {
             try
             {
@@ -69,27 +69,27 @@ namespace MISApi.Controllers.CMS
                 // 返回
                 return ResponseOk(
                     new CreateMode.Request().ToResponse(
-                        new UserService.CreateService().Execute(entities)
+                        new MemberService.CreateService().Execute(entities)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Create_Multiple", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Create_Multiple", ex);
             }
         }
         #endregion
 
         #region UpdateMode
         /// <summary>
-        /// 编辑一条用户
+        /// 编辑一条会员
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Update/Single", Name = "MIS_CMS_User_Update_Single")]
+        [Route("MIS/CMS/Member/Update/Single", Name = "MIS_CMS_Member_Update_Single")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_Single(User entity)
+        public IActionResult Update_Single(Member entity)
         {
             try
             {
@@ -101,24 +101,24 @@ namespace MISApi.Controllers.CMS
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new UserService.UpdateService().Execute(entity)
+                        new MemberService.UpdateService().Execute(entity)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Update_Single", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Update_Single", ex);
             }
         }
         /// <summary>
-        /// 编辑多条用户
+        /// 编辑多条会员
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Update/Multiple", Name = "MIS_CMS_User_Update_Multiple")]
+        [Route("MIS/CMS/Member/Update/Multiple", Name = "MIS_CMS_Member_Update_Multiple")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_Multiple(List<User> entities)
+        public IActionResult Update_Multiple(List<Member> entities)
         {
             try
             {
@@ -133,13 +133,13 @@ namespace MISApi.Controllers.CMS
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new UserService.UpdateService().Execute(entities)
+                        new MemberService.UpdateService().Execute(entities)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Update_Multiple", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Update_Multiple", ex);
             }
         }
         /// <summary>
@@ -147,10 +147,10 @@ namespace MISApi.Controllers.CMS
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Update/Password", Name = "MIS_CMS_User_Update_Password")]
+        [Route("MIS/CMS/Member/Update/Password", Name = "MIS_CMS_Member_Update_Password")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_Password(User entity)
+        public IActionResult Update_Password(Member entity)
         {
             try
             {
@@ -162,24 +162,24 @@ namespace MISApi.Controllers.CMS
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new UserService.UpdateService().Execute(entity)
+                        new MemberService.UpdateService().Execute(entity)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Update_Password", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Update_Password", ex);
             }
         }
         /// <summary>
-        /// 编辑一条用户
+        /// 编辑一条会员
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Update/ToOpen", Name = "MIS_CMS_User_Update_ToOpen")]
+        [Route("MIS/CMS/Member/Update/ToOpen", Name = "MIS_CMS_Member_Update_ToOpen")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_ToOpen(User entity)
+        public IActionResult Update_ToOpen(Member entity)
         {
             try
             {
@@ -191,24 +191,24 @@ namespace MISApi.Controllers.CMS
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new UserService.UpdateService().ToOpen(entity)
+                        new MemberService.UpdateService().ToOpen(entity)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Update_ToOpen", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Update_ToOpen", ex);
             }
         }
         /// <summary>
-        /// 编辑一条用户
+        /// 编辑一条会员
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Update/ToClose", Name = "MIS_CMS_User_Update_ToClose")]
+        [Route("MIS/CMS/Member/Update/ToClose", Name = "MIS_CMS_Member_Update_ToClose")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_ToClose(User entity)
+        public IActionResult Update_ToClose(Member entity)
         {
             try
             {
@@ -220,72 +220,72 @@ namespace MISApi.Controllers.CMS
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new UserService.UpdateService().ToClose(entity)
+                        new MemberService.UpdateService().ToClose(entity)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Update_ToClose", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Update_ToClose", ex);
             }
         }
         #endregion
 
         #region DeleteMode
         /// <summary>
-        ///  删除一条用户
+        ///  删除一条会员
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Delete/Single", Name = "MIS_CMS_User_Delete_Single")]
+        [Route("MIS/CMS/Member/Delete/Single", Name = "MIS_CMS_Member_Delete_Single")]
         [HttpPost]
         [Authorize]
-        public IActionResult Delete_Single(User entity)
+        public IActionResult Delete_Single(Member entity)
         {
             try
             {
                 return ResponseOk(
                     new DeleteMode.Request().ToResponse(
-                        new UserService.DeleteService().Execute(entity)
+                        new MemberService.DeleteService().Execute(entity)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Delete_Single", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Delete_Single", ex);
             }
         }
         /// <summary>
-        /// 删除多条用户
+        /// 删除多条会员
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Delete/Multiple", Name = "MIS_CMS_User_Delete_Multiple")]
+        [Route("MIS/CMS/Member/Delete/Multiple", Name = "MIS_CMS_Member_Delete_Multiple")]
         [HttpPost]
         [Authorize]
-        public IActionResult Delete_Multiple(List<User> entities)
+        public IActionResult Delete_Multiple(List<Member> entities)
         {
             try
             {
                 return ResponseOk(
                     new DeleteMode.Request().ToResponse(
-                        new UserService.DeleteService().Execute(entities)
+                        new MemberService.DeleteService().Execute(entities)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Delete_Multiple", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Delete_Multiple", ex);
             }
         }
         #endregion
 
         #region ColumnsMode
         /// <summary>
-        /// 查询用户的字段
+        /// 查询会员的字段
         /// </summary>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Columns/Single", Name = "MIS_CMS_User_Columns_Single")]
+        [Route("MIS/CMS/Member/Columns/Single", Name = "MIS_CMS_Member_Columns_Single")]
         [HttpPost]
         [Authorize]
         public IActionResult Columns_Single()
@@ -294,24 +294,24 @@ namespace MISApi.Controllers.CMS
             {
                 return ResponseOk(
                     new ColumnsMode.Request().ToResponse(
-                        new UserService.ColumnsService().Single()
+                        new MemberService.ColumnsService().Single()
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Columns_Single", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Columns_Single", ex);
             }
         }
         #endregion
 
         #region RowMode
         /// <summary>
-        /// 根据Id查询用户
+        /// 根据Id查询会员
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Row/ById", Name = "MIS_CMS_User_Row_ById")]
+        [Route("MIS/CMS/Member/Row/ById", Name = "MIS_CMS_Member_Row_ById")]
         [HttpPost]
         [Authorize]
         public IActionResult Row_ById(DTO_Id dto)
@@ -320,21 +320,21 @@ namespace MISApi.Controllers.CMS
             {
                 return ResponseOk(
                     new RowMode.Request().ToResponse(
-                        new UserService.RowService().ById(dto.Id)
+                        new MemberService.RowService().ById(dto.Id)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Row_ById", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Row_ById", ex);
             }
         }
         /// <summary>
-        /// 根据Id查询用户
+        /// 根据Id查询会员
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Row/ById/{id}", Name = "MIS_CMS_User_Row_ById_Id")]
+        [Route("MIS/CMS/Member/Row/ById/{id}", Name = "MIS_CMS_Member_Row_ById_Id")]
         [HttpGet]
         [Authorize]
         public IActionResult Row_ById_Id(int id)
@@ -343,24 +343,24 @@ namespace MISApi.Controllers.CMS
             {
                 return ResponseOk(
                     new RowMode.Request().ToResponse(
-                        new UserService.RowService().ById(id)
+                        new MemberService.RowService().ById(id)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Row_ById_Id", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Row_ById_Id", ex);
             }
         }
         #endregion
 
         #region RowsMode
         /// <summary>
-        /// 根据关键字模糊查询用户
+        /// 根据关键字模糊查询会员
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Rows/ByKeyWord", Name = "MIS_CMS_User_Rows_ByKeyWord")]
+        [Route("MIS/CMS/Member/Rows/ByKeyWord", Name = "MIS_CMS_Member_Rows_ByKeyWord")]
         [HttpPost]
         [Authorize]
         public IActionResult Rows_ByKeyWord(DTO_KeyWord dto)
@@ -369,21 +369,21 @@ namespace MISApi.Controllers.CMS
             {
                 return ResponseOk(
                     new RowsMode.Request().ToResponse(
-                        new UserService.RowsService().ByKeyWord(new BaseMode.KeyWord(dto.KeyWord))
+                        new MemberService.RowsService().ByKeyWord(new BaseMode.KeyWord(dto.KeyWord))
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Rows_ByKeyWord", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Rows_ByKeyWord", ex);
             }
         }
         /// <summary>
-        /// 根据关键字模糊查询用户
+        /// 根据关键字模糊查询会员
         /// </summary>
         /// <param name="keyWord"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Rows/ByKeyWord/{keyWord}", Name = "MIS_CMS_User_Rows_ByKeyWord_KeyWord")]
+        [Route("MIS/CMS/Member/Rows/ByKeyWord/{keyWord}", Name = "MIS_CMS_Member_Rows_ByKeyWord_KeyWord")]
         [HttpGet]
         [Authorize]
         public IActionResult Rows_ByKeyWord_KeyWord(string keyWord)
@@ -392,24 +392,24 @@ namespace MISApi.Controllers.CMS
             {
                 return ResponseOk(
                     new RowsMode.Request().ToResponse(
-                        new UserService.RowsService().ByKeyWord(new BaseMode.KeyWord(keyWord))
+                        new MemberService.RowsService().ByKeyWord(new BaseMode.KeyWord(keyWord))
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Rows_ByKeyWord_KeyWord", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Rows_ByKeyWord_KeyWord", ex);
             }
         }
         #endregion
 
         #region SingleMode
         /// <summary>
-        /// 根据Id查询用户
+        /// 根据Id查询会员
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Single/ById", Name = "MIS_CMS_User_Single_ById")]
+        [Route("MIS/CMS/Member/Single/ById", Name = "MIS_CMS_Member_Single_ById")]
         [HttpPost]
         [Authorize]
         public IActionResult Single_ById(DTO_Id dto)
@@ -418,24 +418,24 @@ namespace MISApi.Controllers.CMS
             {
                 return ResponseOk(
                     new SingleMode.Request().ToResponse(
-                        new UserService.RowService().ById(dto.Id)
+                        new MemberService.RowService().ById(dto.Id)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Single_ById", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Single_ById", ex);
             }
         }
         #endregion
 
         #region QueryMode
         /// <summary>
-        /// 分页查询用户
+        /// 分页查询会员
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Query/Page", Name = "MIS_CMS_User_Query_Page")]
+        [Route("MIS/CMS/Member/Query/Page", Name = "MIS_CMS_Member_Query_Page")]
         [HttpPost]
         [Authorize]
         public IActionResult Query_Page(DTO_Page dto)
@@ -444,29 +444,29 @@ namespace MISApi.Controllers.CMS
             {
                 return ResponseOk(
                     new QueryMode.Request().ToResponse(
-                        new UserService.RowsService().Page(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Page(dto.Page), new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status)),
-                        new UserService.RowsService().PageCount(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status)),
-                        new UserService.RowsService().PageSummary(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status))
+                        new MemberService.RowsService().Page(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Page(dto.Page), new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status)),
+                        new MemberService.RowsService().PageCount(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status)),
+                        new MemberService.RowsService().PageSummary(new BaseMode.KeyWord(dto.KeyWord), new BaseMode.Join[] { }, new BaseMode.Date().Init(dto.Date), new BaseMode.Sort().Init(dto.Sort), new BaseMode.Status(dto.Status))
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Query_Page", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Query_Page", ex);
             }
         }
         #endregion
 
         #region TreeMode
         /// <summary>
-        /// 模糊查询获得树型结构的用户
+        /// 模糊查询获得树型结构的会员
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Tree/ByKeyWord", Name = "MIS_CMS_User_Tree_ByKeyWord")]
+        [Route("MIS/CMS/Member/Tree/ByKeyWord", Name = "MIS_CMS_Member_Tree_ByKeyWord")]
         [HttpPost]
         [Authorize]
-        protected IActionResult Tree_ByKeyWord(DTO_KeyWordWithConfig<User> dto)
+        protected IActionResult Tree_ByKeyWord(DTO_KeyWordWithConfig<Member> dto)
         {
             try
             {
@@ -487,18 +487,18 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Tree_ByKeyWord", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Tree_ByKeyWord", ex);
             }
         }
         /// <summary>
-        /// 根据Id查询获得树型结构的用户
+        /// 根据Id查询获得树型结构的会员
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Tree/ById", Name = "MIS_CMS_User_Tree_ById")]
+        [Route("MIS/CMS/Member/Tree/ById", Name = "MIS_CMS_Member_Tree_ById")]
         [HttpPost]
         [Authorize]
-        protected IActionResult Tree_ById(DTO_IdWithConfig<User> dto)
+        protected IActionResult Tree_ById(DTO_IdWithConfig<Member> dto)
         {
             try
             {
@@ -519,7 +519,7 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Tree_ById", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Tree_ById", ex);
             }
         }
         /// <summary>
@@ -527,7 +527,7 @@ namespace MISApi.Controllers.CMS
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/User/Tree", Name = "MIS_CMS_User_Tree")]
+        [Route("MIS/CMS/Member/Tree", Name = "MIS_CMS_Member_Tree")]
         [HttpPost]
         [Authorize]
         protected IActionResult Tree(TreeMode.Request request)
@@ -544,7 +544,7 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Tree", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Tree", ex);
             }
         }
         #endregion
@@ -555,13 +555,13 @@ namespace MISApi.Controllers.CMS
 
         #region CreateMode
         /// <summary>
-        /// 注册用户
+        /// 注册会员
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [Route("Unauthorized/MIS/CMS/User/Create/Regist", Name = "Unauthorized_MIS_CMS_User_Create_Regist")]
+        [Route("Unauthorized/MIS/CMS/Member/Create/Regist", Name = "Unauthorized_MIS_CMS_Member_Create_Regist")]
         [HttpPost]
-        public IActionResult Unauthorized_Create_Regist(User entity)
+        public IActionResult Unauthorized_Create_Regist(Member entity)
         {
             try
             {
@@ -571,15 +571,15 @@ namespace MISApi.Controllers.CMS
                     entity.Password = EncryptHelper.GetBase64String(entity.Password);
                     entity.RegistDateTime = DateTime.Now;
                 }
-                var existUser = new UserService.RowService().ByMobile(entity.Mobile);
-                if (existUser == null)
+                var existMember = new MemberService.RowService().ByMobile(entity.Mobile);
+                if (existMember == null)
                 {
-                    var user = new UserService.CreateService().Regist(entity);
+                    var member = new MemberService.CreateService().Regist(entity);
                     // 返回
                     return new JsonResult(new DTO_Result
                     {
                         Result = true,
-                        UserInfo = new DTO_User { UserId = user.Id, UserName = user.Name, RealName = user.RealName }
+                        MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
                     });
                 }
                 else
@@ -587,7 +587,7 @@ namespace MISApi.Controllers.CMS
                     return new JsonResult(new DTO_Result
                     {
                         Result = false,
-                        UserInfo = new DTO_User { UserId = existUser.Id, UserName = existUser.Name, RealName = existUser.RealName },
+                        MemberInfo = new DTO_Member { MemberId = existMember.Id, MemberName = existMember.Name, RealName = existMember.RealName },
                         ErrorInfo = "手机号已被注册。"
                     });
                 }
@@ -597,7 +597,7 @@ namespace MISApi.Controllers.CMS
                 return new JsonResult(new DTO_Result
                 {
                     Result = false,
-                    UserInfo = null,
+                    MemberInfo = null,
                     ErrorInfo = ex.InnerException.Message
                 });
             }
@@ -611,9 +611,9 @@ namespace MISApi.Controllers.CMS
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [Route("Unauthorized/MIS/CMS/User/Update/Forget", Name = "Unauthorized_MIS_CMS_User_Update_Forget")]
+        [Route("Unauthorized/MIS/CMS/Member/Update/Forget", Name = "Unauthorized_MIS_CMS_Member_Update_Forget")]
         [HttpPost]
-        public IActionResult Unauthorized_Update_Forget(User entity)
+        public IActionResult Unauthorized_Update_Forget(Member entity)
         {
             try
             {
@@ -622,12 +622,12 @@ namespace MISApi.Controllers.CMS
                 {
                     entity.Password = EncryptHelper.GetBase64String(entity.Password);
                 }
-                var user = new UserService.UpdateService().Execute(entity);
+                var member = new MemberService.UpdateService().Execute(entity);
                 // 返回
                 return new JsonResult(new DTO_Result
                 {
                     Result = true,
-                    UserInfo = new DTO_User { UserId = user.Id, UserName = user.Name, RealName = user.RealName }
+                    MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
                 });
             }
             catch (Exception ex)
@@ -635,7 +635,7 @@ namespace MISApi.Controllers.CMS
                 return new JsonResult(new DTO_Result
                 {
                     Result = false,
-                    UserInfo = null,
+                    MemberInfo = null,
                     ErrorInfo = ex.InnerException.Message
                 });
             }
@@ -644,10 +644,10 @@ namespace MISApi.Controllers.CMS
 
         #region ColumnsMode
         /// <summary>
-        /// 查询用户的字段
+        /// 查询会员的字段
         /// </summary>
         /// <returns></returns>
-        [Route("Unauthorized/MIS/CMS/User/Columns/Single", Name = "Unauthorized_MIS_CMS_User_Columns_Single")]
+        [Route("Unauthorized/MIS/CMS/Member/Columns/Single", Name = "Unauthorized_MIS_CMS_Member_Columns_Single")]
         [HttpPost]
         public IActionResult Unauthorized_Columns_Single()
         {
@@ -657,18 +657,18 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Unauthorized_Columns_Single", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Unauthorized_Columns_Single", ex);
             }
         }
         #endregion
 
         #region RowMode
         /// <summary>
-        /// 根据Id查询用户
+        /// 根据Id查询会员
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("Unauthorized/MIS/CMS/User/Row/ById", Name = "Unauthorized_MIS_CMS_User_Row_ById")]
+        [Route("Unauthorized/MIS/CMS/Member/Row/ById", Name = "Unauthorized_MIS_CMS_Member_Row_ById")]
         [HttpPost]
         public IActionResult Unauthorized_Row_ById(DTO_Id dto)
         {
@@ -678,15 +678,15 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Unauthorized_Row_ById", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Unauthorized_Row_ById", ex);
             }
         }
         /// <summary>
-        /// 根据Id查询用户
+        /// 根据Id查询会员
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Route("Unauthorized/MIS/CMS/User/Row/ById/{id}", Name = "Unauthorized_MIS_CMS_User_Row_ById_Id")]
+        [Route("Unauthorized/MIS/CMS/Member/Row/ById/{id}", Name = "Unauthorized_MIS_CMS_Member_Row_ById_Id")]
         [HttpGet]
         public IActionResult Unauthorized_Row_ById_Id(int id)
         {
@@ -696,18 +696,18 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Unauthorized_Row_ById_Id", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Unauthorized_Row_ById_Id", ex);
             }
         }
         #endregion
 
         #region RowsMode
         /// <summary>
-        /// 根据关键字模糊查询用户
+        /// 根据关键字模糊查询会员
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("Unauthorized/MIS/CMS/User/Rows/ByKeyWord", Name = "Unauthorized_MIS_CMS_User_Rows_ByKeyWord")]
+        [Route("Unauthorized/MIS/CMS/Member/Rows/ByKeyWord", Name = "Unauthorized_MIS_CMS_Member_Rows_ByKeyWord")]
         [HttpPost]
         public IActionResult Unauthorized_Rows_ByKeyWord(DTO_KeyWord dto)
         {
@@ -717,15 +717,15 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Unauthorized_Rows_ByKeyWord", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Unauthorized_Rows_ByKeyWord", ex);
             }
         }
         /// <summary>
-        /// 根据关键字模糊查询用户
+        /// 根据关键字模糊查询会员
         /// </summary>
         /// <param name="keyWord"></param>
         /// <returns></returns>
-        [Route("Unauthorized/MIS/CMS/User/Rows/ByKeyWord/{keyWord}", Name = "Unauthorized_MIS_CMS_User_Rows_ByKeyWord_KeyWord")]
+        [Route("Unauthorized/MIS/CMS/Member/Rows/ByKeyWord/{keyWord}", Name = "Unauthorized_MIS_CMS_Member_Rows_ByKeyWord_KeyWord")]
         [HttpGet]
         public IActionResult Unauthorized_Rows_ByKeyWord_KeyWord(string keyWord)
         {
@@ -735,18 +735,18 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Unauthorized_Rows_ByKeyWord_KeyWord", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Unauthorized_Rows_ByKeyWord_KeyWord", ex);
             }
         }
         #endregion
 
         #region SingleMode
         /// <summary>
-        /// 根据Id查询用户
+        /// 根据Id查询会员
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("Unauthorized/MIS/CMS/User/Single/ById", Name = "Unauthorized_MIS_CMS_User_Single_ById")]
+        [Route("Unauthorized/MIS/CMS/Member/Single/ById", Name = "Unauthorized_MIS_CMS_Member_Single_ById")]
         [HttpPost]
         public IActionResult Unauthorized_Single_ById(DTO_Id dto)
         {
@@ -756,18 +756,18 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Unauthorized_Single_ById", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Unauthorized_Single_ById", ex);
             }
         }
         #endregion
 
         #region QueryMode
         /// <summary>
-        /// 分页查询用户
+        /// 分页查询会员
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("Unauthorized/MIS/CMS/User/Query/Page", Name = "Unauthorized_MIS_CMS_User_Query_Page")]
+        [Route("Unauthorized/MIS/CMS/Member/Query/Page", Name = "Unauthorized_MIS_CMS_Member_Query_Page")]
         [HttpPost]
         public IActionResult Unauthorized_Query_Page(DTO_Page dto)
         {
@@ -777,7 +777,7 @@ namespace MISApi.Controllers.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Unauthorized_Query_Page", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Unauthorized_Query_Page", ex);
             }
         }
         #endregion
@@ -799,14 +799,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.CreateMode.Request<User>
+            public class Request : HttpClients.HttpModes.CreateMode.Request<Member>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.CreateMode.Response<User> ToResponse(User entity)
+                public override HttpClients.HttpModes.CreateMode.Response<Member> ToResponse(Member entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -815,7 +815,7 @@ namespace MISApi.Controllers.CMS
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.CreateMode.Response<User> ToResponse(List<User> entityList)
+                public override HttpClients.HttpModes.CreateMode.Response<Member> ToResponse(List<Member> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -823,7 +823,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.CreateMode.Response<User>
+            public class Response : HttpClients.HttpModes.CreateMode.Response<Member>
             {
 
             }
@@ -839,14 +839,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.UpdateMode.Request<User>
+            public class Request : HttpClients.HttpModes.UpdateMode.Request<Member>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.UpdateMode.Response<User> ToResponse(User entity)
+                public override HttpClients.HttpModes.UpdateMode.Response<Member> ToResponse(Member entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -855,7 +855,7 @@ namespace MISApi.Controllers.CMS
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.UpdateMode.Response<User> ToResponse(List<User> entityList)
+                public override HttpClients.HttpModes.UpdateMode.Response<Member> ToResponse(List<Member> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -863,7 +863,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.UpdateMode.Response<User>
+            public class Response : HttpClients.HttpModes.UpdateMode.Response<Member>
             {
 
             }
@@ -879,14 +879,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.DeleteMode.Request<User>
+            public class Request : HttpClients.HttpModes.DeleteMode.Request<Member>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.DeleteMode.Response<User> ToResponse(User entity)
+                public override HttpClients.HttpModes.DeleteMode.Response<Member> ToResponse(Member entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -895,7 +895,7 @@ namespace MISApi.Controllers.CMS
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.DeleteMode.Response<User> ToResponse(List<User> entityList)
+                public override HttpClients.HttpModes.DeleteMode.Response<Member> ToResponse(List<Member> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -903,7 +903,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.DeleteMode.Response<User>
+            public class Response : HttpClients.HttpModes.DeleteMode.Response<Member>
             {
 
             }
@@ -919,14 +919,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.ColumnsMode.Request<User>
+            public class Request : HttpClients.HttpModes.ColumnsMode.Request<Member>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.ColumnsMode.Response<User> ToResponse(User entity)
+                public override HttpClients.HttpModes.ColumnsMode.Response<Member> ToResponse(Member entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -934,7 +934,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.ColumnsMode.Response<User>
+            public class Response : HttpClients.HttpModes.ColumnsMode.Response<Member>
             {
 
             }
@@ -950,14 +950,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.RowMode.Request<User>
+            public class Request : HttpClients.HttpModes.RowMode.Request<Member>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.RowMode.Response<User> ToResponse(User entity)
+                public override HttpClients.HttpModes.RowMode.Response<Member> ToResponse(Member entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -965,7 +965,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.RowMode.Response<User>
+            public class Response : HttpClients.HttpModes.RowMode.Response<Member>
             {
 
             }
@@ -981,14 +981,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.RowsMode.Request<User>
+            public class Request : HttpClients.HttpModes.RowsMode.Request<Member>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.RowsMode.Response<User> ToResponse(List<User> entityList)
+                public override HttpClients.HttpModes.RowsMode.Response<Member> ToResponse(List<Member> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -996,7 +996,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.RowsMode.Response<User>
+            public class Response : HttpClients.HttpModes.RowsMode.Response<Member>
             {
 
             }
@@ -1012,14 +1012,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.SingleMode.Request<User>
+            public class Request : HttpClients.HttpModes.SingleMode.Request<Member>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.SingleMode.Response<User> ToResponse(User entity)
+                public override HttpClients.HttpModes.SingleMode.Response<Member> ToResponse(Member entity)
                 {
                     return base.ToResponse(entity);
                 }
@@ -1027,7 +1027,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.SingleMode.Response<User>
+            public class Response : HttpClients.HttpModes.SingleMode.Response<Member>
             {
 
             }
@@ -1043,14 +1043,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.QueryMode.Request<User>
+            public class Request : HttpClients.HttpModes.QueryMode.Request<Member>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.QueryMode.Response<User> ToResponse(List<User> entityList)
+                public override HttpClients.HttpModes.QueryMode.Response<Member> ToResponse(List<Member> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -1058,7 +1058,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.QueryMode.Response<User>
+            public class Response : HttpClients.HttpModes.QueryMode.Response<Member>
             {
 
             }
@@ -1074,14 +1074,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<User>
+            public class Request : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<Member>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.TreeMode.BootstrapTreeViewResponse<User> ToResponse(List<User> entityList)
+                public override HttpClients.HttpModes.TreeMode.BootstrapTreeViewResponse<Member> ToResponse(List<Member> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -1089,7 +1089,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<User>
+            public class Response : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<Member>
             {
 
             }

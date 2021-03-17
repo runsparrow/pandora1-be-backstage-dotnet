@@ -12,14 +12,14 @@ namespace MISApi.Services.CMS.Base
     /// <summary>
     /// 
     /// </summary>
-    public class UserService : BaseService.EF<User, PandoraContext>
+    public class MemberService : BaseService.EF<Member, PandoraContext>
     {
 
         #region CreateService
         /// <summary>
         /// CreateService
         /// </summary>
-        public class CreateService : UserService
+        public class CreateService : MemberService
         {
             /// <summary>
             /// 定义事务服务
@@ -37,12 +37,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public User Execute(User entity)
+            public Member Execute(Member entity)
             {
                 try
                 {
                     // 定义
-                    User result = new User();
+                    Member result = new Member();
                     // 事务
                     transService.TransRegist(delegate {
                         result = base.Create(entity);
@@ -62,12 +62,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entityList"></param>
             /// <returns></returns>
-            public List<User> Execute(List<User> entityList)
+            public List<Member> Execute(List<Member> entityList)
             {
                 try
                 {
                     // 定义
-                    List<User> resultList = new List<User>();
+                    List<Member> resultList = new List<Member>();
                     // 事务
                     transService.TransRegist(delegate {
                         // 遍历
@@ -97,7 +97,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// UpdateService
         /// </summary>
-        public class UpdateService : UserService
+        public class UpdateService : MemberService
         {
             /// <summary>
             /// 定义事务服务
@@ -115,12 +115,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public User Execute(User entity)
+            public Member Execute(Member entity)
             {
                 try
                 {
                     // 定义
-                    User result = new User();
+                    Member result = new Member();
                     // 事务
                     transService.TransRegist(delegate {
                         result = base.Update(entity);
@@ -140,12 +140,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entityList"></param>
             /// <returns></returns>
-            public List<User> Execute(List<User> entityList)
+            public List<Member> Execute(List<Member> entityList)
             {
                 try
                 {
                     // 定义
-                    List<User> resultList = new List<User>();
+                    List<Member> resultList = new List<Member>();
                     // 事务
                     transService.TransRegist(delegate
                     {
@@ -173,7 +173,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// DeleteService
         /// </summary>
-        public class DeleteService : UserService
+        public class DeleteService : MemberService
         {
             /// <summary>
             /// 定义事务服务
@@ -191,12 +191,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public User Execute(User entity)
+            public Member Execute(Member entity)
             {
                 try
                 {
                     // 定义
-                    User result = new User();
+                    Member result = new Member();
                     // 事务
                     transService.TransRegist(delegate {
                         result = base.Delete(entity);
@@ -216,12 +216,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entitys"></param>
             /// <returns></returns>
-            public List<User> Execute(List<User> entitys)
+            public List<Member> Execute(List<Member> entitys)
             {
                 try
                 {
                     // 定义
-                    List<User> resultList = new List<User>();
+                    List<Member> resultList = new List<Member>();
                     // 事务
                     transService.TransRegist(delegate {
                         entitys.ForEach(entity =>
@@ -248,17 +248,17 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// ColumnsMode Service
         /// </summary>
-        public class ColumnsService : UserService
+        public class ColumnsService : MemberService
         {
             /// <summary>
             /// 返回字段集
             /// </summary>
             /// <returns></returns>
-            public User Single()
+            public Member Single()
             {
                 try
                 {
-                    return new User();
+                    return new Member();
                 }
                 catch (Exception ex)
                 {
@@ -274,7 +274,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// 
         /// </summary>
-        public class RowService : UserService
+        public class RowService : MemberService
         {
             /// <summary>
             /// 根据 id 查询
@@ -282,7 +282,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="id">Id</param>
             /// <param name="joins">关联表</param>
             /// <returns></returns>
-            public User ById(int id, params BaseMode.Join[] joins)
+            public Member ById(int id, params BaseMode.Join[] joins)
             {
                 using (PandoraContext context = new PandoraContext())
                 {
@@ -290,7 +290,7 @@ namespace MISApi.Services.CMS.Base
                     {
                         return SQLEntityToSingle(
                             SQLQueryable(context, joins)
-                                .Where(row => row.User.Id == id)
+                                .Where(row => row.Member.Id == id)
                                 .SingleOrDefault()
                         );
                     }
@@ -306,7 +306,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="mobile">手机号</param>
             /// <param name="joins">关联表</param>
             /// <returns></returns>
-            public User ByMobile(string mobile, params BaseMode.Join[] joins)
+            public Member ByMobile(string mobile, params BaseMode.Join[] joins)
             {
                 using (PandoraContext context = new PandoraContext())
                 {
@@ -314,7 +314,7 @@ namespace MISApi.Services.CMS.Base
                     {
                         return SQLEntityToSingle(
                             SQLQueryable(context, joins)
-                                .Where(row => row.User.Mobile == mobile)
+                                .Where(row => row.Member.Mobile == mobile)
                                 .SingleOrDefault()
                         );
                     }
@@ -330,7 +330,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="idCard">身份证</param>
             /// <param name="joins">关联表</param>
             /// <returns></returns>
-            public User ByIdCard(string idCard, params BaseMode.Join[] joins)
+            public Member ByIdCard(string idCard, params BaseMode.Join[] joins)
             {
                 using (PandoraContext context = new PandoraContext())
                 {
@@ -338,7 +338,7 @@ namespace MISApi.Services.CMS.Base
                     {
                         return SQLEntityToSingle(
                             SQLQueryable(context, joins)
-                                .Where(row => row.User.IdCard == idCard)
+                                .Where(row => row.Member.IdCard == idCard)
                                 .SingleOrDefault()
                         );
                     }
@@ -357,7 +357,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// 
         /// </summary>
-        public class RowsService : UserService
+        public class RowsService : MemberService
         {
             /// <summary>
             /// 根据关键字查询
@@ -365,7 +365,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="keyWord">关键字</param>
             /// <param name="joins">关联表</param>
             /// <returns></returns>
-            public List<User> ByKeyWord(BaseMode.KeyWord keyWord, params BaseMode.Join[] joins)
+            public List<Member> ByKeyWord(BaseMode.KeyWord keyWord, params BaseMode.Join[] joins)
             {
                 try
                 {
@@ -386,7 +386,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="sorts"></param>
             /// <param name="status"></param>
             /// <returns></returns>
-            public List<User> Page(BaseMode.KeyWord keyWord, BaseMode.Join[] joins, BaseMode.Page page, BaseMode.Date[] dates, BaseMode.Sort[] sorts, BaseMode.Status status)
+            public List<Member> Page(BaseMode.KeyWord keyWord, BaseMode.Join[] joins, BaseMode.Page page, BaseMode.Date[] dates, BaseMode.Sort[] sorts, BaseMode.Status status)
             {
                 using (PandoraContext context = new PandoraContext())
                 {
@@ -492,9 +492,9 @@ namespace MISApi.Services.CMS.Base
         protected IQueryable<SQLEntity> SQLQueryable(PandoraContext context, params BaseMode.Join[] joins)
         {
             // 定义
-            var left = context.CMS_User.Select(Main => new SQLEntity
+            var left = context.CMS_Member.Select(Main => new SQLEntity
             {
-                User = Main
+                Member = Main
             });
             // 遍历
             foreach (var join in joins)
@@ -502,9 +502,9 @@ namespace MISApi.Services.CMS.Base
                 // SQLEntity.Status
                 if (join.Name.ToLower().Equals("status"))
                 {
-                    left = left.LeftOuterJoin(context.WFM_Status, Main => Main.User.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Member.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
                     {
-                        User = Main.User,
+                        Member = Main.Member,
                         Status = Left
                     });
                 }
@@ -512,7 +512,7 @@ namespace MISApi.Services.CMS.Base
             // 一对多
             var group = left.Select(Main => new SQLEntity
             {
-                User = Main.User,
+                Member = Main.Member,
                 Status = Main.Status
             });
             // 遍历
@@ -544,35 +544,35 @@ namespace MISApi.Services.CMS.Base
                     {
                         var andKeyWord = ands[i];
                         queryable = queryable.Where(row =>
-                                row.User.Name.Contains(andKeyWord) ||
-                                row.User.Email.Contains(andKeyWord) ||
-                                row.User.Mobile.Contains(andKeyWord) ||
-                                row.User.LoginIPAddress.Contains(andKeyWord) ||
-                                row.User.Remark.Contains(andKeyWord) ||
-                                row.User.StatusName.Contains(andKeyWord)
+                                row.Member.Name.Contains(andKeyWord) ||
+                                row.Member.Email.Contains(andKeyWord) ||
+                                row.Member.Mobile.Contains(andKeyWord) ||
+                                row.Member.LoginIPAddress.Contains(andKeyWord) ||
+                                row.Member.Remark.Contains(andKeyWord) ||
+                                row.Member.StatusName.Contains(andKeyWord)
                             );
                     }
                 }
                 else if (ors.Length > 1)
                 {
                     queryable = queryable.Where(row =>
-                            ors.Contains(row.User.Name) ||
-                            ors.Contains(row.User.Email) ||
-                            ors.Contains(row.User.Mobile) ||
-                            ors.Contains(row.User.LoginIPAddress) ||
-                            ors.Contains(row.User.Remark) ||
-                            ors.Contains(row.User.StatusName)
+                            ors.Contains(row.Member.Name) ||
+                            ors.Contains(row.Member.Email) ||
+                            ors.Contains(row.Member.Mobile) ||
+                            ors.Contains(row.Member.LoginIPAddress) ||
+                            ors.Contains(row.Member.Remark) ||
+                            ors.Contains(row.Member.StatusName)
                         );
                 }
                 else
                 {
                     queryable = queryable.Where(row =>
-                            row.User.Name.Contains(keyWord) ||
-                            row.User.Email.Contains(keyWord) ||
-                            row.User.Mobile.Contains(keyWord) ||
-                            row.User.LoginIPAddress.Contains(keyWord) ||
-                            row.User.Remark.Contains(keyWord) ||
-                            row.User.StatusName.Contains(keyWord)
+                            row.Member.Name.Contains(keyWord) ||
+                            row.Member.Email.Contains(keyWord) ||
+                            row.Member.Mobile.Contains(keyWord) ||
+                            row.Member.LoginIPAddress.Contains(keyWord) ||
+                            row.Member.Remark.Contains(keyWord) ||
+                            row.Member.StatusName.Contains(keyWord)
                         );
                 }
                 // 返回
@@ -601,7 +601,7 @@ namespace MISApi.Services.CMS.Base
                     if (splits[i].ToLower().Contains("statusid"))
                     {
                         int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.User.StatusId == statusId);
+                        queryable = queryable.Where(row => row.Member.StatusId == statusId);
                     }
                 }
                 return queryable;
@@ -629,7 +629,7 @@ namespace MISApi.Services.CMS.Base
                         {
                             queryable = queryable
                                 .Where(row =>
-                                    row.User.RegistDateTime >= date.MinDate && row.User.RegistDateTime <= date.MaxDate
+                                    row.Member.RegistDateTime >= date.MinDate && row.Member.RegistDateTime <= date.MaxDate
                                 );
                         }
                     });
@@ -653,7 +653,7 @@ namespace MISApi.Services.CMS.Base
             {
                 if (status != null && status.Values.Count() > 0)
                 {
-                    return queryable.Where(row => status.Values.Contains(row.User.StatusValue));
+                    return queryable.Where(row => status.Values.Contains(row.Member.StatusValue));
                 }
                 return queryable;
             }
@@ -721,7 +721,7 @@ namespace MISApi.Services.CMS.Base
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        protected User SQLEntityToSingle(SQLEntity entity)
+        protected Member SQLEntityToSingle(SQLEntity entity)
         {
             try
             {
@@ -729,11 +729,11 @@ namespace MISApi.Services.CMS.Base
                 if (entity == null)
                     return null;
                 // 主表
-                User userEntity = entity.User;
+                Member memberEntity = entity.Member;
                 // 状态
-                userEntity.Status = entity.Status ?? null;
+                memberEntity.Status = entity.Status ?? null;
                 // 返回
-                return userEntity;
+                return memberEntity;
             }
             catch (Exception ex)
             {
@@ -745,7 +745,7 @@ namespace MISApi.Services.CMS.Base
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        protected List<User> SQLEntityToList(List<SQLEntity> list)
+        protected List<Member> SQLEntityToList(List<SQLEntity> list)
         {
             try
             {
@@ -768,7 +768,7 @@ namespace MISApi.Services.CMS.Base
             /// <summary>
             /// 
             /// </summary>
-            public User User { get; set; }
+            public Member Member { get; set; }
             /// <summary>
             /// 
             /// </summary>

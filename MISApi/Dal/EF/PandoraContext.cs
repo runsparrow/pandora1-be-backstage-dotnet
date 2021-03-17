@@ -56,9 +56,9 @@ namespace MISApi.Dal.EF
 
         #region CMS
         /// <summary>
-        /// 用户
+        /// 会员
         /// </summary>
-        public virtual DbSet<Entities.CMS.User> CMS_User { get; set; }
+        public virtual DbSet<Entities.CMS.Member> CMS_Member { get; set; }
         /// <summary>
         /// 账户
         /// </summary>

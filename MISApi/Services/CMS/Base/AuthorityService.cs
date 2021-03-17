@@ -544,7 +544,7 @@ namespace MISApi.Services.CMS.Base
                     {
                         var andKeyWord = ands[i];
                         queryable = queryable.Where(row =>
-                                row.Authority.UserName.Contains(andKeyWord) ||
+                                row.Authority.MemberName.Contains(andKeyWord) ||
                                 row.Authority.IdentityName.Contains(andKeyWord) ||
                                 row.Authority.NationName.Contains(andKeyWord) ||
                                 row.Authority.ProvinceName.Contains(andKeyWord) ||
@@ -568,7 +568,7 @@ namespace MISApi.Services.CMS.Base
                 else if (ors.Length > 1)
                 {
                     queryable = queryable.Where(row =>
-                            ors.Contains(row.Authority.UserName) ||
+                            ors.Contains(row.Authority.MemberName) ||
                             ors.Contains(row.Authority.IdentityName) ||
                             ors.Contains(row.Authority.NationName) ||
                             ors.Contains(row.Authority.ProvinceName) ||
@@ -590,7 +590,7 @@ namespace MISApi.Services.CMS.Base
                 else
                 {
                     queryable = queryable.Where(row =>
-                            row.Authority.UserName.Contains(keyWord) ||
+                            row.Authority.MemberName.Contains(keyWord) ||
                             row.Authority.IdentityName.Contains(keyWord) ||
                             row.Authority.NationName.Contains(keyWord) ||
                             row.Authority.ProvinceName.Contains(keyWord) ||
@@ -857,7 +857,7 @@ namespace MISApi.Services.CMS.Base
             /// <summary>
             /// 
             /// </summary>
-            public User Applier { get; set; }
+            public Member Applier { get; set; }
             /// <summary>
             /// 审批人
             /// </summary>

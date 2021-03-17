@@ -1,30 +1,26 @@
-﻿using MISApi.Entities.CMS;
-using MISApi.Services.CMS;
-using IdentityModel;
+﻿using IdentityModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
+using MISApi.Controllers.HttpEntities;
+using MISApi.Entities.CMS;
+using MISApi.Services.CMS;
+using MISApi.Tools;
 using System;
-using System.ComponentModel;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using static MISApi.Controllers.CMS.AuthController.HttpEntity;
 using static MISApi.Tools.AuthHelper;
-using MISApi.Tools;
-using MISApi.HttpClients;
-using System.Collections.Generic;
 
 namespace MISApi.Controllers.CMS
 {
     /// <summary>
     /// 验证
     /// </summary>
-    public class AuthController : BaseController<User>
+    public class AuthController : BaseController<Member>
     {
         #region IActionResult
         /// <summary>
-        /// 
+        /// 验证获取会员Token
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
@@ -32,12 +28,12 @@ namespace MISApi.Controllers.CMS
         [HttpPost]
         public IActionResult GetToken(DTO_AccountNameAndAccountPwd dto)
         {
-            var user = new UserService.RowService().Verify(dto.AccountName, dto.AccountPwd);
-            if (user != null)
+            var member = new MemberService.RowService().Verify(dto.AccountName, dto.AccountPwd);
+            if (member != null)
             {
                 // 更新登录时间
-                user.LoginDateTime = DateTime.Now;
-                new UserService.UpdateService().Execute(user);
+                member.LoginDateTime = DateTime.Now;
+                new MemberService.UpdateService().Execute(member);
                 // 获取Token
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var key = Encoding.ASCII.GetBytes("This is ocelot security key");
@@ -49,8 +45,8 @@ namespace MISApi.Controllers.CMS
                     {
                         new Claim(JwtClaimTypes.Audience, "api"),
                         new Claim(JwtClaimTypes.Issuer, "http://localhost:44319"),
-                        new Claim(JwtClaimTypes.Id, user.Id.ToString()),
-                        new Claim(JwtClaimTypes.Name,user.Name),
+                        new Claim(JwtClaimTypes.Id, member.Id.ToString()),
+                        new Claim(JwtClaimTypes.Name,member.Name),
                     }),
                     Expires = expiresAt,
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -60,7 +56,7 @@ namespace MISApi.Controllers.CMS
                 {
                     Result = true,
                     Token = token,
-                    UserInfo = new DTO_User { UserId = user.Id, UserName = user.Name, RealName = user.RealName }
+                    MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
                 });
             }
             else
@@ -73,7 +69,7 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 
+        /// 根据Token获取会员
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
@@ -83,7 +79,7 @@ namespace MISApi.Controllers.CMS
         {
             ClaimEntity claim = GetClaimFromToken(dto.Token);
 
-            return new JsonResult(new DTO_Result { Result = true, Token = dto.Token, UserInfo = new DTO_User { UserId = claim.UserId, UserName = claim.UserName, RealName = claim.RealName } });
+            return new JsonResult(new DTO_Result { Result = true, Token = dto.Token, MemberInfo = new DTO_Member { MemberId = claim.Id, MemberName = claim.Name, RealName = claim.RealName } });
         }
         /// <summary>
         /// 获取短信验证码
@@ -118,126 +114,6 @@ namespace MISApi.Controllers.CMS
                 Code = dto.Code,
                 Result = smsEntity.Mobile == dto.Mobile && smsEntity.Code == dto.Code
             });
-        }
-        #endregion
-
-        #region HttpEntity
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public class HttpEntity
-        {
-            #region DTO
-            /// <summary>
-            /// 
-            /// </summary>
-            public class DTO_AccountNameAndAccountPwd
-            {
-                /// <summary>
-                /// 账户名
-                /// </summary>
-                [Description("账户名")]
-                [JsonProperty("accountName")]
-                public string AccountName { get; set; } = "";
-                /// <summary>
-                /// 账户密码
-                /// </summary>
-                [Description("账户密码")]
-                [JsonProperty("accountPwd")]
-                public string AccountPwd { get; set; } = "";
-            }
-            /// <summary>
-            /// 
-            /// </summary>
-            public class DTO_Token
-            {
-                /// <summary>
-                /// Token
-                /// </summary>
-                [Description("Token")]
-                [JsonProperty("token")]
-                public string Token { get; set; } = "";
-            }
-            /// <summary>
-            /// 
-            /// </summary>
-            public class DTO_Auth
-            {
-                /// <summary>
-                /// 手机号
-                /// </summary>
-                [Description("手机号")]
-                [JsonProperty("mobile")]
-                public string Mobile { get; set; } = "";
-                /// <summary>
-                /// 验证码
-                /// </summary>
-                [Description("验证码")]
-                [JsonProperty("code")]
-                public string Code { get; set; } = "";
-                /// <summary>
-                /// 验证码类型
-                /// </summary>
-                [Description("验证码类型")]
-                [JsonProperty("type")]
-                public string Type { get; set; } = "";
-                /// <summary>
-                /// 结果
-                /// </summary>
-                [Description("结果")]
-                [JsonProperty("result")]
-                public bool Result { get; set; } = false;
-            }
-            /// <summary>
-            /// 
-            /// </summary>
-            public class DTO_Result
-            {
-                /// <summary>
-                /// 结果
-                /// </summary>
-                [Description("结果")]
-                [JsonProperty("result")]
-                public bool Result { get; set; } = false;
-                /// <summary>
-                /// Token
-                /// </summary>
-                [Description("Token")]
-                [JsonProperty("token")]
-                public string Token { get; set; } = "";
-                /// <summary>
-                /// 用户
-                /// </summary>
-                [Description("用户")]
-                [JsonProperty("userInfo")]
-                public DTO_User UserInfo { get; set; } = new DTO_User();
-            }
-            /// <summary>
-            /// 
-            /// </summary>
-            public class DTO_User
-            {
-                /// <summary>
-                /// 用户Id
-                /// </summary>
-                [Description("用户Id")]
-                [JsonProperty("userId")]
-                public int UserId { get; set; } = -1;
-                /// <summary>
-                /// 用户名
-                /// </summary>
-                [Description("用户名")]
-                [JsonProperty("userName")]
-                public string UserName { get; set; } = "";
-                /// <summary>
-                /// 实名
-                /// </summary>
-                [Description("实名")]
-                [JsonProperty("realName")]
-                public string RealName { get; set; } = "";
-            }
-            #endregion
         }
         #endregion
 

@@ -502,7 +502,7 @@ namespace MISApi.Services.CMS.Base
                 // SQLEntity.Payer
                 if (join.Name.ToLower().Equals("payer"))
                 {
-                    left = left.LeftOuterJoin(context.CMS_User, Main => Main.Serial.PayerId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    left = left.LeftOuterJoin(context.CMS_Member, Main => Main.Serial.PayerId, Left => Left.Id, (Main, Left) => new SQLEntity
                     {
                         Serial = Main.Serial,
                         Payer = Left,
@@ -513,7 +513,7 @@ namespace MISApi.Services.CMS.Base
                 // SQLEntity.Receiver
                 if (join.Name.ToLower().Equals("receiver"))
                 {
-                    left = left.LeftOuterJoin(context.CMS_User, Main => Main.Serial.ReceiverId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    left = left.LeftOuterJoin(context.CMS_Member, Main => Main.Serial.ReceiverId, Left => Left.Id, (Main, Left) => new SQLEntity
                     {
                         Serial = Main.Serial,
                         Payer = Main.Payer,
@@ -821,11 +821,11 @@ namespace MISApi.Services.CMS.Base
             /// <summary>
             /// 
             /// </summary>
-            public User Payer { get; set; }
+            public Member Payer { get; set; }
             /// <summary>
             /// 
             /// </summary>
-            public User Receiver { get; set; }
+            public Member Receiver { get; set; }
             /// <summary>
             /// 
             /// </summary>

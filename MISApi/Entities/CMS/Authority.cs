@@ -1,4 +1,5 @@
-﻿using MISApi.Entities.WFM;
+﻿using MISApi.Entities.AVM;
+using MISApi.Entities.WFM;
 using Newtonsoft.Json;
 using System;
 using System.ComponentModel;
@@ -25,18 +26,18 @@ namespace MISApi.Entities.CMS
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         /// <summary>
-        /// 用户Id
+        /// 会员Id
         /// </summary>
-        [Description("用户Id")]
-        [JsonProperty("userId")]
-        public int UserId { get; set; } = -1;
+        [Description("会员Id")]
+        [JsonProperty("memberId")]
+        public int MemberId { get; set; } = -1;
         /// <summary>
-        /// 用户名
+        /// 会员名
         /// </summary>
         [StringLength(255)]
-        [Description("用户名")]
-        [JsonProperty("userName")]
-        public string UserName { get; set; } = "";
+        [Description("会员名")]
+        [JsonProperty("memberName")]
+        public string MemberName { get; set; } = "";
         /// <summary>
         /// 身份Id
         /// </summary>
@@ -281,14 +282,14 @@ namespace MISApi.Entities.CMS
         [Description("申请人")]
         [JsonProperty("applier")]
         [NotMapped]
-        public User Applier { get; set; }
+        public Member Applier { get; set; }
         /// <summary>
         /// 审批人
         /// </summary>
         [Description("审批人")]
         [JsonProperty("approver")]
         [NotMapped]
-        public AVM.User Approver { get; set; }
+        public User Approver { get; set; }
         /// <summary>
         /// 状态
         /// </summary>

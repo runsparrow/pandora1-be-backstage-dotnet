@@ -139,14 +139,14 @@ namespace MISApi.Entities.CMS
         [Description("付款人")]
         [JsonProperty("payer")]
         [NotMapped]
-        public User Payer { get; set; }
+        public Member Payer { get; set; }
         /// <summary>
         /// 收款人
         /// </summary>
         [Description("收款人")]
         [JsonProperty("receiver")]
         [NotMapped]
-        public User Receiver { get; set; }
+        public Member Receiver { get; set; }
         /// <summary>
         /// 状态
         /// </summary>

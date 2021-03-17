@@ -29,11 +29,11 @@ namespace MISApi.Tools
                     var claim = ienumerator.Current;
                     if (claim.Type.ToLower().Equals("id"))
                     {
-                        entity.UserId = int.Parse(claim.Value);
+                        entity.Id = int.Parse(claim.Value);
                     }
                     if (claim.Type.ToLower().Equals("name"))
                     {
-                        entity.UserName = claim.Value;
+                        entity.Name = claim.Value;
                     }
                     if (claim.Type.ToLower().Equals("realname"))
                     {
@@ -52,11 +52,11 @@ namespace MISApi.Tools
             /// <summary>
             /// 
             /// </summary>
-            public int UserId { get; set; }
+            public int Id { get; set; }
             /// <summary>
             /// 
             /// </summary>
-            public string UserName { get; set; }
+            public string Name { get; set; }
             /// <summary>
             /// 
             /// </summary>

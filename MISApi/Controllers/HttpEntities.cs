@@ -60,11 +60,47 @@ namespace MISApi.Controllers.HttpEntities
         [JsonProperty("userInfo")]
         public DTO_User UserInfo { get; set; } = new DTO_User();
         /// <summary>
+        /// 会员
+        /// </summary>
+        [Description("会员")]
+        [JsonProperty("memberInfo")]
+        public DTO_Member MemberInfo { get; set; } = new DTO_Member();
+        /// <summary>
         /// 错误信息
         /// </summary>
         [Description("错误信息")]
         [JsonProperty("errorInfo")]
         public string ErrorInfo { get; set; } = "";
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    public class DTO_Auth
+    {
+        /// <summary>
+        /// 手机号
+        /// </summary>
+        [Description("手机号")]
+        [JsonProperty("mobile")]
+        public string Mobile { get; set; } = "";
+        /// <summary>
+        /// 验证码
+        /// </summary>
+        [Description("验证码")]
+        [JsonProperty("code")]
+        public string Code { get; set; } = "";
+        /// <summary>
+        /// 验证码类型
+        /// </summary>
+        [Description("验证码类型")]
+        [JsonProperty("type")]
+        public string Type { get; set; } = "";
+        /// <summary>
+        /// 结果
+        /// </summary>
+        [Description("结果")]
+        [JsonProperty("result")]
+        public bool Result { get; set; } = false;
     }
     /// <summary>
     /// 
@@ -83,6 +119,30 @@ namespace MISApi.Controllers.HttpEntities
         [Description("用户名")]
         [JsonProperty("userName")]
         public string UserName { get; set; } = "";
+        /// <summary>
+        /// 实名
+        /// </summary>
+        [Description("实名")]
+        [JsonProperty("realName")]
+        public string RealName { get; set; } = "";
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    public class DTO_Member
+    {
+        /// <summary>
+        /// 会员Id
+        /// </summary>
+        [Description("会员Id")]
+        [JsonProperty("memberId")]
+        public int MemberId { get; set; } = -1;
+        /// <summary>
+        /// 会员名
+        /// </summary>
+        [Description("会员名")]
+        [JsonProperty("memberName")]
+        public string MemberName { get; set; } = "";
         /// <summary>
         /// 实名
         /// </summary>

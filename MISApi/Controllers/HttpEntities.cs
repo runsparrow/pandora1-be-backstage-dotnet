@@ -59,6 +59,12 @@ namespace MISApi.Controllers.HttpEntities
         [Description("用户")]
         [JsonProperty("userInfo")]
         public DTO_User UserInfo { get; set; } = new DTO_User();
+        /// <summary>
+        /// 错误信息
+        /// </summary>
+        [Description("错误信息")]
+        [JsonProperty("errorInfo")]
+        public string ErrorInfo { get; set; } = "";
     }
     /// <summary>
     /// 

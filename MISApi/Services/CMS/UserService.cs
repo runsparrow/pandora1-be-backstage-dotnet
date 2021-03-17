@@ -76,7 +76,14 @@ namespace MISApi.Services.CMS
                     // 事务
                     transService.TransRegist(delegate
                     {
-                        result = new UserService.CreateService().ToOpen(entity);
+                        if(new UserService.RowService().ByMobile(entity.Mobile) == null)
+                        {
+                            result = new UserService.CreateService().ToOpen(entity);
+                        }
+                        else
+                        {
+                            throw new Exception("手机号码已存在，不能注册！"); ;
+                        }
                     });
                     // 提交
                     transService.TransCommit();

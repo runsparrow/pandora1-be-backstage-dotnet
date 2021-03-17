@@ -91,7 +91,7 @@ namespace MISApi.Tools
         /// <param name="value">值</param>
         /// <param name="exprireTime">过期时间 单位分钟</param>
         /// <returns></returns>
-        public static bool SetValue<T>(string key, string value, int exprireTime = 10)
+        public static bool SetValue(string key, object value, int exprireTime = 10)
         {
             try
             {
@@ -101,7 +101,7 @@ namespace MISApi.Tools
                 }
                 else
                 {
-                    redisCache.SetString(key, value, new DistributedCacheEntryOptions()
+                    redisCache.SetString(key, JsonConvert.SerializeObject(value), new DistributedCacheEntryOptions()
                     {
                         AbsoluteExpiration = DateTime.Now.AddMinutes(exprireTime)
                     });
@@ -110,7 +110,30 @@ namespace MISApi.Tools
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Tools.RedisHelper.SetStringValue", ex);
+                throw new Exception("MISApi.Tools.RedisHelper.SetValue", ex);
+            }
+        }
+        /// <summary>
+        /// 获取string数据
+        /// </summary>
+        /// <param name="key">键</param>
+        /// <returns></returns>
+        public static T GetValue<T>(string key)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(key))
+                {
+                    return JsonConvert.DeserializeObject<T>(null);
+                }
+                else
+                {
+                    return JsonConvert.DeserializeObject<T>(redisCache.GetString(key));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Tools.RedisHelper.GetValue", ex);
             }
         }
         /// <summary>

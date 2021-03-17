@@ -28,7 +28,7 @@ namespace MISApi.Controllers.CMS
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Auth/GetToken", Name = "MIS_CMS_Auth_Get_Token")]
+        [Route("MIS/CMS/Auth/GetToken", Name = "MIS_CMS_Auth_GetToken")]
         [HttpPost]
         public IActionResult GetToken(DTO_AccountNameAndAccountPwd dto)
         {
@@ -77,7 +77,7 @@ namespace MISApi.Controllers.CMS
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Auth/GetEntity", Name = "MIS_CMS_Auth_Get_Entity")]
+        [Route("MIS/CMS/Auth/GetEntity", Name = "MIS_CMS_Auth_GetEntity")]
         [HttpPost]
         public IActionResult GetAuthEntity([FromBody] DTO_Token dto)
         {
@@ -90,33 +90,14 @@ namespace MISApi.Controllers.CMS
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Auth/GetAuthCode", Name = "MIS_CMS_Auth_Get_AuthCode")]
+        [Route("MIS/CMS/Auth/GetAuthCode", Name = "MIS_CMS_Auth_GetAuthCode")]
         [HttpPost]
         public IActionResult GetAuthCode([FromBody] DTO_Auth dto)
         {
-            var account = "manyun106vgx2";
-            var timestamps = Convert.ToInt64((DateTime.Now.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalMilliseconds).ToString();
-            var mobile = dto.Mobile;
-            // 接口密码(msvZrIhi) + 手机号 + 时间戳 MD5加密
-            var password = EncryptHelper.GetMD5($"msvZrIhi{dto.Mobile}{timestamps}");
-            var code = RandHelper.GenerateRandomNumber(6);
-            var content = $"您的验证码是：{code}，有效时间10分钟。";
-            // 调用短信API
-            HttpClientHelper.HttpGetResponse(
-                new List<KeyValuePair<string, string>>
-                {
-                    new KeyValuePair<string, string>("account", account),
-                    new KeyValuePair<string, string>("password", password),
-                    new KeyValuePair<string, string>("mobile", mobile),
-                    new KeyValuePair<string, string>("content", content),
-                    new KeyValuePair<string, string>("timestamps", timestamps),
-                    new KeyValuePair<string, string>("extNumber", ""),
-                    new KeyValuePair<string, string>("extInfo", "")
-                },
-                "http://sapi.appsms.cn:8088/msgHttp/json/mt"
-            );
+            // 发送验证码
+            string code = SMSHelper.AuthCode(dto.Mobile);
             // 存Redis
-            RedisHelper.SetStringValue(dto.Mobile, $"{dto.Mobile}^{code}");
+            RedisHelper.SetValue(dto.Mobile, new SMSHelper.Entity { Mobile = dto.Mobile, Code = code, SMSDate = DateTime.Now});
             // 返回
             return new JsonResult(new DTO_Auth { Mobile = dto.Mobile, Code = code, Result = true });
         }
@@ -125,16 +106,18 @@ namespace MISApi.Controllers.CMS
         /// </summary> 
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Auth/GetAuth", Name = "MIS_CMS_Auth_Get_Auth")]
+        [Route("MIS/CMS/Auth/GetAuth", Name = "MIS_CMS_Auth_GetAuth")]
         [HttpPost]
         public IActionResult GetAuth([FromBody] DTO_Auth dto)
         {
-            return new JsonResult(new DTO_Auth { 
-                Mobile = dto.Mobile, 
-                Code = dto.Code, 
-                Result = RedisHelper.GetStringValue(dto.Mobile).Equals($"{dto.Mobile}^{dto.Code}")
+            SMSHelper.Entity smsEntity = RedisHelper.GetValue<SMSHelper.Entity>(dto.Mobile);
+            // 返回
+            return new JsonResult(new DTO_Auth
+            {
+                Mobile = dto.Mobile,
+                Code = dto.Code,
+                Result = smsEntity.Mobile == dto.Mobile && smsEntity.Code == dto.Code
             });
-
         }
         #endregion
 
@@ -193,6 +176,12 @@ namespace MISApi.Controllers.CMS
                 [Description("验证码")]
                 [JsonProperty("code")]
                 public string Code { get; set; } = "";
+                /// <summary>
+                /// 验证码类型
+                /// </summary>
+                [Description("验证码类型")]
+                [JsonProperty("type")]
+                public string Type { get; set; } = "";
                 /// <summary>
                 /// 结果
                 /// </summary>

@@ -571,7 +571,8 @@ namespace MISApi.Controllers.CMS
                     entity.Password = EncryptHelper.GetBase64String(entity.Password);
                     entity.RegistDateTime = DateTime.Now;
                 }
-                try
+                var existUser = new UserService.RowService().ByMobile(entity.Mobile);
+                if (existUser == null)
                 {
                     var user = new UserService.CreateService().Regist(entity);
                     // 返回
@@ -581,21 +582,64 @@ namespace MISApi.Controllers.CMS
                         UserInfo = new DTO_User { UserId = user.Id, UserName = user.Name, RealName = user.RealName }
                     });
                 }
-                catch
+                else
                 {
                     return new JsonResult(new DTO_Result
                     {
                         Result = false,
-                        UserInfo = null
+                        UserInfo = new DTO_User { UserId = existUser.Id, UserName = existUser.Name, RealName = existUser.RealName },
+                        ErrorInfo = "手机号已被注册。"
                     });
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.UserController.Unauthorized_Create_Regist", ex);
+                return new JsonResult(new DTO_Result
+                {
+                    Result = false,
+                    UserInfo = null,
+                    ErrorInfo = ex.InnerException.Message
+                });
             }
         }
 
+        #endregion
+
+        #region UpdateMode
+        /// <summary>
+        /// 忘记密码
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/User/Update/Forget", Name = "Unauthorized_MIS_CMS_User_Update_Forget")]
+        [HttpPost]
+        public IActionResult Unauthorized_Update_Forget(User entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+                    entity.Password = EncryptHelper.GetBase64String(entity.Password);
+                }
+                var user = new UserService.UpdateService().Execute(entity);
+                // 返回
+                return new JsonResult(new DTO_Result
+                {
+                    Result = true,
+                    UserInfo = new DTO_User { UserId = user.Id, UserName = user.Name, RealName = user.RealName }
+                });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new DTO_Result
+                {
+                    Result = false,
+                    UserInfo = null,
+                    ErrorInfo = ex.InnerException.Message
+                });
+            }
+        }
         #endregion
 
         #region ColumnsMode

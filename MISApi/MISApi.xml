@@ -2542,6 +2542,11 @@
             验证码
             </summary>
         </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.HttpEntity.DTO_Auth.Type">
+            <summary>
+            验证码类型
+            </summary>
+        </member>
         <member name="P:MISApi.Controllers.CMS.AuthController.HttpEntity.DTO_Auth.Result">
             <summary>
             结果
@@ -5811,6 +5816,13 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.UserController.Unauthorized_Update_Forget(MISApi.Entities.CMS.User)">
+            <summary>
+            忘记密码
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.UserController.Unauthorized_Columns_Single">
             <summary>
             查询用户的字段
@@ -6148,6 +6160,11 @@
         <member name="P:MISApi.Controllers.HttpEntities.DTO_Result.UserInfo">
             <summary>
             用户
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.HttpEntities.DTO_Result.ErrorInfo">
+            <summary>
+            错误信息
             </summary>
         </member>
         <member name="T:MISApi.Controllers.HttpEntities.DTO_User">
@@ -14152,6 +14169,22 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.Base.UserService.RowService.ByMobile(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 手机号 查询
+            </summary>
+            <param name="mobile">手机号</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.UserService.RowService.ByIdCard(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 身份证 查询
+            </summary>
+            <param name="idCard">身份证</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Services.CMS.Base.UserService.RowsService">
             <summary>
             
@@ -15592,13 +15625,20 @@
             <param name="key">键</param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Tools.RedisHelper.SetValue``1(System.String,System.String,System.Int32)">
+        <member name="M:MISApi.Tools.RedisHelper.SetValue(System.String,System.Object,System.Int32)">
             <summary>
             添加string数据
             </summary>
             <param name="key">键</param>
             <param name="value">值</param>
             <param name="exprireTime">过期时间 单位分钟</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.RedisHelper.GetValue``1(System.String)">
+            <summary>
+            获取string数据
+            </summary>
+            <param name="key">键</param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Tools.RedisHelper.Remove(System.String)">
@@ -15620,6 +15660,43 @@
             <param name="key">键</param>
             <param name="value">值</param>
             <param name="expireTime">过期时间 单位小时</param>
+        </member>
+        <member name="T:MISApi.Tools.SMSHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Tools.SMSHelper.AuthCode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="mobile"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Tools.SMSHelper.Entity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Tools.SMSHelper.Entity.Mobile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Tools.SMSHelper.Entity.Code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Tools.SMSHelper.Entity.SMSDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Tools.SMSHelper.Entity.Type">
+            <summary>
+            
+            </summary>
         </member>
     </members>
 </doc>

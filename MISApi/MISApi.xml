@@ -3908,6 +3908,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.MemberController.Unauthorized_Row_ByMobile_Mobile(System.String)">
+            <summary>
+            验证手机是否被注册
+            </summary>
+            <param name="mobile"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.MemberController.Unauthorized_Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
             <summary>
             根据关键字模糊查询会员
@@ -6000,6 +6007,11 @@
         <member name="P:MISApi.Controllers.HttpEntities.DTO_Result.MemberInfo">
             <summary>
             会员
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.HttpEntities.DTO_Result.SuccessInfo">
+            <summary>
+            正确信息
             </summary>
         </member>
         <member name="P:MISApi.Controllers.HttpEntities.DTO_Result.ErrorInfo">
@@ -15467,10 +15479,22 @@
         </member>
         <member name="F:MISApi.Tools.RandHelper.RANDOM_NUMBER_CONSTANT">
             <summary>
-            
+            数字
+            </summary>
+        </member>
+        <member name="F:MISApi.Tools.RandHelper.RANDOM_ALPHABET_CONSTANT">
+            <summary>
+            字母
             </summary>
         </member>
         <member name="M:MISApi.Tools.RandHelper.GenerateRandomNumber(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="Length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.RandHelper.GenerateRandomAlphabet(System.Int32)">
             <summary>
             
             </summary>

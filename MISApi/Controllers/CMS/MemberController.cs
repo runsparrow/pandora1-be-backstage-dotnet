@@ -570,6 +570,10 @@ namespace MISApi.Controllers.CMS
                 {
                     entity.Password = EncryptHelper.GetBase64String(entity.Password);
                     entity.RegistDateTime = DateTime.Now;
+                    if (string.IsNullOrEmpty(entity.Name))
+                    {
+                        entity.Name = RandHelper.GenerateRandomAlphabet(12);
+                    }
                 }
                 var existMember = new MemberService.RowService().ByMobile(entity.Mobile);
                 if (existMember == null)
@@ -579,6 +583,7 @@ namespace MISApi.Controllers.CMS
                     return new JsonResult(new DTO_Result
                     {
                         Result = true,
+                        UserInfo = null,
                         MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
                     });
                 }
@@ -587,6 +592,7 @@ namespace MISApi.Controllers.CMS
                     return new JsonResult(new DTO_Result
                     {
                         Result = false,
+                        UserInfo = null,
                         MemberInfo = new DTO_Member { MemberId = existMember.Id, MemberName = existMember.Name, RealName = existMember.RealName },
                         ErrorInfo = "手机号已被注册。"
                     });
@@ -597,6 +603,7 @@ namespace MISApi.Controllers.CMS
                 return new JsonResult(new DTO_Result
                 {
                     Result = false,
+                    UserInfo = null,
                     MemberInfo = null,
                     ErrorInfo = ex.InnerException.Message
                 });
@@ -617,16 +624,20 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                var member = new Member();
                 // Entity
                 if (entity != null)
                 {
-                    entity.Password = EncryptHelper.GetBase64String(entity.Password);
+                    member = new MemberService.RowService().ByMobile(entity.Mobile);
+                    member.Password = EncryptHelper.GetBase64String(entity.Password);
                 }
-                var member = new MemberService.UpdateService().Execute(entity);
+                // 提交
+                member = new MemberService.UpdateService().Execute(member);
                 // 返回
                 return new JsonResult(new DTO_Result
                 {
                     Result = true,
+                    UserInfo = null,
                     MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
                 });
             }
@@ -635,6 +646,7 @@ namespace MISApi.Controllers.CMS
                 return new JsonResult(new DTO_Result
                 {
                     Result = false,
+                    UserInfo = null,
                     MemberInfo = null,
                     ErrorInfo = ex.InnerException.Message
                 });
@@ -697,6 +709,44 @@ namespace MISApi.Controllers.CMS
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.CMS.MemberController.Unauthorized_Row_ById_Id", ex);
+            }
+        }
+        /// <summary>
+        /// 验证手机是否被注册
+        /// </summary>
+        /// <param name="mobile"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Member/Row/ByMobile/{mobile}", Name = "Unauthorized_MIS_CMS_Member_Row_ByMobile_Mobile")]
+        [HttpGet]
+        public IActionResult Unauthorized_Row_ByMobile_Mobile(string mobile)
+        {
+            try
+            {
+                var member = new MemberService.RowService().ByMobile(mobile);
+                if (member == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        UserInfo = null,
+                        MemberInfo = null,
+                        SuccessInfo = "未发现重复手机号。"
+                    });
+                }
+                else
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = true,
+                        UserInfo = null,
+                        MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName },
+                        SuccessInfo = "发现重复手机号。"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Unauthorized_Row_ByMobile_Mobile", ex);
             }
         }
         #endregion

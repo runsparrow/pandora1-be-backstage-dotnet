@@ -66,6 +66,12 @@ namespace MISApi.Controllers.HttpEntities
         [JsonProperty("memberInfo")]
         public DTO_Member MemberInfo { get; set; } = new DTO_Member();
         /// <summary>
+        /// 正确信息
+        /// </summary>
+        [Description("正确信息")]
+        [JsonProperty("successInfo")]
+        public string SuccessInfo { get; set; } = "";
+        /// <summary>
         /// 错误信息
         /// </summary>
         [Description("错误信息")]

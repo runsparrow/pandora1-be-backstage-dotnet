@@ -1,6 +1,5 @@
-﻿using MISApi.Tools;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using Microsoft.EntityFrameworkCore;
+using MISApi.Tools;
 
 namespace MISApi.Dal.EF
 {

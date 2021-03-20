@@ -63,8 +63,8 @@ namespace MISApi.Controllers.CMS
             {
                 return new JsonResult(new
                 {
-                    Result = false,
-                    Message = "Authentication Failure"
+                    result = false,
+                    message = "Authentication Failure"
                 });
             }
         }

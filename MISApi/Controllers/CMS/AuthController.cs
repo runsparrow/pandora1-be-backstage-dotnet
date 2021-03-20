@@ -66,7 +66,7 @@ namespace MISApi.Controllers.CMS
                 {
                     Result = false,
                     Token = "",
-                    MemberInfo = null,
+                    MemberInfo = null, 
                     UserInfo = null,
                     ErrorInfo = "Authentication Failure"
                 });

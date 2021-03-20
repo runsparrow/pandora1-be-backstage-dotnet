@@ -30,13 +30,13 @@ namespace MISApi.Tools
                 HttpClientHelper.HttpGetResponse(
                     new List<KeyValuePair<string, string>>
                     {
-                    new KeyValuePair<string, string>("account", account),
-                    new KeyValuePair<string, string>("password", password),
-                    new KeyValuePair<string, string>("mobile", mobile),
-                    new KeyValuePair<string, string>("content", content),
-                    new KeyValuePair<string, string>("timestamps", timestamps),
-                    new KeyValuePair<string, string>("extNumber", ""),
-                    new KeyValuePair<string, string>("extInfo", "")
+                        new KeyValuePair<string, string>("account", account),
+                        new KeyValuePair<string, string>("password", password),
+                        new KeyValuePair<string, string>("mobile", mobile),
+                        new KeyValuePair<string, string>("content", content),
+                        new KeyValuePair<string, string>("timestamps", timestamps),
+                        new KeyValuePair<string, string>("extNumber", ""),
+                        new KeyValuePair<string, string>("extInfo", "")
                     },
                     "http://sapi.appsms.cn:8088/msgHttp/json/mt"
                 );

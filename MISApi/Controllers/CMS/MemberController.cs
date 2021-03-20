@@ -712,6 +712,45 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
+        /// 验证会员名是否被注册
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Member/Row/ByName/{name}/{id}", Name = "Unauthorized_MIS_CMS_Member_Row_ByName_Name_Id")]
+        [HttpGet]
+        public IActionResult Unauthorized_Row_ByName_Name_Id(string name, int id)
+        {
+            try
+            {
+                var member = new MemberService.RowService().ByName(name, id);
+                if (member == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        UserInfo = null,
+                        MemberInfo = null,
+                        SuccessInfo = "未发现重复会员名。"
+                    });
+                }
+                else
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = true,
+                        UserInfo = null,
+                        MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName },
+                        SuccessInfo = "发现重复会员名。"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Unauthorized_Row_ByName_Name_Id", ex);
+            }
+        }
+        /// <summary>
         /// 验证手机是否被注册
         /// </summary>
         /// <param name="mobile"></param>

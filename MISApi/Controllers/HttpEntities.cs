@@ -107,6 +107,12 @@ namespace MISApi.Controllers.HttpEntities
         [Description("结果")]
         [JsonProperty("result")]
         public bool Result { get; set; } = false;
+        /// <summary>
+        /// 信息
+        /// </summary>
+        [Description("信息")]
+        [JsonProperty("message")]
+        public string Message { get; set; } = "";
     }
     /// <summary>
     /// 

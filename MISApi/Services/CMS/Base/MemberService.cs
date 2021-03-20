@@ -301,6 +301,31 @@ namespace MISApi.Services.CMS.Base
                 }
             }
             /// <summary>
+            /// 根据 会员名并排除会员Id 查询
+            /// </summary>
+            /// <param name="name">会员名</param>
+            /// <param name="id">会员Id</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public Member ByName(string name, int id, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToSingle(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Member.Name == name && row.Member.Id != id)
+                                .SingleOrDefault()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowService.ByName", ex);
+                    }
+                }
+            }
+            /// <summary>
             /// 根据 手机号 查询
             /// </summary>
             /// <param name="mobile">手机号</param>

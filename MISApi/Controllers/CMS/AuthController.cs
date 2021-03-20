@@ -56,15 +56,19 @@ namespace MISApi.Controllers.CMS
                 {
                     Result = true,
                     Token = token,
+                    UserInfo = null,
                     MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
                 });
             }
             else
             {
-                return new JsonResult(new
+                return new JsonResult(new DTO_Result
                 {
                     Result = false,
-                    Message = "Authentication Failure"
+                    Token = "",
+                    MemberInfo = null,
+                    UserInfo = null,
+                    ErrorInfo = "Authentication Failure"
                 });
             }
         }
@@ -90,10 +94,17 @@ namespace MISApi.Controllers.CMS
         [HttpPost]
         public IActionResult GetAuthCode([FromBody] DTO_Auth dto)
         {
+            // 判断是否已有手机号
+            SMSHelper.Entity smsEntity = RedisHelper.GetValue<SMSHelper.Entity>(dto.Mobile);
+            // 判断短信发送时间间隔
+            if(smsEntity != null &&  smsEntity.SMSDate.AddMinutes(1) >= DateTime.Now)
+            {
+                return new JsonResult(new DTO_Auth { Mobile = dto.Mobile, Code = smsEntity.Code, Result = false, Message = "发送间隔小于一分钟，发送失败。" });
+            }
             // 发送验证码
             string code = SMSHelper.AuthCode(dto.Mobile);
             // 存Redis
-            RedisHelper.SetValue(dto.Mobile, new SMSHelper.Entity { Mobile = dto.Mobile, Code = code, SMSDate = DateTime.Now});
+            RedisHelper.SetValue(dto.Mobile, new SMSHelper.Entity { Mobile = dto.Mobile, Code = code, SMSDate = DateTime.Now });
             // 返回
             return new JsonResult(new DTO_Auth { Mobile = dto.Mobile, Code = code, Result = true });
         }

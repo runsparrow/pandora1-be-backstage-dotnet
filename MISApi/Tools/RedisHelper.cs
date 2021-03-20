@@ -128,6 +128,10 @@ namespace MISApi.Tools
                 }
                 else
                 {
+                    if(redisCache.GetString(key) == null)
+                    {
+                        return default(T);
+                    }
                     return JsonConvert.DeserializeObject<T>(redisCache.GetString(key));
                 }
             }

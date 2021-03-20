@@ -30,12 +30,14 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("流水号")]
         [JsonProperty("serialNo")]
+        [DefaultValue("")]
         public string SerialNo { get; set; } = "";
         /// <summary>
         /// 付款人Id
         /// </summary>
         [Description("付款人Id")]
         [JsonProperty("payerId")]
+        [DefaultValue(-1)]
         public int PayerId { get; set; } = -1;
         /// <summary>
         /// 付款人用户名
@@ -43,6 +45,7 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("付款人用户名")]
         [JsonProperty("payerName")]
+        [DefaultValue("")]
         public string PayerName { get; set; } = "";
         /// <summary>
         /// 付款人实名
@@ -50,6 +53,7 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("付款人实名")]
         [JsonProperty("payerRealName")]
+        [DefaultValue("")]
         public string PayerRealName { get; set; } = "";
         /// <summary>
         /// 付款人账号
@@ -57,12 +61,14 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("付款人账号")]
         [JsonProperty("payerAccount")]
+        [DefaultValue("")]
         public string PayerAccount { get; set; } = "";
         /// <summary>
         /// 收款人Id
         /// </summary>
         [Description("收款人Id")]
         [JsonProperty("receiverId")]
+        [DefaultValue(-1)]
         public int ReceiverId { get; set; } = -1;
         /// <summary>
         /// 收款人用户名
@@ -70,6 +76,7 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("收款人用户名")]
         [JsonProperty("receiverName")]
+        [DefaultValue("")]
         public string ReceiverName { get; set; } = "";
         /// <summary>
         /// 收款人实名
@@ -77,6 +84,7 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("收款人实名")]
         [JsonProperty("receiverRealName")]
+        [DefaultValue("")]
         public string ReceiverRealName { get; set; } = "";
         /// <summary>
         /// 收款人账号
@@ -84,6 +92,7 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("收款人账号")]
         [JsonProperty("receiverAccount")]
+        [DefaultValue("")]
         public string ReceiverAccount { get; set; } = "";
         /// <summary>
         /// 交易时间
@@ -96,6 +105,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("交易金额")]
         [JsonProperty("dealAmount")]
+        [DefaultValue(0)]
         public decimal DealAmount { get; set; } = 0;
         /// <summary>
         /// 交易类型
@@ -103,6 +113,7 @@ namespace MISApi.Entities.CMS
         [StringLength(1)]
         [Description("交易类型")]
         [JsonProperty("dealType")]
+        [DefaultValue("")]
         public string DealType { get; set; } = "";
         /// <summary>
         /// 备注
@@ -110,12 +121,14 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("备注")]
         [JsonProperty("remark")]
+        [DefaultValue("")]
         public string Remark { get; set; } = "";
         /// <summary>
         /// 状态Id
         /// </summary>
         [Description("状态Id")]
         [JsonProperty("statusId")]
+        [DefaultValue(-1)]
         public int StatusId { get; set; } = -1;
         /// <summary>
         /// 状态名
@@ -123,12 +136,14 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("状态名")]
         [JsonProperty("statusName")]
+        [DefaultValue("")]
         public string StatusName { get; set; } = "";
         /// <summary>
         /// 状态数值
         /// </summary>
         [Description("状态数值")]
         [JsonProperty("statusValue")]
+        [DefaultValue(0)]
         public int StatusValue { get; set; } = 0;
         #endregion
 

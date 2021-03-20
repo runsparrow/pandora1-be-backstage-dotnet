@@ -17,12 +17,14 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("账户名")]
         [JsonProperty("accountName")]
+        [DefaultValue("")]
         public string AccountName { get; set; } = "";
         /// <summary>
         /// 账户密码
         /// </summary>
         [Description("账户密码")]
         [JsonProperty("accountPwd")]
+        [DefaultValue("")]
         public string AccountPwd { get; set; } = "";
     }
     /// <summary>
@@ -35,6 +37,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("Token")]
         [JsonProperty("token")]
+        [DefaultValue("")]
         public string Token { get; set; } = "";
     }
     /// <summary>
@@ -47,12 +50,14 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("结果")]
         [JsonProperty("result")]
+        [DefaultValue(false)]
         public bool Result { get; set; } = false;
         /// <summary>
         /// Token
         /// </summary>
         [Description("Token")]
         [JsonProperty("token")]
+        [DefaultValue("")]
         public string Token { get; set; } = "";
         /// <summary>
         /// 用户
@@ -71,12 +76,14 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("正确信息")]
         [JsonProperty("successInfo")]
+        [DefaultValue("")]
         public string SuccessInfo { get; set; } = "";
         /// <summary>
         /// 错误信息
         /// </summary>
         [Description("错误信息")]
         [JsonProperty("errorInfo")]
+        [DefaultValue("")]
         public string ErrorInfo { get; set; } = "";
     }
     /// <summary>
@@ -89,30 +96,35 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("手机号")]
         [JsonProperty("mobile")]
+        [DefaultValue("")]
         public string Mobile { get; set; } = "";
         /// <summary>
         /// 验证码
         /// </summary>
         [Description("验证码")]
         [JsonProperty("code")]
+        [DefaultValue("")]
         public string Code { get; set; } = "";
         /// <summary>
         /// 验证码类型
         /// </summary>
         [Description("验证码类型")]
         [JsonProperty("type")]
+        [DefaultValue("")]
         public string Type { get; set; } = "";
         /// <summary>
         /// 结果
         /// </summary>
         [Description("结果")]
         [JsonProperty("result")]
+        [DefaultValue(false)]
         public bool Result { get; set; } = false;
         /// <summary>
         /// 信息
         /// </summary>
         [Description("信息")]
         [JsonProperty("message")]
+        [DefaultValue("")]
         public string Message { get; set; } = "";
         /// <summary>
         /// 会员
@@ -131,18 +143,21 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("用户Id")]
         [JsonProperty("userId")]
+        [DefaultValue(-1)]
         public int UserId { get; set; } = -1;
         /// <summary>
         /// 用户名
         /// </summary>
         [Description("用户名")]
         [JsonProperty("userName")]
+        [DefaultValue("")]
         public string UserName { get; set; } = "";
         /// <summary>
         /// 实名
         /// </summary>
         [Description("实名")]
         [JsonProperty("realName")]
+        [DefaultValue("")]
         public string RealName { get; set; } = "";
     }
     /// <summary>
@@ -155,18 +170,21 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("会员Id")]
         [JsonProperty("memberId")]
+        [DefaultValue(-1)]
         public int MemberId { get; set; } = -1;
         /// <summary>
         /// 会员名
         /// </summary>
         [Description("会员名")]
         [JsonProperty("memberName")]
+        [DefaultValue("")]
         public string MemberName { get; set; } = "";
         /// <summary>
         /// 实名
         /// </summary>
         [Description("实名")]
         [JsonProperty("realName")]
+        [DefaultValue("")]
         public string RealName { get; set; } = "";
     }
     /// <summary>
@@ -182,6 +200,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("关键字")]
         [JsonProperty("keyWord")]
+        [DefaultValue("")]
         public string KeyWord { get; set; } = "";
         /// <summary>
         /// <p>分页</p>
@@ -189,6 +208,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("分页")]
         [JsonProperty("page")]
+        [DefaultValue("1^20")]
         public string Page { get; set; } = "1^20";
         /// <summary>
         /// <p>日期</p>
@@ -197,6 +217,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("日期")]
         [JsonProperty("date")]
+        [DefaultValue("")]
         public string Date { get; set; } = "";
         /// <summary>
         /// <p>排序</p>
@@ -205,6 +226,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("排序")]
         [JsonProperty("sort")]
+        [DefaultValue("")]
         public string Sort { get; set; } = "";
         /// <summary>
         /// <p>状态</p>
@@ -225,6 +247,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("id")]
         [JsonProperty("id")]
+        [DefaultValue(-1)]
         public int Id { get; set; } = -1;
     }
     /// <summary>
@@ -237,6 +260,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("上级Id")]
         [JsonProperty("pid")]
+        [DefaultValue(-1)]
         public int Pid { get; set; } = -1;
     }
     /// <summary>
@@ -249,6 +273,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("员工Id")]
         [JsonProperty("employeeId")]
+        [DefaultValue(-1)]
         public int EmployeeId { get; set; } = -1;
     }
     /// <summary>
@@ -261,6 +286,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("部门Id")]
         [JsonProperty("orgId")]
+        [DefaultValue(-1)]
         public int OrgId { get; set; } = -1;
     }
     /// <summary>
@@ -273,6 +299,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("关键字")]
         [JsonProperty("keyWord")]
+        [DefaultValue("")]
         public string KeyWord { get; set; } = "";
     }
     /// <summary>
@@ -285,6 +312,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("开始时间")]
         [JsonProperty("minDate")]
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
         public DateTime MinDate { get; set; } = DateTime.MinValue;
         /// <summary>
         /// 结束时间
@@ -303,6 +331,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("微信OpenId")]
         [JsonProperty("weChatOpenId")]
+        [DefaultValue("")]
         public string WeChatOpenId { get; set; } = "";
     }
     /// <summary>
@@ -315,6 +344,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("关键字")]
         [JsonProperty("keyWord")]
+        [DefaultValue("")]
         public string KeyWord { get; set; } = "";
         /// <summary>
         /// 配置
@@ -351,6 +381,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("上级Id")]
         [JsonProperty("pid")]
+        [DefaultValue(-1)]
         public int Pid { get; set; } = -1;
         /// <summary>
         /// 配置
@@ -369,6 +400,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("员工Id")]
         [JsonProperty("员工Id")]
+        [DefaultValue(-1)]
         public int EmployeeId { get; set; } = -1;
         /// <summary>
         /// 配置

@@ -30,6 +30,7 @@ namespace MISApi.Entities.AVM
         [StringLength(255)]
         [Description("用户名")]
         [JsonProperty("name")]
+        [DefaultValue("")]
         public string Name { get; set; } = "";
         /// <summary>
         /// 密码
@@ -37,13 +38,15 @@ namespace MISApi.Entities.AVM
         [StringLength(255)]
         [Description("密码")]
         [JsonProperty("password")]
+        [DefaultValue("")]
         public string Password { get; set; } = "";
         /// <summary>
         /// 实名
         /// </summary>
         [StringLength(255)]
         [Description("实名")]
-        [JsonProperty("realName")] 
+        [JsonProperty("realName")]
+        [DefaultValue("")]
         public string RealName { get; set; } = "";
         /// <summary>
         /// 邮箱
@@ -51,6 +54,7 @@ namespace MISApi.Entities.AVM
         [StringLength(255)]
         [Description("邮箱")]
         [JsonProperty("email")]
+        [DefaultValue("")]
         public string Email { get; set; } = "";
         /// <summary>
         /// 手机
@@ -58,6 +62,7 @@ namespace MISApi.Entities.AVM
         [StringLength(255)]
         [Description("手机")]
         [JsonProperty("mobile")]
+        [DefaultValue("")]
         public string Mobile { get; set; } = "";
         /// <summary>
         /// 备注
@@ -65,6 +70,7 @@ namespace MISApi.Entities.AVM
         [StringLength(255)]
         [Description("备注")]
         [JsonProperty("remark")]
+        [DefaultValue("")]
         public string Remark { get; set; } = "";
         /// <summary>
         /// 最后登录时间
@@ -78,6 +84,7 @@ namespace MISApi.Entities.AVM
         [StringLength(255)]
         [Description("最后登录IP")]
         [JsonProperty("loginIPAddress")]
+        [DefaultValue("")]
         public string LoginIPAddress { get; set; } = "";
         /// <summary>
         /// 创建时间
@@ -90,6 +97,7 @@ namespace MISApi.Entities.AVM
         /// </summary>
         [Description("创建用户Id")]
         [JsonProperty("createUserId")]
+        [DefaultValue(-1)]
         public int CreateUserId { get; set; } = -1;
         /// <summary>
         /// 最后修改时间
@@ -102,6 +110,7 @@ namespace MISApi.Entities.AVM
         /// </summary>
         [Description("最后修改用户Id")]
         [JsonProperty("editUserId")]
+        [DefaultValue(-1)]
         public int EditUserId { get; set; } = -1;
         /// <summary>
         /// 状态Id
@@ -115,12 +124,14 @@ namespace MISApi.Entities.AVM
         [StringLength(255)]
         [Description("状态名")]
         [JsonProperty("statusName")]
+        [DefaultValue("")]
         public string StatusName { get; set; } = "";
         /// <summary>
         /// 状态数值
         /// </summary>
         [Description("状态数值")]
         [JsonProperty("statusValue")]
+        [DefaultValue(0)]
         public int StatusValue { get; set; } = 0;
         #endregion
 

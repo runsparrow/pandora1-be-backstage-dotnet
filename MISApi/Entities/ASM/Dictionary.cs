@@ -29,6 +29,7 @@ namespace MISApi.Entities.ASM
         /// </summary>
         [Description("#")]
         [JsonProperty("pid")]
+        [DefaultValue(-1)]
         public int Pid { get; set; } = -1;
         /// <summary>
         /// 名称
@@ -36,6 +37,7 @@ namespace MISApi.Entities.ASM
         [StringLength(255)]
         [Description("名称")]
         [JsonProperty("name")]
+        [DefaultValue("")]
         public string Name { get; set; } = "";
         /// <summary>
         /// 键名
@@ -43,6 +45,7 @@ namespace MISApi.Entities.ASM
         [StringLength(255)]
         [Description("键名")]
         [JsonProperty("key")]
+        [DefaultValue("")]
         public string Key { get; set; } = "";
         /// <summary>
         /// 键值
@@ -50,6 +53,7 @@ namespace MISApi.Entities.ASM
         [StringLength(255)]
         [Description("键值")]
         [JsonProperty("value")]
+        [DefaultValue("")]
         public string Value { get; set; } = "";
         /// <summary>
         /// 描述
@@ -57,12 +61,14 @@ namespace MISApi.Entities.ASM
         [StringLength(255)]
         [Description("描述")]
         [JsonProperty("desc")]
+        [DefaultValue("")]
         public string Desc { get; set; } = "";
         /// <summary>
         /// 状态Id
         /// </summary>
         [Description("状态Id")]
         [JsonProperty("statusId")]
+        [DefaultValue(-1)]
         public int StatusId { get; set; } = -1;
         /// <summary>
         /// 状态名
@@ -70,12 +76,14 @@ namespace MISApi.Entities.ASM
         [StringLength(255)]
         [Description("状态名")]
         [JsonProperty("statusName")]
+        [DefaultValue("")]
         public string StatusName { get; set; } = "";
         /// <summary>
         /// 状态数值
         /// </summary>
         [Description("状态数值")]
         [JsonProperty("statusValue")]
+        [DefaultValue(0)]
         public int StatusValue { get; set; } = 0;
         /// <summary>
         /// 创建时间
@@ -88,6 +96,7 @@ namespace MISApi.Entities.ASM
         /// </summary>
         [Description("创建用户Id")]
         [JsonProperty("createUserId")]
+        [DefaultValue(-1)]
         public int CreateUserId { get; set; } = -1;
         /// <summary>
         /// 最后修改时间
@@ -100,6 +109,7 @@ namespace MISApi.Entities.ASM
         /// </summary>
         [Description("最后修改用户Id")]
         [JsonProperty("editUserId")]
+        [DefaultValue(-1)]
         public int EditUserId { get; set; } = -1;
         #endregion
 
@@ -110,6 +120,7 @@ namespace MISApi.Entities.ASM
         [StringLength(2000)]
         [Description("路径")]
         [JsonProperty("path")]
+        [DefaultValue("")]
         [NotMapped]
         public string Path { get; set; } = "";
         /// <summary>

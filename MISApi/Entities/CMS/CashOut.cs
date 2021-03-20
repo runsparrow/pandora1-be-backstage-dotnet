@@ -31,12 +31,14 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("序列号")]
         [JsonProperty("serialNo")]
+        [DefaultValue("")]
         public string SerialNo { get; set; } = "";
         /// <summary>
         /// 申请人Id
         /// </summary>
         [Description("申请人Id")]
         [JsonProperty("applierId")]
+        [DefaultValue(-1)]
         public int ApplierId { get; set; } = -1;
         /// <summary>
         /// 申请人姓名
@@ -44,6 +46,7 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("申请人姓名")]
         [JsonProperty("applierName")]
+        [DefaultValue("")]
         public string ApplierName { get; set; } = "";
         /// <summary>
         /// 申请时间
@@ -56,6 +59,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("提现账号Id")]
         [JsonProperty("accountId")]
+        [DefaultValue(-1)]
         public int AccountId { get; set; } = -1;
         /// <summary>
         /// 账号
@@ -63,12 +67,14 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("账号")]
         [JsonProperty("accountNo")]
+        [DefaultValue("")]
         public string AccountNo { get; set; } = "";
         /// <summary>
         /// 交易金额
         /// </summary>
         [Description("交易金额")]
         [JsonProperty("dealAmount")]
+        [DefaultValue(0)]
         public decimal DealAmount { get; set; } = 0;
         /// <summary>
         /// 交易时间
@@ -81,6 +87,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("审批人Id")]
         [JsonProperty("approverId")]
+        [DefaultValue(-1)]
         public int ApproverId { get; set; } = -1;
         /// <summary>
         /// 审批人姓名
@@ -88,6 +95,7 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("审批人姓名")]
         [JsonProperty("approverName")]
+        [DefaultValue("")]
         public string ApproverName { get; set; } = "";
         /// <summary>
         /// 审批时间
@@ -100,6 +108,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("放款人Id")]
         [JsonProperty("loanerId")]
+        [DefaultValue(-1)]
         public int LoanerId { get; set; } = -1;
         /// <summary>
         /// 放款人姓名
@@ -107,6 +116,7 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("放款人姓名")]
         [JsonProperty("loanerName")]
+        [DefaultValue("")]
         public string LoanerName { get; set; } = "";
         /// <summary>
         /// 放款时间
@@ -120,12 +130,14 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("备注")]
         [JsonProperty("remark")]
+        [DefaultValue("")]
         public string Remark { get; set; } = "";
         /// <summary>
         /// 状态Id
         /// </summary>
         [Description("状态Id")]
         [JsonProperty("statusId")]
+        [DefaultValue(-1)]
         public int StatusId { get; set; } = -1;
         /// <summary>
         /// 状态名
@@ -133,12 +145,14 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("状态名")]
         [JsonProperty("statusName")]
+        [DefaultValue("")]
         public string StatusName { get; set; } = "";
         /// <summary>
         /// 状态数值
         /// </summary>
         [Description("状态数值")]
         [JsonProperty("statusValue")]
+        [DefaultValue(0)]
         public int StatusValue { get; set; } = 0;
         #endregion
 

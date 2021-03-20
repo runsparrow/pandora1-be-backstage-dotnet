@@ -29,6 +29,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("会员Id")]
         [JsonProperty("memberId")]
+        [DefaultValue(-1)]
         public int MemberId { get; set; } = -1;
         /// <summary>
         /// 会员名
@@ -36,6 +37,7 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("会员名")]
         [JsonProperty("memberName")]
+        [DefaultValue("")]
         public string MemberName { get; set; } = "";
         /// <summary>
         /// 账号
@@ -43,6 +45,7 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("账号")]
         [JsonProperty("accountNo")]
+        [DefaultValue("")]
         public string AccountNo { get; set; } = "";
         /// <summary>
         /// 开户银行
@@ -50,6 +53,7 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("开户银行")]
         [JsonProperty("depositBank")]
+        [DefaultValue("")]
         public string DepositBank { get; set; } = "";
         /// <summary>
         /// 实名
@@ -57,12 +61,14 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("实名")]
         [JsonProperty("realName")]
+        [DefaultValue("")]
         public string RealName { get; set; } = "";
         /// <summary>
         /// 身份证
         /// </summary>
         [StringLength(255)]
         [Description("身份证")]
+        [DefaultValue("")]
         [JsonProperty("idCard")]
         public string IdCard { get; set; } = "";
         /// <summary>
@@ -70,6 +76,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("归类Id")]
         [JsonProperty("classifyId")]
+        [DefaultValue(-1)]
         public int ClassifyId { get; set; } = -1;
         /// <summary>
         /// 归类名称
@@ -77,6 +84,7 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("归类名称")]
         [JsonProperty("classifyName")]
+        [DefaultValue("")]
         public string ClassifyName { get; set; } = "";
         /// <summary>
         /// 备注
@@ -84,12 +92,14 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("备注")]
         [JsonProperty("remark")]
+        [DefaultValue("")]
         public string Remark { get; set; } = "";
         /// <summary>
         /// 状态Id
         /// </summary>
         [Description("状态Id")]
         [JsonProperty("statusId")]
+        [DefaultValue(-1)]
         public int StatusId { get; set; } = -1;
         /// <summary>
         /// 状态名
@@ -97,12 +107,14 @@ namespace MISApi.Entities.CMS
         [StringLength(255)]
         [Description("状态名")]
         [JsonProperty("statusName")]
+        [DefaultValue("")]
         public string StatusName { get; set; } = "";
         /// <summary>
         /// 状态数值
         /// </summary>
         [Description("状态数值")]
         [JsonProperty("statusValue")]
+        [DefaultValue(0)]
         public int StatusValue { get; set; } = 0;
         #endregion
 

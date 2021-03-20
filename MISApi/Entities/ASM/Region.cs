@@ -28,6 +28,7 @@ namespace MISApi.Entities.ASM
         /// </summary>
         [Description("#")]
         [JsonProperty("pid")]
+        [DefaultValue(-1)]
         public int Pid { get; set; } = -1;
         /// <summary>
         /// 名称
@@ -35,6 +36,7 @@ namespace MISApi.Entities.ASM
         [StringLength(255)]
         [Description("名称")]
         [JsonProperty("name")]
+        [DefaultValue("")]
         public string Name { get; set; } = "";
         /// <summary>
         /// 代码
@@ -42,6 +44,7 @@ namespace MISApi.Entities.ASM
         [StringLength(4000)]
         [Description("代码")]
         [JsonProperty("code")]
+        [DefaultValue("")]
         public string Code { get; set; } = "";
         /// <summary>
         /// 导入版本
@@ -49,6 +52,7 @@ namespace MISApi.Entities.ASM
         [StringLength(255)]
         [Description("导入版本")]
         [JsonProperty("importVersion")]
+        [DefaultValue("")]
         public string ImportVersion { get; set; } = "";
         /// <summary>
         /// 导入时间
@@ -65,6 +69,7 @@ namespace MISApi.Entities.ASM
         [StringLength(2000)]
         [Description("路径")]
         [JsonProperty("path")]
+        [DefaultValue("")]
         [NotMapped]
         public string Path { get; set; } = "";
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using MISApi.HttpClients.HttpModes.TreeMode.BootstrapTreeView;
+﻿using MISApi.Entities.CMS;
+using MISApi.HttpClients.HttpModes.TreeMode.BootstrapTreeView;
 using Newtonsoft.Json;
 using System;
 using System.ComponentModel;
@@ -113,6 +114,12 @@ namespace MISApi.Controllers.HttpEntities
         [Description("信息")]
         [JsonProperty("message")]
         public string Message { get; set; } = "";
+        /// <summary>
+        /// 会员
+        /// </summary>
+        [Description("会员")]
+        [JsonProperty("member")]
+        public Member Member { get; set; }
     }
     /// <summary>
     /// 

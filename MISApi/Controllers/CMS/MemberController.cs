@@ -553,106 +553,106 @@ namespace MISApi.Controllers.CMS
 
         #region Unauthorized
 
-        #region CreateMode
-        /// <summary>
-        /// 注册会员
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        [Route("Unauthorized/MIS/CMS/Member/Create/Regist", Name = "Unauthorized_MIS_CMS_Member_Create_Regist")]
-        [HttpPost]
-        public IActionResult Unauthorized_Create_Regist(Member entity)
-        {
-            try
-            {
-                // Entity
-                if (entity != null)
-                {
-                    entity.Password = EncryptHelper.GetBase64String(entity.Password);
-                    entity.RegistDateTime = DateTime.Now;
-                    if (string.IsNullOrEmpty(entity.Name))
-                    {
-                        entity.Name = RandHelper.GenerateRandomAlphabet(12);
-                    }
-                }
-                var existMember = new MemberService.RowService().ByMobile(entity.Mobile);
-                if (existMember == null)
-                {
-                    var member = new MemberService.CreateService().Regist(entity);
-                    // 返回
-                    return new JsonResult(new DTO_Result
-                    {
-                        Result = true,
-                        UserInfo = null,
-                        MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
-                    });
-                }
-                else
-                {
-                    return new JsonResult(new DTO_Result
-                    {
-                        Result = false,
-                        UserInfo = null,
-                        MemberInfo = new DTO_Member { MemberId = existMember.Id, MemberName = existMember.Name, RealName = existMember.RealName },
-                        ErrorInfo = "手机号已被注册。"
-                    });
-                }
-            }
-            catch (Exception ex)
-            {
-                return new JsonResult(new DTO_Result
-                {
-                    Result = false,
-                    UserInfo = null,
-                    MemberInfo = null,
-                    ErrorInfo = ex.InnerException.Message
-                });
-            }
-        }
+        //#region CreateMode
+        ///// <summary>
+        ///// 注册会员
+        ///// </summary>
+        ///// <param name="entity"></param>
+        ///// <returns></returns>
+        //[Route("Unauthorized/MIS/CMS/Member/Create/Regist", Name = "Unauthorized_MIS_CMS_Member_Create_Regist")]
+        //[HttpPost]
+        //public IActionResult Unauthorized_Create_Regist(Member entity)
+        //{
+        //    try
+        //    {
+        //        // Entity
+        //        if (entity != null)
+        //        {
+        //            entity.Password = EncryptHelper.GetBase64String(entity.Password);
+        //            entity.RegistDateTime = DateTime.Now;
+        //            if (string.IsNullOrEmpty(entity.Name))
+        //            {
+        //                entity.Name = RandHelper.GenerateRandomAlphabet(12);
+        //            }
+        //        }
+        //        var existMember = new MemberService.RowService().ByMobile(entity.Mobile);
+        //        if (existMember == null)
+        //        {
+        //            var member = new MemberService.CreateService().Regist(entity);
+        //            // 返回
+        //            return new JsonResult(new DTO_Result
+        //            {
+        //                Result = true,
+        //                UserInfo = null,
+        //                MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
+        //            });
+        //        }
+        //        else
+        //        {
+        //            return new JsonResult(new DTO_Result
+        //            {
+        //                Result = false,
+        //                UserInfo = null,
+        //                MemberInfo = new DTO_Member { MemberId = existMember.Id, MemberName = existMember.Name, RealName = existMember.RealName },
+        //                ErrorInfo = "手机号已被注册。"
+        //            });
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return new JsonResult(new DTO_Result
+        //        {
+        //            Result = false,
+        //            UserInfo = null,
+        //            MemberInfo = null,
+        //            ErrorInfo = ex.InnerException.Message
+        //        });
+        //    }
+        //}
 
-        #endregion
+        //#endregion
 
-        #region UpdateMode
-        /// <summary>
-        /// 忘记密码
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        [Route("Unauthorized/MIS/CMS/Member/Update/Forget", Name = "Unauthorized_MIS_CMS_Member_Update_Forget")]
-        [HttpPost]
-        public IActionResult Unauthorized_Update_Forget(Member entity)
-        {
-            try
-            {
-                var member = new Member();
-                // Entity
-                if (entity != null)
-                {
-                    member = new MemberService.RowService().ByMobile(entity.Mobile);
-                    member.Password = EncryptHelper.GetBase64String(entity.Password);
-                }
-                // 提交
-                member = new MemberService.UpdateService().Execute(member);
-                // 返回
-                return new JsonResult(new DTO_Result
-                {
-                    Result = true,
-                    UserInfo = null,
-                    MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
-                });
-            }
-            catch (Exception ex)
-            {
-                return new JsonResult(new DTO_Result
-                {
-                    Result = false,
-                    UserInfo = null,
-                    MemberInfo = null,
-                    ErrorInfo = ex.InnerException.Message
-                });
-            }
-        }
-        #endregion
+        //#region UpdateMode
+        ///// <summary>
+        ///// 忘记密码
+        ///// </summary>
+        ///// <param name="entity"></param>
+        ///// <returns></returns>
+        //[Route("Unauthorized/MIS/CMS/Member/Update/Forget", Name = "Unauthorized_MIS_CMS_Member_Update_Forget")]
+        //[HttpPost]
+        //public IActionResult Unauthorized_Update_Forget(Member entity)
+        //{
+        //    try
+        //    {
+        //        var member = new Member();
+        //        // Entity
+        //        if (entity != null)
+        //        {
+        //            member = new MemberService.RowService().ByMobile(entity.Mobile);
+        //            member.Password = EncryptHelper.GetBase64String(entity.Password);
+        //        }
+        //        // 提交
+        //        member = new MemberService.UpdateService().Execute(member);
+        //        // 返回
+        //        return new JsonResult(new DTO_Result
+        //        {
+        //            Result = true,
+        //            UserInfo = null,
+        //            MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
+        //        });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return new JsonResult(new DTO_Result
+        //        {
+        //            Result = false,
+        //            UserInfo = null,
+        //            MemberInfo = null,
+        //            ErrorInfo = ex.InnerException.Message
+        //        });
+        //    }
+        //}
+        //#endregion
 
         #region ColumnsMode
         /// <summary>

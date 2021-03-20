@@ -2427,6 +2427,20 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.AuthController.MIS_CMS_Auth_Regist(MISApi.Controllers.HttpEntities.DTO_Auth)">
+            <summary>
+            注册会员
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthController.MIS_CMS_Auth_Forget(MISApi.Controllers.HttpEntities.DTO_Auth)">
+            <summary>
+            忘记密码
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Controllers.CMS.AuthorityController">
             <summary>
             认证
@@ -3874,20 +3888,6 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.MemberController.Unauthorized_Create_Regist(MISApi.Entities.CMS.Member)">
-            <summary>
-            注册会员
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Controllers.CMS.MemberController.Unauthorized_Update_Forget(MISApi.Entities.CMS.Member)">
-            <summary>
-            忘记密码
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
         <member name="M:MISApi.Controllers.CMS.MemberController.Unauthorized_Columns_Single">
             <summary>
             查询会员的字段
@@ -3905,6 +3905,14 @@
             <summary>
             根据Id查询会员
             </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.MemberController.Unauthorized_Row_ByName_Name_Id(System.String,System.Int32)">
+            <summary>
+            验证会员名是否被注册
+            </summary>
+            <param name="name"></param>
             <param name="id"></param>
             <returns></returns>
         </member>
@@ -6042,6 +6050,16 @@
         <member name="P:MISApi.Controllers.HttpEntities.DTO_Auth.Result">
             <summary>
             结果
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.HttpEntities.DTO_Auth.Message">
+            <summary>
+            信息
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.HttpEntities.DTO_Auth.Member">
+            <summary>
+            会员
             </summary>
         </member>
         <member name="T:MISApi.Controllers.HttpEntities.DTO_User">
@@ -11322,6 +11340,15 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:MISApi.Services.AVM.Base.UserService.RowService.ByName(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])" -->
+        <member name="M:MISApi.Services.AVM.Base.UserService.RowService.ByMobile(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 手机号 查询
+            </summary>
+            <param name="mobile">手机号</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Services.AVM.Base.UserService.RowsService">
             <summary>
             
@@ -12926,6 +12953,15 @@
             根据 id 查询
             </summary>
             <param name="id">Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.MemberService.RowService.ByName(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 会员名并排除会员Id 查询
+            </summary>
+            <param name="name">会员名</param>
+            <param name="id">会员Id</param>
             <param name="joins">关联表</param>
             <returns></returns>
         </member>

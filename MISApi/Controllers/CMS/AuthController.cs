@@ -126,6 +126,133 @@ namespace MISApi.Controllers.CMS
                 Result = smsEntity.Mobile == dto.Mobile && smsEntity.Code == dto.Code
             });
         }
+        /// <summary>
+        /// 注册会员
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Auth/Regist", Name = "MIS_CMS_Auth_Regist")]
+        [HttpPost]
+        public IActionResult MIS_CMS_Auth_Regist(DTO_Auth dto)
+        {
+            try
+            {
+                // 验证短信
+                SMSHelper.Entity smsEntity = RedisHelper.GetValue<SMSHelper.Entity>(dto.Mobile);
+                // 验证码校验
+                if(smsEntity.Mobile == dto.Mobile && smsEntity.Code == dto.Code)
+                {
+                    // Entity
+                    if (dto.Member != null)
+                    {
+                        dto.Member.Password = EncryptHelper.GetBase64String(dto.Member.Password);
+                        dto.Member.RegistDateTime = DateTime.Now;
+                        if (string.IsNullOrEmpty(dto.Member.Name))
+                        {
+                            dto.Member.Name = RandHelper.GenerateRandomAlphabet(12);
+                        }
+                    }
+                    var existMember = new MemberService.RowService().ByMobile(dto.Member.Mobile);
+                    if (existMember == null)
+                    {
+                        var member = new MemberService.CreateService().Regist(dto.Member);
+                        // 返回
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = true,
+                            UserInfo = null,
+                            MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
+                        });
+                    }
+                    else
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            UserInfo = null,
+                            MemberInfo = new DTO_Member { MemberId = existMember.Id, MemberName = existMember.Name, RealName = existMember.RealName },
+                            ErrorInfo = "手机号已被注册。"
+                        });
+                    }
+                }
+                else
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        UserInfo = null,
+                        MemberInfo = null,
+                        ErrorInfo = "验证码错误。"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new DTO_Result
+                {
+                    Result = false,
+                    UserInfo = null,
+                    MemberInfo = null,
+                    ErrorInfo = ex.InnerException.Message
+                });
+            }
+        }
+        /// <summary>
+        /// 忘记密码
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Auth/Forget", Name = "MIS_CMS_Auth_Forget")]
+        [HttpPost]
+        public IActionResult MIS_CMS_Auth_Forget(DTO_Auth dto)
+        {
+            try
+            {
+                // 验证短信
+                SMSHelper.Entity smsEntity = RedisHelper.GetValue<SMSHelper.Entity>(dto.Mobile);
+                // 验证码校验
+                if (smsEntity.Mobile == dto.Mobile && smsEntity.Code == dto.Code)
+                {
+                    var member = new Member();
+                    // Entity
+                    if (dto.Member != null)
+                    {
+                        member = new MemberService.RowService().ByMobile(dto.Member.Mobile);
+                        member.Password = EncryptHelper.GetBase64String(dto.Member.Password);
+                    }
+                    // 提交
+                    member = new MemberService.UpdateService().Execute(member);
+                    // 返回
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = true,
+                        UserInfo = null,
+                        MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
+                    });
+                }
+                else
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        UserInfo = null,
+                        MemberInfo = null,
+                        ErrorInfo = "验证码错误。"
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new DTO_Result
+                {
+                    Result = false,
+                    UserInfo = null,
+                    MemberInfo = null,
+                    ErrorInfo = ex.InnerException.Message
+                });
+            }
+        }
         #endregion
 
     }

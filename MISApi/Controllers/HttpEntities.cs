@@ -6,26 +6,25 @@ using System.ComponentModel;
 
 namespace MISApi.Controllers.HttpEntities
 {
-
     /// <summary>
     /// 
     /// </summary>
-    public class DTO_AccountNameAndAccountPwd
+    public class DTO_Login
     {
         /// <summary>
         /// 账户名
         /// </summary>
         [Description("账户名")]
-        [JsonProperty("accountName")]
+        [JsonProperty("name")]
         [DefaultValue("")]
-        public string AccountName { get; set; } = "";
+        public string Name { get; set; } = "";
         /// <summary>
         /// 账户密码
         /// </summary>
         [Description("账户密码")]
         [JsonProperty("accountPwd")]
         [DefaultValue("")]
-        public string AccountPwd { get; set; } = "";
+        public string Password { get; set; } = "";
     }
     /// <summary>
     /// 
@@ -53,85 +52,12 @@ namespace MISApi.Controllers.HttpEntities
         [DefaultValue(false)]
         public bool Result { get; set; } = false;
         /// <summary>
-        /// Token
-        /// </summary>
-        [Description("Token")]
-        [JsonProperty("token")]
-        [DefaultValue("")]
-        public string Token { get; set; } = "";
-        /// <summary>
-        /// 用户
-        /// </summary>
-        [Description("用户")]
-        [JsonProperty("userInfo")]
-        public DTO_User UserInfo { get; set; } = new DTO_User();
-        /// <summary>
-        /// 会员
-        /// </summary>
-        [Description("会员")]
-        [JsonProperty("memberInfo")]
-        public DTO_Member MemberInfo { get; set; } = new DTO_Member();
-        /// <summary>
-        /// 正确信息
-        /// </summary>
-        [Description("正确信息")]
-        [JsonProperty("successInfo")]
-        [DefaultValue("")]
-        public string SuccessInfo { get; set; } = "";
-        /// <summary>
-        /// 错误信息
-        /// </summary>
-        [Description("错误信息")]
-        [JsonProperty("errorInfo")]
-        [DefaultValue("")]
-        public string ErrorInfo { get; set; } = "";
-    }
-    /// <summary>
-    /// 
-    /// </summary>
-    public class DTO_Auth
-    {
-        /// <summary>
-        /// 手机号
-        /// </summary>
-        [Description("手机号")]
-        [JsonProperty("mobile")]
-        [DefaultValue("")]
-        public string Mobile { get; set; } = "";
-        /// <summary>
-        /// 验证码
-        /// </summary>
-        [Description("验证码")]
-        [JsonProperty("code")]
-        [DefaultValue("")]
-        public string Code { get; set; } = "";
-        /// <summary>
-        /// 验证码类型
-        /// </summary>
-        [Description("验证码类型")]
-        [JsonProperty("type")]
-        [DefaultValue("")]
-        public string Type { get; set; } = "";
-        /// <summary>
-        /// 结果
-        /// </summary>
-        [Description("结果")]
-        [JsonProperty("result")]
-        [DefaultValue(false)]
-        public bool Result { get; set; } = false;
-        /// <summary>
         /// 信息
         /// </summary>
         [Description("信息")]
         [JsonProperty("message")]
         [DefaultValue("")]
         public string Message { get; set; } = "";
-        /// <summary>
-        /// 会员
-        /// </summary>
-        [Description("会员")]
-        [JsonProperty("member")]
-        public Member Member { get; set; }
     }
     /// <summary>
     /// 
@@ -152,33 +78,6 @@ namespace MISApi.Controllers.HttpEntities
         [JsonProperty("userName")]
         [DefaultValue("")]
         public string UserName { get; set; } = "";
-        /// <summary>
-        /// 实名
-        /// </summary>
-        [Description("实名")]
-        [JsonProperty("realName")]
-        [DefaultValue("")]
-        public string RealName { get; set; } = "";
-    }
-    /// <summary>
-    /// 
-    /// </summary>
-    public class DTO_Member
-    {
-        /// <summary>
-        /// 会员Id
-        /// </summary>
-        [Description("会员Id")]
-        [JsonProperty("memberId")]
-        [DefaultValue(-1)]
-        public int MemberId { get; set; } = -1;
-        /// <summary>
-        /// 会员名
-        /// </summary>
-        [Description("会员名")]
-        [JsonProperty("memberName")]
-        [DefaultValue("")]
-        public string MemberName { get; set; } = "";
         /// <summary>
         /// 实名
         /// </summary>

@@ -4,8 +4,10 @@ using MISApi.Controllers.HttpEntities;
 using MISApi.Entities.CMS;
 using MISApi.Services.CMS;
 using MISApi.Tools;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using BaseMode = MISApi.HttpClients.HttpModes.BaseMode;
 
 namespace MISApi.Controllers.CMS
@@ -729,19 +731,16 @@ namespace MISApi.Controllers.CMS
                     return new JsonResult(new DTO_Result
                     {
                         Result = false,
-                        UserInfo = null,
-                        MemberInfo = null,
-                        SuccessInfo = "未发现重复会员名。"
+                        Message = "未发现重复会员名。"
                     });
                 }
                 else
                 {
-                    return new JsonResult(new DTO_Result
+                    return new JsonResult(new DTO_Result_Member
                     {
                         Result = true,
-                        UserInfo = null,
-                        MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName },
-                        SuccessInfo = "发现重复会员名。"
+                        Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName },
+                        Message = "发现重复会员名。"
                     });
                 }
             }
@@ -767,19 +766,16 @@ namespace MISApi.Controllers.CMS
                     return new JsonResult(new DTO_Result
                     {
                         Result = false,
-                        UserInfo = null,
-                        MemberInfo = null,
-                        SuccessInfo = "未发现重复手机号。"
+                        Message = "未发现重复手机号。"
                     });
                 }
                 else
                 {
-                    return new JsonResult(new DTO_Result
+                    return new JsonResult(new DTO_Result_Member
                     {
                         Result = true,
-                        UserInfo = null,
-                        MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName },
-                        SuccessInfo = "发现重复手机号。"
+                        Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName },
+                        Message = "发现重复手机号。"
                     });
                 }
             }
@@ -1185,6 +1181,55 @@ namespace MISApi.Controllers.CMS
         }
         #endregion
 
+        #endregion
+
+        #region HttpEntities
+        /// <summary>
+        /// 
+        /// </summary>
+        public class DTO_Result_Member : DTO_Result
+        {
+            /// <summary>
+            /// 会员
+            /// </summary>
+            [Description("会员")]
+            [JsonProperty("member")]
+            public DTO_Member Member { get; set; } = new DTO_Member();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public class DTO_Member
+        {
+            /// <summary>
+            /// 会员Id
+            /// </summary>
+            [Description("会员Id")]
+            [JsonProperty("memberId")]
+            [DefaultValue(-1)]
+            public int MemberId { get; set; } = -1;
+            /// <summary>
+            /// 会员名
+            /// </summary>
+            [Description("会员名")]
+            [JsonProperty("memberName")]
+            [DefaultValue("")]
+            public string MemberName { get; set; } = "";
+            /// <summary>
+            /// 实名
+            /// </summary>
+            [Description("实名")]
+            [JsonProperty("realName")]
+            [DefaultValue("")]
+            public string RealName { get; set; } = "";
+            /// <summary>
+            /// 手机
+            /// </summary>
+            [Description("手机")]
+            [JsonProperty("mobile")]
+            [DefaultValue("")]
+            public string Mobile { get; set; } = "";
+        }
         #endregion
     }
 }

@@ -5,7 +5,9 @@ using MISApi.Controllers.HttpEntities;
 using MISApi.Entities.CMS;
 using MISApi.Services.CMS;
 using MISApi.Tools;
+using Newtonsoft.Json;
 using System;
+using System.ComponentModel;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -26,9 +28,9 @@ namespace MISApi.Controllers.CMS
         /// <returns></returns>
         [Route("MIS/CMS/Auth/GetToken", Name = "MIS_CMS_Auth_GetToken")]
         [HttpPost]
-        public IActionResult GetToken(DTO_AccountNameAndAccountPwd dto)
+        public IActionResult GetToken(DTO_Login dto)
         {
-            var member = new MemberService.RowService().Verify(dto.AccountName, dto.AccountPwd);
+            var member = new MemberService.RowService().Verify(dto.Name, dto.Password);
             if (member != null)
             {
                 // 更新登录时间
@@ -52,23 +54,21 @@ namespace MISApi.Controllers.CMS
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
                 };
                 var token = tokenHandler.WriteToken(tokenHandler.CreateToken(tokenDescriptor));
-                return new JsonResult(new DTO_Result
+                return new JsonResult(new DTO_Result_Member
                 {
                     Result = true,
                     Token = token,
-                    UserInfo = null,
-                    MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
+                    Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
                 });
             }
             else
             {
-                return new JsonResult(new DTO_Result
+                return new JsonResult(new DTO_Result_Member
                 {
                     Result = false,
                     Token = "",
-                    MemberInfo = null, 
-                    UserInfo = null,
-                    ErrorInfo = "Authentication Failure"
+                    Member = null,
+                    Message = "Authentication Failure"
                 });
             }
         }
@@ -83,7 +83,7 @@ namespace MISApi.Controllers.CMS
         {
             ClaimEntity claim = GetClaimFromToken(dto.Token);
 
-            return new JsonResult(new DTO_Result { Result = true, Token = dto.Token, MemberInfo = new DTO_Member { MemberId = claim.Id, MemberName = claim.Name, RealName = claim.RealName } });
+            return new JsonResult(new DTO_Result_Member { Result = true, Token = dto.Token, Member = new DTO_Member { MemberId = claim.Id, MemberName = claim.Name, RealName = claim.RealName } });
         }
         /// <summary>
         /// 获取短信验证码
@@ -99,14 +99,14 @@ namespace MISApi.Controllers.CMS
             // 判断短信发送时间间隔
             if(smsEntity != null &&  smsEntity.SMSDate.AddMinutes(1) >= DateTime.Now)
             {
-                return new JsonResult(new DTO_Auth { Mobile = dto.Mobile, Code = smsEntity.Code, Result = false, Message = "发送间隔小于一分钟，发送失败。" });
+                return new JsonResult(new DTO_Result_Auth { Mobile = dto.Mobile, Code = smsEntity.Code, Result = false, Message = "发送间隔小于一分钟，发送失败。" });
             }
             // 发送验证码
             string code = SMSHelper.AuthCode(dto.Mobile);
             // 存Redis
             RedisHelper.SetValue(dto.Mobile, new SMSHelper.Entity { Mobile = dto.Mobile, Code = code, SMSDate = DateTime.Now });
             // 返回
-            return new JsonResult(new DTO_Auth { Mobile = dto.Mobile, Code = code, Result = true });
+            return new JsonResult(new DTO_Result_Auth { Mobile = dto.Mobile, Code = code, Result = true });
         }
         /// <summary>
         /// 校验短信验证码
@@ -119,7 +119,7 @@ namespace MISApi.Controllers.CMS
         {
             SMSHelper.Entity smsEntity = RedisHelper.GetValue<SMSHelper.Entity>(dto.Mobile);
             // 返回
-            return new JsonResult(new DTO_Auth
+            return new JsonResult(new DTO_Result_Auth
             {
                 Mobile = dto.Mobile,
                 Code = dto.Code,
@@ -157,21 +157,19 @@ namespace MISApi.Controllers.CMS
                     {
                         var member = new MemberService.CreateService().Regist(dto.Member);
                         // 返回
-                        return new JsonResult(new DTO_Result
+                        return new JsonResult(new DTO_Result_Member
                         {
                             Result = true,
-                            UserInfo = null,
-                            MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
+                            Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
                         });
                     }
                     else
                     {
-                        return new JsonResult(new DTO_Result
+                        return new JsonResult(new DTO_Result_Member
                         {
                             Result = false,
-                            UserInfo = null,
-                            MemberInfo = new DTO_Member { MemberId = existMember.Id, MemberName = existMember.Name, RealName = existMember.RealName },
-                            ErrorInfo = "手机号已被注册。"
+                            Member = new DTO_Member { MemberId = existMember.Id, MemberName = existMember.Name, RealName = existMember.RealName },
+                            Message = "手机号已被注册。"
                         });
                     }
                 }
@@ -180,20 +178,16 @@ namespace MISApi.Controllers.CMS
                     return new JsonResult(new DTO_Result
                     {
                         Result = false,
-                        UserInfo = null,
-                        MemberInfo = null,
-                        ErrorInfo = "验证码错误。"
+                        Message = "验证码错误。"
                     });
                 }
             }
             catch (Exception ex)
             {
-                return new JsonResult(new DTO_Result
+                return new JsonResult(new DTO_Result_Member
                 {
                     Result = false,
-                    UserInfo = null,
-                    MemberInfo = null,
-                    ErrorInfo = ex.InnerException.Message
+                    Message = ex.InnerException.Message
                 });
             }
         }
@@ -223,11 +217,10 @@ namespace MISApi.Controllers.CMS
                     // 提交
                     member = new MemberService.UpdateService().Execute(member);
                     // 返回
-                    return new JsonResult(new DTO_Result
+                    return new JsonResult(new DTO_Result_Member
                     {
                         Result = true,
-                        UserInfo = null,
-                        MemberInfo = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
+                        Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
                     });
                 }
                 else
@@ -235,9 +228,7 @@ namespace MISApi.Controllers.CMS
                     return new JsonResult(new DTO_Result
                     {
                         Result = false,
-                        UserInfo = null,
-                        MemberInfo = null,
-                        ErrorInfo = "验证码错误。"
+                        Message = "验证码错误。"
                     });
                 }
 
@@ -247,12 +238,120 @@ namespace MISApi.Controllers.CMS
                 return new JsonResult(new DTO_Result
                 {
                     Result = false,
-                    UserInfo = null,
-                    MemberInfo = null,
-                    ErrorInfo = ex.InnerException.Message
+                    Message = ex.InnerException.Message
                 });
             }
         }
+        #endregion
+
+        #region HttpEntities
+        /// <summary>
+        /// 
+        /// </summary>
+        public class DTO_Result_Member : DTO_Result
+        {
+            /// <summary>
+            /// Token
+            /// </summary>
+            [Description("Token")]
+            [JsonProperty("token")]
+            [DefaultValue("")]
+            public string Token { get; set; } = "";
+            /// <summary>
+            /// 会员
+            /// </summary>
+            [Description("会员")]
+            [JsonProperty("member")]
+            public DTO_Member Member { get; set; } = new DTO_Member();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public class DTO_Member
+        {
+            /// <summary>
+            /// 会员Id
+            /// </summary>
+            [Description("会员Id")]
+            [JsonProperty("memberId")]
+            [DefaultValue(-1)]
+            public int MemberId { get; set; } = -1;
+            /// <summary>
+            /// 会员名
+            /// </summary>
+            [Description("会员名")]
+            [JsonProperty("memberName")]
+            [DefaultValue("")]
+            public string MemberName { get; set; } = "";
+            /// <summary>
+            /// 实名
+            /// </summary>
+            [Description("实名")]
+            [JsonProperty("realName")]
+            [DefaultValue("")]
+            public string RealName { get; set; } = "";
+            /// <summary>
+            /// 手机
+            /// </summary>
+            [Description("手机")]
+            [JsonProperty("mobile")]
+            [DefaultValue("")]
+            public string Mobile { get; set; } = "";
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public class DTO_Auth
+        {
+            /// <summary>
+            /// 手机号
+            /// </summary>
+            [Description("手机号")]
+            [JsonProperty("mobile")]
+            [DefaultValue("")]
+            public string Mobile { get; set; } = "";
+            /// <summary>
+            /// 验证码
+            /// </summary>
+            [Description("验证码")]
+            [JsonProperty("code")]
+            [DefaultValue("")]
+            public string Code { get; set; } = "";
+            /// <summary>
+            /// 验证码类型
+            /// </summary>
+            [Description("验证码类型")]
+            [JsonProperty("type")]
+            [DefaultValue("")]
+            public string Type { get; set; } = "";
+            /// <summary>
+            /// 会员
+            /// </summary>
+            [Description("会员")]
+            [JsonProperty("member")]
+            public Member Member { get; set; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public class DTO_Result_Auth : DTO_Result
+        {
+            /// <summary>
+            /// 手机号
+            /// </summary>
+            [Description("手机号")]
+            [JsonProperty("mobile")]
+            [DefaultValue("")]
+            public string Mobile { get; set; } = "";
+            /// <summary>
+            /// 验证码
+            /// </summary>
+            [Description("验证码")]
+            [JsonProperty("code")]
+            [DefaultValue("")]
+            public string Code { get; set; } = "";
+        }
+
         #endregion
 
     }

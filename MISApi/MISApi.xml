@@ -1410,7 +1410,7 @@
             验证
             </summary>
         </member>
-        <member name="M:MISApi.Controllers.AVM.AuthController.GetToken(MISApi.Controllers.HttpEntities.DTO_AccountNameAndAccountPwd)">
+        <member name="M:MISApi.Controllers.AVM.AuthController.GetToken(MISApi.Controllers.HttpEntities.DTO_Login)">
             <summary>
             验证获取用户Token
             </summary>
@@ -1423,6 +1423,86 @@
             </summary>
             <param name="dto"></param>
             <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.AVM.AuthController.DTO_Result_User">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_Result_User.Token">
+            <summary>
+            Token
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_Result_User.User">
+            <summary>
+            会员
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.AVM.AuthController.DTO_User">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_User.UserId">
+            <summary>
+            会员Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_User.UserName">
+            <summary>
+            会员名
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_User.RealName">
+            <summary>
+            实名
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_User.Mobile">
+            <summary>
+            手机
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.AVM.AuthController.DTO_Auth">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_Auth.Mobile">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_Auth.Code">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_Auth.Type">
+            <summary>
+            验证码类型
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_Auth.User">
+            <summary>
+            会员
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.AVM.AuthController.DTO_Result_Auth">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_Result_Auth.Mobile">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_Result_Auth.Code">
+            <summary>
+            验证码
+            </summary>
         </member>
         <member name="T:MISApi.Controllers.AVM.UserController">
             <summary>
@@ -2399,7 +2479,7 @@
             验证
             </summary>
         </member>
-        <member name="M:MISApi.Controllers.CMS.AuthController.GetToken(MISApi.Controllers.HttpEntities.DTO_AccountNameAndAccountPwd)">
+        <member name="M:MISApi.Controllers.CMS.AuthController.GetToken(MISApi.Controllers.HttpEntities.DTO_Login)">
             <summary>
             验证获取会员Token
             </summary>
@@ -2413,33 +2493,113 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.AuthController.GetAuthCode(MISApi.Controllers.HttpEntities.DTO_Auth)">
+        <member name="M:MISApi.Controllers.CMS.AuthController.GetAuthCode(MISApi.Controllers.CMS.AuthController.DTO_Auth)">
             <summary>
             获取短信验证码
             </summary>
             <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.AuthController.GetAuth(MISApi.Controllers.HttpEntities.DTO_Auth)">
+        <member name="M:MISApi.Controllers.CMS.AuthController.GetAuth(MISApi.Controllers.CMS.AuthController.DTO_Auth)">
             <summary>
             校验短信验证码
             </summary> 
             <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.AuthController.MIS_CMS_Auth_Regist(MISApi.Controllers.HttpEntities.DTO_Auth)">
+        <member name="M:MISApi.Controllers.CMS.AuthController.MIS_CMS_Auth_Regist(MISApi.Controllers.CMS.AuthController.DTO_Auth)">
             <summary>
             注册会员
             </summary>
             <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.AuthController.MIS_CMS_Auth_Forget(MISApi.Controllers.HttpEntities.DTO_Auth)">
+        <member name="M:MISApi.Controllers.CMS.AuthController.MIS_CMS_Auth_Forget(MISApi.Controllers.CMS.AuthController.DTO_Auth)">
             <summary>
             忘记密码
             </summary>
             <param name="dto"></param>
             <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.AuthController.DTO_Result_Member">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Result_Member.Token">
+            <summary>
+            Token
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Result_Member.Member">
+            <summary>
+            会员
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.AuthController.DTO_Member">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Member.MemberId">
+            <summary>
+            会员Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Member.MemberName">
+            <summary>
+            会员名
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Member.RealName">
+            <summary>
+            实名
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Member.Mobile">
+            <summary>
+            手机
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.AuthController.DTO_Auth">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Auth.Mobile">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Auth.Code">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Auth.Type">
+            <summary>
+            验证码类型
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Auth.Member">
+            <summary>
+            会员
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.AuthController.DTO_Result_Auth">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Result_Auth.Mobile">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Result_Auth.Code">
+            <summary>
+            验证码
+            </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.AuthorityController">
             <summary>
@@ -4168,6 +4328,41 @@
         <member name="T:MISApi.Controllers.CMS.MemberController.TreeMode.Response">
             <summary>
             
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.MemberController.DTO_Result_Member">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.MemberController.DTO_Result_Member.Member">
+            <summary>
+            会员
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.MemberController.DTO_Member">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.MemberController.DTO_Member.MemberId">
+            <summary>
+            会员Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.MemberController.DTO_Member.MemberName">
+            <summary>
+            会员名
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.MemberController.DTO_Member.RealName">
+            <summary>
+            实名
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.MemberController.DTO_Member.Mobile">
+            <summary>
+            手机
             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.NavigationController">
@@ -5967,17 +6162,17 @@
             <param name="groupName">模块名称</param>
             <param name="useage">当前controller用途</param>
         </member>
-        <member name="T:MISApi.Controllers.HttpEntities.DTO_AccountNameAndAccountPwd">
+        <member name="T:MISApi.Controllers.HttpEntities.DTO_Login">
             <summary>
             
             </summary>
         </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_AccountNameAndAccountPwd.AccountName">
+        <member name="P:MISApi.Controllers.HttpEntities.DTO_Login.Name">
             <summary>
             账户名
             </summary>
         </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_AccountNameAndAccountPwd.AccountPwd">
+        <member name="P:MISApi.Controllers.HttpEntities.DTO_Login.Password">
             <summary>
             账户密码
             </summary>
@@ -6002,64 +6197,9 @@
             结果
             </summary>
         </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_Result.Token">
-            <summary>
-            Token
-            </summary>
-        </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_Result.UserInfo">
-            <summary>
-            用户
-            </summary>
-        </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_Result.MemberInfo">
-            <summary>
-            会员
-            </summary>
-        </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_Result.SuccessInfo">
-            <summary>
-            正确信息
-            </summary>
-        </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_Result.ErrorInfo">
-            <summary>
-            错误信息
-            </summary>
-        </member>
-        <member name="T:MISApi.Controllers.HttpEntities.DTO_Auth">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_Auth.Mobile">
-            <summary>
-            手机号
-            </summary>
-        </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_Auth.Code">
-            <summary>
-            验证码
-            </summary>
-        </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_Auth.Type">
-            <summary>
-            验证码类型
-            </summary>
-        </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_Auth.Result">
-            <summary>
-            结果
-            </summary>
-        </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_Auth.Message">
+        <member name="P:MISApi.Controllers.HttpEntities.DTO_Result.Message">
             <summary>
             信息
-            </summary>
-        </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_Auth.Member">
-            <summary>
-            会员
             </summary>
         </member>
         <member name="T:MISApi.Controllers.HttpEntities.DTO_User">
@@ -6078,26 +6218,6 @@
             </summary>
         </member>
         <member name="P:MISApi.Controllers.HttpEntities.DTO_User.RealName">
-            <summary>
-            实名
-            </summary>
-        </member>
-        <member name="T:MISApi.Controllers.HttpEntities.DTO_Member">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_Member.MemberId">
-            <summary>
-            会员Id
-            </summary>
-        </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_Member.MemberName">
-            <summary>
-            会员名
-            </summary>
-        </member>
-        <member name="P:MISApi.Controllers.HttpEntities.DTO_Member.RealName">
             <summary>
             实名
             </summary>

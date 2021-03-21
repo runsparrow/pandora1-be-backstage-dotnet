@@ -22,7 +22,7 @@ namespace MISApi.Controllers.HttpEntities
         /// 账户密码
         /// </summary>
         [Description("账户密码")]
-        [JsonProperty("accountPwd")]
+        [JsonProperty("password")]
         [DefaultValue("")]
         public string Password { get; set; } = "";
     }

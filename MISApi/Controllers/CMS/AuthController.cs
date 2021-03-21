@@ -99,14 +99,14 @@ namespace MISApi.Controllers.CMS
             // 判断短信发送时间间隔
             if(smsEntity != null &&  smsEntity.SMSDate.AddMinutes(1) >= DateTime.Now)
             {
-                return new JsonResult(new DTO_Result_Auth { Mobile = dto.Mobile, Code = smsEntity.Code, Result = false, Message = "发送间隔小于一分钟，发送失败。" });
+                return new JsonResult(new DTO_Result_Auth { Mobile = dto.Mobile, Result = false, Message = "发送间隔小于一分钟，发送失败。" });
             }
             // 发送验证码
             string code = SMSHelper.AuthCode(dto.Mobile);
             // 存Redis
             RedisHelper.SetValue(dto.Mobile, new SMSHelper.Entity { Mobile = dto.Mobile, Code = code, SMSDate = DateTime.Now });
             // 返回
-            return new JsonResult(new DTO_Result_Auth { Mobile = dto.Mobile, Code = code, Result = true });
+            return new JsonResult(new DTO_Result_Auth { Mobile = dto.Mobile, Result = true });
         }
         /// <summary>
         /// 校验短信验证码
@@ -122,7 +122,6 @@ namespace MISApi.Controllers.CMS
             return new JsonResult(new DTO_Result_Auth
             {
                 Mobile = dto.Mobile,
-                Code = dto.Code,
                 Result = smsEntity.Mobile == dto.Mobile && smsEntity.Code == dto.Code
             });
         }
@@ -343,13 +342,6 @@ namespace MISApi.Controllers.CMS
             [JsonProperty("mobile")]
             [DefaultValue("")]
             public string Mobile { get; set; } = "";
-            /// <summary>
-            /// 验证码
-            /// </summary>
-            [Description("验证码")]
-            [JsonProperty("code")]
-            [DefaultValue("")]
-            public string Code { get; set; } = "";
         }
 
         #endregion

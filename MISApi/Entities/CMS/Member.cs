@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace MISApi.Entities.CMS
 {
     /// <summary>
-    /// 用户
+    /// 会员
     /// </summary>
     [Table("CMS_Member")]
     [JsonObject(MemberSerialization.OptOut)]
@@ -25,10 +25,10 @@ namespace MISApi.Entities.CMS
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         /// <summary>
-        /// 用户名
+        /// 会员名
         /// </summary>
         [StringLength(255)]
-        [Description("用户名")]
+        [Description("会员名")]
         [JsonProperty("name")]
         [DefaultValue("")]
         public string Name { get; set; } = "";
@@ -109,6 +109,54 @@ namespace MISApi.Entities.CMS
         [JsonProperty("level")]
         [DefaultValue(0)]
         public int Level { get; set; } = 0;
+        /// <summary>
+        /// 等级有效期
+        /// </summary>
+        [Description("等级有效期")]
+        [JsonProperty("levelDeadline")]
+        public DateTime LevelDeadline { get; set; } = DateTime.MinValue;
+        /// <summary>
+        /// 可下载次数
+        /// </summary>
+        [Description("可下载次数")]
+        [JsonProperty("downCount")]
+        [DefaultValue(0)]
+        public int DownCount { get; set; } = 0;
+        /// <summary>
+        /// 可购买次数
+        /// </summary>
+        [Description("可购买次数")]
+        [JsonProperty("buyCount")]
+        [DefaultValue(0)]
+        public int BuyCount { get; set; } = 0;
+        /// <summary>
+        /// 可上传次数
+        /// </summary>
+        [Description("可上传次数")]
+        [JsonProperty("uploadCount")]
+        [DefaultValue(0)]
+        public int UploadCount { get; set; } = 0;
+        /// <summary>
+        /// 剩余下载次数
+        /// </summary>
+        [Description("剩余下载次数")]
+        [JsonProperty("reDownCount")]
+        [DefaultValue(0)]
+        public int ReDownCount { get; set; } = 0;
+        /// <summary>
+        /// 剩余购买次数
+        /// </summary>
+        [Description("剩余购买次数")]
+        [JsonProperty("reBuyCount")]
+        [DefaultValue(0)]
+        public int ReBuyCount { get; set; } = 0;
+        /// <summary>
+        /// 剩余上传次数
+        /// </summary>
+        [Description("剩余上传次数")]
+        [JsonProperty("reUploadCount")]
+        [DefaultValue(0)]
+        public int ReUploadCount { get; set; } = 0;
         /// <summary>
         /// 备注
         /// </summary>

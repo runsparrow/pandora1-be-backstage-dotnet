@@ -12,14 +12,14 @@ namespace MISApi.Services.CMS.Base
     /// <summary>
     /// 
     /// </summary>
-    public class MemberService : BaseService.EF<Member, PandoraContext>
+    public class RechargeService : BaseService.EF<Recharge, PandoraContext>
     {
 
         #region CreateService
         /// <summary>
         /// CreateService
         /// </summary>
-        public class CreateService : MemberService
+        public class CreateService : RechargeService
         {
             /// <summary>
             /// 定义事务服务
@@ -30,19 +30,19 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             public CreateService()
             {
-                transService = new TransService(); 
+                transService = new TransService();
             }
             /// <summary>
             /// 默认的事务方法
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public Member Execute(Member entity)
+            public Recharge Execute(Recharge entity)
             {
                 try
                 {
                     // 定义
-                    Member result = new Member();
+                    Recharge result = new Recharge();
                     // 事务
                     transService.TransRegist(delegate {
                         result = base.Create(entity);
@@ -54,7 +54,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.UserService.CreateService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.RechargeService.CreateService.Execute", ex);
                 }
             }
             /// <summary>
@@ -62,12 +62,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entityList"></param>
             /// <returns></returns>
-            public List<Member> Execute(List<Member> entityList)
+            public List<Recharge> Execute(List<Recharge> entityList)
             {
                 try
                 {
                     // 定义
-                    List<Member> resultList = new List<Member>();
+                    List<Recharge> resultList = new List<Recharge>();
                     // 事务
                     transService.TransRegist(delegate {
                         // 遍历
@@ -85,7 +85,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.UserService.CreateService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.RechargeService.CreateService.Execute", ex);
                 }
             }
 
@@ -97,7 +97,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// UpdateService
         /// </summary>
-        public class UpdateService : MemberService
+        public class UpdateService : RechargeService
         {
             /// <summary>
             /// 定义事务服务
@@ -115,12 +115,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public Member Execute(Member entity)
+            public Recharge Execute(Recharge entity)
             {
                 try
                 {
                     // 定义
-                    Member result = new Member();
+                    Recharge result = new Recharge();
                     // 事务
                     transService.TransRegist(delegate {
                         result = base.Update(entity);
@@ -132,7 +132,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.UserService.UpdateService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.RechargeService.UpdateService.Execute", ex);
                 }
             }
             /// <summary>
@@ -140,12 +140,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entityList"></param>
             /// <returns></returns>
-            public List<Member> Execute(List<Member> entityList)
+            public List<Recharge> Execute(List<Recharge> entityList)
             {
                 try
                 {
                     // 定义
-                    List<Member> resultList = new List<Member>();
+                    List<Recharge> resultList = new List<Recharge>();
                     // 事务
                     transService.TransRegist(delegate
                     {
@@ -163,7 +163,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.UserService.UpdateService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.RechargeService.UpdateService.Execute", ex);
                 }
             }
         }
@@ -173,7 +173,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// DeleteService
         /// </summary>
-        public class DeleteService : MemberService
+        public class DeleteService : RechargeService
         {
             /// <summary>
             /// 定义事务服务
@@ -191,12 +191,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public Member Execute(Member entity)
+            public Recharge Execute(Recharge entity)
             {
                 try
                 {
                     // 定义
-                    Member result = new Member();
+                    Recharge result = new Recharge();
                     // 事务
                     transService.TransRegist(delegate {
                         result = base.Delete(entity);
@@ -208,7 +208,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.UserService.DeleteService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.RechargeService.DeleteService.Execute", ex);
                 }
             }
             /// <summary>
@@ -216,12 +216,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entitys"></param>
             /// <returns></returns>
-            public List<Member> Execute(List<Member> entitys)
+            public List<Recharge> Execute(List<Recharge> entitys)
             {
                 try
                 {
                     // 定义
-                    List<Member> resultList = new List<Member>();
+                    List<Recharge> resultList = new List<Recharge>();
                     // 事务
                     transService.TransRegist(delegate {
                         entitys.ForEach(entity =>
@@ -238,7 +238,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.UserService.DeleteService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.RechargeService.DeleteService.Execute", ex);
                 }
             }
         }
@@ -248,21 +248,21 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// ColumnsMode Service
         /// </summary>
-        public class ColumnsService : MemberService
+        public class ColumnsService : RechargeService
         {
             /// <summary>
             /// 返回字段集
             /// </summary>
             /// <returns></returns>
-            public Member Single()
+            public Recharge Single()
             {
                 try
                 {
-                    return new Member();
+                    return new Recharge();
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.UserService.ColumnsService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.RechargeService.ColumnsService.Execute", ex);
                 }
             }
         }
@@ -274,7 +274,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// 
         /// </summary>
-        public class RowService : MemberService
+        public class RowService : RechargeService
         {
             /// <summary>
             /// 根据 id 查询
@@ -282,7 +282,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="id">Id</param>
             /// <param name="joins">关联表</param>
             /// <returns></returns>
-            public Member ById(int id, params BaseMode.Join[] joins)
+            public Recharge ById(int id, params BaseMode.Join[] joins)
             {
                 using (PandoraContext context = new PandoraContext())
                 {
@@ -290,86 +290,13 @@ namespace MISApi.Services.CMS.Base
                     {
                         return SQLEntityToSingle(
                             SQLQueryable(context, joins)
-                                .Where(row => row.Member.Id == id)
+                                .Where(row => row.Recharge.Id == id)
                                 .SingleOrDefault()
                         );
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowService.ById", ex);
-                    }
-                }
-            }
-            /// <summary>
-            /// 根据 会员名并排除会员Id 查询
-            /// </summary>
-            /// <param name="name">会员名</param>
-            /// <param name="id">会员Id</param>
-            /// <param name="joins">关联表</param>
-            /// <returns></returns>
-            public Member ByName(string name, int id, params BaseMode.Join[] joins)
-            {
-                using (PandoraContext context = new PandoraContext())
-                {
-                    try
-                    {
-                        return SQLEntityToSingle(
-                            SQLQueryable(context, joins)
-                                .Where(row => row.Member.Name == name && row.Member.Id != id)
-                                .SingleOrDefault()
-                        );
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowService.ByName", ex);
-                    }
-                }
-            }
-            /// <summary>
-            /// 根据 手机号 查询
-            /// </summary>
-            /// <param name="mobile">手机号</param>
-            /// <param name="joins">关联表</param>
-            /// <returns></returns>
-            public Member ByMobile(string mobile, params BaseMode.Join[] joins)
-            {
-                using (PandoraContext context = new PandoraContext())
-                {
-                    try
-                    {
-                        return SQLEntityToSingle(
-                            SQLQueryable(context, joins)
-                                .Where(row => row.Member.Mobile == mobile)
-                                .SingleOrDefault()
-                        );
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowService.ByMobile", ex);
-                    }
-                }
-            }
-            /// <summary>
-            /// 根据 身份证 查询
-            /// </summary>
-            /// <param name="idCard">身份证</param>
-            /// <param name="joins">关联表</param>
-            /// <returns></returns>
-            public Member ByIdCard(string idCard, params BaseMode.Join[] joins)
-            {
-                using (PandoraContext context = new PandoraContext())
-                {
-                    try
-                    {
-                        return SQLEntityToSingle(
-                            SQLQueryable(context, joins)
-                                .Where(row => row.Member.IdCard == idCard)
-                                .SingleOrDefault()
-                        );
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowService.ByIdCard", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.RechargeService.RowService.ById", ex);
                     }
                 }
             }
@@ -382,7 +309,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// 
         /// </summary>
-        public class RowsService : MemberService
+        public class RowsService : RechargeService
         {
             /// <summary>
             /// 根据关键字查询
@@ -390,7 +317,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="keyWord">关键字</param>
             /// <param name="joins">关联表</param>
             /// <returns></returns>
-            public List<Member> ByKeyWord(BaseMode.KeyWord keyWord, params BaseMode.Join[] joins)
+            public List<Recharge> ByKeyWord(BaseMode.KeyWord keyWord, params BaseMode.Join[] joins)
             {
                 try
                 {
@@ -398,7 +325,29 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.UserService.RowsService.ByKeyWord", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.RechargeService.RowsService.ByKeyWord", ex);
+                }
+            }
+            /// <summary>
+            /// 根据会员Id查询
+            /// </summary>
+            /// <param name="memberId">会员Id</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Recharge> ByMemberId(int memberId, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins).Where(row => row.Recharge.MemberId == memberId).ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.RechargeService.RowsService.ByMemberId", ex);
+                    }
                 }
             }
             /// <summary>
@@ -411,7 +360,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="sorts"></param>
             /// <param name="status"></param>
             /// <returns></returns>
-            public List<Member> Page(BaseMode.KeyWord keyWord, BaseMode.Join[] joins, BaseMode.Page page, BaseMode.Date[] dates, BaseMode.Sort[] sorts, BaseMode.Status status)
+            public List<Recharge> Page(BaseMode.KeyWord keyWord, BaseMode.Join[] joins, BaseMode.Page page, BaseMode.Date[] dates, BaseMode.Sort[] sorts, BaseMode.Status status)
             {
                 using (PandoraContext context = new PandoraContext())
                 {
@@ -438,7 +387,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowsService.Page", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.RechargeService.RowsService.Page", ex);
                     }
                 }
             }
@@ -474,7 +423,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowsService.PageCount", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.RechargeService.RowsService.PageCount", ex);
                     }
                 }
             }
@@ -498,7 +447,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowsService.PageSummary", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.RechargeService.RowsService.PageSummary", ex);
                     }
                 }
             }
@@ -517,28 +466,28 @@ namespace MISApi.Services.CMS.Base
         protected IQueryable<SQLEntity> SQLQueryable(PandoraContext context, params BaseMode.Join[] joins)
         {
             // 定义
-            var left = context.CMS_Member.Select(Main => new SQLEntity
+            var left = context.CMS_Recharge.Select(Main => new SQLEntity
             {
-                Member = Main
+                Recharge = Main
             });
             // 遍历
             foreach (var join in joins)
             {
-                // SQLEntity.Status
-                if (join.Name.ToLower().Equals("status"))
+                // SQLEntity.Member
+                if (join.Name.ToLower().Equals("member"))
                 {
-                    left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Member.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    left = left.LeftOuterJoin(context.CMS_Member, Main => Main.Recharge.MemberId, Left => Left.Id, (Main, Left) => new SQLEntity
                     {
-                        Member = Main.Member,
-                        Status = Left
+                        Recharge = Main.Recharge,
+                        Member = Left
                     });
                 }
             }
             // 一对多
             var group = left.Select(Main => new SQLEntity
             {
-                Member = Main.Member,
-                Status = Main.Status
+                Recharge = Main.Recharge,
+                Member = Main.Member
             });
             // 遍历
             foreach (var join in joins)
@@ -569,35 +518,20 @@ namespace MISApi.Services.CMS.Base
                     {
                         var andKeyWord = ands[i];
                         queryable = queryable.Where(row =>
-                                row.Member.Name.Contains(andKeyWord) ||
-                                row.Member.Email.Contains(andKeyWord) ||
-                                row.Member.Mobile.Contains(andKeyWord) ||
-                                row.Member.LoginIPAddress.Contains(andKeyWord) ||
-                                row.Member.Remark.Contains(andKeyWord) ||
-                                row.Member.StatusName.Contains(andKeyWord)
+                                row.Recharge.MemberName.Contains(andKeyWord)
                             );
                     }
                 }
                 else if (ors.Length > 1)
                 {
                     queryable = queryable.Where(row =>
-                            ors.Contains(row.Member.Name) ||
-                            ors.Contains(row.Member.Email) ||
-                            ors.Contains(row.Member.Mobile) ||
-                            ors.Contains(row.Member.LoginIPAddress) ||
-                            ors.Contains(row.Member.Remark) ||
-                            ors.Contains(row.Member.StatusName)
+                            ors.Contains(row.Recharge.MemberName) 
                         );
                 }
                 else
                 {
                     queryable = queryable.Where(row =>
-                            row.Member.Name.Contains(keyWord) ||
-                            row.Member.Email.Contains(keyWord) ||
-                            row.Member.Mobile.Contains(keyWord) ||
-                            row.Member.LoginIPAddress.Contains(keyWord) ||
-                            row.Member.Remark.Contains(keyWord) ||
-                            row.Member.StatusName.Contains(keyWord)
+                            row.Recharge.MemberName.Contains(keyWord)
                         );
                 }
                 // 返回
@@ -605,7 +539,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.KeyWordQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.RechargeService.KeyWordQueryable", ex);
             }
         }
         /// <summary>
@@ -623,17 +557,17 @@ namespace MISApi.Services.CMS.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
-                    if (splits[i].ToLower().Contains("statusid"))
+                    if (splits[i].ToLower().Contains("memberid"))
                     {
-                        int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Member.StatusId == statusId);
+                        int memberId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Recharge.MemberId == memberId);
                     }
                 }
                 return queryable;
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.KeyWordExtQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.RechargeService.KeyWordExtQueryable", ex);
             }
         }
         /// <summary>
@@ -650,18 +584,11 @@ namespace MISApi.Services.CMS.Base
                 {
                     dates.ToList().ForEach(date =>
                     {
-                        if (date.Name.ToLower().Equals("leveldeadline"))
+                        if (date.Name.ToLower().Equals("dealdatetime"))
                         {
                             queryable = queryable
                                 .Where(row =>
-                                    row.Member.LevelDeadline >= date.MinDate && row.Member.LevelDeadline <= date.MaxDate
-                                );
-                        }
-                        if (date.Name.ToLower().Equals("registdatetime"))
-                        {
-                            queryable = queryable
-                                .Where(row =>
-                                    row.Member.RegistDateTime >= date.MinDate && row.Member.RegistDateTime <= date.MaxDate
+                                    row.Recharge.DealDateTime >= date.MinDate && row.Recharge.DealDateTime <= date.MaxDate
                                 );
                         }
                     });
@@ -670,7 +597,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.DateQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.RechargeService.DateQueryable", ex);
             }
         }
         /// <summary>
@@ -683,15 +610,11 @@ namespace MISApi.Services.CMS.Base
         {
             try
             {
-                if (status != null && status.Values.Count() > 0)
-                {
-                    return queryable.Where(row => status.Values.Contains(row.Member.StatusValue));
-                }
                 return queryable;
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.StatusQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.RechargeService.StatusQueryable", ex);
             }
         }
         /// <summary>
@@ -722,7 +645,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.SortQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.RechargeService.SortQueryable", ex);
             }
         }
         /// <summary>
@@ -745,7 +668,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.PageQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.RechargeService.PageQueryable", ex);
             }
         }
         /// <summary>
@@ -753,7 +676,7 @@ namespace MISApi.Services.CMS.Base
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        protected Member SQLEntityToSingle(SQLEntity entity)
+        protected Recharge SQLEntityToSingle(SQLEntity entity)
         {
             try
             {
@@ -761,15 +684,15 @@ namespace MISApi.Services.CMS.Base
                 if (entity == null)
                     return null;
                 // 主表
-                Member memberEntity = entity.Member;
-                // 状态
-                memberEntity.Status = entity.Status ?? null;
+                Recharge rechargeEntity = entity.Recharge;
+                // 会员
+                rechargeEntity.Member = entity.Member ?? null;
                 // 返回
-                return memberEntity;
+                return rechargeEntity;
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.SQLEntityToSingle", ex);
+                throw new Exception("MISApi.Services.CMS.Base.RechargeService.SQLEntityToSingle", ex);
             }
         }
         /// <summary>
@@ -777,7 +700,7 @@ namespace MISApi.Services.CMS.Base
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        protected List<Member> SQLEntityToList(List<SQLEntity> list)
+        protected List<Recharge> SQLEntityToList(List<SQLEntity> list)
         {
             try
             {
@@ -785,7 +708,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.SQLEntityToList", ex);
+                throw new Exception("MISApi.Services.CMS.Base.RechargeService.SQLEntityToList", ex);
             }
         }
 
@@ -800,11 +723,11 @@ namespace MISApi.Services.CMS.Base
             /// <summary>
             /// 
             /// </summary>
-            public Member Member { get; set; }
+            public Recharge Recharge { get; set; }
             /// <summary>
             /// 
             /// </summary>
-            public Status Status { get; set; }
+            public Member Member { get; set; }
         }
         /// <summary>
         /// 

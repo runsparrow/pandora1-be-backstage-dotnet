@@ -59,6 +59,22 @@ namespace MISApi.Dal.EF
         /// </summary>
         public virtual DbSet<Entities.CMS.Member> CMS_Member { get; set; }
         /// <summary>
+        /// 会员权限
+        /// </summary>
+        public virtual DbSet<Entities.CMS.MemberPower> CMS_MemberPower { get; set; }
+        /// <summary>
+        /// 充值
+        /// </summary>
+        public virtual DbSet<Entities.CMS.Recharge> CMS_Recharge { get; set; }
+        /// <summary>
+        /// 下载
+        /// </summary>
+        public virtual DbSet<Entities.CMS.Down> CMS_Down { get; set; }
+        /// <summary>
+        /// 上传
+        /// </summary>
+        public virtual DbSet<Entities.CMS.Upload> CMS_Upload { get; set; }
+        /// <summary>
         /// 账户
         /// </summary>
         public virtual DbSet<Entities.CMS.Account> CMS_Account { get; set; }

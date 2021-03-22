@@ -28,9 +28,9 @@ namespace MISApi.Entities.CMS
         /// 导航Id
         /// </summary>
         [Description("导航Id")]
-        [JsonProperty("navigationid")]
+        [JsonProperty("navigationId")]
         [DefaultValue(-1)]
-        public int Navigationid { get; set; } = -1;
+        public int NavigationId { get; set; } = -1;
         /// <summary>
         /// 导航名称
         /// </summary>

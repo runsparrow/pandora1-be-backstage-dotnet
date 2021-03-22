@@ -341,7 +341,7 @@ namespace MISApi.Services.CMS.Base
                     try
                     {
                         return SQLEntityToList(
-                            SQLQueryable(context, joins).Where(row=>row.Article.Navigationid == navigationId).ToList()
+                            SQLQueryable(context, joins).Where(row=>row.Article.NavigationId == navigationId).ToList()
                         );
                     }
                     catch (Exception ex)
@@ -476,7 +476,7 @@ namespace MISApi.Services.CMS.Base
                 // SQLEntity.Navigation
                 if (join.Name.ToLower().Equals("navigation"))
                 {
-                    left = left.LeftOuterJoin(context.CMS_Navigation, Main => Main.Article.Navigationid, Left => Left.Id, (Main, Left) => new SQLEntity
+                    left = left.LeftOuterJoin(context.CMS_Navigation, Main => Main.Article.NavigationId, Left => Left.Id, (Main, Left) => new SQLEntity
                     {
                         Article = Main.Article,
                         Navigation = Left,
@@ -600,8 +600,8 @@ namespace MISApi.Services.CMS.Base
                     }
                     if (splits[i].ToLower().Contains("navigationid"))
                     {
-                        int navigationid = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Article.Navigationid == navigationid);
+                        int navigationId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Article.NavigationId == navigationId);
                     }
                     if (splits[i].ToLower().Contains("urltype"))
                     {

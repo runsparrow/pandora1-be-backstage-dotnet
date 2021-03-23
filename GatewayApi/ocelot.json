@@ -29,21 +29,6 @@
       "LoadBalancerOptions": {
         "Type": "RoundRobin"
       }
-    },
-    {
-      "DownstreamPathTemplate": "/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "106.15.88.18",
-          "Port": 8003
-        }
-      ],
-      "UpstreamPathTemplate": "/fileupload/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post" ],
-      "LoadBalancerOptions": {
-        "Type": "RoundRobin"
-      }
     }
   ],
   "GlobalConfiguration": {

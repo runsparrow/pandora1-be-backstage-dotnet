@@ -10,7 +10,7 @@ namespace MISApi.Entities.CMS
     /// </summary>
     [JsonObject(MemberSerialization.OptOut)]
     [Serializable]
-    public partial class RMS
+    public partial class File
     {
         #region Not Mapped Property
         /// <summary>

@@ -13,7 +13,7 @@ namespace MISApi.Controllers.CMS
     /// <summary>
     /// 文件处理
     /// </summary>
-    public class RMSController : ControllerBase
+    public class FileController : ControllerBase
     {
         #region RPC
         /// <summary>
@@ -21,18 +21,18 @@ namespace MISApi.Controllers.CMS
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/RMS/Upload", Name = "MIS_CMS_RMS_Upload")]
+        [Route("MIS/CMS/File/Upload", Name = "MIS_CMS_File_Upload")]
         [HttpPost]
-        [Authorize]
-        public IActionResult Upload(DTO_RMS dto)
+        //[Authorize]
+        public IActionResult Upload(DTO_File dto)
         {
             try
             {
                 // DTO
                 if (dto != null)
                 {
-                    new RMSService().Upload(
-                        new RMS
+                    new FileService().Upload(
+                        new File
                         {
                             Goods = dto,
                             Member = new Member
@@ -70,18 +70,18 @@ namespace MISApi.Controllers.CMS
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/RMS/Down", Name = "MIS_CMS_RMS_Down")]
+        [Route("MIS/CMS/File/Down", Name = "MIS_CMS_File_Down")]
         [HttpPost]
-        [Authorize]
-        public IActionResult Down(DTO_RMS dto)
+        //[Authorize]
+        public IActionResult Down(DTO_File dto)
         {
             try
             {
                 // DTO
                 if (dto != null)
                 {
-                    new RMSService().Upload(
-                        new RMS
+                    new FileService().Down(
+                        new File
                         {
                             Goods = dto,
                             Member = new Member
@@ -121,7 +121,7 @@ namespace MISApi.Controllers.CMS
         /// <summary>
         /// 
         /// </summary>
-        public class DTO_RMS : Goods
+        public class DTO_File : Goods
         {
             /// <summary>
             /// 会员Id

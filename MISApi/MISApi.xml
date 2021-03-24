@@ -3885,6 +3885,40 @@
             
             </summary>
         </member>
+        <member name="T:MISApi.Controllers.CMS.FileController">
+            <summary>
+            文件处理
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.FileController.Upload(MISApi.Controllers.CMS.FileController.DTO_File)">
+            <summary>
+            上传文件
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.FileController.Down(MISApi.Controllers.CMS.FileController.DTO_File)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.FileController.DTO_File">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.FileController.DTO_File.MemberId">
+            <summary>
+            会员Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.FileController.DTO_File.MemberName">
+            <summary>
+            会员姓名
+            </summary>
+        </member>
         <member name="T:MISApi.Controllers.CMS.GoodsController">
             <summary>
             商品
@@ -6903,40 +6937,6 @@
             
             </summary>
         </member>
-        <member name="T:MISApi.Controllers.CMS.RMSController">
-            <summary>
-            文件处理
-            </summary>
-        </member>
-        <member name="M:MISApi.Controllers.CMS.RMSController.Upload(MISApi.Controllers.CMS.RMSController.DTO_RMS)">
-            <summary>
-            上传文件
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Controllers.CMS.RMSController.Down(MISApi.Controllers.CMS.RMSController.DTO_RMS)">
-            <summary>
-            下载文件
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="T:MISApi.Controllers.CMS.RMSController.DTO_RMS">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:MISApi.Controllers.CMS.RMSController.DTO_RMS.MemberId">
-            <summary>
-            会员Id
-            </summary>
-        </member>
-        <member name="P:MISApi.Controllers.CMS.RMSController.DTO_RMS.MemberName">
-            <summary>
-            会员姓名
-            </summary>
-        </member>
         <member name="T:MISApi.Controllers.CMS.SerialController">
             <summary>
             流水
@@ -9668,6 +9668,31 @@
             商品
             </summary>
         </member>
+        <member name="T:MISApi.Entities.CMS.File">
+            <summary>
+            文件系统
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.File.Upload">
+            <summary>
+            上传记录
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.File.Down">
+            <summary>
+            下载记录
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.File.Goods">
+            <summary>
+            收款人
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.File.Member">
+            <summary>
+            会员
+            </summary>
+        </member>
         <member name="T:MISApi.Entities.CMS.Goods">
             <summary>
             商品
@@ -10414,31 +10439,6 @@
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Recharge.Member">
-            <summary>
-            会员
-            </summary>
-        </member>
-        <member name="T:MISApi.Entities.CMS.RMS">
-            <summary>
-            文件系统
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.RMS.Upload">
-            <summary>
-            上传记录
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.RMS.Down">
-            <summary>
-            下载记录
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.RMS.Goods">
-            <summary>
-            收款人
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.RMS.Member">
             <summary>
             会员
             </summary>
@@ -17501,6 +17501,35 @@
             
             </summary>
         </member>
+        <member name="T:MISApi.Services.CMS.FileService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.FileService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.FileService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.FileService.Upload(MISApi.Entities.CMS.File)">
+            <summary>
+            上传商品
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.FileService.Down(MISApi.Entities.CMS.File)">
+            <summary>
+            下载商品
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Services.CMS.GoodsService">
             <summary>
             
@@ -18005,35 +18034,6 @@
             <summary>
             
             </summary>
-        </member>
-        <member name="T:MISApi.Services.CMS.RMSService">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:MISApi.Services.CMS.RMSService.transService">
-            <summary>
-            定义事务服务
-            </summary>
-        </member>
-        <member name="M:MISApi.Services.CMS.RMSService.#ctor">
-            <summary>
-            构造函数
-            </summary>
-        </member>
-        <member name="M:MISApi.Services.CMS.RMSService.Upload(MISApi.Entities.CMS.RMS)">
-            <summary>
-            上传商品
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.RMSService.Down(MISApi.Entities.CMS.RMS)">
-            <summary>
-            下载商品
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.SerialService">
             <summary>

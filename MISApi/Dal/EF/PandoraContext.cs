@@ -110,6 +110,10 @@ namespace MISApi.Dal.EF
         /// 资讯
         /// </summary>
         public virtual DbSet<Entities.CMS.Article> CMS_Article { get; set; }
+        /// <summary>
+        /// 评论
+        /// </summary>
+        public virtual DbSet<Entities.CMS.Discuss> CMS_Discuss { get; set; }
 
         #endregion
     }

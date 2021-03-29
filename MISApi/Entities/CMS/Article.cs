@@ -139,6 +139,13 @@ namespace MISApi.Entities.CMS
         [DefaultValue(false)]
         public bool IsTarget { get; set; } = false;
         /// <summary>
+        /// 允许评论
+        /// </summary>
+        [Description("允许评论")]
+        [JsonProperty("isDiscuss")]
+        [DefaultValue(false)]
+        public bool IsDiscuss { get; set; } = false;
+        /// <summary>
         /// 点击量
         /// </summary>
         [Description("点击量")]

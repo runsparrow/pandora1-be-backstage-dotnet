@@ -3474,6 +3474,445 @@
             
             </summary>
         </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController">
+            <summary>
+            评论
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Create_Single(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            创建评论
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Create_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.Discuss})">
+            <summary>
+            创建评论
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Create_ToOpen(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            创建评论
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Update_Single(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            编辑一条评论
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Update_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.Discuss})">
+            <summary>
+            编辑多条评论
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Update_ToOpen(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            编辑一条评论
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Update_ToClose(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            编辑一条评论
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Delete_Single(MISApi.Entities.CMS.Discuss)">
+            <summary>
+             删除一条评论
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Delete_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.Discuss})">
+            <summary>
+            删除多条评论
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Columns_Single">
+            <summary>
+            查询评论的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询评论
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询评论
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询评论
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询评论
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Rows_ByArticleId_ArticleId(System.Int32)">
+            <summary>
+            根据ArticleId查询评论
+            </summary>
+            <param name="articleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Rows_ByDiscussId_DiscussId(System.Int32)">
+            <summary>
+            根据DiscussId查询评论
+            </summary>
+            <param name="discussId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Rows_ByApproverId_ApproverId(System.Int32)">
+            <summary>
+            根据ApproverId查询评论
+            </summary>
+            <param name="approverId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询评论
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询评论
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Tree_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWordWithConfig{MISApi.Entities.CMS.Discuss})">
+            <summary>
+            模糊查询获得树型结构的评论
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Tree_ById(MISApi.Controllers.HttpEntities.DTO_IdWithConfig{MISApi.Entities.CMS.Discuss})">
+            <summary>
+            根据Id查询获得树型结构的评论
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Tree(MISApi.Controllers.CMS.DiscussController.TreeMode.Request)">
+            <summary>
+            树形结构的复杂查询
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Unauthorized_Columns_Single">
+            <summary>
+            查询评论的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Unauthorized_Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询评论
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Unauthorized_Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询评论
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Unauthorized_Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询评论
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Unauthorized_Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询评论
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Unauthorized_Rows_ByDiscussId_DiscussId(System.Int32)">
+            <summary>
+            根据DiscussId查询评论
+            </summary>
+            <param name="discussId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Unauthorized_Rows_ByApproverId_ApproverId(System.Int32)">
+            <summary>
+            根据ApproverId查询评论
+            </summary>
+            <param name="approverId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Unauthorized_Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询评论
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询评论
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.CreateMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.CreateMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.CreateMode.Request.ToResponse(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.CreateMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Discuss})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.CreateMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.UpdateMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.UpdateMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.UpdateMode.Request.ToResponse(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.UpdateMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Discuss})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.UpdateMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.DeleteMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.DeleteMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.DeleteMode.Request.ToResponse(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.DeleteMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Discuss})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.DeleteMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.ColumnsMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.ColumnsMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.ColumnsMode.Request.ToResponse(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.ColumnsMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.RowMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.RowMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.RowMode.Request.ToResponse(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.RowMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.RowsMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.RowsMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.RowsMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Discuss})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.RowsMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.SingleMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.SingleMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.SingleMode.Request.ToResponse(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.SingleMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.QueryMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.QueryMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.QueryMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Discuss})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.QueryMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.TreeMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.TreeMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.TreeMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Discuss})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.DiscussController.TreeMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:MISApi.Controllers.CMS.DownController">
             <summary>
             下载
@@ -8751,6 +9190,11 @@
             资讯
             </summary>
         </member>
+        <member name="P:MISApi.Dal.EF.PandoraContext.CMS_Discuss">
+            <summary>
+            评论
+            </summary>
+        </member>
         <member name="T:MISApi.Entities.ASM.Dictionary">
             <summary>
             数据字典
@@ -9218,6 +9662,11 @@
             是否弹出
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Article.IsDiscuss">
+            <summary>
+            允许评论
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Article.Hits">
             <summary>
             点击量
@@ -9614,6 +10063,101 @@
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.CashOut.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:MISApi.Entities.CMS.Discuss">
+            <summary>
+            评论
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.Id">
+            <summary>
+            唯一标识
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.ArticleId">
+            <summary>
+            文章Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.ArticleTitle">
+            <summary>
+            文章标题
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.DiscussId">
+            <summary>
+            评论人Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.DiscussName">
+            <summary>
+            评论人姓名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.DiscussDateTime">
+            <summary>
+            评论时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.ApproverId">
+            <summary>
+            审批人Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.ApproverName">
+            <summary>
+            审批人姓名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.ApproverDate">
+            <summary>
+            审批时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.ApproverDesc">
+            <summary>
+            审批意见
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.StatusId">
+            <summary>
+            状态Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.StatusName">
+            <summary>
+            状态名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.StatusValue">
+            <summary>
+            状态数值
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.Article">
+            <summary>
+            文章
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.Discussant">
+            <summary>
+            评论人
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.Approver">
+            <summary>
+            审批人
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.Status">
             <summary>
             状态
             </summary>
@@ -14616,6 +15160,293 @@
             
             </summary>
         </member>
+        <member name="T:MISApi.Services.CMS.Base.DiscussService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.DiscussService.CreateService">
+            <summary>
+            CreateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.Base.DiscussService.CreateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.CreateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.CreateService.Execute(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.CreateService.Execute(System.Collections.Generic.List{MISApi.Entities.CMS.Discuss})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.DiscussService.UpdateService">
+            <summary>
+            UpdateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.Base.DiscussService.UpdateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.UpdateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.UpdateService.Execute(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.UpdateService.Execute(System.Collections.Generic.List{MISApi.Entities.CMS.Discuss})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.DiscussService.DeleteService">
+            <summary>
+            DeleteService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.Base.DiscussService.DeleteService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.DeleteService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.DeleteService.Execute(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.DeleteService.Execute(System.Collections.Generic.List{MISApi.Entities.CMS.Discuss})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entitys"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.DiscussService.ColumnsService">
+            <summary>
+            ColumnsMode Service
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.ColumnsService.Single">
+            <summary>
+            返回字段集
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.DiscussService.RowService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.RowService.ById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 id 查询
+            </summary>
+            <param name="id">Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.DiscussService.RowsService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.RowsService.ByKeyWord(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据关键字查询
+            </summary>
+            <param name="keyWord">关键字</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.RowsService.ByArticleId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="articleId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.RowsService.ByDiscussId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="discussId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.RowsService.ByApproverId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="approverId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="page"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.RowsService.PageCount(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页计数
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.RowsService.PageSummary(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页汇总
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.SQLQueryable(MISApi.Dal.EF.PandoraContext,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            默认查询
+            </summary>
+            <param name="context"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.KeyWordQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.DiscussService.SQLEntity},System.String)">
+            <summary>
+            关键字
+            </summary>
+            <param name="queryable"></param>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.KeyWordExtQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.DiscussService.SQLEntity},System.String)">
+            <summary>
+            关键字扩展
+            </summary>
+            <param name="queryable"></param>
+            <param name="keyWordExt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.DateQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.DiscussService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Date[])">
+            <summary>
+            日期
+            </summary>
+            <param name="queryable"></param>
+            <param name="dates"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.StatusQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.DiscussService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            状态
+            </summary>
+            <param name="queryable"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.SortQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.DiscussService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Sort[])">
+            <summary>
+            排序
+            </summary>
+            <param name="queryable"></param>
+            <param name="sorts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.PageQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.DiscussService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Page)">
+            <summary>
+            分页
+            </summary>
+            <param name="queryable"></param>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.SQLEntityToSingle(MISApi.Services.CMS.Base.DiscussService.SQLEntity)">
+            <summary>
+            SQLEntity转换
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.DiscussService.SQLEntityToList(System.Collections.Generic.List{MISApi.Services.CMS.Base.DiscussService.SQLEntity})">
+            <summary>
+            SQLEntity转换
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.DiscussService.SQLEntity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.DiscussService.SQLEntity.Discuss">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.DiscussService.SQLEntity.Discussant">
+            <summary>
+            评论人
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.DiscussService.SQLEntity.Approver">
+            <summary>
+            审批人
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.DiscussService.SQLEntity.Status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.DiscussService.SummaryEntity">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:MISApi.Services.CMS.Base.DownService">
             <summary>
             
@@ -17442,6 +18273,82 @@
             </summary>
         </member>
         <member name="T:MISApi.Services.CMS.CashOutService.RowsService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.DiscussService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.DiscussService.CreateService">
+            <summary>
+            CreateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.DiscussService.CreateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.DiscussService.CreateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.DiscussService.CreateService.ToOpen(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            在用
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.DiscussService.UpdateService">
+            <summary>
+            UpdateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.DiscussService.UpdateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.DiscussService.UpdateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.DiscussService.UpdateService.ToOpen(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            在用
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.DiscussService.UpdateService.ToClose(MISApi.Entities.CMS.Discuss)">
+            <summary>
+            关闭
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.DiscussService.DeleteService">
+            <summary>
+            DeleteService
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.DiscussService.ColumnsService">
+            <summary>
+            ColumnsMode Service
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.DiscussService.RowService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.DiscussService.RowsService">
             <summary>
             
             </summary>

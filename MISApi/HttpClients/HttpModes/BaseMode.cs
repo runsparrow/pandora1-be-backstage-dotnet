@@ -260,6 +260,10 @@ namespace MISApi.HttpClients.HttpModes.BaseMode
         {
             try
             {
+                if (string.IsNullOrEmpty(protocal))
+                {
+                    return null;
+                }
                 string[] protocalArray = protocal.Split(";");
                 Date[] dateArray = new Date[protocalArray.Length];
                 for (var i = 0; i < protocalArray.Length; i++)
@@ -390,6 +394,10 @@ namespace MISApi.HttpClients.HttpModes.BaseMode
         {
             try
             {
+                if (string.IsNullOrEmpty(protocal))
+                {
+                    return null;
+                }
                 string[] protocalArray = protocal.Split(";");
                 Sort[] sortArray = new Sort[protocalArray.Length];
                 for (var i = 0; i < protocalArray.Length; i++)

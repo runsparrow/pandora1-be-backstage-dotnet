@@ -2022,14 +2022,14 @@
             <param name="response"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.BaseController`1.Post(MISApi.HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest{`0})">
+        <member name="M:MISApi.Controllers.BaseController`1.Post(MISApi.HttpClients.HttpModes.TreeMode.AntdTreeRequest{`0})">
             <summary>
             
             </summary>
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.BaseController`1.ResponseOk(MISApi.HttpClients.HttpModes.TreeMode.BootstrapTreeViewResponse{`0})">
+        <member name="M:MISApi.Controllers.BaseController`1.ResponseOk(MISApi.HttpClients.HttpModes.TreeMode.AntdTreeResponse{`0})">
             <summary>
             
             </summary>
@@ -12274,6 +12274,23 @@
             <param name="rows"></param>
             <returns></returns>
         </member>
+        <member name="T:MISApi.HttpClients.HttpModes.TreeMode.AntdTreeRequest`1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTreeRequest`1.Config">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.HttpClients.HttpModes.TreeMode.AntdTreeRequest`1.ToResponse(System.Collections.Generic.List{`0})">
+            <summary>
+            
+            </summary>
+            <param name="rows"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.HttpClients.HttpModes.TreeMode.Response`1">
             <summary>
             
@@ -12305,6 +12322,229 @@
             </summary>
         </member>
         <member name="P:MISApi.HttpClients.HttpModes.TreeMode.BootstrapTreeViewResponse`1.Tree">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.HttpClients.HttpModes.TreeMode.AntdTreeResponse`1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTreeResponse`1.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTreeResponse`1.Tree">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.TreeViewBase`1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.TreeViewBase`1.ToTree(System.Collections.Generic.List{`0},MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Config{`0})">
+            <summary>
+            
+            </summary>
+            <param name="rows"></param>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.TreeViewBase`1.ConvertTo(System.Collections.Generic.List{`0},MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Config{`0})">
+            <summary>
+            将Entity集合转换成尚未建立树形关系的Child集合
+            </summary>
+            <param name="rows"></param>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.TreeViewBase`1.MakeListOfType(System.Type)">
+            <summary>
+            对泛型进行List实例化
+            </summary>
+            <param name="listType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.TreeViewBase`1.FillTo(System.Collections.Generic.List{MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Child},MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Config{`0})">
+            <summary>
+            
+            </summary>
+            <param name="childs"></param>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.TreeViewBase`1.ToTree(System.Collections.Generic.List{MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Child})">
+            <summary>
+            
+            </summary>
+            <param name="childs">尚未排列成树形结构的Child集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.TreeViewBase`1.LoopToAppendChildren(System.Collections.Generic.List{MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Child},System.Collections.Generic.List{MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Child},System.Int32)">
+            <summary>
+            节点递归方法
+            </summary>
+            <param name="rootChildren">已排列成树形结构的根节点</param>
+            <param name="childs">尚未排列成树形结构的Child集合</param>
+            <param name="levelIndex">已排列成树形结构的根节点LevelIndex</param>
+        </member>
+        <member name="T:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Child">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Child.Title">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Child.Selectable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Child.Disabled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Child.Levels">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Child.Key">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Child.Children">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Config`1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Config`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Config`1.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="title"></param>
+            <param name="id"></param>
+            <param name="pid"></param>
+            <param name="selectable"></param>
+            <param name="disabled"></param>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Config`1.KeySets">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Config`1.PropertyBind">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.Config`1.ChildPropertyBinds">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.KeySet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.KeySet.Title">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.KeySet.Selectable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.KeySet.Disabled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.PropertyBind">
+            <summary>
+            用于指定树控件的属性分别对应的是实体类中的哪些字段
+                即：绑定树控件属性与实体类属性
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.PropertyBind.Title">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.PropertyBind.Selectable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.PropertyBind.Disabled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.PropertyBind.Levels">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.ChildPropertyBind">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.ChildPropertyBind.ChildPropertyName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.ChildPropertyBind.ChildPropertyClass">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.State">
+            <summary>
+            antdTree节点的State属性
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.State.Checked">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.State.Disabled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.State.Expanded">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.AntdTree.State.Selected">
             <summary>
             
             </summary>
@@ -12872,6 +13112,41 @@
             </summary>
         </member>
         <member name="P:MISApi.HttpClients.HttpModes.TreeMode.NodeBase.Nodes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.HttpClients.HttpModes.TreeMode.ChildBase">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.ChildBase.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.ChildBase.Pid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.ChildBase.LevelIndex">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.ChildBase.Key">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.ChildBase.Row">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.TreeMode.ChildBase.Children">
             <summary>
             
             </summary>
@@ -13929,7 +14204,15 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:MISApi.Services.AVM.Base.UserService.RowService.ByName(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])" -->
+        <member name="M:MISApi.Services.AVM.Base.UserService.RowService.ByName(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 用户名并排除用户Id 查询
+            </summary>
+            <param name="name">用户名</param>
+            <param name="id">用户Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.AVM.Base.UserService.RowService.ByMobile(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
             <summary>
             根据 手机号 查询

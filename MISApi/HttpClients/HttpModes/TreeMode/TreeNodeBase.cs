@@ -44,6 +44,46 @@ namespace MISApi.HttpClients.HttpModes.TreeMode
 
     #endregion
 
+    #region ChildBase
+    /// <summary>
+    /// 
+    /// </summary>
+    public abstract class ChildBase
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty(PropertyName = "id")]
+        public virtual int Id { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty(PropertyName = "pid")]
+        public virtual int Pid { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty(PropertyName = "levelIndex")]
+        public virtual int LevelIndex { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty(PropertyName = "key")]
+        public virtual string Key { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty(PropertyName = "row")]
+        public virtual object Row { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty(PropertyName = "children")]
+        public virtual List<ChildBase> Children { get; set; }
+    }
+
+    #endregion
+
     #region ConfigBase
     /// <summary>
     /// 

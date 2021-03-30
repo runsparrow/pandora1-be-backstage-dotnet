@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MISApi.Controllers.HttpEntities;
 using MISApi.Entities.WFM;
-using MISApi.HttpClients.HttpModes.TreeMode.BootstrapTreeView;
+using MISApi.HttpClients.HttpModes.TreeMode.AntdTree;
 using MISApi.Services.WFM;
 using MISApi.Tools;
 using System;
@@ -505,7 +505,7 @@ namespace MISApi.Controllers.WFM
                 return Tree(
                     new TreeMode.Request
                     {
-                        Config = new Config<Status>("StatusKey", "Name", "Id", "Pid", "true"),
+                        Config = new Config<Status>("StatusKey", "Name", "Id", "Pid", "true", "false"),
                         Function = new BaseMode.Function
                         {
                             Name = "SubsetById",
@@ -537,7 +537,7 @@ namespace MISApi.Controllers.WFM
                 return Tree(
                     new TreeMode.Request
                     {
-                        Config = new Config<Status>("StatusKey", "Name", "Id", "Pid", "true"),
+                        Config = new Config<Status>("StatusKey", "Name", "Id", "Pid", "true", "false"),
                         Function = new BaseMode.Function
                         {
                             Name = "SupersetById",
@@ -869,14 +869,14 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<Status>
+            public class Request : HttpClients.HttpModes.TreeMode.AntdTreeRequest<Status>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.TreeMode.BootstrapTreeViewResponse<Status> ToResponse(List<Status> entityList)
+                public override HttpClients.HttpModes.TreeMode.AntdTreeResponse<Status> ToResponse(List<Status> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -884,7 +884,7 @@ namespace MISApi.Controllers.WFM
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<Status>
+            public class Response : HttpClients.HttpModes.TreeMode.AntdTreeRequest<Status>
             {
 
             }

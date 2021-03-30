@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MISApi.Controllers.HttpEntities;
 using MISApi.Entities.CMS;
-using MISApi.HttpClients.HttpModes.TreeMode.BootstrapTreeView;
+using MISApi.HttpClients.HttpModes.TreeMode.AntdTree;
 using MISApi.Services.CMS;
 using MISApi.Tools;
 using System;
@@ -597,7 +597,7 @@ namespace MISApi.Controllers.CMS
                 return Tree(
                     new TreeMode.Request
                     {
-                        Config = new Config<Navigation>("NavigationKey", "Name", "Id", "Pid", "true"),
+                        Config = new Config<Navigation>("NavigationKey", "Name", "Id", "Pid", "true", "false"),
                         Function = new BaseMode.Function
                         {
                             Name = "SubsetById",
@@ -629,7 +629,7 @@ namespace MISApi.Controllers.CMS
                 return Tree(
                     new TreeMode.Request
                     {
-                        Config = new Config<Navigation>("NavigationKey", "Name", "Id", "Pid", "true"),
+                        Config = new Config<Navigation>("NavigationKey", "Name", "Id", "Pid", "true", "false"),
                         Function = new BaseMode.Function
                         {
                             Name = "SupersetById",
@@ -1180,14 +1180,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<Navigation>
+            public class Request : HttpClients.HttpModes.TreeMode.AntdTreeRequest<Navigation>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.TreeMode.BootstrapTreeViewResponse<Navigation> ToResponse(List<Navigation> entityList)
+                public override HttpClients.HttpModes.TreeMode.AntdTreeResponse<Navigation> ToResponse(List<Navigation> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -1195,7 +1195,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<Navigation>
+            public class Response : HttpClients.HttpModes.TreeMode.AntdTreeRequest<Navigation>
             {
 
             }

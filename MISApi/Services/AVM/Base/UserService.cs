@@ -304,7 +304,7 @@ namespace MISApi.Services.AVM.Base
             /// <summary>
             /// 根据 用户名并排除用户Id 查询
             /// </summary>
-            /// <param name="name">用户名</param
+            /// <param name="name">用户名</param>
             /// <param name="id">用户Id</param>
             /// <param name="joins">关联表</param>
             /// <returns></returns>

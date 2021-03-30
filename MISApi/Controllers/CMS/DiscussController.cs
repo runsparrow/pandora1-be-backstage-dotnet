@@ -1090,14 +1090,14 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<Discuss>
+            public class Request : HttpClients.HttpModes.TreeMode.AntdTreeRequest<Discuss>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.TreeMode.BootstrapTreeViewResponse<Discuss> ToResponse(List<Discuss> entityList)
+                public override HttpClients.HttpModes.TreeMode.AntdTreeResponse<Discuss> ToResponse(List<Discuss> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -1105,7 +1105,7 @@ namespace MISApi.Controllers.CMS
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<Discuss>
+            public class Response : HttpClients.HttpModes.TreeMode.AntdTreeRequest<Discuss>
             {
 
             }

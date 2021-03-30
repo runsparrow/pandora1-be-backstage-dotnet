@@ -599,7 +599,7 @@ namespace MISApi.Controllers
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        protected virtual IActionResult Post(HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<T> request)
+        protected virtual IActionResult Post(HttpClients.HttpModes.TreeMode.AntdTreeRequest<T> request)
         {
             try
             {
@@ -650,7 +650,7 @@ namespace MISApi.Controllers
         /// </summary>
         /// <param name="response"></param>
         /// <returns></returns>
-        protected virtual IActionResult ResponseOk(HttpClients.HttpModes.TreeMode.BootstrapTreeViewResponse<T> response)
+        protected virtual IActionResult ResponseOk(HttpClients.HttpModes.TreeMode.AntdTreeResponse<T> response)
         {
             return Ok(response);
         }

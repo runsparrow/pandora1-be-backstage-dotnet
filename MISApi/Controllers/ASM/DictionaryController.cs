@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using BaseMode = MISApi.HttpClients.HttpModes.BaseMode;
 using MISApi.Services.ASM;
 using MISApi.Tools;
-using MISApi.HttpClients.HttpModes.TreeMode.BootstrapTreeView;
+using MISApi.HttpClients.HttpModes.TreeMode.AntdTree;
 
 namespace MISApi.Controllers.ASM
 {
@@ -636,7 +636,7 @@ namespace MISApi.Controllers.ASM
         /// <returns></returns>
         [Route("MIS/ASM/Dictionary/Tree/SubsetById/{id}", Name = "MIS_ASM_Dictionary_Tree_SubsetById_Id")]
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public IActionResult Tree_SubsetById(int id)
         {
             try
@@ -644,7 +644,7 @@ namespace MISApi.Controllers.ASM
                 return Tree(
                     new TreeMode.Request
                     {
-                        Config = new Config<Dictionary>("DictionaryKey", "Name", "Id", "Pid", "true"),
+                        Config = new Config<Dictionary>("DictionaryKey", "Name", "Id", "Pid", "true", "false"),
                         Function = new BaseMode.Function
                         {
                             Name = "SubsetById",
@@ -676,7 +676,7 @@ namespace MISApi.Controllers.ASM
                 return Tree(
                     new TreeMode.Request
                     {
-                        Config = new Config<Dictionary>("DictionaryKey", "Name", "Id", "Pid", "true"),
+                        Config = new Config<Dictionary>("DictionaryKey", "Name", "Id", "Pid", "true", "false"),
                         Function = new BaseMode.Function
                         {
                             Name = "SupersetById",
@@ -708,7 +708,7 @@ namespace MISApi.Controllers.ASM
                 return Tree(
                     new TreeMode.Request
                     {
-                        Config = new Config<Dictionary>("DictionaryKey", "Name", "Id", "Pid", "true"),
+                        Config = new Config<Dictionary>("DictionaryKey", "Name", "Id", "Pid", "true", "false"),
                         Function = new BaseMode.Function
                         {
                             Name = "SubsetByKey",
@@ -740,7 +740,7 @@ namespace MISApi.Controllers.ASM
                 return Tree(
                     new TreeMode.Request
                     {
-                        Config = new Config<Dictionary>("DictionaryKey", "Name", "Id", "Pid", "true"),
+                        Config = new Config<Dictionary>("DictionaryKey", "Name", "Id", "Pid", "true", "false"),
                         Function = new BaseMode.Function
                         {
                             Name = "SupersetByKey",
@@ -1072,14 +1072,14 @@ namespace MISApi.Controllers.ASM
             /// <summary>
             /// 
             /// </summary>
-            public class Request : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<Dictionary>
+            public class Request : HttpClients.HttpModes.TreeMode.AntdTreeRequest<Dictionary>
             {
                 /// <summary>
                 /// 
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
-                public override HttpClients.HttpModes.TreeMode.BootstrapTreeViewResponse<Dictionary> ToResponse(List<Dictionary> entityList)
+                public override HttpClients.HttpModes.TreeMode.AntdTreeResponse<Dictionary> ToResponse(List<Dictionary> entityList)
                 {
                     return base.ToResponse(entityList);
                 }
@@ -1087,7 +1087,7 @@ namespace MISApi.Controllers.ASM
             /// <summary>
             /// 
             /// </summary>
-            public class Response : HttpClients.HttpModes.TreeMode.BootstrapTreeViewRequest<Dictionary>
+            public class Response : HttpClients.HttpModes.TreeMode.AntdTreeRequest<Dictionary>
             {
 
             }

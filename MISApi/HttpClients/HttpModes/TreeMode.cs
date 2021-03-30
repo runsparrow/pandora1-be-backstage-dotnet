@@ -49,6 +49,33 @@ namespace MISApi.HttpClients.HttpModes.TreeMode
     }
     #endregion
 
+    #region AntdTreeRequest
+    /// <summary>
+    /// 
+    /// </summary>
+    public class AntdTreeRequest<T> : Request<T>
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty(PropertyName = "config")]
+        public virtual AntdTree.Config<T> Config { get; set; } = new AntdTree.Config<T>();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rows"></param>
+        /// <returns></returns>
+        public new virtual AntdTreeResponse<T> ToResponse(List<T> rows)
+        {
+            AntdTreeResponse<T> response = new AntdTreeResponse<T>();
+            response.Request = this;
+            response.Rows = rows;
+            return response;
+        }
+    }
+    #endregion
+
     #endregion
 
     #region Response
@@ -100,6 +127,32 @@ namespace MISApi.HttpClients.HttpModes.TreeMode
             get
             {
                 return new BootstrapTreeView.TreeViewBase<T>().ToTree(Rows, Request.Config);
+            }
+        }
+
+    }
+    #endregion
+
+    #region AntdTreeResponse
+    /// <summary>
+    /// 
+    /// </summary>
+    public class AntdTreeResponse<T> : Response<T>
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty(PropertyName = "request")]
+        public new virtual AntdTreeRequest<T> Request { get; set; } = new AntdTreeRequest<T>();
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty(PropertyName = "tree")]
+        public virtual List<AntdTree.Child> Tree
+        {
+            get
+            {
+                return new AntdTree.TreeViewBase<T>().ToTree(Rows, Request.Config);
             }
         }
 

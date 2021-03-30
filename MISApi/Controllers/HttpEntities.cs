@@ -1,5 +1,5 @@
 ﻿using MISApi.Entities.CMS;
-using MISApi.HttpClients.HttpModes.TreeMode.BootstrapTreeView;
+using MISApi.HttpClients.HttpModes.TreeMode.AntdTree;
 using Newtonsoft.Json;
 using System;
 using System.ComponentModel;
@@ -250,7 +250,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("配置")]
         [JsonProperty(PropertyName = "config")]
-        public Config<T> Config { get; set; } = new Config<T>("StatusKey", "Name", "Id", "Pid", "true");
+        public Config<T> Config { get; set; } = new Config<T>("StatusKey", "Name", "Id", "Pid", "true", "false");
     }
     /// <summary>
     /// 带配置信息的Id查询条件，用于树结构
@@ -268,7 +268,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("配置")]
         [JsonProperty(PropertyName = "config")]
-        public Config<T> Config { get; set; } = new Config<T>("StatusKey", "Name", "Id", "Pid", "true");
+        public Config<T> Config { get; set; } = new Config<T>("StatusKey", "Name", "Id", "Pid", "true", "false");
     }
     /// <summary>
     /// 带配置信息的上级Id查询条件，用于树结构
@@ -287,7 +287,7 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("配置")]
         [JsonProperty(PropertyName = "config")]
-        public Config<T> Config { get; set; } = new Config<T>("StatusKey", "Name", "Id", "Pid", "true");
+        public Config<T> Config { get; set; } = new Config<T>("StatusKey", "Name", "Id", "Pid", "true", "false");
     }
     /// <summary>
     /// 带配置信息的员工Id查询条件，用于树结构
@@ -306,6 +306,6 @@ namespace MISApi.Controllers.HttpEntities
         /// </summary>
         [Description("配置")]
         [JsonProperty(PropertyName = "config")]
-        public Config<T> Config { get; set; } = new Config<T>("StatusKey", "Name", "Id", "Pid", "true");
+        public Config<T> Config { get; set; } = new Config<T>("StatusKey", "Name", "Id", "Pid", "true", "false");
     }
 }

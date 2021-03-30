@@ -636,7 +636,7 @@ namespace MISApi.Controllers.ASM
         /// <returns></returns>
         [Route("MIS/ASM/Dictionary/Tree/SubsetById/{id}", Name = "MIS_ASM_Dictionary_Tree_SubsetById_Id")]
         [HttpGet]
-        //[Authorize]
+        [Authorize]
         public IActionResult Tree_SubsetById(int id)
         {
             try

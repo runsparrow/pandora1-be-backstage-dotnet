@@ -19851,13 +19851,13 @@
         </member>
         <member name="M:MISApi.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
-            构造函数
+            ????????
             </summary>
             <param name="configuration"></param>
         </member>
         <member name="P:MISApi.Startup.Configuration">
             <summary>
-            属性
+            ????
             </summary>
         </member>
         <member name="M:MISApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
@@ -19874,7 +19874,7 @@
         </member>
         <member name="T:MISApi.MISDocumentFilter">
             <summary>
-            用于swagger生成文档的标签描述
+            ????swagger??????????????????
             </summary>
         </member>
         <member name="M:MISApi.MISDocumentFilter.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">

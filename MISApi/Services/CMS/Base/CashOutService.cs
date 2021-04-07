@@ -516,37 +516,44 @@ namespace MISApi.Services.CMS.Base
         /// <returns></returns>
         protected IQueryable<SQLEntity> SQLQueryable(PandoraContext context, params BaseMode.Join[] joins)
         {
-            // 定义
-            var left = context.CMS_CashOut.Select(Main => new SQLEntity
+            try
             {
-                CashOut = Main
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
-                // SQLEntity.Status
-                if (join.Name.ToLower().Equals("status"))
+                // 定义
+                var left = context.CMS_CashOut.Select(Main => new SQLEntity
                 {
-                    left = left.LeftOuterJoin(context.WFM_Status, Main => Main.CashOut.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    CashOut = Main
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
+                    // SQLEntity.Status
+                    if (join.Name.ToLower().Equals("status"))
                     {
-                        CashOut = Main.CashOut,
-                        Status = Left
-                    });
+                        left = left.LeftOuterJoin(context.WFM_Status, Main => Main.CashOut.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            CashOut = Main.CashOut,
+                            Status = Left
+                        });
+                    }
                 }
-            }
-            // 一对多
-            var group = left.Select(Main => new SQLEntity
-            {
-                CashOut = Main.CashOut,
-                Status = Main.Status
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
+                // 一对多
+                var group = left.Select(Main => new SQLEntity
+                {
+                    CashOut = Main.CashOut,
+                    Status = Main.Status
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
 
+                }
+                // 返回
+                return group;
             }
-            // 返回
-            return group;
+            catch(Exception ex)
+            {
+                throw new Exception("MISApi.Services.CMS.Base.CashOutService.SQLQueryable", ex);
+            }
         }
         /// <summary>
         /// 关键字

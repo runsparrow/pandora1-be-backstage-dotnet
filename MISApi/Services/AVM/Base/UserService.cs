@@ -493,37 +493,44 @@ namespace MISApi.Services.AVM.Base
         /// <returns></returns>
         protected IQueryable<SQLEntity> SQLQueryable(PandoraContext context, params BaseMode.Join[] joins)
         {
-            // 定义
-            var left = context.AVM_User.Select(Main => new SQLEntity
+            try
             {
-                User = Main
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
-                // SQLEntity.Status
-                if (join.Name.ToLower().Equals("status"))
+                // 定义
+                var left = context.AVM_User.Select(Main => new SQLEntity
                 {
-                    left = left.LeftOuterJoin(context.WFM_Status, Main => Main.User.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    User = Main
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
+                    // SQLEntity.Status
+                    if (join.Name.ToLower().Equals("status"))
                     {
-                        User = Main.User,
-                        Status = Left
-                    });
+                        left = left.LeftOuterJoin(context.WFM_Status, Main => Main.User.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            User = Main.User,
+                            Status = Left
+                        });
+                    }
                 }
-            }
-            // 一对多
-            var group = left.Select(Main => new SQLEntity
-            {
-                User = Main.User,
-                Status = Main.Status
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
+                // 一对多
+                var group = left.Select(Main => new SQLEntity
+                {
+                    User = Main.User,
+                    Status = Main.Status
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
 
+                }
+                // 返回
+                return group;
             }
-            // 返回
-            return group;
+            catch(Exception ex)
+            {
+                throw new Exception("MISApi.Services.AVM.Base.UserService.SQLQueryable", ex);
+            }
         }
         /// <summary>
         /// 关键字

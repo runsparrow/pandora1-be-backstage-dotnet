@@ -625,37 +625,44 @@ namespace MISApi.Services.WFM.Base
         /// <returns></returns>
         protected IQueryable<SQLEntity> SQLQueryable(PandoraContext context, params BaseMode.Join[] joins)
         {
-            // 定义
-            var left = context.WFM_Status.Select(Main => new SQLEntity
+            try
             {
-                Status = Main
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
-                // SQLEntity.ParentStatus
-                if (join.Name.ToLower().Equals("parentstatus"))
+                // 定义
+                var left = context.WFM_Status.Select(Main => new SQLEntity
                 {
-                    left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Status.Pid, Left => Left.Id, (Main, Left) => new SQLEntity
+                    Status = Main
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
+                    // SQLEntity.ParentStatus
+                    if (join.Name.ToLower().Equals("parentstatus"))
                     {
-                        Status = Main.Status,
-                        ParentStatus = Left
-                    });
+                        left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Status.Pid, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Status = Main.Status,
+                            ParentStatus = Left
+                        });
+                    }
                 }
-            }
-            // 一对多
-            var group = left.Select(Main => new SQLEntity
-            {
-                Status = Main.Status,
-                ParentStatus = Main.ParentStatus
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
+                // 一对多
+                var group = left.Select(Main => new SQLEntity
+                {
+                    Status = Main.Status,
+                    ParentStatus = Main.ParentStatus
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
 
+                }
+                // 返回
+                return group;
             }
-            // 返回
-            return group;
+            catch(Exception ex)
+            {
+                throw new Exception("MISApi.Services.WFM.Base.StatusService.SQLQueryable", ex);
+            }
         }
         /// <summary>
         /// 关键字

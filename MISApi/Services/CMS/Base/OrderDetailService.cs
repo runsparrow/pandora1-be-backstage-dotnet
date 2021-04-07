@@ -539,97 +539,104 @@ namespace MISApi.Services.CMS.Base
         /// <returns></returns>
         protected IQueryable<SQLEntity> SQLQueryable(PandoraContext context, params BaseMode.Join[] joins)
         {
-            // 定义
-            var left = context.CMS_OrderDetail.Select(Main => new SQLEntity
+            try
             {
-                OrderDetail = Main
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
-                // SQLEntity.Order
-                if (join.Name.ToLower().Equals("order"))
+                // 定义
+                var left = context.CMS_OrderDetail.Select(Main => new SQLEntity
                 {
-                    left = left.LeftOuterJoin(context.CMS_Order, Main => Main.OrderDetail.OrderId, Left => Left.Id, (Main, Left) => new SQLEntity
-                    {
-                        OrderDetail = Main.OrderDetail,
-                        Goods = Main.Goods,
-                        Order = Left,
-                        Buyer = Main.Buyer,
-                        Owner = Main.Owner,
-                        Status = Main.Status
-                    });
-                }
-                // SQLEntity.Goods
-                if (join.Name.ToLower().Equals("goods"))
+                    OrderDetail = Main
+                });
+                // 遍历
+                foreach (var join in joins)
                 {
-                    left = left.LeftOuterJoin(context.CMS_Goods, Main => Main.OrderDetail.GoodsId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    // SQLEntity.Order
+                    if (join.Name.ToLower().Equals("order"))
                     {
-                        OrderDetail = Main.OrderDetail,
-                        Goods = Left,
-                        Order = Main.Order,
-                        Buyer = Main.Buyer,
-                        Owner = Main.Owner,
-                        Status = Main.Status
-                    });
+                        left = left.LeftOuterJoin(context.CMS_Order, Main => Main.OrderDetail.OrderId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            OrderDetail = Main.OrderDetail,
+                            Goods = Main.Goods,
+                            Order = Left,
+                            Buyer = Main.Buyer,
+                            Owner = Main.Owner,
+                            Status = Main.Status
+                        });
+                    }
+                    // SQLEntity.Goods
+                    if (join.Name.ToLower().Equals("goods"))
+                    {
+                        left = left.LeftOuterJoin(context.CMS_Goods, Main => Main.OrderDetail.GoodsId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            OrderDetail = Main.OrderDetail,
+                            Goods = Left,
+                            Order = Main.Order,
+                            Buyer = Main.Buyer,
+                            Owner = Main.Owner,
+                            Status = Main.Status
+                        });
+                    }
+                    // SQLEntity.Buyer
+                    if (join.Name.ToLower().Equals("buyer"))
+                    {
+                        left = left.LeftOuterJoin(context.CMS_Member, Main => Main.OrderDetail.BuyerId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            OrderDetail = Main.OrderDetail,
+                            Goods = Main.Goods,
+                            Order = Main.Order,
+                            Buyer = Left,
+                            Owner = Main.Owner,
+                            Status = Main.Status
+                        });
+                    }
+                    // SQLEntity.Owner
+                    if (join.Name.ToLower().Equals("owner"))
+                    {
+                        left = left.LeftOuterJoin(context.CMS_Member, Main => Main.OrderDetail.OwnerId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            OrderDetail = Main.OrderDetail,
+                            Goods = Main.Goods,
+                            Order = Main.Order,
+                            Buyer = Main.Buyer,
+                            Owner = Left,
+                            Status = Main.Status
+                        });
+                    }
+                    // SQLEntity.Status
+                    if (join.Name.ToLower().Equals("status"))
+                    {
+                        left = left.LeftOuterJoin(context.WFM_Status, Main => Main.OrderDetail.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            OrderDetail = Main.OrderDetail,
+                            Goods = Main.Goods,
+                            Order = Main.Order,
+                            Buyer = Main.Buyer,
+                            Owner = Main.Owner,
+                            Status = Left
+                        });
+                    }
                 }
-                // SQLEntity.Buyer
-                if (join.Name.ToLower().Equals("buyer"))
+                // 一对多
+                var group = left.Select(Main => new SQLEntity
                 {
-                    left = left.LeftOuterJoin(context.CMS_Member, Main => Main.OrderDetail.BuyerId, Left => Left.Id, (Main, Left) => new SQLEntity
-                    {
-                        OrderDetail = Main.OrderDetail,
-                        Goods = Main.Goods,
-                        Order = Main.Order,
-                        Buyer = Left,
-                        Owner = Main.Owner,
-                        Status = Main.Status
-                    });
-                }
-                // SQLEntity.Owner
-                if (join.Name.ToLower().Equals("owner"))
+                    OrderDetail = Main.OrderDetail,
+                    Goods = Main.Goods,
+                    Order = Main.Order,
+                    Buyer = Main.Buyer,
+                    Owner = Main.Owner,
+                    Status = Main.Status
+                });
+                // 遍历
+                foreach (var join in joins)
                 {
-                    left = left.LeftOuterJoin(context.CMS_Member, Main => Main.OrderDetail.OwnerId, Left => Left.Id, (Main, Left) => new SQLEntity
-                    {
-                        OrderDetail = Main.OrderDetail,
-                        Goods = Main.Goods,
-                        Order = Main.Order,
-                        Buyer = Main.Buyer,
-                        Owner = Left,
-                        Status = Main.Status
-                    });
-                }
-                // SQLEntity.Status
-                if (join.Name.ToLower().Equals("status"))
-                {
-                    left = left.LeftOuterJoin(context.WFM_Status, Main => Main.OrderDetail.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
-                    {
-                        OrderDetail = Main.OrderDetail,
-                        Goods = Main.Goods,
-                        Order = Main.Order,
-                        Buyer = Main.Buyer,
-                        Owner = Main.Owner,
-                        Status = Left
-                    });
-                }
-            }
-            // 一对多
-            var group = left.Select(Main => new SQLEntity
-            {
-                OrderDetail = Main.OrderDetail,
-                Goods = Main.Goods,
-                Order = Main.Order,
-                Buyer = Main.Buyer,
-                Owner = Main.Owner,
-                Status = Main.Status
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
 
+                }
+                // 返回
+                return group;
             }
-            // 返回
-            return group;
+            catch(Exception ex)
+            {
+                throw new Exception("MISApi.Services.CMS.Base.OrderDetailService.SQLQueryable", ex);
+            }
         }
         /// <summary>
         /// 关键字

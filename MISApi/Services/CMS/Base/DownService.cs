@@ -491,28 +491,35 @@ namespace MISApi.Services.CMS.Base
         /// <returns></returns>
         protected IQueryable<SQLEntity> SQLQueryable(PandoraContext context, params BaseMode.Join[] joins)
         {
-            // 定义
-            var left = context.CMS_Down.Select(Main => new SQLEntity
+            try
             {
-                Down = Main
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
+                // 定义
+                var left = context.CMS_Down.Select(Main => new SQLEntity
+                {
+                    Down = Main
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
 
-            }
-            // 一对多
-            var group = left.Select(Main => new SQLEntity
-            {
-                Down = Main.Down
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
+                }
+                // 一对多
+                var group = left.Select(Main => new SQLEntity
+                {
+                    Down = Main.Down
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
 
+                }
+                // 返回
+                return group;
             }
-            // 返回
-            return group;
+            catch(Exception ex)
+            {
+                throw new Exception("MISApi.Services.CMS.Base.DownService.SQLQueryable", ex);
+            }
         }
         /// <summary>
         /// 关键字

@@ -628,37 +628,44 @@ namespace MISApi.Services.CMS.Base
         /// <returns></returns>
         protected IQueryable<SQLEntity> SQLQueryable(PandoraContext context, params BaseMode.Join[] joins)
         {
-            // 定义
-            var left = context.CMS_Navigation.Select(Main => new SQLEntity
+            try
             {
-                Navigation = Main
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
-                // SQLEntity.Status
-                if (join.Name.ToLower().Equals("status"))
+                // 定义
+                var left = context.CMS_Navigation.Select(Main => new SQLEntity
                 {
-                    left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Navigation.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    Navigation = Main
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
+                    // SQLEntity.Status
+                    if (join.Name.ToLower().Equals("status"))
                     {
-                        Navigation = Main.Navigation,
-                        Status = Left
-                    });
+                        left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Navigation.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Navigation = Main.Navigation,
+                            Status = Left
+                        });
+                    }
                 }
-            }
-            // 一对多
-            var group = left.Select(Main => new SQLEntity
-            {
-                Navigation = Main.Navigation,
-                Status = Main.Status
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
+                // 一对多
+                var group = left.Select(Main => new SQLEntity
+                {
+                    Navigation = Main.Navigation,
+                    Status = Main.Status
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
 
+                }
+                // 返回
+                return group;
             }
-            // 返回
-            return group;
+            catch(Exception ex)
+            {
+                throw new Exception("MISApi.Services.CMS.Base.NavigationService.SQLQueryable", ex);
+            }
         }
         /// <summary>
         /// 关键字

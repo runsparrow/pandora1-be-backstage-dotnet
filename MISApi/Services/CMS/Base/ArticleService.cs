@@ -465,49 +465,56 @@ namespace MISApi.Services.CMS.Base
         /// <returns></returns>
         protected IQueryable<SQLEntity> SQLQueryable(PandoraContext context, params BaseMode.Join[] joins)
         {
-            // 定义
-            var left = context.CMS_Article.Select(Main => new SQLEntity
+            try
             {
-                Article = Main
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
-                // SQLEntity.Navigation
-                if (join.Name.ToLower().Equals("navigation"))
+                // 定义
+                var left = context.CMS_Article.Select(Main => new SQLEntity
                 {
-                    left = left.LeftOuterJoin(context.CMS_Navigation, Main => Main.Article.NavigationId, Left => Left.Id, (Main, Left) => new SQLEntity
-                    {
-                        Article = Main.Article,
-                        Navigation = Left,
-                        Status = Main.Status
-                    });
-                }
-                // SQLEntity.Status
-                if (join.Name.ToLower().Equals("status"))
+                    Article = Main
+                });
+                // 遍历
+                foreach (var join in joins)
                 {
-                    left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Article.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    // SQLEntity.Navigation
+                    if (join.Name.ToLower().Equals("navigation"))
                     {
-                        Article = Main.Article,
-                        Navigation = Main.Navigation,
-                        Status = Left
-                    });
+                        left = left.LeftOuterJoin(context.CMS_Navigation, Main => Main.Article.NavigationId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Article = Main.Article,
+                            Navigation = Left,
+                            Status = Main.Status
+                        });
+                    }
+                    // SQLEntity.Status
+                    if (join.Name.ToLower().Equals("status"))
+                    {
+                        left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Article.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Article = Main.Article,
+                            Navigation = Main.Navigation,
+                            Status = Left
+                        });
+                    }
                 }
-            }
-            // 一对多
-            var group = left.Select(Main => new SQLEntity
-            {
-                Article = Main.Article,
-                Navigation = Main.Navigation,
-                Status = Main.Status
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
+                // 一对多
+                var group = left.Select(Main => new SQLEntity
+                {
+                    Article = Main.Article,
+                    Navigation = Main.Navigation,
+                    Status = Main.Status
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
 
+                }
+                // 返回
+                return group;
             }
-            // 返回
-            return group;
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Services.CMS.Base.ArticleService.SQLQueryable", ex);
+            }
         }
         /// <summary>
         /// 关键字
@@ -669,6 +676,13 @@ namespace MISApi.Services.CMS.Base
                 {
                     dates.ToList().ForEach(date =>
                     {
+                        if (date.Name.ToLower().Equals("publishdatetime"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.Article.PublishDateTime >= date.MinDate && row.Article.PublishDateTime <= date.MaxDate
+                                );
+                        }
                         if (date.Name.ToLower().Equals("createdatetime"))
                         {
                             queryable = queryable

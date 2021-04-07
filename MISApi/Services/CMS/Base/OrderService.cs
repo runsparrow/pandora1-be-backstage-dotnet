@@ -467,49 +467,56 @@ namespace MISApi.Services.CMS.Base
         /// <returns></returns>
         protected IQueryable<SQLEntity> SQLQueryable(PandoraContext context, params BaseMode.Join[] joins)
         {
-            // 定义
-            var left = context.CMS_Order.Select(Main => new SQLEntity
+            try
             {
-                Order = Main
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
-                // SQLEntity.Buyer
-                if (join.Name.ToLower().Equals("buyer"))
+                // 定义
+                var left = context.CMS_Order.Select(Main => new SQLEntity
                 {
-                    left = left.LeftOuterJoin(context.CMS_Member, Main => Main.Order.BuyerId, Left => Left.Id, (Main, Left) => new SQLEntity
-                    {
-                        Order = Main.Order,
-                        Buyer = Left,
-                        Status = Main.Status
-                    });
-                }
-                // SQLEntity.Status
-                if (join.Name.ToLower().Equals("status"))
+                    Order = Main
+                });
+                // 遍历
+                foreach (var join in joins)
                 {
-                    left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Order.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    // SQLEntity.Buyer
+                    if (join.Name.ToLower().Equals("buyer"))
                     {
-                        Order = Main.Order,
-                        Buyer = Main.Buyer,
-                        Status = Left
-                    });
+                        left = left.LeftOuterJoin(context.CMS_Member, Main => Main.Order.BuyerId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Order = Main.Order,
+                            Buyer = Left,
+                            Status = Main.Status
+                        });
+                    }
+                    // SQLEntity.Status
+                    if (join.Name.ToLower().Equals("status"))
+                    {
+                        left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Order.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Order = Main.Order,
+                            Buyer = Main.Buyer,
+                            Status = Left
+                        });
+                    }
                 }
-            }
-            // 一对多
-            var group = left.Select(Main => new SQLEntity
-            {
-                Order = Main.Order,
-                Buyer = Main.Buyer,
-                Status = Main.Status
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
+                // 一对多
+                var group = left.Select(Main => new SQLEntity
+                {
+                    Order = Main.Order,
+                    Buyer = Main.Buyer,
+                    Status = Main.Status
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
 
+                }
+                // 返回
+                return group;
             }
-            // 返回
-            return group;
+            catch(Exception ex)
+            {
+                throw new Exception("MISApi.Services.CMS.Base.OrderService.SQLQueryable", ex);
+            }
         }
         /// <summary>
         /// 关键字

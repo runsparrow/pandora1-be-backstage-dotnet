@@ -491,37 +491,44 @@ namespace MISApi.Services.CMS.Base
         /// <returns></returns>
         protected IQueryable<SQLEntity> SQLQueryable(PandoraContext context, params BaseMode.Join[] joins)
         {
-            // 定义
-            var left = context.CMS_Goods.Select(Main => new SQLEntity
+            try
             {
-                Goods = Main
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
-                // SQLEntity.Status
-                if (join.Name.ToLower().Equals("status"))
+                // 定义
+                var left = context.CMS_Goods.Select(Main => new SQLEntity
                 {
-                    left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Goods.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    Goods = Main
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
+                    // SQLEntity.Status
+                    if (join.Name.ToLower().Equals("status"))
                     {
-                        Goods = Main.Goods,
-                        Status = Left
-                    });
+                        left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Goods.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Goods = Main.Goods,
+                            Status = Left
+                        });
+                    }
                 }
-            }
-            // 一对多
-            var group = left.Select(Main => new SQLEntity
-            {
-                Goods = Main.Goods,
-                Status = Main.Status
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
+                // 一对多
+                var group = left.Select(Main => new SQLEntity
+                {
+                    Goods = Main.Goods,
+                    Status = Main.Status
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
 
+                }
+                // 返回
+                return group;
             }
-            // 返回
-            return group;
+            catch(Exception ex)
+            {
+                throw new Exception("MISApi.Services.CMS.Base.GoodsService.SQLQueryable", ex);
+            }
         }
         /// <summary>
         /// 关键字

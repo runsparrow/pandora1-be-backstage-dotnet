@@ -491,63 +491,70 @@ namespace MISApi.Services.CMS.Base
         /// <returns></returns>
         protected IQueryable<SQLEntity> SQLQueryable(PandoraContext context, params BaseMode.Join[] joins)
         {
-            // 定义
-            var left = context.CMS_Serial.Select(Main => new SQLEntity
+            try
             {
-                Serial = Main
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
-                // SQLEntity.Payer
-                if (join.Name.ToLower().Equals("payer"))
+                // 定义
+                var left = context.CMS_Serial.Select(Main => new SQLEntity
                 {
-                    left = left.LeftOuterJoin(context.CMS_Member, Main => Main.Serial.PayerId, Left => Left.Id, (Main, Left) => new SQLEntity
-                    {
-                        Serial = Main.Serial,
-                        Payer = Left,
-                        Receiver = Main.Receiver,
-                        Status = Main.Status
-                    });
-                }
-                // SQLEntity.Receiver
-                if (join.Name.ToLower().Equals("receiver"))
+                    Serial = Main
+                });
+                // 遍历
+                foreach (var join in joins)
                 {
-                    left = left.LeftOuterJoin(context.CMS_Member, Main => Main.Serial.ReceiverId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    // SQLEntity.Payer
+                    if (join.Name.ToLower().Equals("payer"))
                     {
-                        Serial = Main.Serial,
-                        Payer = Main.Payer,
-                        Receiver = Left,
-                        Status = Main.Status
-                    });
+                        left = left.LeftOuterJoin(context.CMS_Member, Main => Main.Serial.PayerId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Serial = Main.Serial,
+                            Payer = Left,
+                            Receiver = Main.Receiver,
+                            Status = Main.Status
+                        });
+                    }
+                    // SQLEntity.Receiver
+                    if (join.Name.ToLower().Equals("receiver"))
+                    {
+                        left = left.LeftOuterJoin(context.CMS_Member, Main => Main.Serial.ReceiverId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Serial = Main.Serial,
+                            Payer = Main.Payer,
+                            Receiver = Left,
+                            Status = Main.Status
+                        });
+                    }
+                    // SQLEntity.Status
+                    if (join.Name.ToLower().Equals("status"))
+                    {
+                        left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Serial.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Serial = Main.Serial,
+                            Payer = Main.Payer,
+                            Receiver = Main.Receiver,
+                            Status = Left
+                        });
+                    }
                 }
-                // SQLEntity.Status
-                if (join.Name.ToLower().Equals("status"))
+                // 一对多
+                var group = left.Select(Main => new SQLEntity
                 {
-                    left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Serial.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
-                    {
-                        Serial = Main.Serial,
-                        Payer = Main.Payer,
-                        Receiver = Main.Receiver,
-                        Status = Left
-                    });
-                }
-            }
-            // 一对多
-            var group = left.Select(Main => new SQLEntity
-            {
-                Serial = Main.Serial,
-                Payer = Main.Payer,
-                Receiver = Main.Receiver,
-                Status = Main.Status
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
+                    Serial = Main.Serial,
+                    Payer = Main.Payer,
+                    Receiver = Main.Receiver,
+                    Status = Main.Status
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
 
+                }
+                // 返回
+                return group;
             }
-            // 返回
-            return group;
+            catch(Exception ex)
+            {
+                throw new Exception("MISApi.Services.CMS.Base.SerialService.SQLQueryable", ex);
+            }
         }
         /// <summary>
         /// 关键字

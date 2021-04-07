@@ -465,37 +465,44 @@ namespace MISApi.Services.CMS.Base
         /// <returns></returns>
         protected IQueryable<SQLEntity> SQLQueryable(PandoraContext context, params BaseMode.Join[] joins)
         {
-            // 定义
-            var left = context.CMS_Recharge.Select(Main => new SQLEntity
+            try
             {
-                Recharge = Main
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
-                // SQLEntity.Member
-                if (join.Name.ToLower().Equals("member"))
+                // 定义
+                var left = context.CMS_Recharge.Select(Main => new SQLEntity
                 {
-                    left = left.LeftOuterJoin(context.CMS_Member, Main => Main.Recharge.MemberId, Left => Left.Id, (Main, Left) => new SQLEntity
+                    Recharge = Main
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
+                    // SQLEntity.Member
+                    if (join.Name.ToLower().Equals("member"))
                     {
-                        Recharge = Main.Recharge,
-                        Member = Left
-                    });
+                        left = left.LeftOuterJoin(context.CMS_Member, Main => Main.Recharge.MemberId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Recharge = Main.Recharge,
+                            Member = Left
+                        });
+                    }
                 }
-            }
-            // 一对多
-            var group = left.Select(Main => new SQLEntity
-            {
-                Recharge = Main.Recharge,
-                Member = Main.Member
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
+                // 一对多
+                var group = left.Select(Main => new SQLEntity
+                {
+                    Recharge = Main.Recharge,
+                    Member = Main.Member
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
 
+                }
+                // 返回
+                return group;
             }
-            // 返回
-            return group;
+            catch(Exception ex)
+            {
+                throw new Exception("MISApi.Services.CMS.Base.RechargeService.SQLQueryable", ex);
+            }
         }
         /// <summary>
         /// 关键字

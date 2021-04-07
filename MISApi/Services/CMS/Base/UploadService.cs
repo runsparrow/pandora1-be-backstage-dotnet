@@ -490,28 +490,35 @@ namespace MISApi.Services.CMS.Base
         /// <returns></returns>
         protected IQueryable<SQLEntity> SQLQueryable(PandoraContext context, params BaseMode.Join[] joins)
         {
-            // 定义
-            var left = context.CMS_Upload.Select(Main => new SQLEntity
+            try
             {
-                Upload = Main
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
+                // 定义
+                var left = context.CMS_Upload.Select(Main => new SQLEntity
+                {
+                    Upload = Main
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
 
-            }
-            // 一对多
-            var group = left.Select(Main => new SQLEntity
-            {
-                Upload = Main.Upload
-            });
-            // 遍历
-            foreach (var join in joins)
-            {
+                }
+                // 一对多
+                var group = left.Select(Main => new SQLEntity
+                {
+                    Upload = Main.Upload
+                });
+                // 遍历
+                foreach (var join in joins)
+                {
 
+                }
+                // 返回
+                return group;
             }
-            // 返回
-            return group;
+            catch(Exception ex)
+            {
+                throw new Exception("MISApi.Services.CMS.Base.UploadService.SQLQueryable", ex);
+            }
         }
         /// <summary>
         /// 关键字

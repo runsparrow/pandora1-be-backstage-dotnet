@@ -630,6 +630,70 @@ namespace MISApi.Controllers.ASM
             }
         }
         /// <summary>
+        /// 根据键名查询获得树型结构的字典
+        /// </summary>
+        /// <param name="key">键名</param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Dictionary/Tree/SubsetByKey/{key}", Name = "MIS_ASM_Dictionary_Tree_SubsetByKey_Key")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Tree_SubsetByKey(string key)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Dictionary>("DictionaryKey", "Name", "Id", "Pid", "true", "false"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SubsetByKey",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(key),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Tree_SubsetByKey", ex);
+            }
+        }
+        /// <summary>
+        /// 根据键名查询获得树型结构的字典
+        /// </summary>
+        /// <param name="key">键名</param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Dictionary/Tree/SupersetByKey/{key}", Name = "MIS_ASM_Dictionary_Tree_SupersetByKey_Key")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Tree_SupersetByKey(string key)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Dictionary>("DictionaryKey", "Name", "Id", "Pid", "true", "false"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SupersetByKey",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(key),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Tree_SupersetByKey", ex);
+            }
+        }
+        /// <summary>
         /// 根据Id查询获得树型结构的数据字典
         /// </summary>
         /// <param name="id"></param>
@@ -691,70 +755,6 @@ namespace MISApi.Controllers.ASM
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.ASM.DictionaryController.Tree_SupersetById", ex);
-            }
-        }
-        /// <summary>
-        /// 根据Key查询获得树型结构的数据字典
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        [Route("MIS/ASM/Dictionary/Tree/SubsetByKey/{key}", Name = "MIS_ASM_Dictionary_Tree_SubsetByKey_Key")]
-        [HttpGet]
-        [Authorize]
-        public IActionResult Tree_SubsetByKey(string key)
-        {
-            try
-            {
-                return Tree(
-                    new TreeMode.Request
-                    {
-                        Config = new Config<Dictionary>("DictionaryKey", "Name", "Id", "Pid", "true", "false"),
-                        Function = new BaseMode.Function
-                        {
-                            Name = "SubsetByKey",
-                            Args = new BaseMode.Arg[] {
-                                new BaseMode.Arg(key),
-                                new BaseMode.Arg(new BaseMode.Join [] {})
-                            }
-                        }
-                    }
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Tree_SubsetByKey", ex);
-            }
-        }
-        /// <summary>
-        /// 根据Key查询获得树型结构的数据字典
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        [Route("MIS/ASM/Dictionary/Tree/SupersetByKey/{key}", Name = "MIS_ASM_Dictionary_Tree_SupersetByKey_Key")]
-        [HttpGet]
-        [Authorize]
-        public IActionResult Tree_SupersetByKey(string key)
-        {
-            try
-            {
-                return Tree(
-                    new TreeMode.Request
-                    {
-                        Config = new Config<Dictionary>("DictionaryKey", "Name", "Id", "Pid", "true", "false"),
-                        Function = new BaseMode.Function
-                        {
-                            Name = "SupersetByKey",
-                            Args = new BaseMode.Arg[] {
-                                new BaseMode.Arg(key),
-                                new BaseMode.Arg(new BaseMode.Join [] {})
-                            }
-                        }
-                    }
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Tree_SupersetByKey", ex);
             }
         }
         /// <summary>

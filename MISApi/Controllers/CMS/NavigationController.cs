@@ -583,6 +583,70 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
+        /// 根据键名查询获得树型结构的导航
+        /// </summary>
+        /// <param name="key">键名</param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Navigation/Tree/SubsetByKey/{key}", Name = "MIS_CMS_Navigation_Tree_SubsetByKey_Key")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Tree_SubsetByKey(string key)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Navigation>("NavigationKey", "Name", "Id", "Pid", "true", "false"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SubsetByKey",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(key),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Tree_SubsetByKey", ex);
+            }
+        }
+        /// <summary>
+        /// 根据键名查询获得树型结构的导航
+        /// </summary>
+        /// <param name="key">键名</param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Navigation/Tree/SupersetByKey/{key}", Name = "MIS_CMS_Navigation_Tree_SupersetByKey_Key")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Tree_SupersetByKey(string key)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Navigation>("NavigationKey", "Name", "Id", "Pid", "true", "false"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SupersetByKey",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(key),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Tree_SupersetByKey", ex);
+            }
+        }
+        /// <summary>
         /// 根据Id查询获得树型结构的导航
         /// </summary>
         /// <param name="id"></param>

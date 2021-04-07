@@ -384,7 +384,8 @@ namespace MISApi.Services.ASM.Base
             {
                 try
                 {
-                    return SubsetByKeyRecursion(new List<Dictionary> { new RowService().ByKey(key) }, key, joins);
+                    List<Dictionary> list = new RowService().ByKey(key) == null ? new List<Dictionary>() : new List<Dictionary> { new RowService().ByKey(key) };
+                    return SubsetByIdRecursion(list, list[0].Id, joins);
                 }
                 catch (Exception ex)
                 {
@@ -401,11 +402,20 @@ namespace MISApi.Services.ASM.Base
             {
                 try
                 {
-                    return SupersetByKeyRecursion(new List<Dictionary> { new RowService().ByKey(key) }, key, joins);
+                    Dictionary currentDictionary = new RowService().ByKey(key) ?? new Dictionary();
+                    List<Dictionary> result = SupersetByIdRecursion(new List<Dictionary>(), currentDictionary.Pid, joins);
+                    result.Add(currentDictionary);
+                    string path = "^";
+                    // 生成path
+                    result.ForEach(dictionary =>
+                    {
+                        path = dictionary.Path = $"{path}{dictionary.Name}^";
+                    });
+                    return result;
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.ASM.Base.DictionaryService.RowsService.SubsetByKey", ex);
+                    throw new Exception("MISApi.Services.ASM.Base.DictionaryService.RowsService.SupersetByKey", ex);
                 }
             }
             /// <summary>
@@ -418,7 +428,8 @@ namespace MISApi.Services.ASM.Base
             {
                 try
                 {
-                    return SubsetByIdRecursion(new List<Dictionary> { new RowService().ById(id) }, id, joins);
+                    List<Dictionary> list = new RowService().ById(id) == null ? new List<Dictionary>() : new List<Dictionary> { new RowService().ById(id) };
+                    return SubsetByIdRecursion(list, id, joins);
                 }
                 catch (Exception ex)
                 {

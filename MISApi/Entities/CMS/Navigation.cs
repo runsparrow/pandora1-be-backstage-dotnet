@@ -40,6 +40,22 @@ namespace MISApi.Entities.CMS
         [DefaultValue("")]
         public string Name { get; set; } = "";
         /// <summary>
+        /// 键名
+        /// </summary>
+        [StringLength(255)]
+        [Description("键名")]
+        [JsonProperty("key")]
+        [DefaultValue("")]
+        public string Key { get; set; } = "";
+        /// <summary>
+        /// 键值
+        /// </summary>
+        [StringLength(255)]
+        [Description("键值")]
+        [JsonProperty("value")]
+        [DefaultValue("")]
+        public string Value { get; set; } = "";
+        /// <summary>
         /// 排序
         /// </summary>
         [StringLength(255)]

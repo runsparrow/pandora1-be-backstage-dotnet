@@ -484,6 +484,70 @@ namespace MISApi.Controllers.ASM
             }
         }
         /// <summary>
+        /// 根据键名查询获得树型结构的行政区划
+        /// </summary>
+        /// <param name="code">键名</param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Region/Tree/SubsetByCode/{code}", Name = "MIS_ASM_Region_Tree_SubsetByCode_Code")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Tree_SubsetByCode(string code)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Region>("RegionCode", "Name", "Id", "Pid", "true", "false"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SubsetByCode",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(code),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Tree_SubsetByCode", ex);
+            }
+        }
+        /// <summary>
+        /// 根据键名查询获得树型结构的行政区划
+        /// </summary>
+        /// <param name="code">键名</param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Region/Tree/SupersetByCode/{code}", Name = "MIS_ASM_Region_Tree_SupersetByCode_Code")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Tree_SupersetByCode(string code)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Region>("RegionCode", "Name", "Id", "Pid", "true", "false"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SupersetByCode",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(code),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Tree_SupersetByCode", ex);
+            }
+        }
+        /// <summary>
         /// 根据Id查询获得树型结构的行政区划
         /// </summary>
         /// <param name="id"></param>

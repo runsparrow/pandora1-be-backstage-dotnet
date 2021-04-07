@@ -299,6 +299,30 @@ namespace MISApi.Services.WFM.Base
                     }
                 }
             }
+            /// <summary>
+            /// 根据 键值 查询
+            /// </summary>
+            /// <param name="key">键值</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public Status ByKey(string key, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToSingle(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Status.Key == key)
+                                .SingleOrDefault()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.WFM.Base.StatusService.RowService.ByKey", ex);
+                    }
+                }
+            }
         }
 
         #endregion
@@ -350,6 +374,50 @@ namespace MISApi.Services.WFM.Base
                 }
             }
             /// <summary>
+            /// 根据Key查询所有子节点（递归并包含Key自身）
+            /// </summary>
+            /// <param name="key"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Status> SubsetByKey(string key, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    List<Status> list = new RowService().ByKey(key) == null ? new List<Status>() : new List<Status> { new RowService().ByKey(key) };
+                    return SubsetByIdRecursion(list, list[0].Id, joins);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.StatusService.RowsService.SubsetByKey", ex);
+                }
+            }
+            /// <summary>
+            /// 根据Key查询所有父节点（递归并包含Key自身）
+            /// </summary>
+            /// <param name="key"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Status> SupersetByKey(string key, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    Status currentStatus = new RowService().ByKey(key) ?? new Status();
+                    List<Status> result = SupersetByIdRecursion(new List<Status>(), currentStatus.Pid, joins);
+                    result.Add(currentStatus);
+                    string path = "^";
+                    // 生成path
+                    result.ForEach(status =>
+                    {
+                        path = status.Path = $"{path}{status.Name}^";
+                    });
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.StatusService.RowsService.SupersetByKey", ex);
+                }
+            }
+            /// <summary>
             /// 根据Id查询所有子节点（递归并包含Id自身）
             /// </summary>
             /// <param name="id"></param>
@@ -359,7 +427,8 @@ namespace MISApi.Services.WFM.Base
             {
                 try
                 {
-                    return SubsetByIdRecursion(new List<Status> { new RowService().ById(id) }, id, joins);
+                    List<Status> list = new RowService().ById(id) == null ? new List<Status>() : new List<Status> { new RowService().ById(id) };
+                    return SubsetByIdRecursion(list, id, joins);
                 }
                 catch (Exception ex)
                 {

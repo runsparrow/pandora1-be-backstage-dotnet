@@ -300,6 +300,30 @@ namespace MISApi.Services.CMS.Base
                     }
                 }
             }
+            /// <summary>
+            /// 根据 键名 查询
+            /// </summary>
+            /// <param name="key">键名</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public Navigation ByKey(string key, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToSingle(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Navigation.Key == key)
+                                .SingleOrDefault()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.NavigationService.RowService.ByKey", ex);
+                    }
+                }
+            }
         }
 
         #endregion
@@ -329,6 +353,74 @@ namespace MISApi.Services.CMS.Base
                 }
             }
             /// <summary>
+            /// 根据父节点Id查询
+            /// </summary>
+            /// <param name="pid">父节点Id</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Navigation> ByPid(int pid, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Navigation.Pid == pid)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.NavigationService.RowsService.ByPid", ex);
+                    }
+                }
+            }
+            /// <summary>
+            /// 根据Key查询所有子节点（递归并包含Key自身）
+            /// </summary>
+            /// <param name="key"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Navigation> SubsetByKey(string key, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    List<Navigation> list = new RowService().ByKey(key) == null ? new List<Navigation>() : new List<Navigation> { new RowService().ByKey(key) };
+                    return SubsetByIdRecursion(list, list[0].Id, joins);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.NavigationService.RowsService.SubsetByKey", ex);
+                }
+            }
+            /// <summary>
+            /// 根据Key查询所有父节点（递归并包含Key自身）
+            /// </summary>
+            /// <param name="key"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Navigation> SupersetByKey(string key, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    Navigation currentNavigation = new RowService().ByKey(key) ?? new Navigation();
+                    List<Navigation> result = SupersetByIdRecursion(new List<Navigation>(), currentNavigation.Pid, joins);
+                    result.Add(currentNavigation);
+                    string path = "^";
+                    // 生成path
+                    result.ForEach(navigation =>
+                    {
+                        path = navigation.Path = $"{path}{navigation.Name}^";
+                    });
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.NavigationService.RowsService.SupersetByKey", ex);
+                }
+            }
+            /// <summary>
             /// 根据Id查询所有子节点（递归并包含Id自身）
             /// </summary>
             /// <param name="id"></param>
@@ -338,7 +430,8 @@ namespace MISApi.Services.CMS.Base
             {
                 try
                 {
-                    return SubsetByIdRecursion(new List<Navigation> { new RowService().ById(id) }, id, joins);
+                    List<Navigation> list = new RowService().ById(id) == null ? new List<Navigation>() : new List<Navigation> { new RowService().ById(id) };
+                    return SubsetByIdRecursion(list, id, joins);
                 }
                 catch (Exception ex)
                 {

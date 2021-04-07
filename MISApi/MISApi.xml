@@ -788,6 +788,20 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Tree_SubsetByKey(System.String)">
+            <summary>
+            根据键名查询获得树型结构的字典
+            </summary>
+            <param name="key">键名</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Tree_SupersetByKey(System.String)">
+            <summary>
+            根据键名查询获得树型结构的字典
+            </summary>
+            <param name="key">键名</param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Tree_SubsetById(System.Int32)">
             <summary>
             根据Id查询获得树型结构的数据字典
@@ -800,20 +814,6 @@
             根据Id查询获得树型结构的数据字典
             </summary>
             <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Controllers.ASM.DictionaryController.Tree_SubsetByKey(System.String)">
-            <summary>
-            根据Key查询获得树型结构的数据字典
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Controllers.ASM.DictionaryController.Tree_SupersetByKey(System.String)">
-            <summary>
-            根据Key查询获得树型结构的数据字典
-            </summary>
-            <param name="key"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Tree(MISApi.Controllers.ASM.DictionaryController.TreeMode.Request)">
@@ -1163,6 +1163,20 @@
             根据Id查询获得树型结构的行政区划
             </summary>
             <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Tree_SubsetByCode(System.String)">
+            <summary>
+            根据键名查询获得树型结构的行政区划
+            </summary>
+            <param name="code">键名</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Tree_SupersetByCode(System.String)">
+            <summary>
+            根据键名查询获得树型结构的行政区划
+            </summary>
+            <param name="code">键名</param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.RegionController.Tree_SubsetById(System.Int32)">
@@ -5785,6 +5799,20 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Tree_SubsetByKey(System.String)">
+            <summary>
+            根据键名查询获得树型结构的导航
+            </summary>
+            <param name="key">键名</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Tree_SupersetByKey(System.String)">
+            <summary>
+            根据键名查询获得树型结构的导航
+            </summary>
+            <param name="key">键名</param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.NavigationController.Tree_SubsetById(System.Int32)">
             <summary>
             根据Id查询获得树型结构的导航
@@ -8595,7 +8623,7 @@
         </member>
         <member name="M:MISApi.Controllers.WFM.StatusController.Rows_SubsetById(System.Int32)">
             <summary>
-            根据Id查询字典子集
+            根据Id查询状态子集
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -8635,9 +8663,23 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.WFM.StatusController.Tree_SubsetByKey(System.String)">
+            <summary>
+            根据键名查询获得树型结构的状态
+            </summary>
+            <param name="key">键名</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.WFM.StatusController.Tree_SupersetByKey(System.String)">
+            <summary>
+            根据键名查询获得树型结构的状态
+            </summary>
+            <param name="key">键名</param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.WFM.StatusController.Tree_SubsetById(System.Int32)">
             <summary>
-            根据Id查询获得树型结构的字典
+            根据Id查询获得树型结构的状态
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -10620,6 +10662,16 @@
         <member name="P:MISApi.Entities.CMS.Navigation.Name">
             <summary>
             名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.Key">
+            <summary>
+            键名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Navigation.Value">
+            <summary>
+            键值
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Navigation.Sort">
@@ -13778,6 +13830,14 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.RowService.ByCode(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 id 查询
+            </summary>
+            <param name="code">行政区划代码</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Services.ASM.Base.RegionService.RowsService">
             <summary>
             
@@ -13797,6 +13857,22 @@
             </summary>
             <param name="pid">父节点Id</param>
             <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.RowsService.SubsetByCode(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Code查询所有子节点（递归并包含Code自身）
+            </summary>
+            <param name="code"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.RowsService.SupersetByCode(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Code查询所有父节点（递归并包含Code自身）
+            </summary>
+            <param name="code"></param>
+            <param name="joins"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Services.ASM.Base.RegionService.RowsService.SubsetById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
@@ -16928,6 +17004,14 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.RowService.ByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 键名 查询
+            </summary>
+            <param name="key">键名</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Services.CMS.Base.NavigationService.RowsService">
             <summary>
             
@@ -16939,6 +17023,30 @@
             </summary>
             <param name="keyWord">关键字</param>
             <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.RowsService.ByPid(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据父节点Id查询
+            </summary>
+            <param name="pid">父节点Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.RowsService.SubsetByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Key查询所有子节点（递归并包含Key自身）
+            </summary>
+            <param name="key"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.RowsService.SupersetByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Key查询所有父节点（递归并包含Key自身）
+            </summary>
+            <param name="key"></param>
+            <param name="joins"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Services.CMS.Base.NavigationService.RowsService.SubsetById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
@@ -19610,6 +19718,14 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.WFM.Base.StatusService.RowService.ByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 键值 查询
+            </summary>
+            <param name="key">键值</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Services.WFM.Base.StatusService.RowsService">
             <summary>
             
@@ -19629,6 +19745,22 @@
             </summary>
             <param name="pid">父节点Id</param>
             <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.WFM.Base.StatusService.RowsService.SubsetByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Key查询所有子节点（递归并包含Key自身）
+            </summary>
+            <param name="key"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.WFM.Base.StatusService.RowsService.SupersetByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Key查询所有父节点（递归并包含Key自身）
+            </summary>
+            <param name="key"></param>
+            <param name="joins"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Services.WFM.Base.StatusService.RowsService.SubsetById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">

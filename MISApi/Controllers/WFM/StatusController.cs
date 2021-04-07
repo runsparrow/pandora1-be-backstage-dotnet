@@ -324,7 +324,7 @@ namespace MISApi.Controllers.WFM
             }
         }
         /// <summary>
-        /// 根据Id查询字典子集
+        /// 根据Id查询状态子集
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -491,7 +491,71 @@ namespace MISApi.Controllers.WFM
             }
         }
         /// <summary>
-        /// 根据Id查询获得树型结构的字典
+        /// 根据键名查询获得树型结构的状态
+        /// </summary>
+        /// <param name="key">键名</param>
+        /// <returns></returns>
+        [Route("MIS/WFM/Status/Tree/SubsetByKey/{key}", Name = "MIS_WFM_Status_Tree_SubsetByKey_Key")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Tree_SubsetByKey(string key)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Status>("StatusKey", "Name", "Id", "Pid", "true", "false"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SubsetByKey",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(key),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.WFM.StatusController.Tree_SubsetByKey", ex);
+            }
+        }
+        /// <summary>
+        /// 根据键名查询获得树型结构的状态
+        /// </summary>
+        /// <param name="key">键名</param>
+        /// <returns></returns>
+        [Route("MIS/WFM/Status/Tree/SupersetByKey/{key}", Name = "MIS_WFM_Status_Tree_SupersetByKey_Key")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Tree_SupersetByKey(string key)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Status>("StatusKey", "Name", "Id", "Pid", "true", "false"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SupersetByKey",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(key),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.WFM.StatusController.Tree_SupersetByKey", ex);
+            }
+        }
+        /// <summary>
+        /// 根据Id查询获得树型结构的状态
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

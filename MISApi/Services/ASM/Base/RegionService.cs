@@ -300,6 +300,30 @@ namespace MISApi.Services.ASM.Base
                     }
                 }
             }
+            /// <summary>
+            /// 根据 id 查询
+            /// </summary>
+            /// <param name="code">行政区划代码</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public Region ByCode(string code, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToSingle(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Region.Code == code)
+                                .SingleOrDefault()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.ASM.Base.RegionService.RowService.ByCode", ex);
+                    }
+                }
+            }
         }
 
         #endregion
@@ -351,6 +375,50 @@ namespace MISApi.Services.ASM.Base
                 }
             }
             /// <summary>
+            /// 根据Code查询所有子节点（递归并包含Code自身）
+            /// </summary>
+            /// <param name="code"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Region> SubsetByCode(string code, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    List<Region> list = new RowService().ByCode(code) == null ? new List<Region>() : new List<Region> { new RowService().ByCode(code) };
+                    return SubsetByIdRecursion(list, list[0].Id, joins);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.RegionService.RowsService.SubsetByCode", ex);
+                }
+            }
+            /// <summary>
+            /// 根据Code查询所有父节点（递归并包含Code自身）
+            /// </summary>
+            /// <param name="code"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Region> SupersetByCode(string code, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    Region currentRegion = new RowService().ByCode(code) ?? new Region();
+                    List<Region> result = SupersetByIdRecursion(new List<Region>(), currentRegion.Pid, joins);
+                    result.Add(currentRegion);
+                    string path = "^";
+                    // 生成path
+                    result.ForEach(region =>
+                    {
+                        path = region.Path = $"{path}{region.Name}^";
+                    });
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.RegionService.RowsService.SupersetByCode", ex);
+                }
+            }
+            /// <summary>
             /// 根据Id查询所有子节点（递归并包含Id自身）
             /// </summary>
             /// <param name="id"></param>
@@ -360,7 +428,8 @@ namespace MISApi.Services.ASM.Base
             {
                 try
                 {
-                    return SubsetByIdRecursion(new List<Region> { new RowService().ById(id) }, id, joins);
+                    List<Region> list = new RowService().ById(id) == null ? new List<Region>() : new List<Region> { new RowService().ById(id) };
+                    return SubsetByIdRecursion(list, id, joins);
                 }
                 catch (Exception ex)
                 {

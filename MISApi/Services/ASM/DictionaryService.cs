@@ -29,7 +29,7 @@ namespace MISApi.Services.ASM
                 transService = new TransService();
             }
             /// <summary>
-            /// 在用
+            /// 开启
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
@@ -79,7 +79,7 @@ namespace MISApi.Services.ASM
                 transService = new TransService();
             }
             /// <summary>
-            /// 在用
+            /// 开启
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>

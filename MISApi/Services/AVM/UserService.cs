@@ -32,7 +32,7 @@ namespace MISApi.Services.AVM
                 transService = new TransService();
             }
             /// <summary>
-            /// 在用
+            /// 开启
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
@@ -82,7 +82,7 @@ namespace MISApi.Services.AVM
                 transService = new TransService();
             }
             /// <summary>
-            /// 在用
+            /// 开启
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>

@@ -29,7 +29,7 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 在用
+            /// 开启
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
@@ -79,7 +79,7 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 在用
+            /// 开启
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
@@ -134,6 +134,93 @@ namespace MISApi.Services.CMS
                 catch (Exception ex)
                 {
                     throw new Exception("MISApi.Services.CMS.AuthorityService.UpdateService.ToClose", ex);
+                }
+            }
+            /// <summary>
+            /// 提交
+            /// </summary>
+            /// <param name="entity"></param>
+            /// <returns></returns>
+            public virtual Authority ToSubmit(Authority entity)
+            {
+                try
+                {
+                    // 定义
+                    Authority result = new Authority();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        Status status = new StatusCacheService.RowService().ByKey("cms.authority.submit");
+                        entity.StatusId = status.Id;
+                        entity.StatusValue = status.Value;
+                        entity.StatusName = status.Name;
+                        result = base.Update(entity);
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.AuthorityService.UpdateService.ToSubmit", ex);
+                }
+            }
+            /// <summary>
+            /// 审批通过
+            /// </summary>
+            /// <param name="entity"></param>
+            /// <returns></returns>
+            public virtual Authority ToApproverPass(Authority entity)
+            {
+                try
+                {
+                    // 定义
+                    Authority result = new Authority();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        Status status = new StatusCacheService.RowService().ByKey("cms.authority.approver.pass");
+                        entity.StatusId = status.Id;
+                        entity.StatusValue = status.Value;
+                        entity.StatusName = status.Name;
+                        result = base.Update(entity);
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.AuthorityService.UpdateService.ToApproverPass", ex);
+                }
+            }
+            /// <summary>
+            /// 审批拒绝
+            /// </summary>
+            /// <param name="entity"></param>
+            /// <returns></returns>
+            public virtual Authority ToApproverRefuse(Authority entity)
+            {
+                try
+                {
+                    // 定义
+                    Authority result = new Authority();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        Status status = new StatusCacheService.RowService().ByKey("cms.authority.approver.refuse");
+                        entity.StatusId = status.Id;
+                        entity.StatusValue = status.Value;
+                        entity.StatusName = status.Name;
+                        result = base.Update(entity);
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.AuthorityService.UpdateService.ToApproverRefuse", ex);
                 }
             }
         }

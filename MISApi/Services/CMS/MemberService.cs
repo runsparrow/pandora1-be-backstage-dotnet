@@ -34,7 +34,7 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 在用
+            /// 开启
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
@@ -117,7 +117,7 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 在用
+            /// 开启
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
@@ -172,6 +172,35 @@ namespace MISApi.Services.CMS
                 catch (Exception ex)
                 {
                     throw new Exception("MISApi.Services.CMS.MemberService.UpdateService.ToClose", ex);
+                }
+            }
+            /// <summary>
+            /// 冻结
+            /// </summary>
+            /// <param name="entity"></param>
+            /// <returns></returns>
+            public virtual Member ToFrozen(Member entity)
+            {
+                try
+                {
+                    // 定义
+                    Member result = new Member();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        Status status = new StatusCacheService.RowService().ByKey("cms.member.frozen");
+                        entity.StatusId = status.Id;
+                        entity.StatusValue = status.Value;
+                        entity.StatusName = status.Name;
+                        result = base.Update(entity);
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.MemberService.UpdateService.ToFrozen", ex);
                 }
             }
         }

@@ -111,7 +111,7 @@ namespace MISApi.Controllers.CMS
 
         #region UpdateMode
         /// <summary>
-        /// 编辑一条提现
+        /// 编辑一条提现信息
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -140,7 +140,7 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 编辑多条提现
+        /// 编辑多条提现信息
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
@@ -172,7 +172,7 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 编辑一条提现
+        /// 开启提现申请
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -201,7 +201,7 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 编辑一条提现
+        /// 关闭提现申请
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -229,11 +229,127 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CashOutController.Update_ToClose", ex);
             }
         }
+        /// <summary>
+        /// 提交提现申请
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/CashOut/Update/ToSubmit", Name = "MIS_CMS_CashOut_Update_ToSubmit")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToSubmit(CashOut entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new CashOutService.UpdateService().ToSubmit(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Update_ToSubmit", ex);
+            }
+        }
+        /// <summary>
+        /// 通过提现申请
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/CashOut/Update/ToApproverPass", Name = "MIS_CMS_CashOut_Update_ToApproverPass")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToApproverPass(CashOut entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new CashOutService.UpdateService().ToApproverPass(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Update_ToApproverPass", ex);
+            }
+        }
+        /// <summary>
+        /// 拒绝提现申请
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/CashOut/Update/ToApproverRefuse", Name = "MIS_CMS_CashOut_Update_ToApproverRefuse")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToApproverRefuse(CashOut entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new CashOutService.UpdateService().ToApproverRefuse(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Update_ToApproverRefuse", ex);
+            }
+        }
+        /// <summary>
+        /// 放款
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/CashOut/Update/ToLoan", Name = "MIS_CMS_CashOut_Update_ToLoan")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToLoan(CashOut entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new CashOutService.UpdateService().ToLoan(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Update_ToLoan", ex);
+            }
+        }
         #endregion
 
         #region DeleteMode
         /// <summary>
-        ///  删除一条提现
+        ///  删除一条提现信息
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -256,7 +372,7 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 删除多条提现
+        /// 删除多条提现信息
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>

@@ -84,7 +84,7 @@ namespace MISApi.Controllers.CMS
 
         #region UpdateMode
         /// <summary>
-        /// 编辑一条会员
+        /// 编辑一条会员信息
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -113,7 +113,7 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 编辑多条会员
+        /// 编辑多条会员信息
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
@@ -174,7 +174,7 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 编辑一条会员
+        /// 启用会员
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -203,7 +203,7 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 编辑一条会员
+        /// 关闭会员
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -231,11 +231,40 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.MemberController.Update_ToClose", ex);
             }
         }
+        /// <summary>
+        /// 冻结会员
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Member/Update/ToFrozen", Name = "MIS_CMS_Member_Update_ToFrozen")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToFrozen(Member entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new MemberService.UpdateService().ToFrozen(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Update_ToFrozen", ex);
+            }
+        }
         #endregion
 
         #region DeleteMode
         /// <summary>
-        ///  删除一条会员
+        ///  删除一条会员信息
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -258,7 +287,7 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 删除多条会员
+        /// 删除多条会员信息
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>

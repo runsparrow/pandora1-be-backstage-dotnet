@@ -33,7 +33,7 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 在用
+            /// 开启
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
@@ -83,7 +83,7 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 在用
+            /// 开启
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
@@ -138,6 +138,64 @@ namespace MISApi.Services.CMS
                 catch (Exception ex)
                 {
                     throw new Exception("MISApi.Services.CMS.OrderService.UpdateService.ToClose", ex);
+                }
+            }
+            /// <summary>
+            /// 支付
+            /// </summary>
+            /// <param name="entity"></param>
+            /// <returns></returns>
+            public virtual Order ToPaid(Order entity)
+            {
+                try
+                {
+                    // 定义
+                    Order result = new Order();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        Status status = new StatusCacheService.RowService().ByKey("cms.order.paid");
+                        entity.StatusId = status.Id;
+                        entity.StatusValue = status.Value;
+                        entity.StatusName = status.Name;
+                        result = base.Update(entity);
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.OrderService.UpdateService.ToPaid", ex);
+                }
+            }
+            /// <summary>
+            /// 已退款
+            /// </summary>
+            /// <param name="entity"></param>
+            /// <returns></returns>
+            public virtual Order ToRefund(Order entity)
+            {
+                try
+                {
+                    // 定义
+                    Order result = new Order();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        Status status = new StatusCacheService.RowService().ByKey("cms.order.refund");
+                        entity.StatusId = status.Id;
+                        entity.StatusValue = status.Value;
+                        entity.StatusName = status.Name;
+                        result = base.Update(entity);
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.OrderService.UpdateService.ToRefund", ex);
                 }
             }
         }

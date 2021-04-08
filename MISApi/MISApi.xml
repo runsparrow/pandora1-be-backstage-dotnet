@@ -4825,14 +4825,14 @@
         </member>
         <member name="M:MISApi.Controllers.CMS.MemberController.Update_Single(MISApi.Entities.CMS.Member)">
             <summary>
-            编辑一条会员
+            编辑一条会员信息
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.MemberController.Update_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.Member})">
             <summary>
-            编辑多条会员
+            编辑多条会员信息
             </summary>
             <param name="entities"></param>
             <returns></returns>
@@ -4846,28 +4846,35 @@
         </member>
         <member name="M:MISApi.Controllers.CMS.MemberController.Update_ToOpen(MISApi.Entities.CMS.Member)">
             <summary>
-            编辑一条会员
+            启用会员
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.MemberController.Update_ToClose(MISApi.Entities.CMS.Member)">
             <summary>
-            编辑一条会员
+            关闭会员
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.MemberController.Update_ToFrozen(MISApi.Entities.CMS.Member)">
+            <summary>
+            冻结会员
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.MemberController.Delete_Single(MISApi.Entities.CMS.Member)">
             <summary>
-             删除一条会员
+             删除一条会员信息
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.MemberController.Delete_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.Member})">
             <summary>
-            删除多条会员
+            删除多条会员信息
             </summary>
             <param name="entities"></param>
             <returns></returns>
@@ -14055,7 +14062,7 @@
         </member>
         <member name="M:MISApi.Services.ASM.DictionaryService.CreateService.ToOpen(MISApi.Entities.ASM.Dictionary)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -14077,7 +14084,7 @@
         </member>
         <member name="M:MISApi.Services.ASM.DictionaryService.UpdateService.ToOpen(MISApi.Entities.ASM.Dictionary)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -14456,7 +14463,7 @@
         </member>
         <member name="M:MISApi.Services.AVM.UserService.CreateService.ToOpen(MISApi.Entities.AVM.User)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -14478,7 +14485,7 @@
         </member>
         <member name="M:MISApi.Services.AVM.UserService.UpdateService.ToOpen(MISApi.Entities.AVM.User)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -14552,7 +14559,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.ArticleService.CreateService.ToOpen(MISApi.Entities.CMS.Article)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -14574,7 +14581,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.ArticleService.UpdateService.ToOpen(MISApi.Entities.CMS.Article)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -14628,7 +14635,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.AuthorityService.CreateService.ToOpen(MISApi.Entities.CMS.Authority)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -14650,7 +14657,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.AuthorityService.UpdateService.ToOpen(MISApi.Entities.CMS.Authority)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -18614,7 +18621,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.CashOutService.CreateService.ToOpen(MISApi.Entities.CMS.CashOut)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -18636,7 +18643,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.CashOutService.UpdateService.ToOpen(MISApi.Entities.CMS.CashOut)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -18690,7 +18697,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.DiscussService.CreateService.ToOpen(MISApi.Entities.CMS.Discuss)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -18712,7 +18719,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.DiscussService.UpdateService.ToOpen(MISApi.Entities.CMS.Discuss)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -18850,7 +18857,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.GoodsService.CreateService.ToOpen(MISApi.Entities.CMS.Goods)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -18872,7 +18879,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.GoodsService.UpdateService.ToOpen(MISApi.Entities.CMS.Goods)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -18981,7 +18988,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.MemberService.CreateService.ToOpen(MISApi.Entities.CMS.Member)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -19010,7 +19017,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.MemberService.UpdateService.ToOpen(MISApi.Entities.CMS.Member)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -19018,6 +19025,13 @@
         <member name="M:MISApi.Services.CMS.MemberService.UpdateService.ToClose(MISApi.Entities.CMS.Member)">
             <summary>
             关闭
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.MemberService.UpdateService.ToFrozen(MISApi.Entities.CMS.Member)">
+            <summary>
+            充值
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -19072,7 +19086,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.NavigationService.CreateService.ToOpen(MISApi.Entities.CMS.Navigation)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -19094,7 +19108,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.NavigationService.UpdateService.ToOpen(MISApi.Entities.CMS.Navigation)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -19148,7 +19162,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.OrderDetailService.CreateService.ToOpen(MISApi.Entities.CMS.OrderDetail)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -19170,7 +19184,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.OrderDetailService.UpdateService.ToOpen(MISApi.Entities.CMS.OrderDetail)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -19224,7 +19238,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.OrderService.CreateService.ToOpen(MISApi.Entities.CMS.Order)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -19246,7 +19260,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.OrderService.UpdateService.ToOpen(MISApi.Entities.CMS.Order)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -19355,7 +19369,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.SerialService.CreateService.ToOpen(MISApi.Entities.CMS.Serial)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -19377,7 +19391,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.SerialService.UpdateService.ToOpen(MISApi.Entities.CMS.Serial)">
             <summary>
-            在用
+            开启
             </summary>
             <param name="entity"></param>
             <returns></returns>

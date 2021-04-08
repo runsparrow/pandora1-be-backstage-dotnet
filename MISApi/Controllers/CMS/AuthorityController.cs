@@ -229,6 +229,93 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.AuthorityController.Update_ToClose", ex);
             }
         }
+        /// <summary>
+        /// 提交认证
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Authority/Update/ToSubmit", Name = "MIS_CMS_Authority_Update_ToSubmit")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToSubmit(Authority entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new AuthorityService.UpdateService().ToSubmit(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Update_ToSubmit", ex);
+            }
+        }
+        /// <summary>
+        /// 通过认证
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Authority/Update/ToApproverPass", Name = "MIS_CMS_Authority_Update_ToApproverPass")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToApproverPass(Authority entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new AuthorityService.UpdateService().ToApproverPass(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Update_ToApproverPass", ex);
+            }
+        }
+        /// <summary>
+        /// 拒绝认证
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Authority/Update/ToApproverRefuse", Name = "MIS_CMS_Authority_Update_ToApproverRefuse")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_ToApproverRefuse(Authority entity)
+        {
+            try
+            {
+                // Entity
+                if (entity != null)
+                {
+
+                }
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new AuthorityService.UpdateService().ToApproverRefuse(entity)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Update_ToApproverRefuse", ex);
+            }
+        }
         #endregion
 
         #region DeleteMode

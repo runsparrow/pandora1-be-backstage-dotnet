@@ -29,7 +29,7 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 在用
+            /// 开启
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
@@ -79,7 +79,7 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 在用
+            /// 开启
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
@@ -134,6 +134,122 @@ namespace MISApi.Services.CMS
                 catch (Exception ex)
                 {
                     throw new Exception("MISApi.Services.CMS.CashOutService.UpdateService.ToClose", ex);
+                }
+            }
+            /// <summary>
+            /// 提交
+            /// </summary>
+            /// <param name="entity"></param>
+            /// <returns></returns>
+            public virtual CashOut ToSubmit(CashOut entity)
+            {
+                try
+                {
+                    // 定义
+                    CashOut result = new CashOut();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        Status status = new StatusCacheService.RowService().ByKey("cms.cashout.submit");
+                        entity.StatusId = status.Id;
+                        entity.StatusValue = status.Value;
+                        entity.StatusName = status.Name;
+                        result = base.Update(entity);
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.CashOutService.UpdateService.ToSubmit", ex);
+                }
+            }
+            /// <summary>
+            /// 审批通过
+            /// </summary>
+            /// <param name="entity"></param>
+            /// <returns></returns>
+            public virtual CashOut ToApproverPass(CashOut entity)
+            {
+                try
+                {
+                    // 定义
+                    CashOut result = new CashOut();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        Status status = new StatusCacheService.RowService().ByKey("cms.cashout.approver.pass");
+                        entity.StatusId = status.Id;
+                        entity.StatusValue = status.Value;
+                        entity.StatusName = status.Name;
+                        result = base.Update(entity);
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.CashOutService.UpdateService.ToApproverPass", ex);
+                }
+            }
+            /// <summary>
+            /// 审批拒绝
+            /// </summary>
+            /// <param name="entity"></param>
+            /// <returns></returns>
+            public virtual CashOut ToApproverRefuse(CashOut entity)
+            {
+                try
+                {
+                    // 定义
+                    CashOut result = new CashOut();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        Status status = new StatusCacheService.RowService().ByKey("cms.cashout.approver.refuse");
+                        entity.StatusId = status.Id;
+                        entity.StatusValue = status.Value;
+                        entity.StatusName = status.Name;
+                        result = base.Update(entity);
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.CashOutService.UpdateService.ToApproverRefuse", ex);
+                }
+            }
+            /// <summary>
+            /// 放款
+            /// </summary>
+            /// <param name="entity"></param>
+            /// <returns></returns>
+            public virtual CashOut ToLoan(CashOut entity)
+            {
+                try
+                {
+                    // 定义
+                    CashOut result = new CashOut();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        Status status = new StatusCacheService.RowService().ByKey("cms.cashout.loan");
+                        entity.StatusId = status.Id;
+                        entity.StatusValue = status.Value;
+                        entity.StatusName = status.Name;
+                        result = base.Update(entity);
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.CashOutService.UpdateService.ToLoan", ex);
                 }
             }
         }

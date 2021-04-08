@@ -669,6 +669,32 @@ namespace MISApi.Controllers.CMS
 
         #region QueryMode
         /// <summary>
+        /// 分页查询指定会员的下载记录
+        /// </summary>
+        /// <param name="memberId"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Down/Query/ByMemberId/{memberId}/{pageIndex}/{pageSize}", Name = "Unauthorized_MISApi_CMS_Down_Query_ByMemberId")]
+        [HttpGet]
+        public IActionResult Unauthorized_Query_ByMemberId(int memberId, int pageIndex, int pageSize)
+        {
+            try
+            {
+                return Query_Page(
+                    new DTO_Page
+                    {
+                        KeyWord = $"^MemberId={memberId}",
+                        Page = $"{pageIndex}^{pageSize}"
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.DownController.Unauthorized_Query_ByMemberId", ex);
+            }
+        }
+        /// <summary>
         /// 分页查询下载
         /// </summary>
         /// <param name="dto"></param>

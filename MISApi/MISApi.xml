@@ -2262,6 +2262,15 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Unauthorized_Query_ByNavigationId(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            分页查询指定导航下的资讯
+            </summary>
+            <param name="navigationId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.ArticleController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
             <summary>
             分页查询资讯
@@ -2660,6 +2669,27 @@
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_ToClose(MISApi.Entities.CMS.Authority)">
             <summary>
             编辑一条认证
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_ToSubmit(MISApi.Entities.CMS.Authority)">
+            <summary>
+            提交认证
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_ToApproverPass(MISApi.Entities.CMS.Authority)">
+            <summary>
+            通过认证
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_ToApproverRefuse(MISApi.Entities.CMS.Authority)">
+            <summary>
+            拒绝认证
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -3070,42 +3100,70 @@
         </member>
         <member name="M:MISApi.Controllers.CMS.CashOutController.Update_Single(MISApi.Entities.CMS.CashOut)">
             <summary>
-            编辑一条提现
+            编辑一条提现信息
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.CashOutController.Update_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.CashOut})">
             <summary>
-            编辑多条提现
+            编辑多条提现信息
             </summary>
             <param name="entities"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.CashOutController.Update_ToOpen(MISApi.Entities.CMS.CashOut)">
             <summary>
-            编辑一条提现
+            开启提现申请
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.CashOutController.Update_ToClose(MISApi.Entities.CMS.CashOut)">
             <summary>
-            编辑一条提现
+            关闭提现申请
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Update_ToSubmit(MISApi.Entities.CMS.CashOut)">
+            <summary>
+            提交提现申请
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Update_ToApproverPass(MISApi.Entities.CMS.CashOut)">
+            <summary>
+            通过提现申请
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Update_ToApproverRefuse(MISApi.Entities.CMS.CashOut)">
+            <summary>
+            拒绝提现申请
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Update_ToLoan(MISApi.Entities.CMS.CashOut)">
+            <summary>
+            放款
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.CashOutController.Delete_Single(MISApi.Entities.CMS.CashOut)">
             <summary>
-             删除一条提现
+             删除一条提现信息
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.CashOutController.Delete_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.CashOut})">
             <summary>
-            删除多条提现
+            删除多条提现信息
             </summary>
             <param name="entities"></param>
             <returns></returns>
@@ -3616,6 +3674,15 @@
             根据Id查询评论
             </summary>
             <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Unauthorized_Query_ByArticleId(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            分页查询指定资讯下的评论
+            </summary>
+            <param name="articleId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.DiscussController.Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
@@ -14669,6 +14736,27 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.AuthorityService.UpdateService.ToSubmit(MISApi.Entities.CMS.Authority)">
+            <summary>
+            提交
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.AuthorityService.UpdateService.ToApproverPass(MISApi.Entities.CMS.Authority)">
+            <summary>
+            审批通过
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.AuthorityService.UpdateService.ToApproverRefuse(MISApi.Entities.CMS.Authority)">
+            <summary>
+            审批拒绝
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Services.CMS.AuthorityService.DeleteService">
             <summary>
             DeleteService
@@ -18655,6 +18743,34 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.CashOutService.UpdateService.ToSubmit(MISApi.Entities.CMS.CashOut)">
+            <summary>
+            提交
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.CashOutService.UpdateService.ToApproverPass(MISApi.Entities.CMS.CashOut)">
+            <summary>
+            审批通过
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.CashOutService.UpdateService.ToApproverRefuse(MISApi.Entities.CMS.CashOut)">
+            <summary>
+            审批拒绝
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.CashOutService.UpdateService.ToLoan(MISApi.Entities.CMS.CashOut)">
+            <summary>
+            放款
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Services.CMS.CashOutService.DeleteService">
             <summary>
             DeleteService
@@ -19031,7 +19147,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.MemberService.UpdateService.ToFrozen(MISApi.Entities.CMS.Member)">
             <summary>
-            充值
+            冻结
             </summary>
             <param name="entity"></param>
             <returns></returns>
@@ -19268,6 +19384,20 @@
         <member name="M:MISApi.Services.CMS.OrderService.UpdateService.ToClose(MISApi.Entities.CMS.Order)">
             <summary>
             关闭
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.OrderService.UpdateService.ToPaid(MISApi.Entities.CMS.Order)">
+            <summary>
+            支付
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.OrderService.UpdateService.ToRefund(MISApi.Entities.CMS.Order)">
+            <summary>
+            已退款
             </summary>
             <param name="entity"></param>
             <returns></returns>

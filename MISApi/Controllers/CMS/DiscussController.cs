@@ -779,6 +779,32 @@ namespace MISApi.Controllers.CMS
 
         #region QueryMode
         /// <summary>
+        /// 分页查询指定资讯下的评论
+        /// </summary>
+        /// <param name="articleId"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Discuss/Query/ByArticleId/{articleId}/{pageIndex}/{pageSize}", Name = "Unauthorized_MISApi_CMS_Discuss_Query_ByArticleId")]
+        [HttpGet]
+        public IActionResult Unauthorized_Query_ByArticleId(int articleId, int pageIndex, int pageSize)
+        {
+            try
+            {
+                return Query_Page(
+                    new DTO_Page
+                    {
+                        KeyWord = $"^ArticleId={articleId}",
+                        Page = $"{pageIndex}^{pageSize}"
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.DiscussController.Unauthorized_Query_ByArticleId", ex);
+            }
+        }
+        /// <summary>
         /// 分页查询评论
         /// </summary>
         /// <param name="dto"></param>

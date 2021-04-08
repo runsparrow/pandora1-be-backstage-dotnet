@@ -687,6 +687,32 @@ namespace MISApi.Controllers.CMS
 
         #region QueryMode
         /// <summary>
+        /// 分页查询指定导航下的资讯
+        /// </summary>
+        /// <param name="navigationId"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Article/Query/ByNavigationId/{navigationId}/{pageIndex}/{pageSize}", Name = "Unauthorized_MISApi_CMS_Article_Query_ByNavigationId")]
+        [HttpGet]
+        public IActionResult Unauthorized_Query_ByNavigationId(int navigationId, int pageIndex, int pageSize)
+        {
+            try
+            {
+                return Query_Page(
+                    new DTO_Page
+                    {
+                        KeyWord = $"^NavigationId={navigationId}",
+                        Page = $"{pageIndex}^{pageSize}"
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.ArticleController.Unauthorized_Query_ByNavigationId", ex);
+            }
+        }
+        /// <summary>
         /// 分页查询资讯
         /// </summary>
         /// <param name="dto"></param>

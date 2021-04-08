@@ -612,7 +612,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     if (splits[i].ToLower().Contains("urltype"))
                     {
-                        string urlType = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                        int urlType = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                         queryable = queryable.Where(row => row.Article.UrlType == urlType);
                     }
                     if (splits[i].ToLower().Contains("isdisplay"))

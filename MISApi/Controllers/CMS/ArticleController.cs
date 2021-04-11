@@ -703,7 +703,8 @@ namespace MISApi.Controllers.CMS
                     new DTO_Page
                     {
                         KeyWord = $"^NavigationId={navigationId}",
-                        Page = $"{pageIndex}^{pageSize}"
+                        Page = $"{pageIndex}^{pageSize}",
+                        Status = new int[] {1}
                     }
                 );
             }

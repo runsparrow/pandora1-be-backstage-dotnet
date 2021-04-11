@@ -82,11 +82,10 @@ namespace MISApi.Entities.CMS
         /// <summary>
         /// 路径类型
         /// </summary>
-        [StringLength(255)]
         [Description("路径类型")]
         [JsonProperty("urlType")]
-        [DefaultValue("")]
-        public string UrlType { get; set; } = "";
+        [DefaultValue(0)]
+        public int UrlType { get; set; } = 0;
         /// <summary>
         /// 备注
         /// </summary>

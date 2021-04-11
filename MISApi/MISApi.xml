@@ -3676,15 +3676,6 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.DiscussController.Unauthorized_Query_ByArticleId(System.Int32,System.Int32,System.Int32)">
-            <summary>
-            分页查询指定资讯下的评论
-            </summary>
-            <param name="articleId"></param>
-            <param name="pageIndex"></param>
-            <param name="pageSize"></param>
-            <returns></returns>
-        </member>
         <member name="M:MISApi.Controllers.CMS.DiscussController.Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
             <summary>
             分页查询评论
@@ -3766,6 +3757,15 @@
             根据Id查询评论
             </summary>
             <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Unauthorized_Query_ByArticleId(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            分页查询指定资讯下的评论
+            </summary>
+            <param name="articleId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.DiscussController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
@@ -4177,6 +4177,15 @@
             根据Id查询下载
             </summary>
             <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DownController.Unauthorized_Query_ByMemberId(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            分页查询指定会员的下载记录
+            </summary>
+            <param name="memberId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.DownController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
@@ -7252,6 +7261,15 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.RechargeController.Unauthorized_Query_ByMemberId(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            分页查询指定会员的充值
+            </summary>
+            <param name="memberId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.RechargeController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
             <summary>
             分页查询充值
@@ -7684,6 +7702,15 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.SerialController.Unauthorized_Query_ByMemberId(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            分页查询指定会员的流水
+            </summary>
+            <param name="memberId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.SerialController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
             <summary>
             分页查询流水
@@ -8093,6 +8120,15 @@
             根据Id查询上传
             </summary>
             <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.UploadController.Unauthorized_Query_ByMemberId(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            分页查询指定会员的上传记录
+            </summary>
+            <param name="memberId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.UploadController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">

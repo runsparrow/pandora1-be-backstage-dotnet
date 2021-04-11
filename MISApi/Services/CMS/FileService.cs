@@ -1,5 +1,6 @@
 ﻿using MISApi.Entities.CMS;
 using System;
+using System.Collections.Generic;
 
 namespace MISApi.Services.CMS
 {
@@ -62,6 +63,36 @@ namespace MISApi.Services.CMS
             }
         }
         /// <summary>
+        /// 上传商品（多条）
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <returns></returns>
+        public virtual List<File> Upload(List<File> entities)
+        {
+            try
+            {
+                // 定义
+                List<File> results = new List<File>();
+                // 事务
+                transService.TransRegist(delegate {
+                    entities.ForEach(entity =>
+                    {
+                        results.Add(
+                            new FileService().Upload(entity)
+                        );
+                    });
+                });
+                // 提交
+                transService.TransCommit();
+                // 返回
+                return results;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Services.CMS.FileService.Upload", ex);
+            }
+        }
+        /// <summary>
         /// 下载商品
         /// </summary>
         /// <param name="entity"></param>
@@ -102,6 +133,36 @@ namespace MISApi.Services.CMS
                 transService.TransCommit();
                 // 返回
                 return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Services.CMS.FileService.Down", ex);
+            }
+        }
+        /// <summary>
+        /// 下载商品（多条）
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <returns></returns>
+        public virtual List<File> Down(List<File> entities)
+        {
+            try
+            {
+                // 定义
+                List<File> results = new List<File>();
+                // 事务
+                transService.TransRegist(delegate {
+                    entities.ForEach(entity =>
+                    {
+                        results.Add(
+                            new FileService().Down(entity)
+                        );
+                    });
+                });
+                // 提交
+                transService.TransCommit();
+                // 返回
+                return results;
             }
             catch (Exception ex)
             {

@@ -4426,11 +4426,25 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.FileController.Uploads(System.Collections.Generic.List{MISApi.Controllers.CMS.FileController.DTO_File})">
+            <summary>
+            上传文件
+            </summary>
+            <param name="dtos"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.FileController.Down(MISApi.Controllers.CMS.FileController.DTO_File)">
             <summary>
             下载文件
             </summary>
             <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.FileController.Downs(System.Collections.Generic.List{MISApi.Controllers.CMS.FileController.DTO_File})">
+            <summary>
+            下载文件
+            </summary>
+            <param name="dtos"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.FileController.DTO_File">
@@ -18980,11 +18994,25 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.FileService.Upload(System.Collections.Generic.List{MISApi.Entities.CMS.File})">
+            <summary>
+            上传商品（多条）
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.CMS.FileService.Down(MISApi.Entities.CMS.File)">
             <summary>
             下载商品
             </summary>
             <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.FileService.Down(System.Collections.Generic.List{MISApi.Entities.CMS.File})">
+            <summary>
+            下载商品（多条）
+            </summary>
+            <param name="entities"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.GoodsService">

@@ -41,6 +41,14 @@ namespace MISApi.Entities.CMS
         [DefaultValue("")]
         public string GoodsNo { get; set; } = "";
         /// <summary>
+        /// 标签
+        /// </summary>
+        [StringLength(255)]
+        [Description("标签")]
+        [JsonProperty("tags")]
+        [DefaultValue("")]
+        public string Tags { get; set; } = "";
+        /// <summary>
         /// 描述
         /// </summary>
         [StringLength(2000)]

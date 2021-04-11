@@ -10423,6 +10423,11 @@
             商品编号
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Goods.Tags">
+            <summary>
+            标签
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Goods.Desc">
             <summary>
             描述

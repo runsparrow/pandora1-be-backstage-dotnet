@@ -74,7 +74,7 @@ namespace MISApi.Controllers.CMS
         /// <returns></returns>
         [Route("MIS/CMS/File/Uploads", Name = "MIS_CMS_File_Uploads")]
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         public IActionResult Uploads(List<DTO_File> dtos)
         {
             try

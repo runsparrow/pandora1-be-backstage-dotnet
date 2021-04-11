@@ -685,7 +685,8 @@ namespace MISApi.Controllers.CMS
                     new DTO_Page
                     {
                         KeyWord = $"^MemberId={memberId}",
-                        Page = $"{pageIndex}^{pageSize}"
+                        Page = $"{pageIndex}^{pageSize}",
+                        Status = new int[] { 1 }
                     }
                 );
             }

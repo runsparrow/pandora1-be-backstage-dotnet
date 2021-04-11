@@ -118,7 +118,7 @@ namespace MISApi.Entities.CMS
         /// <summary>
         /// 图标
         /// </summary>
-        [StringLength(255)]
+        [StringLength(int.MaxValue)]
         [Description("图标")]
         [JsonProperty("Icon")]
         [DefaultValue("")]

@@ -9,3 +9,4 @@ uploadFiles
 Logs
 wwwroot
 GatewayApi/logs
+.csproj.user

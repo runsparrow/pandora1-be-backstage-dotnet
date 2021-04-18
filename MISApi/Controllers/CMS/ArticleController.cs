@@ -25,7 +25,7 @@ namespace MISApi.Controllers.CMS
         /// <returns></returns>
         [Route("MIS/CMS/Article/Create/Single", Name = "MIS_CMS_Article_Create_Single")]
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public IActionResult Create_Single(Article entity)
         {
             try

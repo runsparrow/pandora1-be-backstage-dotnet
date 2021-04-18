@@ -63,12 +63,12 @@ namespace MISApi
 
             if (response.ContentType.ToLower() == "application/xml")
             {
-                await response.WriteAsync(Object2XmlString(new ErrorEntity() { Custom = exception.GetBaseException().Message, Exception = exception.GetBaseException() })).ConfigureAwait(false);
+                await response.WriteAsync(Object2XmlString(new ExceptionResponse() { Message = exception.GetBaseException().Message, Exception = exception.GetBaseException(), Result = false })).ConfigureAwait(false);
             }
             else
             {
                 response.ContentType = "application/json";
-                await response.WriteAsync(JsonConvert.SerializeObject(new ErrorEntity() { Custom = exception.GetBaseException().Message, Exception = exception.GetBaseException() })).ConfigureAwait(false);
+                await response.WriteAsync(JsonConvert.SerializeObject(new ExceptionResponse() { Message = exception.GetBaseException().Message, Exception = exception.GetBaseException(), Result = false })).ConfigureAwait(false);
             }
         }
 
@@ -100,15 +100,22 @@ namespace MISApi
     /// <summary>
     /// 
     /// </summary>
-    public class ErrorEntity
+    public class ExceptionResponse
     {
         /// <summary>
         /// 
         /// </summary>
+        [JsonProperty(PropertyName = "exception")]
         public Exception Exception { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string Custom { get; set; }
+        [JsonProperty(PropertyName = "result")]
+        public bool Result { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty(PropertyName = "message")]
+        public string Message { get; set; }
     }
 }

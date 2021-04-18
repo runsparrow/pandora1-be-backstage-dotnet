@@ -11413,17 +11413,22 @@
             <param name="o"></param>
             <returns></returns>
         </member>
-        <member name="T:MISApi.ErrorEntity">
+        <member name="T:MISApi.ExceptionResponse">
             <summary>
             
             </summary>
         </member>
-        <member name="P:MISApi.ErrorEntity.Exception">
+        <member name="P:MISApi.ExceptionResponse.Exception">
             <summary>
             
             </summary>
         </member>
-        <member name="P:MISApi.ErrorEntity.Custom">
+        <member name="P:MISApi.ExceptionResponse.Result">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.ExceptionResponse.Message">
             <summary>
             
             </summary>
@@ -12030,7 +12035,12 @@
             <param name="requestConfig"></param>
             <returns></returns>
         </member>
-        <member name="P:MISApi.HttpClients.HttpModes.ColumnsMode.Response`1.Error">
+        <member name="P:MISApi.HttpClients.HttpModes.ColumnsMode.Response`1.Result">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.HttpClients.HttpModes.ColumnsMode.Response`1.Message">
             <summary>
             
             </summary>
@@ -12108,7 +12118,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:MISApi.HttpClients.HttpModes.CreateMode.Request`1.ToResponse(System.Int32)">
+        <member name="M:MISApi.HttpClients.HttpModes.CreateMode.Request`1.ToResponse(System.Boolean)">
             <summary>
             
             </summary>
@@ -12140,7 +12150,7 @@
             
             </summary>
         </member>
-        <member name="P:MISApi.HttpClients.HttpModes.CreateMode.Response`1.Error">
+        <member name="P:MISApi.HttpClients.HttpModes.CreateMode.Response`1.Message">
             <summary>
             
             </summary>
@@ -12177,7 +12187,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:MISApi.HttpClients.HttpModes.DeleteMode.Request`1.ToResponse(System.Int32)">
+        <member name="M:MISApi.HttpClients.HttpModes.DeleteMode.Request`1.ToResponse(System.Boolean)">
             <summary>
             
             </summary>
@@ -12209,7 +12219,7 @@
             
             </summary>
         </member>
-        <member name="P:MISApi.HttpClients.HttpModes.DeleteMode.Response`1.Error">
+        <member name="P:MISApi.HttpClients.HttpModes.DeleteMode.Response`1.Message">
             <summary>
             
             </summary>
@@ -12310,7 +12320,7 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.HttpClients.HttpModes.RowMode.Request`1.ToResponse(System.Int32)">
+        <member name="M:MISApi.HttpClients.HttpModes.RowMode.Request`1.ToResponse(System.Boolean)">
             <summary>
             
             </summary>
@@ -12332,7 +12342,7 @@
             
             </summary>
         </member>
-        <member name="P:MISApi.HttpClients.HttpModes.RowMode.Response`1.Error">
+        <member name="P:MISApi.HttpClients.HttpModes.RowMode.Response`1.Message">
             <summary>
             
             </summary>
@@ -12384,7 +12394,7 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.HttpClients.HttpModes.RowsMode.Request`1.ToResponse(System.Int32)">
+        <member name="M:MISApi.HttpClients.HttpModes.RowsMode.Request`1.ToResponse(System.Boolean)">
             <summary>
             
             </summary>
@@ -12406,7 +12416,7 @@
             
             </summary>
         </member>
-        <member name="P:MISApi.HttpClients.HttpModes.RowsMode.Response`1.Error">
+        <member name="P:MISApi.HttpClients.HttpModes.RowsMode.Response`1.Message">
             <summary>
             
             </summary>
@@ -13446,7 +13456,7 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.HttpClients.HttpModes.UpdateMode.Request`1.ToResponse(System.Int32)">
+        <member name="M:MISApi.HttpClients.HttpModes.UpdateMode.Request`1.ToResponse(System.Boolean)">
             <summary>
             
             </summary>
@@ -13478,7 +13488,7 @@
             
             </summary>
         </member>
-        <member name="P:MISApi.HttpClients.HttpModes.UpdateMode.Response`1.Error">
+        <member name="P:MISApi.HttpClients.HttpModes.UpdateMode.Response`1.Message">
             <summary>
             
             </summary>

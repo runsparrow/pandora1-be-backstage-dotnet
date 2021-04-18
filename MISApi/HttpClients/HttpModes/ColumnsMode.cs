@@ -112,8 +112,13 @@ namespace MISApi.HttpClients.HttpModes.ColumnsMode
         /// <summary>
         /// 
         /// </summary>
-        [JsonProperty(PropertyName = "error")]
-        public virtual string Error { get; set; }
+        [JsonProperty(PropertyName = "result")]
+        public virtual bool Result { get; set; } = true;
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty(PropertyName = "message")]
+        public virtual string Message { get; set; }
 
     }
 }

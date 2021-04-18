@@ -192,7 +192,7 @@ namespace MISApi.Controllers
         /// <returns></returns>
         protected virtual IActionResult ResponseOk(HttpClients.HttpModes.CreateMode.Response<T> response)
         {
-            return Ok(response.Row);
+            return Ok(response);
         }
         #endregion
 
@@ -267,7 +267,7 @@ namespace MISApi.Controllers
         /// <returns></returns>
         protected virtual IActionResult ResponseOk(HttpClients.HttpModes.UpdateMode.Response<T> response)
         {
-            return Ok(response.Rows);
+            return Ok(response);
         }
         #endregion
 
@@ -384,7 +384,7 @@ namespace MISApi.Controllers
         /// <returns></returns>
         protected virtual IActionResult ResponseOk(HttpClients.HttpModes.ColumnsMode.Response<T> response)
         {
-            return Ok(response.Columns);
+            return Ok(response);
         }
 
         #endregion
@@ -435,7 +435,7 @@ namespace MISApi.Controllers
         /// <returns></returns>
         protected virtual IActionResult ResponseOk(HttpClients.HttpModes.RowMode.Response<T> response)
         {
-            return Ok(response.Row);
+            return Ok(response);
         }
         #endregion
 
@@ -485,7 +485,7 @@ namespace MISApi.Controllers
         /// <returns></returns>
         protected virtual IActionResult ResponseOk(HttpClients.HttpModes.RowsMode.Response<T> response)
         {
-            return Ok(response.Rows);
+            return Ok(response);
         }
 
         #endregion

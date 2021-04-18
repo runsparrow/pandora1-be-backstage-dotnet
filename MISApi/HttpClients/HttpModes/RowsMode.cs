@@ -59,7 +59,7 @@ namespace MISApi.HttpClients.HttpModes.RowsMode
         /// </summary>
         /// <param name="result"></param>
         /// <returns></returns>
-        public virtual Response<T> ToResponse(int result)
+        public virtual Response<T> ToResponse(bool result)
         {
             Response<T> response = new Response<T>();
             response.Result = result;
@@ -80,11 +80,11 @@ namespace MISApi.HttpClients.HttpModes.RowsMode
         /// 
         /// </summary>
         [JsonProperty(PropertyName = "result")]
-        public virtual int Result { get; set; }
+        public virtual bool Result { get; set; } = true;
         /// <summary>
         /// 
         /// </summary>
-        [JsonProperty(PropertyName = "error")]
-        public virtual string Error { get; set; }
+        [JsonProperty(PropertyName = "message")]
+        public virtual string Message { get; set; } = "";
     }
 }

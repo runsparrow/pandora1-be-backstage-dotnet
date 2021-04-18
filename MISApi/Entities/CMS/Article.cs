@@ -114,7 +114,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("路径类型")]
         [JsonProperty("urlType")]
-        [DefaultValue("")]
+        [DefaultValue("0")]
         public int UrlType { get; set; } = 0;
         /// <summary>
         /// 是否显示

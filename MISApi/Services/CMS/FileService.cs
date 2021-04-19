@@ -34,7 +34,7 @@ namespace MISApi.Services.CMS
                 // 事务
                 transService.TransRegist(delegate {
                     // 新增商品
-                    result.Goods = new GoodsService.CreateService().ToOpen(entity.Goods);
+                    result.Goods = new GoodsService.CreateService().ToStatus(entity.Goods, "cms.goods.open");
                     // 新增上传记录
                     result.Upload = new UploadService.CreateService().Execute(new Upload
                     {

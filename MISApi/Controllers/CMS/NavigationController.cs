@@ -86,35 +86,69 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 创建导航
+        /// 创建栏目并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Navigation/Create/ToOpen", Name = "MIS_CMS_Navigation_Create_ToOpen")]
+        [Route("MIS/CMS/Navigation/Create/ToStatus", Name = "MIS_CMS_Navigation_Create_ToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Create_ToOpen(Navigation entity)
+        public IActionResult Create_ToStatus(DTO_EntityToStatus<Navigation> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entity != null)
                 {
-                    entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
-                    entity.CreateDateTime = DateTime.Now;
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
-                    entity.EditDateTime = DateTime.Now;
+                    dto.Entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.CreateDateTime = DateTime.Now;
+                    dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
                     new CreateMode.Request().ToResponse(
-                        new NavigationService.CreateService().ToOpen(entity)
+                        new NavigationService.CreateService().ToStatus(dto.Entity, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.NavigationController.Create_ToOpen", ex);
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Create_ToStatus", ex);
+            }
+        }
+        /// <summary>
+        /// 批量创建栏目并设置状态
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Navigation/Create/BatchToStatus", Name = "MIS_CMS_Navigation_Create_BatchToStatus")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create_BatchToStatus(DTO_EntitiesToStatus<Navigation> dto)
+        {
+            try
+            {
+                // Entity
+                if (dto.Entities != null)
+                {
+                    dto.Entities.ForEach(entity => {
+                        entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.CreateDateTime = DateTime.Now;
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
+                    });
+                }
+                // 返回
+                return ResponseOk(
+                    new CreateMode.Request().ToResponse(
+                        new NavigationService.CreateService().BatchToStatus(dto.Entities, dto.StatusKey)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Create_BatchToStatus", ex);
             }
         }
         #endregion
@@ -184,63 +218,66 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 编辑一条导航
+        /// 编辑并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Navigation/Update/ToOpen", Name = "MIS_CMS_Navigation_Update_ToOpen")]
+        [Route("MIS/CMS/Navigation/Update/ToStatus", Name = "MIS_CMS_Navigation_Update_ToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_ToOpen(Navigation entity)
+        public IActionResult Update_ToStatus(DTO_EntityToStatus<Navigation> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entity != null)
                 {
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
-                    entity.EditDateTime = DateTime.Now;
+                    dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new NavigationService.UpdateService().ToOpen(entity)
+                        new NavigationService.UpdateService().ToStatus(dto.Entity, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.NavigationController.Update_ToOpen", ex);
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Update_ToStatus", ex);
             }
         }
         /// <summary>
-        /// 编辑一条导航
+        /// 批量编辑并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Navigation/Update/ToClose", Name = "MIS_CMS_Navigation_Update_ToClose")]
+        [Route("MIS/CMS/Navigation/Update/BatchToStatus", Name = "MIS_CMS_Navigation_Update_BatchToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_ToClose(Navigation entity)
+        public IActionResult Update_BatchToStatus(DTO_EntitiesToStatus<Navigation> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entities != null)
                 {
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
-                    entity.EditDateTime = DateTime.Now;
+                    dto.Entities.ForEach(entity =>
+                    {
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
+                    });
                 }
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new NavigationService.UpdateService().ToClose(entity)
+                        new NavigationService.UpdateService().BatchToStatus(dto.Entities, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.NavigationController.Update_ToClose", ex);
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Update_BatchToStatus", ex);
             }
         }
         #endregion

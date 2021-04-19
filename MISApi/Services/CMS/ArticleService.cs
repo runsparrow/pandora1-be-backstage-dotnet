@@ -2,6 +2,7 @@
 using MISApi.Entities.CMS;
 using MISApi.Entities.WFM;
 using System;
+using System.Collections.Generic;
 
 namespace MISApi.Services.CMS
 {
@@ -29,11 +30,12 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 开启
+            /// 创建指定状态
             /// </summary>
             /// <param name="entity"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual Article ToOpen(Article entity)
+            public virtual Article ToStatus(Article entity, string statusKey)
             {
                 try
                 {
@@ -41,11 +43,11 @@ namespace MISApi.Services.CMS
                     Article result = new Article();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.article.open");
+                        Status status = new StatusCacheService.RowService().ByKey(statusKey);
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
-                        result = new ArticleService.CreateService().Execute(entity);
+                        result = base.Create(entity);
                     });
                     // 提交
                     transService.TransCommit();
@@ -54,7 +56,37 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.ArticleService.CreateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.ArticleService.CreateService.ToStatus", ex);
+                }
+            }
+            /// <summary>
+            /// 批量创建指定状态
+            /// </summary>
+            /// <param name="entities"></param>
+            /// <param name="statusKey"></param>
+            /// <returns></returns>
+            public virtual List<Article> BatchToStatus(List<Article> entities, string statusKey)
+            {
+                try
+                {
+                    // 定义
+                    List<Article> results = new List<Article>();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        // 遍历
+                        entities.ForEach(entity =>
+                        {
+                            results.Add(new ArticleService.CreateService().ToStatus(entity, statusKey));
+                        });
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return results;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.ArticleService.CreateService.BatchToStatus", ex);
                 }
             }
         }
@@ -79,11 +111,12 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 开启
+            /// 编辑指定状态
             /// </summary>
             /// <param name="entity"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual Article ToOpen(Article entity)
+            public virtual Article ToStatus(Article entity, string statusKey)
             {
                 try
                 {
@@ -91,7 +124,7 @@ namespace MISApi.Services.CMS
                     Article result = new Article();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.article.open");
+                        Status status = new StatusCacheService.RowService().ByKey(statusKey);
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
@@ -104,36 +137,37 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.ArticleService.UpdateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.ArticleService.UpdateService.ToStatus", ex);
                 }
             }
             /// <summary>
-            /// 关闭
+            /// 批量编辑指定状态
             /// </summary>
-            /// <param name="entity"></param>
+            /// <param name="entities"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual Article ToClose(Article entity)
+            public virtual List<Article> BatchToStatus(List<Article> entities, string statusKey)
             {
                 try
                 {
                     // 定义
-                    Article result = new Article();
+                    List<Article> results = new List<Article>();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.article.close");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
+                        // 遍历
+                        entities.ForEach(entity =>
+                        {
+                            results.Add(new ArticleService.UpdateService().ToStatus(entity, statusKey));
+                        });
                     });
                     // 提交
                     transService.TransCommit();
                     // 返回
-                    return result;
+                    return results;
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.ArticleService.UpdateService.ToClose", ex);
+                    throw new Exception("MISApi.Services.CMS.ArticleService.UpdateService.BatchToStatus", ex);
                 }
             }
         }

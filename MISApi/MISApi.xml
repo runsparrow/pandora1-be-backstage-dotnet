@@ -649,11 +649,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.ASM.DictionaryController.Create_ToOpen(MISApi.Entities.ASM.Dictionary)">
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.ASM.Dictionary})">
             <summary>
-            创建数据字典
+            创建字典并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Create_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.ASM.Dictionary})">
+            <summary>
+            批量创建字典并设置状态
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Update_Single(MISApi.Entities.ASM.Dictionary)">
@@ -670,18 +677,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.ASM.DictionaryController.Update_ToOpen(MISApi.Entities.ASM.Dictionary)">
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Update_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.ASM.Dictionary})">
             <summary>
-            编辑一条数据字典
+            编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.ASM.DictionaryController.Update_ToClose(MISApi.Entities.ASM.Dictionary)">
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Update_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.ASM.Dictionary})">
             <summary>
-            编辑一条数据字典
+            批量编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Delete_Single(MISApi.Entities.ASM.Dictionary)">
@@ -1537,11 +1544,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.AVM.UserController.Create_ToOpen(MISApi.Entities.AVM.User)">
+        <member name="M:MISApi.Controllers.AVM.UserController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.AVM.User})">
             <summary>
-            创建用户
+            创建用户并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.AVM.UserController.Create_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.AVM.User})">
+            <summary>
+            批量创建用户并设置状态
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.AVM.UserController.Update_Single(MISApi.Entities.AVM.User)">
@@ -1558,18 +1572,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.AVM.UserController.Update_ToOpen(MISApi.Entities.AVM.User)">
+        <member name="M:MISApi.Controllers.AVM.UserController.Update_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.AVM.User})">
             <summary>
-            编辑一条用户
+            编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.AVM.UserController.Update_ToClose(MISApi.Entities.AVM.User)">
+        <member name="M:MISApi.Controllers.AVM.UserController.Update_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.AVM.User})">
             <summary>
-            编辑一条用户
+            批量编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.AVM.UserController.Update_Password(MISApi.Entities.AVM.User)">
@@ -2103,11 +2117,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.ArticleController.Create_ToOpen(MISApi.Entities.CMS.Article)">
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Article})">
             <summary>
-            创建资讯
+            创建资讯并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Create_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Article})">
+            <summary>
+            批量创建资讯并设置状态
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.ArticleController.Update_Single(MISApi.Entities.CMS.Article)">
@@ -2124,18 +2145,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.ArticleController.Update_ToOpen(MISApi.Entities.CMS.Article)">
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Update_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Article})">
             <summary>
-            编辑一条资讯
+            编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.ArticleController.Update_ToClose(MISApi.Entities.CMS.Article)">
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Update_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Article})">
             <summary>
-            编辑一条资讯
+            批量编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.ArticleController.Delete_Single(MISApi.Entities.CMS.Article)">
@@ -2638,11 +2659,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.AuthorityController.Create_ToOpen(MISApi.Entities.CMS.Authority)">
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Authority})">
             <summary>
-            创建认证
+            创建认证并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Create_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Authority})">
+            <summary>
+            批量创建认证并设置状态
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_Single(MISApi.Entities.CMS.Authority)">
@@ -2659,39 +2687,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_ToOpen(MISApi.Entities.CMS.Authority)">
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Authority})">
             <summary>
-            编辑一条认证
+            编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_ToClose(MISApi.Entities.CMS.Authority)">
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Authority})">
             <summary>
-            编辑一条认证
+            批量编辑并设置状态
             </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_ToSubmit(MISApi.Entities.CMS.Authority)">
-            <summary>
-            提交认证
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_ToApproverPass(MISApi.Entities.CMS.Authority)">
-            <summary>
-            通过认证
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_ToApproverRefuse(MISApi.Entities.CMS.Authority)">
-            <summary>
-            拒绝认证
-            </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Delete_Single(MISApi.Entities.CMS.Authority)">
@@ -3091,11 +3098,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.CashOutController.Create_ToOpen(MISApi.Entities.CMS.CashOut)">
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.CashOut})">
             <summary>
-            创建提现
+            创建提现并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Create_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.CashOut})">
+            <summary>
+            批量创建提现并设置状态
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.CashOutController.Update_Single(MISApi.Entities.CMS.CashOut)">
@@ -3112,46 +3126,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.CashOutController.Update_ToOpen(MISApi.Entities.CMS.CashOut)">
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Update_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.CashOut})">
             <summary>
-            开启提现申请
+            编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.CashOutController.Update_ToClose(MISApi.Entities.CMS.CashOut)">
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Update_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.CashOut})">
             <summary>
-            关闭提现申请
+            批量编辑并设置状态
             </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Controllers.CMS.CashOutController.Update_ToSubmit(MISApi.Entities.CMS.CashOut)">
-            <summary>
-            提交提现申请
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Controllers.CMS.CashOutController.Update_ToApproverPass(MISApi.Entities.CMS.CashOut)">
-            <summary>
-            通过提现申请
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Controllers.CMS.CashOutController.Update_ToApproverRefuse(MISApi.Entities.CMS.CashOut)">
-            <summary>
-            拒绝提现申请
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Controllers.CMS.CashOutController.Update_ToLoan(MISApi.Entities.CMS.CashOut)">
-            <summary>
-            放款
-            </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.CashOutController.Delete_Single(MISApi.Entities.CMS.CashOut)">
@@ -3565,11 +3551,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.DiscussController.Create_ToOpen(MISApi.Entities.CMS.Discuss)">
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Discuss})">
             <summary>
-            创建评论
+            创建评论并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Create_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Discuss})">
+            <summary>
+            批量创建评论并设置状态
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.DiscussController.Update_Single(MISApi.Entities.CMS.Discuss)">
@@ -3586,18 +3579,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.DiscussController.Update_ToOpen(MISApi.Entities.CMS.Discuss)">
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Update_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Discuss})">
             <summary>
-            编辑一条评论
+            编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.DiscussController.Update_ToClose(MISApi.Entities.CMS.Discuss)">
+        <member name="M:MISApi.Controllers.CMS.DiscussController.Update_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Discuss})">
             <summary>
-            编辑一条评论
+            批量编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.DiscussController.Delete_Single(MISApi.Entities.CMS.Discuss)">
@@ -4481,11 +4474,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.GoodsController.Create_ToOpen(MISApi.Entities.CMS.Goods)">
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Goods})">
             <summary>
-            创建商品
+            创建商品并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Create_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Goods})">
+            <summary>
+            批量创建商品并设置状态
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.GoodsController.Update_Single(MISApi.Entities.CMS.Goods)">
@@ -4502,18 +4502,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.GoodsController.Update_ToOpen(MISApi.Entities.CMS.Goods)">
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Update_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Goods})">
             <summary>
-            编辑一条商品
+            编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.GoodsController.Update_ToClose(MISApi.Entities.CMS.Goods)">
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Update_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Goods})">
             <summary>
-            编辑一条商品
+            批量编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.GoodsController.Delete_Single(MISApi.Entities.CMS.Goods)">
@@ -4913,6 +4913,20 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.MemberController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Member})">
+            <summary>
+            创建会员并设置状态
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.MemberController.Create_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Member})">
+            <summary>
+            批量创建会员并设置状态
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.MemberController.Update_Single(MISApi.Entities.CMS.Member)">
             <summary>
             编辑一条会员信息
@@ -4934,25 +4948,18 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.MemberController.Update_ToOpen(MISApi.Entities.CMS.Member)">
+        <member name="M:MISApi.Controllers.CMS.MemberController.Update_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Member})">
             <summary>
-            启用会员
+            编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.MemberController.Update_ToClose(MISApi.Entities.CMS.Member)">
+        <member name="M:MISApi.Controllers.CMS.MemberController.Update_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Member})">
             <summary>
-            关闭会员
+            批量编辑并设置状态
             </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Controllers.CMS.MemberController.Update_ToFrozen(MISApi.Entities.CMS.Member)">
-            <summary>
-            冻结会员
-            </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.MemberController.Delete_Single(MISApi.Entities.CMS.Member)">
@@ -5771,11 +5778,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.NavigationController.Create_ToOpen(MISApi.Entities.CMS.Navigation)">
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Navigation})">
             <summary>
-            创建导航
+            创建栏目并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Create_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Navigation})">
+            <summary>
+            批量创建栏目并设置状态
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.NavigationController.Update_Single(MISApi.Entities.CMS.Navigation)">
@@ -5792,18 +5806,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.NavigationController.Update_ToOpen(MISApi.Entities.CMS.Navigation)">
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Update_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Navigation})">
             <summary>
-            编辑一条导航
+            编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.NavigationController.Update_ToClose(MISApi.Entities.CMS.Navigation)">
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Update_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Navigation})">
             <summary>
-            编辑一条导航
+            批量编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.NavigationController.Delete_Single(MISApi.Entities.CMS.Navigation)">
@@ -6245,11 +6259,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.OrderController.Create_ToOpen(MISApi.Entities.CMS.Order)">
+        <member name="M:MISApi.Controllers.CMS.OrderController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Order})">
             <summary>
-            创建订单
+            创建订单并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderController.Create_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Order})">
+            <summary>
+            批量创建订单并设置状态
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.OrderController.Update_Single(MISApi.Entities.CMS.Order)">
@@ -6266,18 +6287,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.OrderController.Update_ToOpen(MISApi.Entities.CMS.Order)">
+        <member name="M:MISApi.Controllers.CMS.OrderController.Update_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Order})">
             <summary>
-            编辑一条订单
+            编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.OrderController.Update_ToClose(MISApi.Entities.CMS.Order)">
+        <member name="M:MISApi.Controllers.CMS.OrderController.Update_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Order})">
             <summary>
-            编辑一条订单
+            批量编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.OrderController.Delete_Single(MISApi.Entities.CMS.Order)">
@@ -6663,11 +6684,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Create_ToOpen(MISApi.Entities.CMS.OrderDetail)">
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.OrderDetail})">
             <summary>
-            创建订单明细
+            创建订单明细并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Create_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.OrderDetail})">
+            <summary>
+            批量创建订单明细并设置状态
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.OrderDetailController.Update_Single(MISApi.Entities.CMS.OrderDetail)">
@@ -6684,18 +6712,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Update_ToOpen(MISApi.Entities.CMS.OrderDetail)">
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Update_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.OrderDetail})">
             <summary>
-            编辑一条订单明细
+            编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Update_ToClose(MISApi.Entities.CMS.OrderDetail)">
+        <member name="M:MISApi.Controllers.CMS.OrderDetailController.Update_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.OrderDetail})">
             <summary>
-            编辑一条订单明细
+            批量编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.OrderDetailController.Delete_Single(MISApi.Entities.CMS.OrderDetail)">
@@ -7529,11 +7557,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.SerialController.Create_ToOpen(MISApi.Entities.CMS.Serial)">
+        <member name="M:MISApi.Controllers.CMS.SerialController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Serial})">
             <summary>
-            创建流水
+            创建流水并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.SerialController.Create_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Serial})">
+            <summary>
+            批量创建流水并设置状态
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.SerialController.Update_Single(MISApi.Entities.CMS.Serial)">
@@ -7550,18 +7585,18 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.SerialController.Update_ToOpen(MISApi.Entities.CMS.Serial)">
+        <member name="M:MISApi.Controllers.CMS.SerialController.Update_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Serial})">
             <summary>
-            编辑一条流水
+            编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.SerialController.Update_ToClose(MISApi.Entities.CMS.Serial)">
+        <member name="M:MISApi.Controllers.CMS.SerialController.Update_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Serial})">
             <summary>
-            编辑一条流水
+            批量编辑并设置状态
             </summary>
-            <param name="entity"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.SerialController.Delete_Single(MISApi.Entities.CMS.Serial)">
@@ -8631,6 +8666,38 @@
         <member name="P:MISApi.Controllers.HttpEntities.DTO_EmployeeIdWithConfig`1.Config">
             <summary>
             配置
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.HttpEntities.DTO_EntityToStatus`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:MISApi.Controllers.HttpEntities.DTO_EntityToStatus`1.Entity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.HttpEntities.DTO_EntityToStatus`1.StatusKey">
+            <summary>
+            状态键名
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus`1.Entities">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus`1.StatusKey">
+            <summary>
+            状态键名
             </summary>
         </member>
         <member name="T:MISApi.Controllers.TestController">
@@ -14192,11 +14259,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.ASM.DictionaryService.CreateService.ToOpen(MISApi.Entities.ASM.Dictionary)">
+        <member name="M:MISApi.Services.ASM.DictionaryService.CreateService.ToStatus(MISApi.Entities.ASM.Dictionary,System.String)">
             <summary>
-            开启
+            创建指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.DictionaryService.CreateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.ASM.Dictionary},System.String)">
+            <summary>
+            批量创建指定状态
+            </summary>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.ASM.DictionaryService.UpdateService">
@@ -14214,18 +14290,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.ASM.DictionaryService.UpdateService.ToOpen(MISApi.Entities.ASM.Dictionary)">
+        <member name="M:MISApi.Services.ASM.DictionaryService.UpdateService.ToStatus(MISApi.Entities.ASM.Dictionary,System.String)">
             <summary>
-            开启
+            编辑指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.ASM.DictionaryService.UpdateService.ToClose(MISApi.Entities.ASM.Dictionary)">
+        <member name="M:MISApi.Services.ASM.DictionaryService.UpdateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.ASM.Dictionary},System.String)">
             <summary>
-            关闭
+            批量编辑指定状态
             </summary>
-            <param name="entity"></param>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.ASM.DictionaryService.DeleteService">
@@ -14593,11 +14671,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.AVM.UserService.CreateService.ToOpen(MISApi.Entities.AVM.User)">
+        <member name="M:MISApi.Services.AVM.UserService.CreateService.ToStatus(MISApi.Entities.AVM.User,System.String)">
             <summary>
-            开启
+            创建指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.AVM.UserService.CreateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.AVM.User},System.String)">
+            <summary>
+            批量创建指定状态
+            </summary>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.AVM.UserService.UpdateService">
@@ -14615,18 +14702,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.AVM.UserService.UpdateService.ToOpen(MISApi.Entities.AVM.User)">
+        <member name="M:MISApi.Services.AVM.UserService.UpdateService.ToStatus(MISApi.Entities.AVM.User,System.String)">
             <summary>
-            开启
+            编辑指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.AVM.UserService.UpdateService.ToClose(MISApi.Entities.AVM.User)">
+        <member name="M:MISApi.Services.AVM.UserService.UpdateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.AVM.User},System.String)">
             <summary>
-            关闭
+            批量编辑指定状态
             </summary>
-            <param name="entity"></param>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.AVM.UserService.DeleteService">
@@ -14689,11 +14778,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.ArticleService.CreateService.ToOpen(MISApi.Entities.CMS.Article)">
+        <member name="M:MISApi.Services.CMS.ArticleService.CreateService.ToStatus(MISApi.Entities.CMS.Article,System.String)">
             <summary>
-            开启
+            创建指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.ArticleService.CreateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Article},System.String)">
+            <summary>
+            批量创建指定状态
+            </summary>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.ArticleService.UpdateService">
@@ -14711,18 +14809,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.ArticleService.UpdateService.ToOpen(MISApi.Entities.CMS.Article)">
+        <member name="M:MISApi.Services.CMS.ArticleService.UpdateService.ToStatus(MISApi.Entities.CMS.Article,System.String)">
             <summary>
-            开启
+            编辑指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.ArticleService.UpdateService.ToClose(MISApi.Entities.CMS.Article)">
+        <member name="M:MISApi.Services.CMS.ArticleService.UpdateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Article},System.String)">
             <summary>
-            关闭
+            批量编辑指定状态
             </summary>
-            <param name="entity"></param>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.ArticleService.DeleteService">
@@ -14765,11 +14865,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.AuthorityService.CreateService.ToOpen(MISApi.Entities.CMS.Authority)">
+        <member name="M:MISApi.Services.CMS.AuthorityService.CreateService.ToStatus(MISApi.Entities.CMS.Authority,System.String)">
             <summary>
-            开启
+            创建指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.AuthorityService.CreateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Authority},System.String)">
+            <summary>
+            批量创建指定状态
+            </summary>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.AuthorityService.UpdateService">
@@ -14787,39 +14896,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.AuthorityService.UpdateService.ToOpen(MISApi.Entities.CMS.Authority)">
+        <member name="M:MISApi.Services.CMS.AuthorityService.UpdateService.ToStatus(MISApi.Entities.CMS.Authority,System.String)">
             <summary>
-            开启
+            编辑指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.AuthorityService.UpdateService.ToClose(MISApi.Entities.CMS.Authority)">
+        <member name="M:MISApi.Services.CMS.AuthorityService.UpdateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Authority},System.String)">
             <summary>
-            关闭
+            批量编辑指定状态
             </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.AuthorityService.UpdateService.ToSubmit(MISApi.Entities.CMS.Authority)">
-            <summary>
-            提交
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.AuthorityService.UpdateService.ToApproverPass(MISApi.Entities.CMS.Authority)">
-            <summary>
-            审批通过
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.AuthorityService.UpdateService.ToApproverRefuse(MISApi.Entities.CMS.Authority)">
-            <summary>
-            审批拒绝
-            </summary>
-            <param name="entity"></param>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.AuthorityService.DeleteService">
@@ -18772,11 +18862,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.CashOutService.CreateService.ToOpen(MISApi.Entities.CMS.CashOut)">
+        <member name="M:MISApi.Services.CMS.CashOutService.CreateService.ToStatus(MISApi.Entities.CMS.CashOut,System.String)">
             <summary>
-            开启
+            创建指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.CashOutService.CreateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.CashOut},System.String)">
+            <summary>
+            批量创建指定状态
+            </summary>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.CashOutService.UpdateService">
@@ -18794,46 +18893,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.CashOutService.UpdateService.ToOpen(MISApi.Entities.CMS.CashOut)">
+        <member name="M:MISApi.Services.CMS.CashOutService.UpdateService.ToStatus(MISApi.Entities.CMS.CashOut,System.String)">
             <summary>
-            开启
+            编辑指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.CashOutService.UpdateService.ToClose(MISApi.Entities.CMS.CashOut)">
+        <member name="M:MISApi.Services.CMS.CashOutService.UpdateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.CashOut},System.String)">
             <summary>
-            关闭
+            批量编辑指定状态
             </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.CashOutService.UpdateService.ToSubmit(MISApi.Entities.CMS.CashOut)">
-            <summary>
-            提交
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.CashOutService.UpdateService.ToApproverPass(MISApi.Entities.CMS.CashOut)">
-            <summary>
-            审批通过
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.CashOutService.UpdateService.ToApproverRefuse(MISApi.Entities.CMS.CashOut)">
-            <summary>
-            审批拒绝
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.CashOutService.UpdateService.ToLoan(MISApi.Entities.CMS.CashOut)">
-            <summary>
-            放款
-            </summary>
-            <param name="entity"></param>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.CashOutService.DeleteService">
@@ -18876,11 +18949,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.DiscussService.CreateService.ToOpen(MISApi.Entities.CMS.Discuss)">
+        <member name="M:MISApi.Services.CMS.DiscussService.CreateService.ToStatus(MISApi.Entities.CMS.Discuss,System.String)">
             <summary>
-            开启
+            创建指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.DiscussService.CreateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Discuss},System.String)">
+            <summary>
+            批量创建指定状态
+            </summary>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.DiscussService.UpdateService">
@@ -18898,18 +18980,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.DiscussService.UpdateService.ToOpen(MISApi.Entities.CMS.Discuss)">
+        <member name="M:MISApi.Services.CMS.DiscussService.UpdateService.ToStatus(MISApi.Entities.CMS.Discuss,System.String)">
             <summary>
-            开启
+            编辑指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.DiscussService.UpdateService.ToClose(MISApi.Entities.CMS.Discuss)">
+        <member name="M:MISApi.Services.CMS.DiscussService.UpdateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Discuss},System.String)">
             <summary>
-            关闭
+            批量编辑指定状态
             </summary>
-            <param name="entity"></param>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.DiscussService.DeleteService">
@@ -19050,11 +19134,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.GoodsService.CreateService.ToOpen(MISApi.Entities.CMS.Goods)">
+        <member name="M:MISApi.Services.CMS.GoodsService.CreateService.ToStatus(MISApi.Entities.CMS.Goods,System.String)">
             <summary>
-            开启
+            创建指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.GoodsService.CreateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Goods},System.String)">
+            <summary>
+            批量创建指定状态
+            </summary>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.GoodsService.UpdateService">
@@ -19072,18 +19165,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.GoodsService.UpdateService.ToOpen(MISApi.Entities.CMS.Goods)">
+        <member name="M:MISApi.Services.CMS.GoodsService.UpdateService.ToStatus(MISApi.Entities.CMS.Goods,System.String)">
             <summary>
-            开启
+            编辑指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.GoodsService.UpdateService.ToClose(MISApi.Entities.CMS.Goods)">
+        <member name="M:MISApi.Services.CMS.GoodsService.UpdateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Goods},System.String)">
             <summary>
-            关闭
+            批量编辑指定状态
             </summary>
-            <param name="entity"></param>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.GoodsService.DeleteService">
@@ -19181,11 +19276,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.MemberService.CreateService.ToOpen(MISApi.Entities.CMS.Member)">
+        <member name="M:MISApi.Services.CMS.MemberService.CreateService.ToStatus(MISApi.Entities.CMS.Member,System.String)">
             <summary>
-            开启
+            创建指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.MemberService.CreateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Member},System.String)">
+            <summary>
+            批量创建指定状态
+            </summary>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Services.CMS.MemberService.CreateService.Regist(MISApi.Entities.CMS.Member)">
@@ -19210,25 +19314,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.MemberService.UpdateService.ToOpen(MISApi.Entities.CMS.Member)">
+        <member name="M:MISApi.Services.CMS.MemberService.UpdateService.ToStatus(MISApi.Entities.CMS.Member,System.String)">
             <summary>
-            开启
+            编辑指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.MemberService.UpdateService.ToClose(MISApi.Entities.CMS.Member)">
+        <member name="M:MISApi.Services.CMS.MemberService.UpdateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Member},System.String)">
             <summary>
-            关闭
+            批量编辑指定状态
             </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.MemberService.UpdateService.ToFrozen(MISApi.Entities.CMS.Member)">
-            <summary>
-            冻结
-            </summary>
-            <param name="entity"></param>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.MemberService.DeleteService">
@@ -19279,11 +19378,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.NavigationService.CreateService.ToOpen(MISApi.Entities.CMS.Navigation)">
+        <member name="M:MISApi.Services.CMS.NavigationService.CreateService.ToStatus(MISApi.Entities.CMS.Navigation,System.String)">
             <summary>
-            开启
+            创建指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.NavigationService.CreateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Navigation},System.String)">
+            <summary>
+            批量创建指定状态
+            </summary>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.NavigationService.UpdateService">
@@ -19301,18 +19409,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.NavigationService.UpdateService.ToOpen(MISApi.Entities.CMS.Navigation)">
+        <member name="M:MISApi.Services.CMS.NavigationService.UpdateService.ToStatus(MISApi.Entities.CMS.Navigation,System.String)">
             <summary>
-            开启
+            编辑指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.NavigationService.UpdateService.ToClose(MISApi.Entities.CMS.Navigation)">
+        <member name="M:MISApi.Services.CMS.NavigationService.UpdateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Navigation},System.String)">
             <summary>
-            关闭
+            批量编辑指定状态
             </summary>
-            <param name="entity"></param>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.NavigationService.DeleteService">
@@ -19355,11 +19465,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.OrderDetailService.CreateService.ToOpen(MISApi.Entities.CMS.OrderDetail)">
+        <member name="M:MISApi.Services.CMS.OrderDetailService.CreateService.ToStatus(MISApi.Entities.CMS.OrderDetail,System.String)">
             <summary>
-            开启
+            创建指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.OrderDetailService.CreateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.OrderDetail},System.String)">
+            <summary>
+            批量创建指定状态
+            </summary>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.OrderDetailService.UpdateService">
@@ -19377,18 +19496,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.OrderDetailService.UpdateService.ToOpen(MISApi.Entities.CMS.OrderDetail)">
+        <member name="M:MISApi.Services.CMS.OrderDetailService.UpdateService.ToStatus(MISApi.Entities.CMS.OrderDetail,System.String)">
             <summary>
-            开启
+            编辑指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.OrderDetailService.UpdateService.ToClose(MISApi.Entities.CMS.OrderDetail)">
+        <member name="M:MISApi.Services.CMS.OrderDetailService.UpdateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.OrderDetail},System.String)">
             <summary>
-            关闭
+            批量编辑指定状态
             </summary>
-            <param name="entity"></param>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.OrderDetailService.DeleteService">
@@ -19431,11 +19552,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.OrderService.CreateService.ToOpen(MISApi.Entities.CMS.Order)">
+        <member name="M:MISApi.Services.CMS.OrderService.CreateService.ToStatus(MISApi.Entities.CMS.Order,System.String)">
             <summary>
-            开启
+            创建指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.OrderService.CreateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Order},System.String)">
+            <summary>
+            批量创建指定状态
+            </summary>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.OrderService.UpdateService">
@@ -19453,32 +19583,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.OrderService.UpdateService.ToOpen(MISApi.Entities.CMS.Order)">
+        <member name="M:MISApi.Services.CMS.OrderService.UpdateService.ToStatus(MISApi.Entities.CMS.Order,System.String)">
             <summary>
-            开启
+            编辑指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.OrderService.UpdateService.ToClose(MISApi.Entities.CMS.Order)">
+        <member name="M:MISApi.Services.CMS.OrderService.UpdateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Order},System.String)">
             <summary>
-            关闭
+            批量编辑指定状态
             </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.OrderService.UpdateService.ToPaid(MISApi.Entities.CMS.Order)">
-            <summary>
-            支付
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.OrderService.UpdateService.ToRefund(MISApi.Entities.CMS.Order)">
-            <summary>
-            已退款
-            </summary>
-            <param name="entity"></param>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.OrderService.DeleteService">
@@ -19576,11 +19694,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.SerialService.CreateService.ToOpen(MISApi.Entities.CMS.Serial)">
+        <member name="M:MISApi.Services.CMS.SerialService.CreateService.ToStatus(MISApi.Entities.CMS.Serial,System.String)">
             <summary>
-            开启
+            创建指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.SerialService.CreateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Serial},System.String)">
+            <summary>
+            批量创建指定状态
+            </summary>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.SerialService.UpdateService">
@@ -19598,18 +19725,20 @@
             构造函数
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.SerialService.UpdateService.ToOpen(MISApi.Entities.CMS.Serial)">
+        <member name="M:MISApi.Services.CMS.SerialService.UpdateService.ToStatus(MISApi.Entities.CMS.Serial,System.String)">
             <summary>
-            开启
+            编辑指定状态
             </summary>
             <param name="entity"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.SerialService.UpdateService.ToClose(MISApi.Entities.CMS.Serial)">
+        <member name="M:MISApi.Services.CMS.SerialService.UpdateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Serial},System.String)">
             <summary>
-            关闭
+            批量编辑指定状态
             </summary>
-            <param name="entity"></param>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.SerialService.DeleteService">

@@ -79,32 +79,63 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 创建提现
+        /// 创建提现并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/CashOut/Create/ToOpen", Name = "MIS_CMS_CashOut_Create_ToOpen")]
+        [Route("MIS/CMS/CashOut/Create/ToStatus", Name = "MIS_CMS_CashOut_Create_ToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Create_ToOpen(CashOut entity)
+        public IActionResult Create_ToStatus(DTO_EntityToStatus<CashOut> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entity != null)
                 {
 
                 }
                 // 返回
                 return ResponseOk(
                     new CreateMode.Request().ToResponse(
-                        new CashOutService.CreateService().ToOpen(entity)
+                        new CashOutService.CreateService().ToStatus(dto.Entity, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.CashOutController.Create_ToOpen", ex);
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Create_ToStatus", ex);
+            }
+        }
+        /// <summary>
+        /// 批量创建提现并设置状态
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/CashOut/Create/BatchToStatus", Name = "MIS_CMS_CashOut_Create_BatchToStatus")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create_BatchToStatus(DTO_EntitiesToStatus<CashOut> dto)
+        {
+            try
+            {
+                // Entity
+                if (dto.Entities != null)
+                {
+                    dto.Entities.ForEach(entity => {
+
+                    });
+                }
+                // 返回
+                return ResponseOk(
+                    new CreateMode.Request().ToResponse(
+                        new CashOutService.CreateService().BatchToStatus(dto.Entities, dto.StatusKey)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Create_BatchToStatus", ex);
             }
         }
         #endregion
@@ -172,177 +203,64 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 开启提现申请
+        /// 编辑并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/CashOut/Update/ToOpen", Name = "MIS_CMS_CashOut_Update_ToOpen")]
+        [Route("MIS/CMS/CashOut/Update/ToStatus", Name = "MIS_CMS_CashOut_Update_ToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_ToOpen(CashOut entity)
+        public IActionResult Update_ToStatus(DTO_EntityToStatus<CashOut> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entity != null)
                 {
 
                 }
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new CashOutService.UpdateService().ToOpen(entity)
+                        new CashOutService.UpdateService().ToStatus(dto.Entity, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.CashOutController.Update_ToOpen", ex);
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Update_ToStatus", ex);
             }
         }
         /// <summary>
-        /// 关闭提现申请
+        /// 批量编辑并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/CashOut/Update/ToClose", Name = "MIS_CMS_CashOut_Update_ToClose")]
+        [Route("MIS/CMS/CashOut/Update/BatchToStatus", Name = "MIS_CMS_CashOut_Update_BatchToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_ToClose(CashOut entity)
+        public IActionResult Update_BatchToStatus(DTO_EntitiesToStatus<CashOut> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entities != null)
                 {
+                    dto.Entities.ForEach(entity =>
+                    {
 
+                    });
                 }
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new CashOutService.UpdateService().ToClose(entity)
+                        new CashOutService.UpdateService().BatchToStatus(dto.Entities, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.CashOutController.Update_ToClose", ex);
-            }
-        }
-        /// <summary>
-        /// 提交提现申请
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        [Route("MIS/CMS/CashOut/Update/ToSubmit", Name = "MIS_CMS_CashOut_Update_ToSubmit")]
-        [HttpPost]
-        [Authorize]
-        public IActionResult Update_ToSubmit(CashOut entity)
-        {
-            try
-            {
-                // Entity
-                if (entity != null)
-                {
-
-                }
-                // 返回
-                return ResponseOk(
-                    new UpdateMode.Request().ToResponse(
-                        new CashOutService.UpdateService().ToSubmit(entity)
-                    )
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.CMS.CashOutController.Update_ToSubmit", ex);
-            }
-        }
-        /// <summary>
-        /// 通过提现申请
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        [Route("MIS/CMS/CashOut/Update/ToApproverPass", Name = "MIS_CMS_CashOut_Update_ToApproverPass")]
-        [HttpPost]
-        [Authorize]
-        public IActionResult Update_ToApproverPass(CashOut entity)
-        {
-            try
-            {
-                // Entity
-                if (entity != null)
-                {
-
-                }
-                // 返回
-                return ResponseOk(
-                    new UpdateMode.Request().ToResponse(
-                        new CashOutService.UpdateService().ToApproverPass(entity)
-                    )
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.CMS.CashOutController.Update_ToApproverPass", ex);
-            }
-        }
-        /// <summary>
-        /// 拒绝提现申请
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        [Route("MIS/CMS/CashOut/Update/ToApproverRefuse", Name = "MIS_CMS_CashOut_Update_ToApproverRefuse")]
-        [HttpPost]
-        [Authorize]
-        public IActionResult Update_ToApproverRefuse(CashOut entity)
-        {
-            try
-            {
-                // Entity
-                if (entity != null)
-                {
-
-                }
-                // 返回
-                return ResponseOk(
-                    new UpdateMode.Request().ToResponse(
-                        new CashOutService.UpdateService().ToApproverRefuse(entity)
-                    )
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.CMS.CashOutController.Update_ToApproverRefuse", ex);
-            }
-        }
-        /// <summary>
-        /// 放款
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        [Route("MIS/CMS/CashOut/Update/ToLoan", Name = "MIS_CMS_CashOut_Update_ToLoan")]
-        [HttpPost]
-        [Authorize]
-        public IActionResult Update_ToLoan(CashOut entity)
-        {
-            try
-            {
-                // Entity
-                if (entity != null)
-                {
-
-                }
-                // 返回
-                return ResponseOk(
-                    new UpdateMode.Request().ToResponse(
-                        new CashOutService.UpdateService().ToLoan(entity)
-                    )
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.CMS.CashOutController.Update_ToLoan", ex);
+                throw new Exception("MISApi.Controllers.CMS.CashOutController.Update_BatchToStatus", ex);
             }
         }
         #endregion

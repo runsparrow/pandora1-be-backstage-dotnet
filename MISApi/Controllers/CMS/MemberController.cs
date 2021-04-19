@@ -80,6 +80,66 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.MemberController.Create_Multiple", ex);
             }
         }
+        /// <summary>
+        /// 创建会员并设置状态
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Member/Create/ToStatus", Name = "MIS_CMS_Member_Create_ToStatus")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create_ToStatus(DTO_EntityToStatus<Member> dto)
+        {
+            try
+            {
+                // Entity
+                if (dto.Entity != null)
+                {
+
+                }
+                // 返回
+                return ResponseOk(
+                    new CreateMode.Request().ToResponse(
+                        new MemberService.CreateService().ToStatus(dto.Entity, dto.StatusKey)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Create_ToStatus", ex);
+            }
+        }
+        /// <summary>
+        /// 批量创建会员并设置状态
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Member/Create/BatchToStatus", Name = "MIS_CMS_Member_Create_BatchToStatus")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create_BatchToStatus(DTO_EntitiesToStatus<Member> dto)
+        {
+            try
+            {
+                // Entity
+                if (dto.Entities != null)
+                {
+                    dto.Entities.ForEach(entity => {
+
+                    });
+                }
+                // 返回
+                return ResponseOk(
+                    new CreateMode.Request().ToResponse(
+                        new MemberService.CreateService().BatchToStatus(dto.Entities, dto.StatusKey)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Create_BatchToStatus", ex);
+            }
+        }
         #endregion
 
         #region UpdateMode
@@ -174,90 +234,64 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 启用会员
+        /// 编辑并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Member/Update/ToOpen", Name = "MIS_CMS_Member_Update_ToOpen")]
+        [Route("MIS/CMS/Member/Update/ToStatus", Name = "MIS_CMS_Member_Update_ToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_ToOpen(Member entity)
+        public IActionResult Update_ToStatus(DTO_EntityToStatus<Member> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entity != null)
                 {
 
                 }
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new MemberService.UpdateService().ToOpen(entity)
+                        new MemberService.UpdateService().ToStatus(dto.Entity, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.MemberController.Update_ToOpen", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Update_ToStatus", ex);
             }
         }
         /// <summary>
-        /// 关闭会员
+        /// 批量编辑并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Member/Update/ToClose", Name = "MIS_CMS_Member_Update_ToClose")]
+        [Route("MIS/CMS/Member/Update/BatchToStatus", Name = "MIS_CMS_Member_Update_BatchToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_ToClose(Member entity)
+        public IActionResult Update_BatchToStatus(DTO_EntitiesToStatus<Member> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entities != null)
                 {
+                    dto.Entities.ForEach(entity =>
+                    {
 
+                    });
                 }
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new MemberService.UpdateService().ToClose(entity)
+                        new MemberService.UpdateService().BatchToStatus(dto.Entities, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.MemberController.Update_ToClose", ex);
-            }
-        }
-        /// <summary>
-        /// 冻结会员
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        [Route("MIS/CMS/Member/Update/ToFrozen", Name = "MIS_CMS_Member_Update_ToFrozen")]
-        [HttpPost]
-        [Authorize]
-        public IActionResult Update_ToFrozen(Member entity)
-        {
-            try
-            {
-                // Entity
-                if (entity != null)
-                {
-
-                }
-                // 返回
-                return ResponseOk(
-                    new UpdateMode.Request().ToResponse(
-                        new MemberService.UpdateService().ToFrozen(entity)
-                    )
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.CMS.MemberController.Update_ToFrozen", ex);
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Update_BatchToStatus", ex);
             }
         }
         #endregion

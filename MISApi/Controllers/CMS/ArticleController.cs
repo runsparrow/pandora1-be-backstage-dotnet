@@ -85,35 +85,69 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 创建资讯
+        /// 创建资讯并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Article/Create/ToOpen", Name = "MIS_CMS_Article_Create_ToOpen")]
+        [Route("MIS/CMS/Article/Create/ToStatus", Name = "MIS_CMS_Article_Create_ToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Create_ToOpen(Article entity)
+        public IActionResult Create_ToStatus(DTO_EntityToStatus<Article> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entity != null)
                 {
-                    entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
-                    entity.CreateDateTime = DateTime.Now;
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
-                    entity.EditDateTime = DateTime.Now;
+                    dto.Entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.CreateDateTime = DateTime.Now;
+                    dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
                     new CreateMode.Request().ToResponse(
-                        new ArticleService.CreateService().ToOpen(entity)
+                        new ArticleService.CreateService().ToStatus(dto.Entity, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.ArticleController.Create_ToOpen", ex);
+                throw new Exception("MISApi.Controllers.CMS.ArticleController.Create_ToStatus", ex);
+            }
+        }
+        /// <summary>
+        /// 批量创建资讯并设置状态
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Article/Create/BatchToStatus", Name = "MIS_CMS_Article_Create_BatchToStatus")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create_BatchToStatus(DTO_EntitiesToStatus<Article> dto)
+        {
+            try
+            {
+                // Entity
+                if (dto.Entities != null)
+                {
+                    dto.Entities.ForEach(entity => {
+                        entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.CreateDateTime = DateTime.Now;
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
+                    });
+                }
+                // 返回
+                return ResponseOk(
+                    new CreateMode.Request().ToResponse(
+                        new ArticleService.CreateService().BatchToStatus(dto.Entities, dto.StatusKey)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.ArticleController.Create_BatchToStatus", ex);
             }
         }
         #endregion
@@ -183,63 +217,66 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 编辑一条资讯
+        /// 编辑并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Article/Update/ToOpen", Name = "MIS_CMS_Article_Update_ToOpen")]
+        [Route("MIS/CMS/Article/Update/ToStatus", Name = "MIS_CMS_Article_Update_ToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_ToOpen(Article entity)
+        public IActionResult Update_ToStatus(DTO_EntityToStatus<Article> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entity != null)
                 {
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
-                    entity.EditDateTime = DateTime.Now;
+                    dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new ArticleService.UpdateService().ToOpen(entity)
+                        new ArticleService.UpdateService().ToStatus(dto.Entity, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.ArticleController.Update_ToOpen", ex);
+                throw new Exception("MISApi.Controllers.CMS.ArticleController.Update_ToStatus", ex);
             }
         }
         /// <summary>
-        /// 编辑一条资讯
+        /// 批量编辑并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Article/Update/ToClose", Name = "MIS_CMS_Article_Update_ToClose")]
+        [Route("MIS/CMS/Article/Update/BatchToStatus", Name = "MIS_CMS_Article_Update_BatchToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_ToClose(Article entity)
+        public IActionResult Update_BatchToStatus(DTO_EntitiesToStatus<Article> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entities != null)
                 {
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
-                    entity.EditDateTime = DateTime.Now;
+                    dto.Entities.ForEach(entity =>
+                    {
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
+                    });
                 }
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new ArticleService.UpdateService().ToClose(entity)
+                        new ArticleService.UpdateService().BatchToStatus(dto.Entities, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.ArticleController.Update_ToClose", ex);
+                throw new Exception("MISApi.Controllers.CMS.ArticleController.Update_BatchToStatus", ex);
             }
         }
         #endregion

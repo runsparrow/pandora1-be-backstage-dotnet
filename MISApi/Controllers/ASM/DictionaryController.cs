@@ -1,14 +1,13 @@
-﻿using MISApi.CacheServices.ASM;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MISApi.Controllers.HttpEntities;
 using MISApi.Entities.ASM;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+using MISApi.HttpClients.HttpModes.TreeMode.AntdTree;
+using MISApi.Services.ASM;
+using MISApi.Tools;
 using System;
 using System.Collections.Generic;
 using BaseMode = MISApi.HttpClients.HttpModes.BaseMode;
-using MISApi.Services.ASM;
-using MISApi.Tools;
-using MISApi.HttpClients.HttpModes.TreeMode.AntdTree;
 
 namespace MISApi.Controllers.ASM
 {
@@ -87,35 +86,69 @@ namespace MISApi.Controllers.ASM
             }
         }
         /// <summary>
-        /// 创建数据字典
+        /// 创建字典并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/ASM/Dictionary/Create/ToOpen", Name = "MIS_ASM_Dictionary_Create_ToOpen")]
+        [Route("MIS/ASM/Dictionary/Create/ToStatus", Name = "MIS_ASM_Dictionary_Create_ToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Create_ToOpen(Dictionary entity)
+        public IActionResult Create_ToStatus(DTO_EntityToStatus<Dictionary> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entity != null)
                 {
-                    entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
-                    entity.CreateDateTime = DateTime.Now;
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
-                    entity.EditDateTime = DateTime.Now;
+                    dto.Entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.CreateDateTime = DateTime.Now;
+                    dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
                     new CreateMode.Request().ToResponse(
-                        new DictionaryService.CreateService().ToOpen(entity)
+                        new DictionaryService.CreateService().ToStatus(dto.Entity, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Create_ToOpen", ex);
+                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Create_ToStatus", ex);
+            }
+        }
+        /// <summary>
+        /// 批量创建字典并设置状态
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Dictionary/Create/BatchToStatus", Name = "MIS_ASM_Dictionary_Create_BatchToStatus")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create_BatchToStatus(DTO_EntitiesToStatus<Dictionary> dto)
+        {
+            try
+            {
+                // Entity
+                if (dto.Entities != null)
+                {
+                    dto.Entities.ForEach(entity => {
+                        entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.CreateDateTime = DateTime.Now;
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
+                    });
+                }
+                // 返回
+                return ResponseOk(
+                    new CreateMode.Request().ToResponse(
+                        new DictionaryService.CreateService().BatchToStatus(dto.Entities, dto.StatusKey)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Create_BatchToStatus", ex);
             }
         }
         #endregion
@@ -185,63 +218,66 @@ namespace MISApi.Controllers.ASM
             }
         }
         /// <summary>
-        /// 编辑一条数据字典
+        /// 编辑并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/ASM/Dictionary/Update/ToOpen", Name = "MIS_ASM_Dictionary_Update_ToOpen")]
+        [Route("MIS/ASM/Dictionary/Update/ToStatus", Name = "MIS_ASM_Dictionary_Update_ToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_ToOpen(Dictionary entity)
+        public IActionResult Update_ToStatus(DTO_EntityToStatus<Dictionary> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entity != null)
                 {
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
-                    entity.EditDateTime = DateTime.Now;
+                    dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new DictionaryService.UpdateService().ToOpen(entity)
+                        new DictionaryService.UpdateService().ToStatus(dto.Entity, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Update_ToOpen", ex);
+                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Update_ToStatus", ex);
             }
         }
         /// <summary>
-        /// 编辑一条数据字典
+        /// 批量编辑并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/ASM/Dictionary/Update/ToClose", Name = "MIS_ASM_Dictionary_Update_ToClose")]
+        [Route("MIS/ASM/Dictionary/Update/BatchToStatus", Name = "MIS_ASM_Dictionary_Update_BatchToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_ToClose(Dictionary entity)
+        public IActionResult Update_BatchToStatus(DTO_EntitiesToStatus<Dictionary> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entities != null)
                 {
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
-                    entity.EditDateTime = DateTime.Now;
+                    dto.Entities.ForEach(entity =>
+                    {
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
+                    });
                 }
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new DictionaryService.UpdateService().ToClose(entity)
+                        new DictionaryService.UpdateService().BatchToStatus(dto.Entities, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Update_ToClose", ex);
+                throw new Exception("MISApi.Controllers.ASM.DictionaryController.Update_BatchToStatus", ex);
             }
         }
         #endregion

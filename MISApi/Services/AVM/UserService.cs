@@ -4,6 +4,7 @@ using MISApi.Entities.AVM;
 using MISApi.Entities.WFM;
 using MISApi.Tools;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MISApi.Services.AVM
@@ -32,11 +33,12 @@ namespace MISApi.Services.AVM
                 transService = new TransService();
             }
             /// <summary>
-            /// 开启
+            /// 创建指定状态
             /// </summary>
             /// <param name="entity"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual User ToOpen(User entity)
+            public virtual User ToStatus(User entity, string statusKey)
             {
                 try
                 {
@@ -44,11 +46,11 @@ namespace MISApi.Services.AVM
                     User result = new User();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("avm.user.open");
+                        Status status = new StatusCacheService.RowService().ByKey(statusKey);
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
-                        result = new UserService.CreateService().Execute(entity);
+                        result = base.Create(entity);
                     });
                     // 提交
                     transService.TransCommit();
@@ -57,7 +59,37 @@ namespace MISApi.Services.AVM
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.AVM.UserService.CreateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.AVM.UserService.CreateService.ToStatus", ex);
+                }
+            }
+            /// <summary>
+            /// 批量创建指定状态
+            /// </summary>
+            /// <param name="entities"></param>
+            /// <param name="statusKey"></param>
+            /// <returns></returns>
+            public virtual List<User> BatchToStatus(List<User> entities, string statusKey)
+            {
+                try
+                {
+                    // 定义
+                    List<User> results = new List<User>();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        // 遍历
+                        entities.ForEach(entity =>
+                        {
+                            results.Add(new UserService.CreateService().ToStatus(entity, statusKey));
+                        });
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return results;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.AVM.UserService.CreateService.BatchToStatus", ex);
                 }
             }
         }
@@ -82,11 +114,12 @@ namespace MISApi.Services.AVM
                 transService = new TransService();
             }
             /// <summary>
-            /// 开启
+            /// 编辑指定状态
             /// </summary>
             /// <param name="entity"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual User ToOpen(User entity)
+            public virtual User ToStatus(User entity, string statusKey)
             {
                 try
                 {
@@ -94,7 +127,7 @@ namespace MISApi.Services.AVM
                     User result = new User();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("avm.user.open");
+                        Status status = new StatusCacheService.RowService().ByKey(statusKey);
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
@@ -107,36 +140,37 @@ namespace MISApi.Services.AVM
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.AVM.UserService.UpdateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.AVM.UserService.UpdateService.ToStatus", ex);
                 }
             }
             /// <summary>
-            /// 关闭
+            /// 批量编辑指定状态
             /// </summary>
-            /// <param name="entity"></param>
+            /// <param name="entities"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual User ToClose(User entity)
+            public virtual List<User> BatchToStatus(List<User> entities, string statusKey)
             {
                 try
                 {
                     // 定义
-                    User result = new User();
+                    List<User> results = new List<User>();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("avm.user.close");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
+                        // 遍历
+                        entities.ForEach(entity =>
+                        {
+                            results.Add(new UserService.UpdateService().ToStatus(entity, statusKey));
+                        });
                     });
                     // 提交
                     transService.TransCommit();
                     // 返回
-                    return result;
+                    return results;
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.AVM.UserService.UpdateService.ToClose", ex);
+                    throw new Exception("MISApi.Services.AVM.UserService.UpdateService.BatchToStatus", ex);
                 }
             }
         }

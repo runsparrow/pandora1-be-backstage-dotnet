@@ -2,6 +2,7 @@
 using MISApi.Entities.CMS;
 using MISApi.Entities.WFM;
 using System;
+using System.Collections.Generic;
 
 namespace MISApi.Services.CMS
 {
@@ -29,11 +30,12 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 开启
+            /// 创建指定状态
             /// </summary>
             /// <param name="entity"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual Authority ToOpen(Authority entity)
+            public virtual Authority ToStatus(Authority entity, string statusKey)
             {
                 try
                 {
@@ -41,11 +43,11 @@ namespace MISApi.Services.CMS
                     Authority result = new Authority();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.authority.open");
+                        Status status = new StatusCacheService.RowService().ByKey(statusKey);
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
-                        result = new AuthorityService.CreateService().Execute(entity);
+                        result = base.Create(entity);
                     });
                     // 提交
                     transService.TransCommit();
@@ -54,7 +56,37 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.AuthorityService.CreateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.AuthorityService.CreateService.ToStatus", ex);
+                }
+            }
+            /// <summary>
+            /// 批量创建指定状态
+            /// </summary>
+            /// <param name="entities"></param>
+            /// <param name="statusKey"></param>
+            /// <returns></returns>
+            public virtual List<Authority> BatchToStatus(List<Authority> entities, string statusKey)
+            {
+                try
+                {
+                    // 定义
+                    List<Authority> results = new List<Authority>();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        // 遍历
+                        entities.ForEach(entity =>
+                        {
+                            results.Add(new AuthorityService.CreateService().ToStatus(entity, statusKey));
+                        });
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return results;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.AuthorityService.CreateService.BatchToStatus", ex);
                 }
             }
         }
@@ -79,11 +111,12 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 开启
+            /// 编辑指定状态
             /// </summary>
             /// <param name="entity"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual Authority ToOpen(Authority entity)
+            public virtual Authority ToStatus(Authority entity, string statusKey)
             {
                 try
                 {
@@ -91,7 +124,7 @@ namespace MISApi.Services.CMS
                     Authority result = new Authority();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.authority.open");
+                        Status status = new StatusCacheService.RowService().ByKey(statusKey);
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
@@ -104,123 +137,37 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.AuthorityService.UpdateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.AuthorityService.UpdateService.ToStatus", ex);
                 }
             }
             /// <summary>
-            /// 关闭
+            /// 批量编辑指定状态
             /// </summary>
-            /// <param name="entity"></param>
+            /// <param name="entities"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual Authority ToClose(Authority entity)
+            public virtual List<Authority> BatchToStatus(List<Authority> entities, string statusKey)
             {
                 try
                 {
                     // 定义
-                    Authority result = new Authority();
+                    List<Authority> results = new List<Authority>();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.authority.close");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
+                        // 遍历
+                        entities.ForEach(entity =>
+                        {
+                            results.Add(new AuthorityService.UpdateService().ToStatus(entity, statusKey));
+                        });
                     });
                     // 提交
                     transService.TransCommit();
                     // 返回
-                    return result;
+                    return results;
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.AuthorityService.UpdateService.ToClose", ex);
-                }
-            }
-            /// <summary>
-            /// 提交
-            /// </summary>
-            /// <param name="entity"></param>
-            /// <returns></returns>
-            public virtual Authority ToSubmit(Authority entity)
-            {
-                try
-                {
-                    // 定义
-                    Authority result = new Authority();
-                    // 事务
-                    transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.authority.submit");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
-                    });
-                    // 提交
-                    transService.TransCommit();
-                    // 返回
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("MISApi.Services.CMS.AuthorityService.UpdateService.ToSubmit", ex);
-                }
-            }
-            /// <summary>
-            /// 审批通过
-            /// </summary>
-            /// <param name="entity"></param>
-            /// <returns></returns>
-            public virtual Authority ToApproverPass(Authority entity)
-            {
-                try
-                {
-                    // 定义
-                    Authority result = new Authority();
-                    // 事务
-                    transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.authority.approver.pass");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
-                    });
-                    // 提交
-                    transService.TransCommit();
-                    // 返回
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("MISApi.Services.CMS.AuthorityService.UpdateService.ToApproverPass", ex);
-                }
-            }
-            /// <summary>
-            /// 审批拒绝
-            /// </summary>
-            /// <param name="entity"></param>
-            /// <returns></returns>
-            public virtual Authority ToApproverRefuse(Authority entity)
-            {
-                try
-                {
-                    // 定义
-                    Authority result = new Authority();
-                    // 事务
-                    transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.authority.approver.refuse");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
-                    });
-                    // 提交
-                    transService.TransCommit();
-                    // 返回
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("MISApi.Services.CMS.AuthorityService.UpdateService.ToApproverRefuse", ex);
+                    throw new Exception("MISApi.Services.CMS.AuthorityService.UpdateService.BatchToStatus", ex);
                 }
             }
         }

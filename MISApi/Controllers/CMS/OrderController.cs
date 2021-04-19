@@ -85,35 +85,69 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 创建订单
+        /// 创建订单并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Order/Create/ToOpen", Name = "MIS_CMS_Order_Create_ToOpen")]
+        [Route("MIS/CMS/Order/Create/ToStatus", Name = "MIS_CMS_Order_Create_ToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Create_ToOpen(Order entity)
+        public IActionResult Create_ToStatus(DTO_EntityToStatus<Order> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entity != null)
                 {
-                    entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
-                    entity.CreateDateTime = DateTime.Now;
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
-                    entity.EditDateTime = DateTime.Now;
+                    dto.Entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.CreateDateTime = DateTime.Now;
+                    dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
                     new CreateMode.Request().ToResponse(
-                        new OrderService.CreateService().ToOpen(entity)
+                        new OrderService.CreateService().ToStatus(dto.Entity, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.OrderController.Create_ToOpen", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderController.Create_ToStatus", ex);
+            }
+        }
+        /// <summary>
+        /// 批量创建订单并设置状态
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Order/Create/BatchToStatus", Name = "MIS_CMS_Order_Create_BatchToStatus")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create_BatchToStatus(DTO_EntitiesToStatus<Order> dto)
+        {
+            try
+            {
+                // Entity
+                if (dto.Entities != null)
+                {
+                    dto.Entities.ForEach(entity => {
+                        entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.CreateDateTime = DateTime.Now;
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
+                    });
+                }
+                // 返回
+                return ResponseOk(
+                    new CreateMode.Request().ToResponse(
+                        new OrderService.CreateService().BatchToStatus(dto.Entities, dto.StatusKey)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.OrderController.Create_BatchToStatus", ex);
             }
         }
         #endregion
@@ -183,63 +217,66 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 编辑一条订单
+        /// 编辑并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Order/Update/ToOpen", Name = "MIS_CMS_Order_Update_ToOpen")]
+        [Route("MIS/CMS/Order/Update/ToStatus", Name = "MIS_CMS_Order_Update_ToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_ToOpen(Order entity)
+        public IActionResult Update_ToStatus(DTO_EntityToStatus<Order> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entity != null)
                 {
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
-                    entity.EditDateTime = DateTime.Now;
+                    dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new OrderService.UpdateService().ToOpen(entity)
+                        new OrderService.UpdateService().ToStatus(dto.Entity, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.OrderController.Update_ToOpen", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderController.Update_ToStatus", ex);
             }
         }
         /// <summary>
-        /// 编辑一条订单
+        /// 批量编辑并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Order/Update/ToClose", Name = "MIS_CMS_Order_Update_ToClose")]
+        [Route("MIS/CMS/Order/Update/BatchToStatus", Name = "MIS_CMS_Order_Update_BatchToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_ToClose(Order entity)
+        public IActionResult Update_BatchToStatus(DTO_EntitiesToStatus<Order> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entities != null)
                 {
-                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
-                    entity.EditDateTime = DateTime.Now;
+                    dto.Entities.ForEach(entity =>
+                    {
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
+                    });
                 }
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new OrderService.UpdateService().ToClose(entity)
+                        new OrderService.UpdateService().BatchToStatus(dto.Entities, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.OrderController.Update_ToClose", ex);
+                throw new Exception("MISApi.Controllers.CMS.OrderController.Update_BatchToStatus", ex);
             }
         }
         #endregion

@@ -34,11 +34,12 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 开启
+            /// 创建指定状态
             /// </summary>
             /// <param name="entity"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual Member ToOpen(Member entity)
+            public virtual Member ToStatus(Member entity, string statusKey)
             {
                 try
                 {
@@ -46,11 +47,11 @@ namespace MISApi.Services.CMS
                     Member result = new Member();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.member.open");
+                        Status status = new StatusCacheService.RowService().ByKey(statusKey);
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
-                        result = new MemberService.CreateService().Execute(entity);
+                        result = base.Create(entity);
                     });
                     // 提交
                     transService.TransCommit();
@@ -59,7 +60,37 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.MemberService.CreateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.MemberService.CreateService.ToStatus", ex);
+                }
+            }
+            /// <summary>
+            /// 批量创建指定状态
+            /// </summary>
+            /// <param name="entities"></param>
+            /// <param name="statusKey"></param>
+            /// <returns></returns>
+            public virtual List<Member> BatchToStatus(List<Member> entities, string statusKey)
+            {
+                try
+                {
+                    // 定义
+                    List<Member> results = new List<Member>();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        // 遍历
+                        entities.ForEach(entity =>
+                        {
+                            results.Add(new MemberService.CreateService().ToStatus(entity, statusKey));
+                        });
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return results;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.MemberService.CreateService.BatchToStatus", ex);
                 }
             }
             /// <summary>
@@ -78,7 +109,7 @@ namespace MISApi.Services.CMS
                     {
                         if(new MemberService.RowService().ByMobile(entity.Mobile) == null)
                         {
-                            result = new MemberService.CreateService().ToOpen(entity);
+                            result = new MemberService.CreateService().ToStatus(entity, "cms.member.open");
                         }
                         else
                         {
@@ -117,11 +148,12 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 开启
+            /// 编辑指定状态
             /// </summary>
             /// <param name="entity"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual Member ToOpen(Member entity)
+            public virtual Member ToStatus(Member entity, string statusKey)
             {
                 try
                 {
@@ -129,7 +161,7 @@ namespace MISApi.Services.CMS
                     Member result = new Member();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.member.open");
+                        Status status = new StatusCacheService.RowService().ByKey(statusKey);
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
@@ -142,65 +174,37 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.MemberService.UpdateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.MemberService.UpdateService.ToStatus", ex);
                 }
             }
             /// <summary>
-            /// 关闭
+            /// 批量编辑指定状态
             /// </summary>
-            /// <param name="entity"></param>
+            /// <param name="entities"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual Member ToClose(Member entity)
+            public virtual List<Member> BatchToStatus(List<Member> entities, string statusKey)
             {
                 try
                 {
                     // 定义
-                    Member result = new Member();
+                    List<Member> results = new List<Member>();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.member.close");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
+                        // 遍历
+                        entities.ForEach(entity =>
+                        {
+                            results.Add(new MemberService.UpdateService().ToStatus(entity, statusKey));
+                        });
                     });
                     // 提交
                     transService.TransCommit();
                     // 返回
-                    return result;
+                    return results;
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.MemberService.UpdateService.ToClose", ex);
-                }
-            }
-            /// <summary>
-            /// 冻结
-            /// </summary>
-            /// <param name="entity"></param>
-            /// <returns></returns>
-            public virtual Member ToFrozen(Member entity)
-            {
-                try
-                {
-                    // 定义
-                    Member result = new Member();
-                    // 事务
-                    transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.member.frozen");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
-                    });
-                    // 提交
-                    transService.TransCommit();
-                    // 返回
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("MISApi.Services.CMS.MemberService.UpdateService.ToFrozen", ex);
+                    throw new Exception("MISApi.Services.CMS.MemberService.UpdateService.BatchToStatus", ex);
                 }
             }
         }

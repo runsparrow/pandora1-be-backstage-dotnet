@@ -79,32 +79,63 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 创建认证
+        /// 创建认证并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Authority/Create/ToOpen", Name = "MIS_CMS_Authority_Create_ToOpen")]
+        [Route("MIS/CMS/Authority/Create/ToStatus", Name = "MIS_CMS_Authority_Create_ToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Create_ToOpen(Authority entity)
+        public IActionResult Create_ToStatus(DTO_EntityToStatus<Authority> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entity != null)
                 {
 
                 }
                 // 返回
                 return ResponseOk(
                     new CreateMode.Request().ToResponse(
-                        new AuthorityService.CreateService().ToOpen(entity)
+                        new AuthorityService.CreateService().ToStatus(dto.Entity, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Create_ToOpen", ex);
+                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Create_ToStatus", ex);
+            }
+        }
+        /// <summary>
+        /// 批量创建认证并设置状态
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Authority/Create/BatchToStatus", Name = "MIS_CMS_Authority_Create_BatchToStatus")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create_BatchToStatus(DTO_EntitiesToStatus<Authority> dto)
+        {
+            try
+            {
+                // Entity
+                if (dto.Entities != null)
+                {
+                    dto.Entities.ForEach(entity => {
+
+                    });
+                }
+                // 返回
+                return ResponseOk(
+                    new CreateMode.Request().ToResponse(
+                        new AuthorityService.CreateService().BatchToStatus(dto.Entities, dto.StatusKey)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Create_BatchToStatus", ex);
             }
         }
         #endregion
@@ -172,148 +203,64 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 编辑一条认证
+        /// 编辑并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Authority/Update/ToOpen", Name = "MIS_CMS_Authority_Update_ToOpen")]
+        [Route("MIS/CMS/Authority/Update/ToStatus", Name = "MIS_CMS_Authority_Update_ToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_ToOpen(Authority entity)
+        public IActionResult Update_ToStatus(DTO_EntityToStatus<Authority> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entity != null)
                 {
 
                 }
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new AuthorityService.UpdateService().ToOpen(entity)
+                        new AuthorityService.UpdateService().ToStatus(dto.Entity, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Update_ToOpen", ex);
+                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Update_ToStatus", ex);
             }
         }
         /// <summary>
-        /// 编辑一条认证
+        /// 批量编辑并设置状态
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Authority/Update/ToClose", Name = "MIS_CMS_Authority_Update_ToClose")]
+        [Route("MIS/CMS/Authority/Update/BatchToStatus", Name = "MIS_CMS_Authority_Update_BatchToStatus")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_ToClose(Authority entity)
+        public IActionResult Update_BatchToStatus(DTO_EntitiesToStatus<Authority> dto)
         {
             try
             {
                 // Entity
-                if (entity != null)
+                if (dto.Entities != null)
                 {
+                    dto.Entities.ForEach(entity =>
+                    {
 
+                    });
                 }
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new AuthorityService.UpdateService().ToClose(entity)
+                        new AuthorityService.UpdateService().BatchToStatus(dto.Entities, dto.StatusKey)
                     )
                 );
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Update_ToClose", ex);
-            }
-        }
-        /// <summary>
-        /// 提交认证
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        [Route("MIS/CMS/Authority/Update/ToSubmit", Name = "MIS_CMS_Authority_Update_ToSubmit")]
-        [HttpPost]
-        [Authorize]
-        public IActionResult Update_ToSubmit(Authority entity)
-        {
-            try
-            {
-                // Entity
-                if (entity != null)
-                {
-
-                }
-                // 返回
-                return ResponseOk(
-                    new UpdateMode.Request().ToResponse(
-                        new AuthorityService.UpdateService().ToSubmit(entity)
-                    )
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Update_ToSubmit", ex);
-            }
-        }
-        /// <summary>
-        /// 通过认证
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        [Route("MIS/CMS/Authority/Update/ToApproverPass", Name = "MIS_CMS_Authority_Update_ToApproverPass")]
-        [HttpPost]
-        [Authorize]
-        public IActionResult Update_ToApproverPass(Authority entity)
-        {
-            try
-            {
-                // Entity
-                if (entity != null)
-                {
-
-                }
-                // 返回
-                return ResponseOk(
-                    new UpdateMode.Request().ToResponse(
-                        new AuthorityService.UpdateService().ToApproverPass(entity)
-                    )
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Update_ToApproverPass", ex);
-            }
-        }
-        /// <summary>
-        /// 拒绝认证
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        [Route("MIS/CMS/Authority/Update/ToApproverRefuse", Name = "MIS_CMS_Authority_Update_ToApproverRefuse")]
-        [HttpPost]
-        [Authorize]
-        public IActionResult Update_ToApproverRefuse(Authority entity)
-        {
-            try
-            {
-                // Entity
-                if (entity != null)
-                {
-
-                }
-                // 返回
-                return ResponseOk(
-                    new UpdateMode.Request().ToResponse(
-                        new AuthorityService.UpdateService().ToApproverRefuse(entity)
-                    )
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Update_ToApproverRefuse", ex);
+                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Update_BatchToStatus", ex);
             }
         }
         #endregion

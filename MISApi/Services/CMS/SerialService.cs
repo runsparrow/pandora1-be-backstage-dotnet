@@ -2,6 +2,7 @@
 using MISApi.Entities.CMS;
 using MISApi.Entities.WFM;
 using System;
+using System.Collections.Generic;
 
 namespace MISApi.Services.CMS
 {
@@ -29,11 +30,12 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 开启
+            /// 创建指定状态
             /// </summary>
             /// <param name="entity"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual Serial ToOpen(Serial entity)
+            public virtual Serial ToStatus(Serial entity, string statusKey)
             {
                 try
                 {
@@ -41,11 +43,11 @@ namespace MISApi.Services.CMS
                     Serial result = new Serial();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.serial.open");
+                        Status status = new StatusCacheService.RowService().ByKey(statusKey);
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
-                        result = new SerialService.CreateService().Execute(entity);
+                        result = base.Create(entity);
                     });
                     // 提交
                     transService.TransCommit();
@@ -54,7 +56,37 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.SerialService.CreateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.SerialService.CreateService.ToStatus", ex);
+                }
+            }
+            /// <summary>
+            /// 批量创建指定状态
+            /// </summary>
+            /// <param name="entities"></param>
+            /// <param name="statusKey"></param>
+            /// <returns></returns>
+            public virtual List<Serial> BatchToStatus(List<Serial> entities, string statusKey)
+            {
+                try
+                {
+                    // 定义
+                    List<Serial> results = new List<Serial>();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        // 遍历
+                        entities.ForEach(entity =>
+                        {
+                            results.Add(new SerialService.CreateService().ToStatus(entity, statusKey));
+                        });
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return results;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.SerialService.CreateService.BatchToStatus", ex);
                 }
             }
         }
@@ -79,11 +111,12 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 开启
+            /// 编辑指定状态
             /// </summary>
             /// <param name="entity"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual Serial ToOpen(Serial entity)
+            public virtual Serial ToStatus(Serial entity, string statusKey)
             {
                 try
                 {
@@ -91,7 +124,7 @@ namespace MISApi.Services.CMS
                     Serial result = new Serial();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.serial.open");
+                        Status status = new StatusCacheService.RowService().ByKey(statusKey);
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
@@ -104,36 +137,37 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.SerialService.UpdateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.SerialService.UpdateService.ToStatus", ex);
                 }
             }
             /// <summary>
-            /// 关闭
+            /// 批量编辑指定状态
             /// </summary>
-            /// <param name="entity"></param>
+            /// <param name="entities"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual Serial ToClose(Serial entity)
+            public virtual List<Serial> BatchToStatus(List<Serial> entities, string statusKey)
             {
                 try
                 {
                     // 定义
-                    Serial result = new Serial();
+                    List<Serial> results = new List<Serial>();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.serial.close");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
+                        // 遍历
+                        entities.ForEach(entity =>
+                        {
+                            results.Add(new SerialService.UpdateService().ToStatus(entity, statusKey));
+                        });
                     });
                     // 提交
                     transService.TransCommit();
                     // 返回
-                    return result;
+                    return results;
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.SerialService.UpdateService.ToClose", ex);
+                    throw new Exception("MISApi.Services.CMS.SerialService.UpdateService.BatchToStatus", ex);
                 }
             }
         }

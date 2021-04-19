@@ -33,11 +33,12 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 开启
+            /// 创建指定状态
             /// </summary>
             /// <param name="entity"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual Order ToOpen(Order entity)
+            public virtual Order ToStatus(Order entity, string statusKey)
             {
                 try
                 {
@@ -45,11 +46,11 @@ namespace MISApi.Services.CMS
                     Order result = new Order();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.order.open");
+                        Status status = new StatusCacheService.RowService().ByKey(statusKey);
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
-                        result = new OrderService.CreateService().Execute(entity);
+                        result = base.Create(entity);
                     });
                     // 提交
                     transService.TransCommit();
@@ -58,7 +59,37 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.OrderService.CreateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.OrderService.CreateService.ToStatus", ex);
+                }
+            }
+            /// <summary>
+            /// 批量创建指定状态
+            /// </summary>
+            /// <param name="entities"></param>
+            /// <param name="statusKey"></param>
+            /// <returns></returns>
+            public virtual List<Order> BatchToStatus(List<Order> entities, string statusKey)
+            {
+                try
+                {
+                    // 定义
+                    List<Order> results = new List<Order>();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        // 遍历
+                        entities.ForEach(entity =>
+                        {
+                            results.Add(new OrderService.CreateService().ToStatus(entity, statusKey));
+                        });
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return results;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.OrderService.CreateService.BatchToStatus", ex);
                 }
             }
         }
@@ -83,11 +114,12 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 开启
+            /// 编辑指定状态
             /// </summary>
             /// <param name="entity"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual Order ToOpen(Order entity)
+            public virtual Order ToStatus(Order entity, string statusKey)
             {
                 try
                 {
@@ -95,7 +127,7 @@ namespace MISApi.Services.CMS
                     Order result = new Order();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.order.open");
+                        Status status = new StatusCacheService.RowService().ByKey(statusKey);
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
@@ -108,94 +140,37 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.OrderService.UpdateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.OrderService.UpdateService.ToStatus", ex);
                 }
             }
             /// <summary>
-            /// 关闭
+            /// 批量编辑指定状态
             /// </summary>
-            /// <param name="entity"></param>
+            /// <param name="entities"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual Order ToClose(Order entity)
+            public virtual List<Order> BatchToStatus(List<Order> entities, string statusKey)
             {
                 try
                 {
                     // 定义
-                    Order result = new Order();
+                    List<Order> results = new List<Order>();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.order.close");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
+                        // 遍历
+                        entities.ForEach(entity =>
+                        {
+                            results.Add(new OrderService.UpdateService().ToStatus(entity, statusKey));
+                        });
                     });
                     // 提交
                     transService.TransCommit();
                     // 返回
-                    return result;
+                    return results;
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.OrderService.UpdateService.ToClose", ex);
-                }
-            }
-            /// <summary>
-            /// 支付
-            /// </summary>
-            /// <param name="entity"></param>
-            /// <returns></returns>
-            public virtual Order ToPaid(Order entity)
-            {
-                try
-                {
-                    // 定义
-                    Order result = new Order();
-                    // 事务
-                    transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.order.paid");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
-                    });
-                    // 提交
-                    transService.TransCommit();
-                    // 返回
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("MISApi.Services.CMS.OrderService.UpdateService.ToPaid", ex);
-                }
-            }
-            /// <summary>
-            /// 已退款
-            /// </summary>
-            /// <param name="entity"></param>
-            /// <returns></returns>
-            public virtual Order ToRefund(Order entity)
-            {
-                try
-                {
-                    // 定义
-                    Order result = new Order();
-                    // 事务
-                    transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.order.refund");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
-                    });
-                    // 提交
-                    transService.TransCommit();
-                    // 返回
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("MISApi.Services.CMS.OrderService.UpdateService.ToRefund", ex);
+                    throw new Exception("MISApi.Services.CMS.OrderService.UpdateService.BatchToStatus", ex);
                 }
             }
         }

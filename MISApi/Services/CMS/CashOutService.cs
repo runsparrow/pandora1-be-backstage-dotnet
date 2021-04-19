@@ -2,6 +2,7 @@
 using MISApi.Entities.CMS;
 using MISApi.Entities.WFM;
 using System;
+using System.Collections.Generic;
 
 namespace MISApi.Services.CMS
 {
@@ -29,11 +30,12 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 开启
+            /// 创建指定状态
             /// </summary>
             /// <param name="entity"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual CashOut ToOpen(CashOut entity)
+            public virtual CashOut ToStatus(CashOut entity, string statusKey)
             {
                 try
                 {
@@ -41,11 +43,11 @@ namespace MISApi.Services.CMS
                     CashOut result = new CashOut();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.cashout.open");
+                        Status status = new StatusCacheService.RowService().ByKey(statusKey);
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
-                        result = new CashOutService.CreateService().Execute(entity);
+                        result = base.Create(entity);
                     });
                     // 提交
                     transService.TransCommit();
@@ -54,7 +56,37 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.CashOutService.CreateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.CashOutService.CreateService.ToStatus", ex);
+                }
+            }
+            /// <summary>
+            /// 批量创建指定状态
+            /// </summary>
+            /// <param name="entities"></param>
+            /// <param name="statusKey"></param>
+            /// <returns></returns>
+            public virtual List<CashOut> BatchToStatus(List<CashOut> entities, string statusKey)
+            {
+                try
+                {
+                    // 定义
+                    List<CashOut> results = new List<CashOut>();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        // 遍历
+                        entities.ForEach(entity =>
+                        {
+                            results.Add(new CashOutService.CreateService().ToStatus(entity, statusKey));
+                        });
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return results;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.CashOutService.CreateService.BatchToStatus", ex);
                 }
             }
         }
@@ -79,11 +111,12 @@ namespace MISApi.Services.CMS
                 transService = new TransService();
             }
             /// <summary>
-            /// 开启
+            /// 编辑指定状态
             /// </summary>
             /// <param name="entity"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual CashOut ToOpen(CashOut entity)
+            public virtual CashOut ToStatus(CashOut entity, string statusKey)
             {
                 try
                 {
@@ -91,7 +124,7 @@ namespace MISApi.Services.CMS
                     CashOut result = new CashOut();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.cashout.open");
+                        Status status = new StatusCacheService.RowService().ByKey(statusKey);
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
                         entity.StatusName = status.Name;
@@ -104,152 +137,37 @@ namespace MISApi.Services.CMS
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.CashOutService.UpdateService.ToOpen", ex);
+                    throw new Exception("MISApi.Services.CMS.CashOutService.UpdateService.ToStatus", ex);
                 }
             }
             /// <summary>
-            /// 关闭
+            /// 批量编辑指定状态
             /// </summary>
-            /// <param name="entity"></param>
+            /// <param name="entities"></param>
+            /// <param name="statusKey"></param>
             /// <returns></returns>
-            public virtual CashOut ToClose(CashOut entity)
+            public virtual List<CashOut> BatchToStatus(List<CashOut> entities, string statusKey)
             {
                 try
                 {
                     // 定义
-                    CashOut result = new CashOut();
+                    List<CashOut> results = new List<CashOut>();
                     // 事务
                     transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.cashout.close");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
+                        // 遍历
+                        entities.ForEach(entity =>
+                        {
+                            results.Add(new CashOutService.UpdateService().ToStatus(entity, statusKey));
+                        });
                     });
                     // 提交
                     transService.TransCommit();
                     // 返回
-                    return result;
+                    return results;
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.CashOutService.UpdateService.ToClose", ex);
-                }
-            }
-            /// <summary>
-            /// 提交
-            /// </summary>
-            /// <param name="entity"></param>
-            /// <returns></returns>
-            public virtual CashOut ToSubmit(CashOut entity)
-            {
-                try
-                {
-                    // 定义
-                    CashOut result = new CashOut();
-                    // 事务
-                    transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.cashout.submit");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
-                    });
-                    // 提交
-                    transService.TransCommit();
-                    // 返回
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("MISApi.Services.CMS.CashOutService.UpdateService.ToSubmit", ex);
-                }
-            }
-            /// <summary>
-            /// 审批通过
-            /// </summary>
-            /// <param name="entity"></param>
-            /// <returns></returns>
-            public virtual CashOut ToApproverPass(CashOut entity)
-            {
-                try
-                {
-                    // 定义
-                    CashOut result = new CashOut();
-                    // 事务
-                    transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.cashout.approver.pass");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
-                    });
-                    // 提交
-                    transService.TransCommit();
-                    // 返回
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("MISApi.Services.CMS.CashOutService.UpdateService.ToApproverPass", ex);
-                }
-            }
-            /// <summary>
-            /// 审批拒绝
-            /// </summary>
-            /// <param name="entity"></param>
-            /// <returns></returns>
-            public virtual CashOut ToApproverRefuse(CashOut entity)
-            {
-                try
-                {
-                    // 定义
-                    CashOut result = new CashOut();
-                    // 事务
-                    transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.cashout.approver.refuse");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
-                    });
-                    // 提交
-                    transService.TransCommit();
-                    // 返回
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("MISApi.Services.CMS.CashOutService.UpdateService.ToApproverRefuse", ex);
-                }
-            }
-            /// <summary>
-            /// 放款
-            /// </summary>
-            /// <param name="entity"></param>
-            /// <returns></returns>
-            public virtual CashOut ToLoan(CashOut entity)
-            {
-                try
-                {
-                    // 定义
-                    CashOut result = new CashOut();
-                    // 事务
-                    transService.TransRegist(delegate {
-                        Status status = new StatusCacheService.RowService().ByKey("cms.cashout.loan");
-                        entity.StatusId = status.Id;
-                        entity.StatusValue = status.Value;
-                        entity.StatusName = status.Name;
-                        result = base.Update(entity);
-                    });
-                    // 提交
-                    transService.TransCommit();
-                    // 返回
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("MISApi.Services.CMS.CashOutService.UpdateService.ToLoan", ex);
+                    throw new Exception("MISApi.Services.CMS.CashOutService.UpdateService.BatchToStatus", ex);
                 }
             }
         }

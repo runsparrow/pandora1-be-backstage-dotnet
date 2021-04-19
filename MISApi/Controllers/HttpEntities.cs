@@ -2,6 +2,7 @@
 using MISApi.HttpClients.HttpModes.TreeMode.AntdTree;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace MISApi.Controllers.HttpEntities
@@ -249,7 +250,7 @@ namespace MISApi.Controllers.HttpEntities
         /// 配置
         /// </summary>
         [Description("配置")]
-        [JsonProperty(PropertyName = "config")]
+        [JsonProperty("config")]
         public Config<T> Config { get; set; } = new Config<T>("StatusKey", "Name", "Id", "Pid", "true", "false");
     }
     /// <summary>
@@ -267,7 +268,7 @@ namespace MISApi.Controllers.HttpEntities
         /// 配置
         /// </summary>
         [Description("配置")]
-        [JsonProperty(PropertyName = "config")]
+        [JsonProperty("config")]
         public Config<T> Config { get; set; } = new Config<T>("StatusKey", "Name", "Id", "Pid", "true", "false");
     }
     /// <summary>
@@ -286,7 +287,7 @@ namespace MISApi.Controllers.HttpEntities
         /// 配置
         /// </summary>
         [Description("配置")]
-        [JsonProperty(PropertyName = "config")]
+        [JsonProperty("config")]
         public Config<T> Config { get; set; } = new Config<T>("StatusKey", "Name", "Id", "Pid", "true", "false");
     }
     /// <summary>
@@ -298,14 +299,54 @@ namespace MISApi.Controllers.HttpEntities
         /// 员工Id
         /// </summary>
         [Description("员工Id")]
-        [JsonProperty("员工Id")]
+        [JsonProperty("employeeId")]
         [DefaultValue(-1)]
         public int EmployeeId { get; set; } = -1;
         /// <summary>
         /// 配置
         /// </summary>
         [Description("配置")]
-        [JsonProperty(PropertyName = "config")]
+        [JsonProperty("config")]
         public Config<T> Config { get; set; } = new Config<T>("StatusKey", "Name", "Id", "Pid", "true", "false");
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class DTO_EntityToStatus<T> where T : class , new()
+    {
+        /// <summary>
+        /// 实体
+        /// </summary>
+        [Description("实体")]
+        [JsonProperty("entity")]
+        public T Entity { get; set; } = new T();
+        /// <summary>
+        /// 状态键名
+        /// </summary>
+        [Description("状态键名")]
+        [JsonProperty("statusKey")]
+        [DefaultValue("")]
+        public string StatusKey { get; set; } = "";
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class DTO_EntitiesToStatus<T> where T : class, new()
+    {
+        /// <summary>
+        /// 实体
+        /// </summary>
+        [Description("实体")]
+        [JsonProperty("entities")]
+        public List<T> Entities { get; set; } = new List<T>();
+        /// <summary>
+        /// 状态键名
+        /// </summary>
+        [Description("状态键名")]
+        [JsonProperty("statusKey")]
+        [DefaultValue("")]
+        public string StatusKey { get; set; } = "";
     }
 }

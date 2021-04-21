@@ -26,13 +26,13 @@ namespace MISApi
             Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
             {
                 webBuilder
-                 .UseKestrel(options =>
-                 {
-                     options.Listen(IPAddress.Any, 8001, listenOptions =>
-                     {
-                         listenOptions.UseHttps("fourlifecode-com-iis-0421170611.pfx", "fourlifecode");
-                     });
-                 })
+                 //.UseKestrel(options =>
+                 //{
+                 //    options.Listen(IPAddress.Any, 8001, listenOptions =>
+                 //    {
+                 //        listenOptions.UseHttps("fourlifecode-com-iis-0421170611.pfx", "fourlifecode");
+                 //    });
+                 //})
                 .UseStartup<Startup>();
                 webBuilder.UseIIS();
             }

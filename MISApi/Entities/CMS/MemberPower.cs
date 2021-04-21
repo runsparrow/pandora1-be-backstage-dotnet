@@ -25,6 +25,14 @@ namespace MISApi.Entities.CMS
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         /// <summary>
+        /// 名称
+        /// </summary>
+        [StringLength(255)]
+        [Description("名称")]
+        [JsonProperty("name")]
+        [DefaultValue("")]
+        public string Name { get; set; } = "";
+        /// <summary>
         /// 归类Id
         /// </summary>
         [Description("归类Id")]
@@ -46,6 +54,13 @@ namespace MISApi.Entities.CMS
         [JsonProperty("price")]
         [DefaultValue(0)]
         public decimal Price { get; set; } = 0;
+        /// <summary>
+        /// 有效期天数限制
+        /// </summary>
+        [Description("有效期天数限制")]
+        [JsonProperty("daysLimit")]
+        [DefaultValue(0)]
+        public int DaysLimit { get; set; } = 0;
         /// <summary>
         /// 是否可下载
         /// </summary>

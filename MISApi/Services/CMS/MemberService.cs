@@ -207,6 +207,92 @@ namespace MISApi.Services.CMS
                     throw new Exception("MISApi.Services.CMS.MemberService.UpdateService.BatchToStatus", ex);
                 }
             }
+            /// <summary>
+            /// 增加会员套餐给指定会员
+            /// </summary>
+            /// <param name="memberId"></param>
+            /// <param name="memberPowerId"></param>
+            /// <returns></returns>
+            public virtual Member AddByMemberPowerId(int memberId,int memberPowerId)
+            {
+                try
+                {
+                    // 定义
+                    Member result = new Member();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        // 获取会员
+                        Member member = new MemberService.RowService().ById(memberId);
+                        if(member != null)
+                        {
+                            // 获取会员套餐
+                            MemberPower memberPower = new MemberPowerService.RowService().ById(memberPowerId);
+                            if(memberPower != null)
+                            {
+                                member.BuyCount += memberPower.BuyLimit;
+                                member.ReBuyCount += memberPower.BuyLimit;
+                                member.DownCount += memberPower.DownLimit;
+                                member.ReDownCount += memberPower.DownLimit;
+                                member.UploadCount += memberPower.UploadLimit;
+                                member.ReUploadCount += memberPower.UploadLimit;
+                                member.LevelDeadline = member.LevelDeadline.AddDays(memberPower.DaysLimit);
+                                new MemberService.UpdateService().Execute(member);
+                            }
+                        }
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.MemberService.UpdateService.AddByMemberPowerId", ex);
+                }
+            }
+            /// <summary>
+            /// 退还会员套餐给指定会员
+            /// </summary>
+            /// <param name="memberId"></param>
+            /// <param name="memberPowerId"></param>
+            /// <returns></returns>
+            public virtual Member ReduceByMemberPowerId(int memberId, int memberPowerId)
+            {
+                try
+                {
+                    // 定义
+                    Member result = new Member();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        // 获取会员
+                        Member member = new MemberService.RowService().ById(memberId);
+                        if (member != null)
+                        {
+                            // 获取会员套餐
+                            MemberPower memberPower = new MemberPowerService.RowService().ById(memberPowerId);
+                            if (memberPower != null)
+                            {
+                                member.BuyCount -= memberPower.BuyLimit;
+                                member.ReBuyCount -= memberPower.BuyLimit;
+                                member.DownCount -= memberPower.DownLimit;
+                                member.ReDownCount -= memberPower.DownLimit;
+                                member.UploadCount -= memberPower.UploadLimit;
+                                member.ReUploadCount -= memberPower.UploadLimit;
+                                member.LevelDeadline = member.LevelDeadline.AddDays(-1*memberPower.DaysLimit);
+                                new MemberService.UpdateService().Execute(member);
+                            }
+                        }
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.MemberService.UpdateService.ReduceByMemberPowerId", ex);
+                }
+            }
         }
         #endregion
 

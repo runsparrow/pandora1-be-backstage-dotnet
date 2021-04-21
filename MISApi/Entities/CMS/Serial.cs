@@ -33,6 +33,14 @@ namespace MISApi.Entities.CMS
         [DefaultValue("")]
         public string SerialNo { get; set; } = "";
         /// <summary>
+        /// 商户订单号
+        /// </summary>
+        [StringLength(255)]
+        [Description("商户订单号")]
+        [JsonProperty("orderNo")]
+        [DefaultValue("")]
+        public string OrderNo { get; set; } = "";
+        /// <summary>
         /// 付款人Id
         /// </summary>
         [Description("付款人Id")]

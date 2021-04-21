@@ -7132,6 +7132,35 @@
             
             </summary>
         </member>
+        <member name="T:MISApi.Controllers.CMS.PaymentController">
+            <summary>
+            支付
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.PaymentController.Pay(MISApi.Controllers.CMS.PaymentController.DTO_Payment)">
+            <summary>
+            支付
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.PaymentController.Refund(MISApi.Controllers.CMS.PaymentController.DTO_Payment)">
+            <summary>
+            退款
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.PaymentController.DTO_Payment">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.PaymentController.DTO_Payment.MemberPowerId">
+            <summary>
+            会员套餐Id
+            </summary>
+        </member>
         <member name="T:MISApi.Controllers.CMS.RechargeController">
             <summary>
             充值
@@ -10790,6 +10819,11 @@
             唯一标识
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.MemberPower.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.MemberPower.ClassifyId">
             <summary>
             归类Id
@@ -10803,6 +10837,11 @@
         <member name="P:MISApi.Entities.CMS.MemberPower.Price">
             <summary>
             价格
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.MemberPower.DaysLimit">
+            <summary>
+            有效期天数限制
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.MemberPower.IsDown">
@@ -11248,6 +11287,11 @@
         <member name="P:MISApi.Entities.CMS.Serial.SerialNo">
             <summary>
             流水号
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Serial.OrderNo">
+            <summary>
+            商户订单号
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Serial.PayerId">
@@ -19330,6 +19374,22 @@
             <param name="statusKey"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.MemberService.UpdateService.AddByMemberPowerId(System.Int32,System.Int32)">
+            <summary>
+            增加会员套餐给指定会员
+            </summary>
+            <param name="memberId"></param>
+            <param name="memberPowerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.MemberService.UpdateService.ReduceByMemberPowerId(System.Int32,System.Int32)">
+            <summary>
+            退还会员套餐给指定会员
+            </summary>
+            <param name="memberId"></param>
+            <param name="memberPowerId"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Services.CMS.MemberService.DeleteService">
             <summary>
             DeleteService
@@ -19618,6 +19678,37 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.PaymentService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.PaymentService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.PaymentService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.PaymentService.PayMemberPower(MISApi.Entities.CMS.Serial,System.Int32)">
+            <summary>
+            买套餐
+            </summary>
+            <param name="serialEntity"></param>
+            <param name="memberPowerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.PaymentService.RefundMemberPower(MISApi.Entities.CMS.Serial,System.Int32)">
+            <summary>
+            退套餐
+            </summary>
+            <param name="serialEntity"></param>
+            <param name="memberPowerId"></param>
+            <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.RechargeService">
             <summary>

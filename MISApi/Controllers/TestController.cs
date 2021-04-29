@@ -12,7 +12,7 @@ namespace MISApi.Controllers
         /// 测试MISApi连接
         /// </summary>
         /// <returns></returns>
-        [Route("MIS/Test", Name = "MIS_Test")]
+        [Route("MIS/Test1", Name = "MIS_Test")]
         [HttpGet]
         public IActionResult Test()
         {

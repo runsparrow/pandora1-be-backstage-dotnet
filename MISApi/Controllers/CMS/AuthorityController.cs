@@ -81,24 +81,24 @@ namespace MISApi.Controllers.CMS
         /// <summary>
         /// 创建认证并更新会员信息
         /// </summary>
-        /// <param name="dto"></param>
+        /// <param name="entity"></param>
         /// <returns></returns>
         [Route("MIS/CMS/Authority/Create/Pass", Name = "MIS_CMS_Authority_Create_Pass")]
         [HttpPost]
         [Authorize]
-        public IActionResult Create_Pass(DTO_EntityToStatus<Authority> dto)
+        public IActionResult Create_Pass(Authority entity)
         {
             try
             {
                 // Entity
-                if (dto.Entity != null)
+                if (entity != null)
                 {
 
                 }
                 // 返回
                 return ResponseOk(
                     new CreateMode.Request().ToResponse(
-                        new AuthorityService.CreateService().Pass(dto.Entity)
+                        new AuthorityService.CreateService().Pass(entity)
                     )
                 );
             }

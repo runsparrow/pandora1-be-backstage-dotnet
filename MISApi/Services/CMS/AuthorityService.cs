@@ -89,6 +89,34 @@ namespace MISApi.Services.CMS
                     throw new Exception("MISApi.Services.CMS.AuthorityService.CreateService.BatchToStatus", ex);
                 }
             }
+            /// <summary>
+            /// 验证通过
+            /// </summary>
+            /// <param name="entity"></param>
+            /// <returns></returns>
+            public virtual Authority Pass(Authority entity)
+            {
+                try
+                {
+                    // 定义
+                    Authority result = new Authority();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        // 认证信息
+                        result = new AuthorityService.CreateService().ToStatus(entity, "cms.authority.open");
+                        // 会员信息
+                        new MemberService.UpdateService().AuthorityPass(entity.MemberId);
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.AuthorityService.CreateService.ToStatus", ex);
+                }
+            }
         }
 
         #endregion

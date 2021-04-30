@@ -80,6 +80,14 @@ namespace MISApi.Entities.CMS
         [DefaultValue("")]
         public string ClassifyName { get; set; } = "";
         /// <summary>
+        /// 路径
+        /// </summary>
+        [StringLength(500)]
+        [Description("路径")]
+        [JsonProperty("url")]
+        [DefaultValue("")]
+        public string Url { get; set; } = "";
+        /// <summary>
         /// 扩展名
         /// </summary>
         [StringLength(50)]

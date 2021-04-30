@@ -166,6 +166,12 @@ namespace MISApi.Entities.CMS
         [DefaultValue(0)]
         public int ReUploadCount { get; set; } = 0;
         /// <summary>
+        /// 是否认证
+        /// </summary>
+        [Description("是否认证")]
+        [JsonProperty("isAuthority")]
+        public bool IsAuthority { get; set; } = false;
+        /// <summary>
         /// 备注
         /// </summary>
         [StringLength(255)]

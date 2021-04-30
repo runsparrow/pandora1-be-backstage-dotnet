@@ -2687,6 +2687,13 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Create_Pass(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Authority})">
+            <summary>
+            创建认证并更新会员信息
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Authority})">
             <summary>
             创建认证并设置状态
@@ -10615,6 +10622,11 @@
             归类名称
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Goods.Url">
+            <summary>
+            路径
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Goods.Ext">
             <summary>
             扩展名
@@ -10843,6 +10855,11 @@
         <member name="P:MISApi.Entities.CMS.Member.ReUploadCount">
             <summary>
             剩余上传次数
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Member.IsAuthority">
+            <summary>
+            是否认证
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Member.Remark">
@@ -15015,6 +15032,13 @@
             </summary>
             <param name="entities"></param>
             <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.AuthorityService.CreateService.Pass(MISApi.Entities.CMS.Authority)">
+            <summary>
+            验证通过
+            </summary>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.AuthorityService.UpdateService">
@@ -19472,6 +19496,13 @@
             </summary>
             <param name="entities"></param>
             <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.MemberService.UpdateService.AuthorityPass(System.Int32)">
+            <summary>
+            认证会员通过
+            </summary>
+            <param name="memberId"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Services.CMS.MemberService.UpdateService.AddByMemberPowerId(System.Int32,System.Int32)">

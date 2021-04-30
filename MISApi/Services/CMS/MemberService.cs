@@ -208,6 +208,37 @@ namespace MISApi.Services.CMS
                 }
             }
             /// <summary>
+            /// 认证会员通过
+            /// </summary>
+            /// <param name="memberId"></param>
+            /// <returns></returns>
+            public virtual Member AuthorityPass(int memberId)
+            {
+                try
+                {
+                    // 定义
+                    Member result = new Member();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        // 获取会员
+                        Member member = new MemberService.RowService().ById(memberId);
+                        if (member != null)
+                        {
+                            member.IsAuthority = true;
+                            new MemberService.UpdateService().Execute(member);
+                        }
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.MemberService.UpdateService.AuthorityPass", ex);
+                }
+            }
+            /// <summary>
             /// 增加会员套餐给指定会员
             /// </summary>
             /// <param name="memberId"></param>

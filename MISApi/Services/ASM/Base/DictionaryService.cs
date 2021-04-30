@@ -375,6 +375,27 @@ namespace MISApi.Services.ASM.Base
                 }
             }
             /// <summary>
+            /// 根据父节点键名查询
+            /// </summary>
+            /// <param name="key">父节点键名</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Dictionary> ByParentKey(string key, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        Dictionary dictionary = new RowService().ByKey(key);
+                        return new RowsService().ByPid(dictionary == null ? 0 : dictionary.Id);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.ASM.Base.DictionaryService.RowsService.ByParentKey", ex);
+                    }
+                }
+            }
+            /// <summary>
             /// 根据Key查询所有子节点（递归并包含Key自身）
             /// </summary>
             /// <param name="key"></param>

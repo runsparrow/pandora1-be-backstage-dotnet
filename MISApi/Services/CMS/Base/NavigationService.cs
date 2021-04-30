@@ -377,6 +377,27 @@ namespace MISApi.Services.CMS.Base
                 }
             }
             /// <summary>
+            /// 根据父节点键名查询
+            /// </summary>
+            /// <param name="key">父节点键名</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Navigation> ByParentKey(string key, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        Navigation navigation = new RowService().ByKey(key);
+                        return new RowsService().ByPid(navigation == null ? 0 : navigation.Id);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.NavigationService.RowsService.ByParentKey", ex);
+                    }
+                }
+            }
+            /// <summary>
             /// 根据Key查询所有子节点（递归并包含Key自身）
             /// </summary>
             /// <param name="key"></param>

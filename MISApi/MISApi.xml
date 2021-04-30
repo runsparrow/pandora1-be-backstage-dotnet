@@ -739,6 +739,20 @@
             <param name="keyWord"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Rows_ByPid(System.Int32)">
+            <summary>
+            根据Pid查询数据字典子集
+            </summary>
+            <param name="pid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.DictionaryController.Rows_ByParentKey(System.String)">
+            <summary>
+            根据父节点键名查询字典子集
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.ASM.DictionaryController.Rows_SubsetById(System.Int32)">
             <summary>
             根据Id查询数据字典子集
@@ -1128,6 +1142,20 @@
             根据关键字模糊查询行政区划
             </summary>
             <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Rows_ByPid(System.Int32)">
+            <summary>
+            根据Pid查询行政区划子集
+            </summary>
+            <param name="pid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.RegionController.Rows_ByParentCode(System.String)">
+            <summary>
+            根据父节点代码查询行政区划子集
+            </summary>
+            <param name="code"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.ASM.RegionController.Rows_SubsetById(System.Int32)">
@@ -5868,6 +5896,20 @@
             <param name="keyWord"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Rows_ByPid(System.Int32)">
+            <summary>
+            根据Pid查询导航子集
+            </summary>
+            <param name="pid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Rows_ByParentKey(System.String)">
+            <summary>
+            根据父节点键名查询导航子集
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.NavigationController.Rows_SubsetById(System.Int32)">
             <summary>
             根据Id查询导航子集
@@ -8839,6 +8881,20 @@
             根据关键字模糊查询状态
             </summary>
             <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.WFM.StatusController.Rows_ByPid(System.Int32)">
+            <summary>
+            根据Pid查询状态子集
+            </summary>
+            <param name="pid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.WFM.StatusController.Rows_ByParentKey(System.String)">
+            <summary>
+            根据父节点键名查询状态子集
+            </summary>
+            <param name="key"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.WFM.StatusController.Rows_SubsetById(System.Int32)">
@@ -13767,6 +13823,14 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.ASM.Base.DictionaryService.RowsService.ByParentKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据父节点键名查询
+            </summary>
+            <param name="key">父节点键名</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.ASM.Base.DictionaryService.RowsService.SubsetByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
             <summary>
             根据Key查询所有子节点（递归并包含Key自身）
@@ -14106,6 +14170,14 @@
             根据父节点Id查询
             </summary>
             <param name="pid">父节点Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.RegionService.RowsService.ByParentCode(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据父节点Code查询
+            </summary>
+            <param name="pcode">父节点Code</param>
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
@@ -17327,6 +17399,14 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.RowsService.ByParentKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据父节点键名查询
+            </summary>
+            <param name="key">父节点键名</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.CMS.Base.NavigationService.RowsService.SubsetByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
             <summary>
             根据Key查询所有子节点（递归并包含Key自身）
@@ -20187,6 +20267,14 @@
             根据父节点Id查询
             </summary>
             <param name="pid">父节点Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.WFM.Base.StatusService.RowsService.ByParentKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据父节点键名查询
+            </summary>
+            <param name="key">父节点键名</param>
             <param name="joins">关联表</param>
             <returns></returns>
         </member>

@@ -375,6 +375,27 @@ namespace MISApi.Services.ASM.Base
                 }
             }
             /// <summary>
+            /// 根据父节点Code查询
+            /// </summary>
+            /// <param name="pcode">父节点Code</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Region> ByParentCode(string pcode, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        Region region = new RowService().ByCode(pcode);
+                        return new RowsService().ByPid(region == null ? 0: region.Id);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.ASM.Base.RegionService.RowsService.ByParentCode", ex);
+                    }
+                }
+            }
+            /// <summary>
             /// 根据Code查询所有子节点（递归并包含Code自身）
             /// </summary>
             /// <param name="code"></param>

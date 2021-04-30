@@ -324,6 +324,52 @@ namespace MISApi.Controllers.WFM
             }
         }
         /// <summary>
+        /// 根据Pid查询状态子集
+        /// </summary>
+        /// <param name="pid"></param>
+        /// <returns></returns>
+        [Route("MIS/WFM/Status/Rows/ByPid/{pid}", Name = "MIS_WFM_Status_Rows_ByPid_Pid")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_ByPid(int pid)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new StatusService.RowsService().ByPid(pid)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.WFM.StatusController.Rows_ByPid", ex);
+            }
+        }
+        /// <summary>
+        /// 根据父节点键名查询状态子集
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        [Route("MIS/WFM/Status/Rows/ByParentKey/{key}", Name = "MIS_WFM_Status_Rows_ByParentKey_Key")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_ByParentKey(string key)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new StatusService.RowsService().ByParentKey(key)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.WFM.StatusController.Rows_ByParentKey", ex);
+            }
+        }
+        /// <summary>
         /// 根据Id查询状态子集
         /// </summary>
         /// <param name="id"></param>

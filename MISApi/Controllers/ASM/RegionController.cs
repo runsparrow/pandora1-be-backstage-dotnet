@@ -317,6 +317,52 @@ namespace MISApi.Controllers.ASM
             }
         }
         /// <summary>
+        /// 根据Pid查询行政区划子集
+        /// </summary>
+        /// <param name="pid"></param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Region/Rows/ByPid/{pid}", Name = "MIS_ASM_Region_Rows_ByPid_Pid")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_ByPid(int pid)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new RegionService.RowsService().ByPid(pid)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Rows_ByPid", ex);
+            }
+        }
+        /// <summary>
+        /// 根据父节点代码查询行政区划子集
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        [Route("MIS/ASM/Region/Rows/ByParentCode/{code}", Name = "MIS_ASM_Region_Rows_ByParentCode_Code")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_ByParentCode(string code)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new RegionService.RowsService().ByParentCode(code)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.ASM.RegionController.Rows_ByParentCode", ex);
+            }
+        }
+        /// <summary>
         /// 根据Id查询行政区划子集
         /// </summary>
         /// <param name="id"></param>

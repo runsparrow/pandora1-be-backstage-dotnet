@@ -10075,6 +10075,11 @@
             会员名
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Authority.RealName">
+            <summary>
+            实名
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Authority.IdentityId">
             <summary>
             身份Id
@@ -10198,6 +10203,16 @@
         <member name="P:MISApi.Entities.CMS.Authority.Email">
             <summary>
             邮件
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.Alipay">
+            <summary>
+            支付宝
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.WechatPay">
+            <summary>
+            微信支付
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Authority.ApplierId">
@@ -10758,6 +10773,11 @@
         <member name="P:MISApi.Entities.CMS.Member.RealName">
             <summary>
             实名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Member.AvatarUrl">
+            <summary>
+            头像路径
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Member.IdCard">

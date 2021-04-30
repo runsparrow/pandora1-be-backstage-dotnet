@@ -65,6 +65,14 @@ namespace MISApi.Entities.CMS
         [DefaultValue("")]
         public string RealName { get; set; } = "";
         /// <summary>
+        /// 头像路径
+        /// </summary>
+        [StringLength(500)]
+        [Description("头像路径")]
+        [JsonProperty("avatarUrl")]
+        [DefaultValue("")]
+        public string AvatarUrl { get; set; } = "";
+        /// <summary>
         /// 身份证
         /// </summary>
         [StringLength(255)]

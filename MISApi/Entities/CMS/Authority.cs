@@ -41,6 +41,14 @@ namespace MISApi.Entities.CMS
         [DefaultValue("")]
         public string MemberName { get; set; } = "";
         /// <summary>
+        /// 实名
+        /// </summary>
+        [StringLength(255)]
+        [Description("实名")]
+        [JsonProperty("realName")]
+        [DefaultValue("")]
+        public string RealName { get; set; } = "";
+        /// <summary>
         /// 身份Id
         /// </summary>
         [Description("身份Id")]
@@ -236,6 +244,22 @@ namespace MISApi.Entities.CMS
         [JsonProperty("email")]
         [DefaultValue("")]
         public string Email { get; set; } = "";
+        /// <summary>
+        /// 支付宝
+        /// </summary>
+        [StringLength(255)]
+        [Description("支付宝")]
+        [JsonProperty("alipay")]
+        [DefaultValue("")]
+        public string Alipay { get; set; } = "";
+        /// <summary>
+        /// 微信支付
+        /// </summary>
+        [StringLength(255)]
+        [Description("微信支付")]
+        [JsonProperty("wechatPay")]
+        [DefaultValue("")]
+        public string WechatPay { get; set; } = "";
         /// <summary>
         /// 申请人Id
         /// </summary>

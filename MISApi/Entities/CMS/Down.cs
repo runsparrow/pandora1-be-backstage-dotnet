@@ -54,6 +54,14 @@ namespace MISApi.Entities.CMS
         [DefaultValue("")]
         public string GoodsName { get; set; } = "";
         /// <summary>
+        /// 商品路径
+        /// </summary>
+        [StringLength(500)]
+        [Description("商品路径")]
+        [JsonProperty("goodsUrl")]
+        [DefaultValue("")]
+        public string GoodsUrl { get; set; } = "";
+        /// <summary>
         /// 下载时间
         /// </summary>
         [Description("下载时间")]

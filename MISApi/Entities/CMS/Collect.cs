@@ -7,12 +7,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace MISApi.Entities.CMS
 {
     /// <summary>
-    /// 上传
+    /// 收藏
     /// </summary>
-    [Table("CMS_Upload")]
+    [Table("CMS_Collect")]
     [JsonObject(MemberSerialization.OptOut)]
     [Serializable]
-    public partial class Upload : BaseCacheEntity<Upload>
+    public partial class Collect : BaseCacheEntity<Collect>
     {
         #region Property
         /// <summary>
@@ -62,18 +62,11 @@ namespace MISApi.Entities.CMS
         [DefaultValue("")]
         public string GoodsUrl { get; set; } = "";
         /// <summary>
-        /// 上传时间
+        /// 收藏时间
         /// </summary>
-        [Description("上传时间")]
-        [JsonProperty("uploadDateTime")]
-        public DateTime UploadDateTime { get; set; } = DateTime.Now;
-        /// <summary>
-        /// 是否上传成功
-        /// </summary>
-        [Description("是否上传成功")]
-        [JsonProperty("uploadResult")]
-        [DefaultValue(false)]
-        public bool UploadResult { get; set; } = false;
+        [Description("收藏时间")]
+        [JsonProperty("collectDateTime")]
+        public DateTime CollectDateTime { get; set; } = DateTime.Now;
         #endregion
 
         #region Not Mapped Property

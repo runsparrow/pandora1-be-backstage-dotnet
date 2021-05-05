@@ -124,6 +124,13 @@ namespace MISApi.Entities.CMS
         [DefaultValue("")]
         public string DealType { get; set; } = "";
         /// <summary>
+        /// 支付工具Index
+        /// </summary>
+        [Description("支付工具Index")]
+        [JsonProperty("paySourceIndex")]
+        [DefaultValue(0)]
+        public int PaySourceIndex { get; set; } = 0;
+        /// <summary>
         /// 备注
         /// </summary>
         [StringLength(255)]
@@ -163,6 +170,28 @@ namespace MISApi.Entities.CMS
         [JsonProperty("payer")]
         [NotMapped]
         public Member Payer { get; set; }
+        /// <summary>
+        /// 支付工具
+        /// </summary>
+        [Description("支付工具")]
+        [JsonProperty("paySource")]
+        [DefaultValue("")]
+        public string PaySource
+        {
+            get
+            {
+                switch (PaySourceIndex)
+                {
+                    case 1:
+                        return "微信";
+                    case 2:
+                        return "支付宝";
+                    default:
+                        return "";
+                }
+            }
+        }
+
         /// <summary>
         /// 收款人
         /// </summary>

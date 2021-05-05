@@ -67,6 +67,10 @@ namespace MISApi.Dal.EF
         /// </summary>
         public virtual DbSet<Entities.CMS.Recharge> CMS_Recharge { get; set; }
         /// <summary>
+        /// 收藏
+        /// </summary>
+        public virtual DbSet<Entities.CMS.Collect> CMS_Collect { get; set; }
+        /// <summary>
         /// 下载
         /// </summary>
         public virtual DbSet<Entities.CMS.Down> CMS_Down { get; set; }

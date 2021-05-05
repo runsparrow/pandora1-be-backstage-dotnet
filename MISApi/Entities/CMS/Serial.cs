@@ -191,7 +191,6 @@ namespace MISApi.Entities.CMS
                 }
             }
         }
-
         /// <summary>
         /// 收款人
         /// </summary>

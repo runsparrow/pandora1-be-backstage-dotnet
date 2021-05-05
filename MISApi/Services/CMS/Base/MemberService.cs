@@ -54,7 +54,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.UserService.CreateService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.MemberService.CreateService.Execute", ex);
                 }
             }
             /// <summary>
@@ -85,7 +85,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.UserService.CreateService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.MemberService.CreateService.Execute", ex);
                 }
             }
 
@@ -132,7 +132,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.UserService.UpdateService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.MemberService.UpdateService.Execute", ex);
                 }
             }
             /// <summary>
@@ -163,7 +163,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.UserService.UpdateService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.MemberService.UpdateService.Execute", ex);
                 }
             }
         }
@@ -208,7 +208,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.UserService.DeleteService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.MemberService.DeleteService.Execute", ex);
                 }
             }
             /// <summary>
@@ -238,7 +238,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.UserService.DeleteService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.MemberService.DeleteService.Execute", ex);
                 }
             }
         }
@@ -262,7 +262,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.UserService.ColumnsService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.MemberService.ColumnsService.Execute", ex);
                 }
             }
         }
@@ -296,7 +296,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowService.ById", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.MemberService.RowService.ById", ex);
                     }
                 }
             }
@@ -321,7 +321,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowService.ByName", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.MemberService.RowService.ByName", ex);
                     }
                 }
             }
@@ -345,7 +345,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowService.ByMobile", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.MemberService.RowService.ByMobile", ex);
                     }
                 }
             }
@@ -369,7 +369,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowService.ByIdCard", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.MemberService.RowService.ByIdCard", ex);
                     }
                 }
             }
@@ -398,7 +398,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.UserService.RowsService.ByKeyWord", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.MemberService.RowsService.ByKeyWord", ex);
                 }
             }
             /// <summary>
@@ -438,7 +438,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowsService.Page", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.MemberService.RowsService.Page", ex);
                     }
                 }
             }
@@ -474,7 +474,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowsService.PageCount", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.MemberService.RowsService.PageCount", ex);
                     }
                 }
             }
@@ -498,7 +498,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowsService.PageSummary", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.MemberService.RowsService.PageSummary", ex);
                     }
                 }
             }
@@ -552,7 +552,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch(Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.SQLQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.MemberService.SQLQueryable", ex);
             }
         }
         /// <summary>
@@ -612,7 +612,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.KeyWordQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.MemberService.KeyWordQueryable", ex);
             }
         }
         /// <summary>
@@ -630,6 +630,47 @@ namespace MISApi.Services.CMS.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
+                    if (splits[i].ToLower().Contains("reuploadcount"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Member.ReUploadCount >= min && row.Member.ReUploadCount <= max);
+                    }
+                    if (splits[i].ToLower().Contains("uploadcount"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Member.UploadCount >= min && row.Member.UploadCount <= max);
+                    }
+                    if (splits[i].ToLower().Contains("redowncount"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Member.ReDownCount >= min && row.Member.ReDownCount <= max);
+                    }
+                    if (splits[i].ToLower().Contains("downcount"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Member.DownCount >= min && row.Member.DownCount <= max);
+                    }
+                    if (splits[i].ToLower().Contains("rebuycount"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Member.ReBuyCount >= min && row.Member.ReBuyCount <= max);
+                    }
+                    if (splits[i].ToLower().Contains("buycount"))
+                    {
+                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                        queryable = queryable.Where(row => row.Member.BuyCount >= min && row.Member.BuyCount <= max);
+                    }
+                    if (splits[i].ToLower().Contains("isauthority"))
+                    {
+                        bool isAuthority = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Member.IsAuthority == isAuthority);
+                    }
                     if (splits[i].ToLower().Contains("statusid"))
                     {
                         int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
@@ -640,7 +681,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.KeyWordExtQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.MemberService.KeyWordExtQueryable", ex);
             }
         }
         /// <summary>
@@ -677,7 +718,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.DateQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.MemberService.DateQueryable", ex);
             }
         }
         /// <summary>
@@ -698,7 +739,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.StatusQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.MemberService.StatusQueryable", ex);
             }
         }
         /// <summary>
@@ -729,7 +770,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.SortQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.MemberService.SortQueryable", ex);
             }
         }
         /// <summary>
@@ -752,7 +793,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.PageQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.MemberService.PageQueryable", ex);
             }
         }
         /// <summary>
@@ -776,7 +817,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.SQLEntityToSingle", ex);
+                throw new Exception("MISApi.Services.CMS.Base.MemberService.SQLEntityToSingle", ex);
             }
         }
         /// <summary>
@@ -792,7 +833,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.UserService.SQLEntityToList", ex);
+                throw new Exception("MISApi.Services.CMS.Base.MemberService.SQLEntityToList", ex);
             }
         }
 

@@ -640,6 +640,11 @@ namespace MISApi.Services.CMS.Base
                         string tags = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
                         queryable = queryable.Where(row => row.Goods.Tags.Contains($",{tags},"));
                     }
+                    if (splits[i].ToLower().Contains("isimage"))
+                    {
+                        bool isImage = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Goods.IsImage == isImage);
+                    }
                     if (splits[i].ToLower().Contains("level"))
                     {
                         decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;

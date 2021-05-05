@@ -225,6 +225,29 @@ namespace MISApi.Entities.CMS
 
         #region Not Mapped Property
         /// <summary>
+        /// 性别
+        /// </summary>
+        [Description("性别")]
+        [JsonProperty("genderName")]
+        [DefaultValue("")]
+        public string GenderName
+        {
+            get
+            {
+                switch (Gender.ToLower())
+                {
+                    case "f":
+                        return "女";
+                    case "m":
+                        return "男";
+                    case "s":
+                        return "保密";
+                    default:
+                        return "";
+                }
+            }
+        }
+        /// <summary>
         /// 状态
         /// </summary>
         [Description("状态")]

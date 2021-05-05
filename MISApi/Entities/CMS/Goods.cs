@@ -135,6 +135,13 @@ namespace MISApi.Entities.CMS
         [DefaultValue(0)]
         public int Level { get; set; } = 0;
         /// <summary>
+        /// 是否图片
+        /// </summary>
+        [Description("是否图片")]
+        [JsonProperty("isImage")]
+        [DefaultValue(0)]
+        public bool IsImage { get; set; } = true;
+        /// <summary>
         /// 价格
         /// </summary>
         [Description("价格")]

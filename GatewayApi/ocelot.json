@@ -2,10 +2,10 @@
   "Routes": [
     {
       "DownstreamPathTemplate": "/MIS/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "106.15.88.18",
+          "Host": "webapi-xs.com",
           "Port": 8001
         }
       ],
@@ -17,10 +17,10 @@
     },
     {
       "DownstreamPathTemplate": "/Unauthorized/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "106.15.88.18",
+          "Host": "webapi-xs.com",
           "Port": 8001
         }
       ],

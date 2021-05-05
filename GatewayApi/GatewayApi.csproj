@@ -24,6 +24,9 @@
     <None Update="fourlifecode-com-iis-0421170611.pfx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="webapi-xs-com-iis-0505161240.pfx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

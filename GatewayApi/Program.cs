@@ -43,13 +43,13 @@ namespace GatewayApi
                         .AddJsonFile("ocelot.json")
                         .AddEnvironmentVariables();
                 })
-                //.UseKestrel(options =>
-                //{
-                //    options.Listen(IPAddress.Any, 8002, listenOptions =>
-                //    {
-                //        listenOptions.UseHttps("fourlifecode-com-iis-0421170611.pfx", "fourlifecode");
-                //    });
-                //})
+                .UseKestrel(options =>
+                {
+                    options.Listen(IPAddress.Any, 8002, listenOptions =>
+                    {
+                        listenOptions.UseHttps("fourlifecode-com-iis-0421170611.pfx", "fourlifecode");
+                    });
+                })
                 //.UseUrls("http://localhost:4000")
                 .UseStartup<Startup>()
                 //.ConfigureLogging(logging =>

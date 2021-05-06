@@ -45,7 +45,7 @@ namespace MISApi.Entities
                         {
                             config.WithAllowAdmin()
                                 .WithDatabase(1)
-                                .WithEndpoint("106.15.88.18", 6389)
+                                .WithEndpoint("8.133.164.41", 6389)
                                 .WithPassword("redis1234567890");
                         })
                         .WithMaxRetries(1000)

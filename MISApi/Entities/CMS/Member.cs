@@ -230,6 +230,7 @@ namespace MISApi.Entities.CMS
         [Description("性别")]
         [JsonProperty("genderName")]
         [DefaultValue("")]
+        [NotMapped]
         public string GenderName
         {
             get

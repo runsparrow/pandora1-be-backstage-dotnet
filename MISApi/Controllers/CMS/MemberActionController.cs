@@ -77,21 +77,21 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 支付
+        /// 购买套餐
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/MemberAction/Pay", Name = "MIS_CMS_MemberAction_Pay")]
+        [Route("MIS/CMS/MemberAction/BuyMemberPower", Name = "MIS_CMS_MemberAction_BuyMemberPower")]
         [HttpPost]
         [Authorize]
-        public IActionResult Pay(DTO_Payment dto)
+        public IActionResult BuyMemberPower(DTO_MemberPower dto)
         {
             try
             {
                 // DTO
                 if (dto != null)
                 {
-                    new MemberActionService().PayMemberPower(dto, dto.MemberPowerId);
+                    new MemberActionService().BuyMemberPower(dto, dto.MemberPowerId);
 
                     return new JsonResult(new DTO_Result
                     {
@@ -117,14 +117,14 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 退款
+        /// 退套餐
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/MemberAction/Refund", Name = "MIS_CMS_MemberAction_Refund")]
+        [Route("MIS/CMS/MemberAction/RefundMemberPower", Name = "MIS_CMS_MemberAction_RefundMemberPower")]
         [HttpPost]
         [Authorize]
-        public IActionResult Refund(DTO_Payment dto)
+        public IActionResult RefundMemberPower(DTO_MemberPower dto)
         {
             try
             {
@@ -153,6 +153,46 @@ namespace MISApi.Controllers.CMS
                 {
                     Result = false,
                     Message = $"退款信息保存失败。错误信息：{ex.Message}。"
+                });
+            }
+        }
+        /// <summary>
+        /// 购买素材
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/MemberAction/BuyGoods", Name = "MIS_CMS_MemberAction_BuyGoods")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult BuyGoods(DTO_Goods dto)
+        {
+            try
+            {
+                // DTO
+                if (dto != null)
+                {
+                    new MemberActionService().BuyGoods(dto, dto.GoodsId);
+
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = true
+                    });
+                }
+                else
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "传入参数为空。"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new DTO_Result
+                {
+                    Result = false,
+                    Message = $"付款信息保存失败。错误信息：{ex.Message}。"
                 });
             }
         }
@@ -393,7 +433,7 @@ namespace MISApi.Controllers.CMS
         /// </summary>
         [JsonObject(MemberSerialization.OptOut)]
         [Serializable]
-        public class DTO_Payment : Serial
+        public class DTO_MemberPower : Serial
         {
             /// <summary>
             /// 会员套餐Id
@@ -401,6 +441,20 @@ namespace MISApi.Controllers.CMS
             [Description("会员套餐Id")]
             [JsonProperty("memberPowerId")]
             public int MemberPowerId { get; set; } = -1;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonObject(MemberSerialization.OptOut)]
+        [Serializable]
+        public class DTO_Goods : Serial
+        {
+            /// <summary>
+            /// 商品Id
+            /// </summary>
+            [Description("商品Id")]
+            [JsonProperty("goodsId")]
+            public int GoodsId { get; set; } = -1;
         }
         /// <summary>
         /// 

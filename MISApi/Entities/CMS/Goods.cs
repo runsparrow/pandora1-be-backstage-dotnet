@@ -198,6 +198,14 @@ namespace MISApi.Entities.CMS
         [DefaultValue(-1)]
         public int OwnerId { get; set; } = -1;
         /// <summary>
+        /// 所有权用户名
+        /// </summary>
+        [StringLength(255)]
+        [Description("所有权用户名")]
+        [JsonProperty("ownerName")]
+        [DefaultValue("")]
+        public string OwnerName { get; set; } = "";
+        /// <summary>
         /// 发布时间
         /// </summary>
         [Description("发布时间")]

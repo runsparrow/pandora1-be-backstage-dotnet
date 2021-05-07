@@ -1063,6 +1063,439 @@
             
             </summary>
         </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController">
+            <summary>
+            医院
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Create_Single(MISApi.Entities.ASM.Hospital)">
+            <summary>
+            创建医院
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Create_Multiple(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            创建医院
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            创建医院并设置状态
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Create_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            批量创建医院并设置状态
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Update_Single(MISApi.Entities.ASM.Hospital)">
+            <summary>
+            编辑一条医院
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Update_Multiple(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            编辑多条医院
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Update_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            编辑并设置状态
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Update_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            批量编辑并设置状态
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Delete_Single(MISApi.Entities.ASM.Hospital)">
+            <summary>
+             删除一条医院
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Delete_Multiple(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            删除多条医院
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Columns_Single">
+            <summary>
+            查询医院的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询医院
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询医院
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询医院
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询医院
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Rows_ByPid(System.Int32)">
+            <summary>
+            根据Pid查询医院子集
+            </summary>
+            <param name="pid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Rows_ByParentKey(System.String)">
+            <summary>
+            根据父节点键名查询医院子集
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Rows_SubsetById(System.Int32)">
+            <summary>
+            根据Id查询医院子集
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Rows_SupersetById(System.Int32)">
+            <summary>
+            根据Id查询医院父集
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Rows_SubsetByKey(System.String)">
+            <summary>
+            根据Key查询医院子集
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Rows_SupersetByKey(System.String)">
+            <summary>
+            根据Key查询医院父集
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询医院
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询医院
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Tree_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWordWithConfig{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            模糊查询获得树型结构的医院
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Tree_ById(MISApi.Controllers.HttpEntities.DTO_IdWithConfig{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            根据Id查询获得树型结构的医院
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Tree_SubsetByKey(System.String)">
+            <summary>
+            根据键名查询获得树型结构的医院
+            </summary>
+            <param name="key">键名</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Tree_SupersetByKey(System.String)">
+            <summary>
+            根据键名查询获得树型结构的医院
+            </summary>
+            <param name="key">键名</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Tree_SubsetById(System.Int32)">
+            <summary>
+            根据Id查询获得树型结构的医院
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Tree_SupersetById(System.Int32)">
+            <summary>
+            根据Id查询获得树型结构的医院
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.Tree(MISApi.Controllers.ASM.HospitalController.TreeMode.Request)">
+            <summary>
+            树形结构的复杂查询
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.CreateMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.CreateMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.CreateMode.Request.ToResponse(MISApi.Entities.ASM.Hospital)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.CreateMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.CreateMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.UpdateMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.UpdateMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.UpdateMode.Request.ToResponse(MISApi.Entities.ASM.Hospital)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.UpdateMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.UpdateMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.DeleteMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.DeleteMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.DeleteMode.Request.ToResponse(MISApi.Entities.ASM.Hospital)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.DeleteMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.DeleteMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.ColumnsMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.ColumnsMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.ColumnsMode.Request.ToResponse(MISApi.Entities.ASM.Hospital)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.ColumnsMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.RowMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.RowMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.RowMode.Request.ToResponse(MISApi.Entities.ASM.Hospital)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.RowMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.RowsMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.RowsMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.RowsMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.RowsMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.SingleMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.SingleMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.SingleMode.Request.ToResponse(MISApi.Entities.ASM.Hospital)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.SingleMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.QueryMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.QueryMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.QueryMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.QueryMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.TreeMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.TreeMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.ASM.HospitalController.TreeMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.ASM.HospitalController.TreeMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:MISApi.Controllers.ASM.RegionController">
             <summary>
             行政区划
@@ -5322,16 +5755,23 @@
             <param name="memberId">会员Id</param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.MemberActionController.Pay(MISApi.Controllers.CMS.MemberActionController.DTO_Payment)">
+        <member name="M:MISApi.Controllers.CMS.MemberActionController.BuyMemberPower(MISApi.Controllers.CMS.MemberActionController.DTO_MemberPower)">
             <summary>
-            支付
+            购买套餐
             </summary>
             <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.MemberActionController.Refund(MISApi.Controllers.CMS.MemberActionController.DTO_Payment)">
+        <member name="M:MISApi.Controllers.CMS.MemberActionController.RefundMemberPower(MISApi.Controllers.CMS.MemberActionController.DTO_MemberPower)">
             <summary>
-            退款
+            退套餐
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.MemberActionController.BuyGoods(MISApi.Controllers.CMS.MemberActionController.DTO_Goods)">
+            <summary>
+            购买套餐
             </summary>
             <param name="dto"></param>
             <returns></returns>
@@ -5379,14 +5819,24 @@
             商品Id
             </summary>
         </member>
-        <member name="T:MISApi.Controllers.CMS.MemberActionController.DTO_Payment">
+        <member name="T:MISApi.Controllers.CMS.MemberActionController.DTO_MemberPower">
             <summary>
             
             </summary>
         </member>
-        <member name="P:MISApi.Controllers.CMS.MemberActionController.DTO_Payment.MemberPowerId">
+        <member name="P:MISApi.Controllers.CMS.MemberActionController.DTO_MemberPower.MemberPowerId">
             <summary>
             会员套餐Id
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.MemberActionController.DTO_Goods">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.MemberActionController.DTO_Goods.GoodsId">
+            <summary>
+            商品Id
             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.MemberActionController.DTO_File">
@@ -9881,6 +10331,11 @@
             行政区划
             </summary>
         </member>
+        <member name="P:MISApi.Dal.EF.PandoraContext.ASM_Hospital">
+            <summary>
+            医院
+            </summary>
+        </member>
         <member name="P:MISApi.Dal.EF.PandoraContext.AVM_User">
             <summary>
             用户
@@ -10052,6 +10507,151 @@
             </summary>
         </member>
         <member name="P:MISApi.Entities.ASM.Dictionary.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:MISApi.Entities.ASM.Hospital">
+            <summary>
+            医院
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.Id">
+            <summary>
+            唯一标识
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.Pid">
+            <summary>
+            父节点Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.Key">
+            <summary>
+            键名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.Value">
+            <summary>
+            键值
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.Desc">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.NationCode">
+            <summary>
+            国家代码
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.NationName">
+            <summary>
+            国家名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.ProvinceCode">
+            <summary>
+            省代码
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.ProvinceName">
+            <summary>
+            省名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.CityCode">
+            <summary>
+            城市代码
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.CityName">
+            <summary>
+            城市名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.DivisionCode">
+            <summary>
+            区县代码
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.DivisionName">
+            <summary>
+            区县名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.ClassifyId">
+            <summary>
+            归类Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.ClassifyName">
+            <summary>
+            归类名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.LevelId">
+            <summary>
+            级别Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.LevelName">
+            <summary>
+            级别名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.CreateDateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.CreateUserId">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.EditDateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.EditUserId">
+            <summary>
+            最后修改用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.StatusId">
+            <summary>
+            状态Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.StatusName">
+            <summary>
+            状态名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.StatusValue">
+            <summary>
+            状态数值
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.ParentHospital">
+            <summary>
+            上级医院
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.Status">
             <summary>
             状态
             </summary>
@@ -11208,6 +11808,11 @@
             所有权用户Id
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Goods.OwnerName">
+            <summary>
+            所有权用户名
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Goods.PublicDateTime">
             <summary>
             发布时间
@@ -11696,6 +12301,11 @@
         <member name="P:MISApi.Entities.CMS.Order.EditUserId">
             <summary>
             最后修改用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Order.OrderDetails">
+            <summary>
+            订单明细
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Order.Buyer">
@@ -14596,6 +15206,356 @@
             
             </summary>
         </member>
+        <member name="T:MISApi.Services.ASM.Base.HospitalService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.ASM.Base.HospitalService.CreateService">
+            <summary>
+            CreateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.ASM.Base.HospitalService.CreateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.CreateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.CreateService.Execute(MISApi.Entities.ASM.Hospital)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.CreateService.Execute(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.ASM.Base.HospitalService.UpdateService">
+            <summary>
+            UpdateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.ASM.Base.HospitalService.UpdateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.UpdateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.UpdateService.Execute(MISApi.Entities.ASM.Hospital)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.UpdateService.Execute(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.ASM.Base.HospitalService.DeleteService">
+            <summary>
+            DeleteService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.ASM.Base.HospitalService.DeleteService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.DeleteService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.DeleteService.Execute(MISApi.Entities.ASM.Hospital)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.DeleteService.Execute(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entitys"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.ASM.Base.HospitalService.ColumnsService">
+            <summary>
+            ColumnsMode Service
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.ColumnsService.Single">
+            <summary>
+            返回字段集
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.ASM.Base.HospitalService.RowService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.RowService.ById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 id 查询
+            </summary>
+            <param name="id">Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.RowService.ByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 key 查询
+            </summary>
+            <param name="key">Key</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.ASM.Base.HospitalService.RowsService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.RowsService.ByKeyWord(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据关键字查询
+            </summary>
+            <param name="keyWord">关键字</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.RowsService.ByPid(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据父节点Id查询
+            </summary>
+            <param name="pid">父节点Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.RowsService.ByParentKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据父节点键名查询
+            </summary>
+            <param name="key">父节点键名</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.RowsService.SubsetByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Key查询所有子节点（递归并包含Key自身）
+            </summary>
+            <param name="key"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.RowsService.SupersetByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Key查询所有父节点（递归并包含Key自身）
+            </summary>
+            <param name="key"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.RowsService.SubsetById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id查询所有子节点（递归并包含Id自身）
+            </summary>
+            <param name="id"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.RowsService.SupersetById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id查询所有父节点（递归并包含Id自身）
+            </summary>
+            <param name="id"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="page"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.RowsService.PageCount(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页计数
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.RowsService.PageSummary(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页汇总
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.SubsetByKeyRecursion(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital},System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Key递归获取Hospital
+            </summary>
+            <param name="list"></param>
+            <param name="key"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.SupersetByKeyRecursion(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital},System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Key递归获取Hospital
+            </summary>
+            <param name="list"></param>
+            <param name="key"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.SubsetByIdRecursion(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital},System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id递归获取Hospital
+            </summary>
+            <param name="list"></param>
+            <param name="id"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.SupersetByIdRecursion(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital},System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据Id递归获取Hospital
+            </summary>
+            <param name="list"></param>
+            <param name="pid"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.SQLQueryable(MISApi.Dal.EF.PandoraContext,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            默认查询
+            </summary>
+            <param name="context"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.KeyWordQueryable(System.Linq.IQueryable{MISApi.Services.ASM.Base.HospitalService.SQLEntity},System.String)">
+            <summary>
+            关键字
+            </summary>
+            <param name="queryable"></param>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.KeyWordExtQueryable(System.Linq.IQueryable{MISApi.Services.ASM.Base.HospitalService.SQLEntity},System.String)">
+            <summary>
+            关键字扩展
+            </summary>
+            <param name="queryable"></param>
+            <param name="keyWordExt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.DateQueryable(System.Linq.IQueryable{MISApi.Services.ASM.Base.HospitalService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Date[])">
+            <summary>
+            日期
+            </summary>
+            <param name="queryable"></param>
+            <param name="dates"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.StatusQueryable(System.Linq.IQueryable{MISApi.Services.ASM.Base.HospitalService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            状态
+            </summary>
+            <param name="queryable"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.SortQueryable(System.Linq.IQueryable{MISApi.Services.ASM.Base.HospitalService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Sort[])">
+            <summary>
+            排序
+            </summary>
+            <param name="queryable"></param>
+            <param name="sorts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.PageQueryable(System.Linq.IQueryable{MISApi.Services.ASM.Base.HospitalService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Page)">
+            <summary>
+            分页
+            </summary>
+            <param name="queryable"></param>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.SQLEntityToSingle(MISApi.Services.ASM.Base.HospitalService.SQLEntity)">
+            <summary>
+            SQLEntity转换
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.SQLEntityToList(System.Collections.Generic.List{MISApi.Services.ASM.Base.HospitalService.SQLEntity})">
+            <summary>
+            SQLEntity转换
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.ASM.Base.HospitalService.SQLEntity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.ASM.Base.HospitalService.SQLEntity.Hospital">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.ASM.Base.HospitalService.SQLEntity.ParentHospital">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.ASM.Base.HospitalService.SQLEntity.Status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.ASM.Base.HospitalService.SummaryEntity">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:MISApi.Services.ASM.Base.RegionService">
             <summary>
             
@@ -15006,6 +15966,93 @@
             </summary>
         </member>
         <member name="T:MISApi.Services.ASM.DictionaryService.RowsService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.ASM.HospitalService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.ASM.HospitalService.CreateService">
+            <summary>
+            CreateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.ASM.HospitalService.CreateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.HospitalService.CreateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.HospitalService.CreateService.ToStatus(MISApi.Entities.ASM.Hospital,System.String)">
+            <summary>
+            创建指定状态
+            </summary>
+            <param name="entity"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.HospitalService.CreateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital},System.String)">
+            <summary>
+            批量创建指定状态
+            </summary>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.ASM.HospitalService.UpdateService">
+            <summary>
+            UpdateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.ASM.HospitalService.UpdateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.HospitalService.UpdateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.HospitalService.UpdateService.ToStatus(MISApi.Entities.ASM.Hospital,System.String)">
+            <summary>
+            编辑指定状态
+            </summary>
+            <param name="entity"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ASM.HospitalService.UpdateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.ASM.Hospital},System.String)">
+            <summary>
+            批量编辑指定状态
+            </summary>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.ASM.HospitalService.DeleteService">
+            <summary>
+            DeleteService
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.ASM.HospitalService.ColumnsService">
+            <summary>
+            ColumnsMode Service
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.ASM.HospitalService.RowService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.ASM.HospitalService.RowsService">
             <summary>
             
             </summary>
@@ -20217,20 +21264,28 @@
             <param name="memberId">会员Id</param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.MemberActionService.PayMemberPower(MISApi.Entities.CMS.Serial,System.Int32)">
+        <member name="M:MISApi.Services.CMS.MemberActionService.BuyMemberPower(MISApi.Entities.CMS.Serial,System.Int32)">
             <summary>
             买套餐
             </summary>
-            <param name="serialEntity"></param>
-            <param name="memberPowerId"></param>
+            <param name="serialEntity">流水号实体</param>
+            <param name="memberPowerId">套餐Id</param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Services.CMS.MemberActionService.RefundMemberPower(MISApi.Entities.CMS.Serial,System.Int32)">
             <summary>
             退套餐
             </summary>
-            <param name="serialEntity"></param>
-            <param name="memberPowerId"></param>
+            <param name="serialEntity">流水号实体</param>
+            <param name="memberPowerId">套餐Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.MemberActionService.BuyGoods(MISApi.Entities.CMS.Serial,System.Int32)">
+            <summary>
+            购买素材
+            </summary>
+            <param name="serialEntity">流水号实体</param>
+            <param name="goodsId">商品Id</param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Services.CMS.MemberActionService.Upload(MISApi.Entities.CMS.File)">

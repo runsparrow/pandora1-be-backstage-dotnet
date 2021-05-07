@@ -4,22 +4,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using MISApi.Entities.CMS;
+using MISApi.Entities.ASM;
 using MISApi.Entities.WFM;
 
-namespace MISApi.Services.CMS.Base
+namespace MISApi.Services.ASM.Base
 {
     /// <summary>
     /// 
     /// </summary>
-    public class OrderService : BaseService.EF<Order, PandoraContext>
+    public class HospitalService : BaseService.EF<Hospital, PandoraContext>
     {
 
         #region CreateService
         /// <summary>
         /// CreateService
         /// </summary>
-        public class CreateService : OrderService
+        public class CreateService : HospitalService
         {
             /// <summary>
             /// 定义事务服务
@@ -37,23 +37,15 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public Order Execute(Order entity)
+            public Hospital Execute(Hospital entity)
             {
                 try
                 {
                     // 定义
-                    Order result = new Order();
+                    Hospital result = new Hospital();
                     // 事务
                     transService.TransRegist(delegate {
-                        // 订单
-                        result = base.Create(entity);
-                        // 订单明细
-                        entity.OrderDetails.ForEach(orderDetail =>
-                        {
-                            orderDetail.OrderId = result.Id;
-                            orderDetail.OrderNo = result.OrderNo;
-                            new OrderDetailService.CreateService().Execute(orderDetail);
-                        });
+                        entity = base.Create(entity);
                     });
                     // 提交
                     transService.TransCommit();
@@ -62,7 +54,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.OrderService.CreateService.Execute", ex);
+                    throw new Exception("MISApi.Services.ASM.Base.HospitalService.CreateService.Execute", ex);
                 }
             }
             /// <summary>
@@ -70,12 +62,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entityList"></param>
             /// <returns></returns>
-            public List<Order> Execute(List<Order> entityList)
+            public List<Hospital> Execute(List<Hospital> entityList)
             {
                 try
                 {
                     // 定义
-                    List<Order> resultList = new List<Order>();
+                    List<Hospital> resultList = new List<Hospital>();
                     // 事务
                     transService.TransRegist(delegate {
                         // 遍历
@@ -93,7 +85,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.OrderService.CreateService.Execute", ex);
+                    throw new Exception("MISApi.Services.ASM.Base.HospitalService.CreateService.Execute", ex);
                 }
             }
 
@@ -105,7 +97,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// UpdateService
         /// </summary>
-        public class UpdateService : OrderService
+        public class UpdateService : HospitalService
         {
             /// <summary>
             /// 定义事务服务
@@ -123,12 +115,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public Order Execute(Order entity)
+            public Hospital Execute(Hospital entity)
             {
                 try
                 {
                     // 定义
-                    Order result = new Order();
+                    Hospital result = new Hospital();
                     // 事务
                     transService.TransRegist(delegate {
                         result = base.Update(entity);
@@ -140,7 +132,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.OrderService.UpdateService.Execute", ex);
+                    throw new Exception("MISApi.Services.ASM.Base.HospitalService.UpdateService.Execute", ex);
                 }
             }
             /// <summary>
@@ -148,12 +140,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entityList"></param>
             /// <returns></returns>
-            public List<Order> Execute(List<Order> entityList)
+            public List<Hospital> Execute(List<Hospital> entityList)
             {
                 try
                 {
                     // 定义
-                    List<Order> resultList = new List<Order>();
+                    List<Hospital> resultList = new List<Hospital>();
                     // 事务
                     transService.TransRegist(delegate
                     {
@@ -171,7 +163,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.OrderService.UpdateService.Execute", ex);
+                    throw new Exception("MISApi.Services.ASM.Base.HospitalService.UpdateService.Execute", ex);
                 }
             }
         }
@@ -181,7 +173,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// DeleteService
         /// </summary>
-        public class DeleteService : OrderService
+        public class DeleteService : HospitalService
         {
             /// <summary>
             /// 定义事务服务
@@ -199,12 +191,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public Order Execute(Order entity)
+            public Hospital Execute(Hospital entity)
             {
                 try
                 {
                     // 定义
-                    Order result = new Order();
+                    Hospital result = new Hospital();
                     // 事务
                     transService.TransRegist(delegate {
                         result = base.Delete(entity);
@@ -216,7 +208,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.OrderService.DeleteService.Execute", ex);
+                    throw new Exception("MISApi.Services.ASM.Base.HospitalService.DeleteService.Execute", ex);
                 }
             }
             /// <summary>
@@ -224,12 +216,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entitys"></param>
             /// <returns></returns>
-            public List<Order> Execute(List<Order> entitys)
+            public List<Hospital> Execute(List<Hospital> entitys)
             {
                 try
                 {
                     // 定义
-                    List<Order> resultList = new List<Order>();
+                    List<Hospital> resultList = new List<Hospital>();
                     // 事务
                     transService.TransRegist(delegate {
                         entitys.ForEach(entity =>
@@ -246,7 +238,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.OrderService.DeleteService.Execute", ex);
+                    throw new Exception("MISApi.Services.ASM.Base.HospitalService.DeleteService.Execute", ex);
                 }
             }
         }
@@ -256,21 +248,21 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// ColumnsMode Service
         /// </summary>
-        public class ColumnsService : OrderService
+        public class ColumnsService : HospitalService
         {
             /// <summary>
             /// 返回字段集
             /// </summary>
             /// <returns></returns>
-            public Order Single()
+            public Hospital Single()
             {
                 try
                 {
-                    return new Order();
+                    return new Hospital();
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.OrderService.ColumnsService.Execute", ex);
+                    throw new Exception("MISApi.Services.ASM.Base.HospitalService.ColumnsService.Execute", ex);
                 }
             }
         }
@@ -282,7 +274,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// 
         /// </summary>
-        public class RowService : OrderService
+        public class RowService : HospitalService
         {
             /// <summary>
             /// 根据 id 查询
@@ -290,7 +282,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="id">Id</param>
             /// <param name="joins">关联表</param>
             /// <returns></returns>
-            public Order ById(int id, params BaseMode.Join[] joins)
+            public Hospital ById(int id, params BaseMode.Join[] joins)
             {
                 using (PandoraContext context = new PandoraContext())
                 {
@@ -298,13 +290,37 @@ namespace MISApi.Services.CMS.Base
                     {
                         return SQLEntityToSingle(
                             SQLQueryable(context, joins)
-                                .Where(row => row.Order.Id == id)
+                                .Where(row => row.Hospital.Id == id)
                                 .SingleOrDefault()
                         );
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.OrderService.RowService.ById", ex);
+                        throw new Exception("MISApi.Services.ASM.Base.HospitalService.RowService.ById", ex);
+                    }
+                }
+            }
+            /// <summary>
+            /// 根据 key 查询
+            /// </summary>
+            /// <param name="key">Key</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public Hospital ByKey(string key, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToSingle(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Hospital.Key == key)
+                                .SingleOrDefault()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.ASM.Base.HospitalService.RowService.ByKey", ex);
                     }
                 }
             }
@@ -317,7 +333,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// 
         /// </summary>
-        public class RowsService : OrderService
+        public class RowsService : HospitalService
         {
             /// <summary>
             /// 根据关键字查询
@@ -325,7 +341,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="keyWord">关键字</param>
             /// <param name="joins">关联表</param>
             /// <returns></returns>
-            public List<Order> ByKeyWord(BaseMode.KeyWord keyWord, params BaseMode.Join[] joins)
+            public List<Hospital> ByKeyWord(BaseMode.KeyWord keyWord, params BaseMode.Join[] joins)
             {
                 try
                 {
@@ -333,31 +349,138 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.OrderService.RowsService.ByKeyWord", ex);
+                    throw new Exception("MISApi.Services.ASM.Base.HospitalService.RowsService.ByKeyWord", ex);
                 }
             }
             /// <summary>
-            /// 
+            /// 根据父节点Id查询
             /// </summary>
-            /// <param name="buyerId"></param>
-            /// <param name="joins"></param>
+            /// <param name="pid">父节点Id</param>
+            /// <param name="joins">关联表</param>
             /// <returns></returns>
-            public List<Order> ByBuyerId(int buyerId, params BaseMode.Join[] joins)
+            public List<Hospital> ByPid(int pid, params BaseMode.Join[] joins)
             {
                 using (PandoraContext context = new PandoraContext())
                 {
                     try
                     {
                         return SQLEntityToList(
-                            SQLQueryable(context, joins)
-                                .Where(row => row.Order.BuyerId == buyerId)
-                                .ToList()
-                        );
+                                SQLQueryable(context, joins).Where(row => row.Hospital.Pid == pid).ToList()
+                            );
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.OrderService.RowsService.ByBuyerId", ex);
+                        throw new Exception("MISApi.Services.ASM.Base.HospitalService.RowsService.ByPid", ex);
                     }
+                }
+            }
+            /// <summary>
+            /// 根据父节点键名查询
+            /// </summary>
+            /// <param name="key">父节点键名</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Hospital> ByParentKey(string key, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        Hospital hospital = new RowService().ByKey(key);
+                        return new RowsService().ByPid(hospital == null ? 0 : hospital.Id);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.ASM.Base.HospitalService.RowsService.ByParentKey", ex);
+                    }
+                }
+            }
+            /// <summary>
+            /// 根据Key查询所有子节点（递归并包含Key自身）
+            /// </summary>
+            /// <param name="key"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Hospital> SubsetByKey(string key, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    List<Hospital> list = new RowService().ByKey(key) == null ? new List<Hospital>() : new List<Hospital> { new RowService().ByKey(key) };
+                    return SubsetByIdRecursion(list, list[0].Id, joins);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.HospitalService.RowsService.SubsetByKey", ex);
+                }
+            }
+            /// <summary>
+            /// 根据Key查询所有父节点（递归并包含Key自身）
+            /// </summary>
+            /// <param name="key"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Hospital> SupersetByKey(string key, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    Hospital currentHospital = new RowService().ByKey(key) ?? new Hospital();
+                    List<Hospital> result = SupersetByIdRecursion(new List<Hospital>(), currentHospital.Pid, joins);
+                    result.Add(currentHospital);
+                    string path = "^";
+                    // 生成path
+                    result.ForEach(hospital =>
+                    {
+                        path = hospital.Path = $"{path}{hospital.Name}^";
+                    });
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.HospitalService.RowsService.SupersetByKey", ex);
+                }
+            }
+            /// <summary>
+            /// 根据Id查询所有子节点（递归并包含Id自身）
+            /// </summary>
+            /// <param name="id"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Hospital> SubsetById(int id, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    List<Hospital> list = new RowService().ById(id) == null ? new List<Hospital>() : new List<Hospital> { new RowService().ById(id) };
+                    return SubsetByIdRecursion(list, id, joins);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.HospitalService.RowsService.SubsetById", ex);
+                }
+            }
+            /// <summary>
+            /// 根据Id查询所有父节点（递归并包含Id自身）
+            /// </summary>
+            /// <param name="id"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Hospital> SupersetById(int id, params BaseMode.Join[] joins)
+            {
+                try
+                {
+                    Hospital currentHospital = new RowService().ById(id);
+                    List<Hospital> result = SupersetByIdRecursion(new List<Hospital>(), currentHospital.Pid, joins);
+                    result.Add(currentHospital);
+                    string path = "^";
+                    // 生成path
+                    result.ForEach(hospital =>
+                    {
+                        path = hospital.Path = $"{path}{hospital.Name}^";
+                    });
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.HospitalService.RowsService.SupersetById", ex);
                 }
             }
             /// <summary>
@@ -370,7 +493,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="sorts"></param>
             /// <param name="status"></param>
             /// <returns></returns>
-            public List<Order> Page(BaseMode.KeyWord keyWord, BaseMode.Join[] joins, BaseMode.Page page, BaseMode.Date[] dates, BaseMode.Sort[] sorts, BaseMode.Status status)
+            public List<Hospital> Page(BaseMode.KeyWord keyWord, BaseMode.Join[] joins, BaseMode.Page page, BaseMode.Date[] dates, BaseMode.Sort[] sorts, BaseMode.Status status)
             {
                 using (PandoraContext context = new PandoraContext())
                 {
@@ -397,7 +520,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.OrderService.RowsService.Page", ex);
+                        throw new Exception("MISApi.Services.ASM.Base.HospitalService.RowsService.Page", ex);
                     }
                 }
             }
@@ -433,7 +556,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.OrderService.RowsService.PageCount", ex);
+                        throw new Exception("MISApi.Services.ASM.Base.HospitalService.RowsService.PageCount", ex);
                     }
                 }
             }
@@ -457,7 +580,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.OrderService.RowsService.PageSummary", ex);
+                        throw new Exception("MISApi.Services.ASM.Base.HospitalService.RowsService.PageSummary", ex);
                     }
                 }
             }
@@ -466,7 +589,108 @@ namespace MISApi.Services.CMS.Base
         #endregion
 
         #region Inner Methods
-
+        /// <summary>
+        /// 根据Key递归获取Hospital
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="key"></param>
+        /// <param name="joins"></param>
+        /// <returns></returns>
+        private List<Hospital> SubsetByKeyRecursion(List<Hospital> list, string key, params BaseMode.Join[] joins)
+        {
+            using (PandoraContext context = new PandoraContext())
+            {
+                try
+                {
+                    var entity = new RowService().ByKey(key);
+                    if (entity != null)
+                    {
+                        SubsetByIdRecursion(list, entity.Id, joins);
+                    }
+                    return list;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.HospitalService.SubsetByKeyRecursion", ex);
+                }
+            }
+        }
+        /// <summary>
+        /// 根据Key递归获取Hospital
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="key"></param>
+        /// <param name="joins"></param>
+        /// <returns></returns>
+        private List<Hospital> SupersetByKeyRecursion(List<Hospital> list, string key, params BaseMode.Join[] joins)
+        {
+            using (PandoraContext context = new PandoraContext())
+            {
+                try
+                {
+                    var entity = new RowService().ByKey(key);
+                    if (entity != null)
+                    {
+                        SupersetByIdRecursion(list, entity.Id, joins);
+                    }
+                    return list;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.HospitalService.SupersetByKeyRecursion", ex);
+                }
+            }
+        }
+        /// <summary>
+        /// 根据Id递归获取Hospital
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="id"></param>
+        /// <param name="joins"></param>
+        /// <returns></returns>
+        private List<Hospital> SubsetByIdRecursion(List<Hospital> list, int id, params BaseMode.Join[] joins)
+        {
+            using (PandoraContext context = new PandoraContext())
+            {
+                try
+                {
+                    SQLQueryable(context, joins).Where(row => row.Hospital.Pid == id).ToList().ForEach(sqlEntity => {
+                        list.Add(sqlEntity.Hospital);
+                        SubsetByIdRecursion(list, sqlEntity.Hospital.Id, joins);
+                    });
+                    return list;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.HospitalService.SubsetByIdRecursion", ex);
+                }
+            }
+        }
+        /// <summary>
+        /// 根据Id递归获取Hospital
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="pid"></param>
+        /// <param name="joins"></param>
+        /// <returns></returns>
+        private List<Hospital> SupersetByIdRecursion(List<Hospital> list, int pid, params BaseMode.Join[] joins)
+        {
+            using (PandoraContext context = new PandoraContext())
+            {
+                try
+                {
+                    SQLQueryable(context, joins).Where(row => row.Hospital.Id == pid).ToList().ForEach(sqlEntity => {
+                        SupersetByIdRecursion(list, sqlEntity.Hospital.Pid, joins);
+                        list.Add(sqlEntity.Hospital);
+                    });
+                    return list;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.ASM.Base.HospitalService.SupersetByIdRecursion", ex);
+                }
+            }
+        }
         /// <summary>
         /// 默认查询
         /// </summary>
@@ -478,30 +702,30 @@ namespace MISApi.Services.CMS.Base
             try
             {
                 // 定义
-                var left = context.CMS_Order.Select(Main => new SQLEntity
+                var left = context.ASM_Hospital.Select(Main => new SQLEntity
                 {
-                    Order = Main
+                    Hospital = Main
                 });
                 // 遍历
                 foreach (var join in joins)
                 {
-                    // SQLEntity.Buyer
-                    if (join.Name.ToLower().Equals("buyer"))
+                    // SQLEntity.ParentHospital
+                    if (join.Name.ToLower().Equals("parenthospital"))
                     {
-                        left = left.LeftOuterJoin(context.CMS_Member, Main => Main.Order.BuyerId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        left = left.LeftOuterJoin(context.ASM_Hospital, Main => Main.Hospital.Pid, Left => Left.Id, (Main, Left) => new SQLEntity
                         {
-                            Order = Main.Order,
-                            Buyer = Left,
+                            Hospital = Main.Hospital,
+                            ParentHospital = Left,
                             Status = Main.Status
                         });
                     }
                     // SQLEntity.Status
                     if (join.Name.ToLower().Equals("status"))
                     {
-                        left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Order.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Hospital.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
                         {
-                            Order = Main.Order,
-                            Buyer = Main.Buyer,
+                            Hospital = Main.Hospital,
+                            ParentHospital = Main.ParentHospital,
                             Status = Left
                         });
                     }
@@ -509,8 +733,8 @@ namespace MISApi.Services.CMS.Base
                 // 一对多
                 var group = left.Select(Main => new SQLEntity
                 {
-                    Order = Main.Order,
-                    Buyer = Main.Buyer,
+                    Hospital = Main.Hospital,
+                    ParentHospital = Main.ParentHospital,
                     Status = Main.Status
                 });
                 // 遍历
@@ -521,9 +745,9 @@ namespace MISApi.Services.CMS.Base
                 // 返回
                 return group;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.OrderService.SQLQueryable", ex);
+                throw new Exception("MISApi.Services.ASM.Base.HospitalService.SQLQueryable", ex);
             }
         }
         /// <summary>
@@ -547,32 +771,29 @@ namespace MISApi.Services.CMS.Base
                     {
                         var andKeyWord = ands[i];
                         queryable = queryable.Where(row =>
-                            row.Order.OrderNo.Contains(andKeyWord) ||
-                            row.Order.BuyerName.Contains(andKeyWord) ||
-                            row.Order.SerialNo.Contains(andKeyWord) ||
-                            row.Order.Remark.Contains(andKeyWord) ||
-                            row.Order.StatusName.Contains(andKeyWord)
-                        );
+                                row.Hospital.Name.Contains(andKeyWord) ||
+                                row.Hospital.Key.Contains(andKeyWord) ||
+                                row.Hospital.Desc.Contains(andKeyWord) ||
+                                row.Hospital.StatusName.Contains(andKeyWord)
+                            );
                     }
                 }
                 else if (ors.Length > 1)
                 {
                     queryable = queryable.Where(row =>
-                            ors.Contains(row.Order.OrderNo) ||
-                            ors.Contains(row.Order.BuyerName) ||
-                            ors.Contains(row.Order.SerialNo) ||
-                            ors.Contains(row.Order.Remark) ||
-                            ors.Contains(row.Order.StatusName)
+                            ors.Contains(row.Hospital.Name) ||
+                            ors.Contains(row.Hospital.Key) ||
+                            ors.Contains(row.Hospital.Desc) ||
+                            ors.Contains(row.Hospital.StatusName)
                         );
                 }
                 else
                 {
                     queryable = queryable.Where(row =>
-                            row.Order.OrderNo.Contains(keyWord) ||
-                            row.Order.BuyerName.Contains(keyWord) ||
-                            row.Order.SerialNo.Contains(keyWord) ||
-                            row.Order.Remark.Contains(keyWord) ||
-                            row.Order.StatusName.Contains(keyWord)
+                            row.Hospital.Name.Contains(keyWord) ||
+                            row.Hospital.Key.Contains(keyWord) ||
+                            row.Hospital.Desc.Contains(keyWord) ||
+                            row.Hospital.StatusName.Contains(keyWord)
                         );
                 }
                 // 返回
@@ -580,7 +801,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.OrderService.KeyWordQueryable", ex);
+                throw new Exception("MISApi.Services.ASM.Base.HospitalService.KeyWordQueryable", ex);
             }
         }
         /// <summary>
@@ -598,39 +819,22 @@ namespace MISApi.Services.CMS.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
+                    if (splits[i].ToLower().Contains("pid"))
+                    {
+                        int pid = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Hospital.Pid == pid);
+                    }
                     if (splits[i].ToLower().Contains("statusid"))
                     {
                         int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Order.StatusId == statusId);
-                    }
-                    if (splits[i].ToLower().Contains("buyerid"))
-                    {
-                        int buyerId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Order.BuyerId == buyerId);
-                    }
-                    if (splits[i].ToLower().Contains("totalprice"))
-                    {
-                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                        queryable = queryable.Where(row => row.Order.TotalPrice >= min && row.Order.TotalPrice <= max);
-                    }
-                    if (splits[i].ToLower().Contains("discount"))
-                    {
-                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                        queryable = queryable.Where(row => row.Order.Discount >= min && row.Order.Discount <= max);
-                    }
-                    if (splits[i].ToLower().Contains("paymode"))
-                    {
-                        string payMode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
-                        queryable = queryable.Where(row => row.Order.PayMode == payMode);
+                        queryable = queryable.Where(row => row.Hospital.StatusId == statusId);
                     }
                 }
                 return queryable;
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.OrderService.KeyWordExtQueryable", ex);
+                throw new Exception("MISApi.Services.ASM.Base.HospitalService.KeyWordExtQueryable", ex);
             }
         }
         /// <summary>
@@ -647,25 +851,18 @@ namespace MISApi.Services.CMS.Base
                 {
                     dates.ToList().ForEach(date =>
                     {
-                        if (date.Name.ToLower().Equals("orderdatetime"))
-                        {
-                            queryable = queryable
-                                .Where(row =>
-                                    row.Order.OrderDateTime >= date.MinDate && row.Order.OrderDateTime <= date.MaxDate
-                                );
-                        }
                         if (date.Name.ToLower().Equals("createdatetime"))
                         {
                             queryable = queryable
                                 .Where(row =>
-                                    row.Order.CreateDateTime >= date.MinDate && row.Order.CreateDateTime <= date.MaxDate
+                                    row.Hospital.CreateDateTime >= date.MinDate && row.Hospital.CreateDateTime <= date.MaxDate
                                 );
                         }
                         if (date.Name.ToLower().Equals("editdatetime"))
                         {
                             queryable = queryable
                                 .Where(row =>
-                                    row.Order.EditDateTime >= date.MinDate && row.Order.EditDateTime <= date.MaxDate
+                                    row.Hospital.EditDateTime >= date.MinDate && row.Hospital.EditDateTime <= date.MaxDate
                                 );
                         }
                     });
@@ -674,7 +871,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.OrderService.DateQueryable", ex);
+                throw new Exception("MISApi.Services.ASM.Base.HospitalService.DateQueryable", ex);
             }
         }
         /// <summary>
@@ -689,13 +886,13 @@ namespace MISApi.Services.CMS.Base
             {
                 if (status != null && status.Values.Count() > 0)
                 {
-                    return queryable.Where(row => status.Values.Contains(row.Order.StatusValue));
+                    return queryable.Where(row => status.Values.Contains(row.Hospital.StatusValue));
                 }
                 return queryable;
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.OrderService.StatusQueryable", ex);
+                throw new Exception("MISApi.Services.ASM.Base.HospitalService.StatusQueryable", ex);
             }
         }
         /// <summary>
@@ -726,7 +923,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.OrderService.SortQueryable", ex);
+                throw new Exception("MISApi.Services.ASM.Base.HospitalService.SortQueryable", ex);
             }
         }
         /// <summary>
@@ -749,7 +946,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.OrderService.PageQueryable", ex);
+                throw new Exception("MISApi.Services.ASM.Base.HospitalService.PageQueryable", ex);
             }
         }
         /// <summary>
@@ -757,7 +954,7 @@ namespace MISApi.Services.CMS.Base
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        protected Order SQLEntityToSingle(SQLEntity entity)
+        protected Hospital SQLEntityToSingle(SQLEntity entity)
         {
             try
             {
@@ -765,17 +962,17 @@ namespace MISApi.Services.CMS.Base
                 if (entity == null)
                     return null;
                 // 主表
-                Order orderEntity = entity.Order;
-                // 买家
-                orderEntity.Buyer = entity.Buyer ?? null;
+                Hospital hospitalEntity = entity.Hospital;
+                // 上级医院
+                hospitalEntity.ParentHospital = entity.ParentHospital ?? null;
                 // 状态
-                orderEntity.Status = entity.Status ?? null;
+                hospitalEntity.Status = entity.Status ?? null;
                 // 返回
-                return orderEntity;
+                return hospitalEntity;
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.OrderService.SQLEntityToSingle", ex);
+                throw new Exception("MISApi.Services.ASM.Base.HospitalService.SQLEntityToSingle", ex);
             }
         }
         /// <summary>
@@ -783,7 +980,7 @@ namespace MISApi.Services.CMS.Base
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        protected List<Order> SQLEntityToList(List<SQLEntity> list)
+        protected List<Hospital> SQLEntityToList(List<SQLEntity> list)
         {
             try
             {
@@ -791,7 +988,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.OrderService.SQLEntityToList", ex);
+                throw new Exception("MISApi.Services.ASM.Base.HospitalService.SQLEntityToList", ex);
             }
         }
 
@@ -806,11 +1003,11 @@ namespace MISApi.Services.CMS.Base
             /// <summary>
             /// 
             /// </summary>
-            public Order Order { get; set; }
+            public Hospital Hospital { get; set; }
             /// <summary>
             /// 
             /// </summary>
-            public Member Buyer { get; set; }
+            public Hospital ParentHospital { get; set; }
             /// <summary>
             /// 
             /// </summary>

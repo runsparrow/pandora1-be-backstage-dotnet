@@ -101,10 +101,10 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// 买套餐
         /// </summary>
-        /// <param name="serialEntity"></param>
-        /// <param name="memberPowerId"></param>
+        /// <param name="serialEntity">流水号实体</param>
+        /// <param name="memberPowerId">套餐Id</param>
         /// <returns></returns>
-        public virtual void PayMemberPower(Serial serialEntity, int memberPowerId)
+        public virtual void BuyMemberPower(Serial serialEntity, int memberPowerId)
         {
             try
             {
@@ -135,8 +135,8 @@ namespace MISApi.Services.CMS
         /// <summary>
         /// 退套餐
         /// </summary>
-        /// <param name="serialEntity"></param>
-        /// <param name="memberPowerId"></param>
+        /// <param name="serialEntity">流水号实体</param>
+        /// <param name="memberPowerId">套餐Id</param>
         /// <returns></returns>
         public virtual void RefundMemberPower(Serial serialEntity, int memberPowerId)
         {
@@ -164,6 +164,60 @@ namespace MISApi.Services.CMS
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Services.CMS.MemberActionService.PayMemberPower", ex);
+            }
+        }
+        /// <summary>
+        /// 购买素材
+        /// </summary>
+        /// <param name="serialEntity">流水号实体</param>
+        /// <param name="goodsId">商品Id</param>
+        /// <returns></returns>
+        public virtual void BuyGoods(Serial serialEntity, int goodsId)
+        {
+            try
+            {
+                // 事务
+                transService.TransRegist(delegate {
+                    // 新增流水
+                    var serial = new SerialService.CreateService().ToStatus(serialEntity, "cms.serial.open");
+                    // 商品
+                    var goods = new GoodsService.RowService().ById(goodsId);
+                    // 新增订单记录
+                    var order = new OrderService.CreateService().ToStatus(new Order
+                        {
+                            OrderDateTime = DateTime.Now,
+                            BuyerId = serial.PayerId,
+                            BuyerName = serial.PayerName,
+                            SerialNo = serial.SerialNo,
+                            PayMode = serial.PaySource,
+                            TotalPrice = serial.DealAmount
+                        }, "cms.order.open"
+                    );
+                    // 新增订单明细
+                    new OrderDetailService.CreateService().ToStatus(
+                        new OrderDetail
+                        {
+                            OrderId = order.Id,
+                            OrderNo = order.OrderNo,
+                            GoodsId = goods.Id,
+                            GoodsName = goods.Name,
+                            BuyerId = serial.PayerId,
+                            BuyerName = serial.PayerName,
+                            OwnerId = goods.OwnerId,
+                            OwnerName = goods.OwnerName,
+                            UnitPrice = serial.DealAmount,
+                            Quantity = 1,
+                            Discount = 0,
+                            TotalPrice = serial.DealAmount
+                        }, "cms.orderdetail.open"
+                    );
+                });
+                // 提交
+                transService.TransCommit();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Services.CMS.MemberActionService.BuyGoods", ex);
             }
         }
         /// <summary>

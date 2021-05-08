@@ -16,21 +16,6 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/PAY/{everything}",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "webapi-xs.com",
-          "Port": 8005
-        }
-      ],
-      "UpstreamPathTemplate": "/PAY/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post" ],
-      "LoadBalancerOptions": {
-        "Type": "RoundRobin"
-      }
-    },
-    {
       "DownstreamPathTemplate": "/Unauthorized/{everything}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [

@@ -21,7 +21,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "webapi-xs.com",
-          "Port": 8001
+          "Port": 8005
         }
       ],
       "UpstreamPathTemplate": "/PAY/{everything}",

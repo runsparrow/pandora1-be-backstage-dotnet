@@ -331,6 +331,30 @@ namespace MISApi.Services.CMS.Base
             /// <summary>
             /// 
             /// </summary>
+            /// <param name="memberId"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Authority> ByMemberId(int memberId, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Authority.MemberId == memberId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.AuthorityService.RowsService.ByMemberId", ex);
+                    }
+                }
+            }
+            /// <summary>
+            /// 
+            /// </summary>
             /// <param name="applierId"></param>
             /// <param name="joins"></param>
             /// <returns></returns>

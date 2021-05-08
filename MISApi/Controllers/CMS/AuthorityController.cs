@@ -465,7 +465,30 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 根据ApplierId查询提现记录
+        /// 根据MemberId查询认证
+        /// </summary>
+        /// <param name="memberId"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Authority/Rows/ByMemberId/{memberId}", Name = "MIS_CMS_Authority_Rows_ByMemberId_MemberId")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_ByMemberId_MemberId(int memberId)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new AuthorityService.RowsService().ByMemberId(memberId)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Rows_ByMemberId_MemberId", ex);
+            }
+        }
+        /// <summary>
+        /// 根据ApplierId查询认证
         /// </summary>
         /// <param name="applierId"></param>
         /// <returns></returns>
@@ -488,7 +511,7 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 根据ApproverId查询提现记录
+        /// 根据ApproverId查询认证
         /// </summary>
         /// <param name="approverId"></param>
         /// <returns></returns>
@@ -759,7 +782,7 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 根据ApplierId查询提现记录
+        /// 根据ApplierId查询认证
         /// </summary>
         /// <param name="applierId"></param>
         /// <returns></returns>
@@ -777,7 +800,7 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 根据ApproverId查询提现记录
+        /// 根据ApproverId查询认证
         /// </summary>
         /// <param name="approverId"></param>
         /// <returns></returns>

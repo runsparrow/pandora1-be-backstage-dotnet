@@ -774,6 +774,12 @@ namespace MISApi.Services.ASM.Base
                                 row.Hospital.Name.Contains(andKeyWord) ||
                                 row.Hospital.Key.Contains(andKeyWord) ||
                                 row.Hospital.Desc.Contains(andKeyWord) ||
+                                row.Hospital.Address.Contains(andKeyWord) ||
+                                row.Hospital.Phone.Contains(andKeyWord) ||
+                                row.Hospital.NationName.Contains(andKeyWord) ||
+                                row.Hospital.ProvinceName.Contains(andKeyWord) ||
+                                row.Hospital.CityName.Contains(andKeyWord) ||
+                                row.Hospital.DivisionName.Contains(andKeyWord) ||
                                 row.Hospital.StatusName.Contains(andKeyWord)
                             );
                     }
@@ -784,6 +790,12 @@ namespace MISApi.Services.ASM.Base
                             ors.Contains(row.Hospital.Name) ||
                             ors.Contains(row.Hospital.Key) ||
                             ors.Contains(row.Hospital.Desc) ||
+                            ors.Contains(row.Hospital.Address) ||
+                            ors.Contains(row.Hospital.Phone) ||
+                            ors.Contains(row.Hospital.NationName) ||
+                            ors.Contains(row.Hospital.ProvinceName) ||
+                            ors.Contains(row.Hospital.CityName) ||
+                            ors.Contains(row.Hospital.DivisionName) ||
                             ors.Contains(row.Hospital.StatusName)
                         );
                 }
@@ -793,6 +805,12 @@ namespace MISApi.Services.ASM.Base
                             row.Hospital.Name.Contains(keyWord) ||
                             row.Hospital.Key.Contains(keyWord) ||
                             row.Hospital.Desc.Contains(keyWord) ||
+                            row.Hospital.Address.Contains(keyWord) ||
+                            row.Hospital.Phone.Contains(keyWord) ||
+                            row.Hospital.NationName.Contains(keyWord) ||
+                            row.Hospital.ProvinceName.Contains(keyWord) ||
+                            row.Hospital.CityName.Contains(keyWord) ||
+                            row.Hospital.DivisionName.Contains(keyWord) ||
                             row.Hospital.StatusName.Contains(keyWord)
                         );
                 }
@@ -819,6 +837,26 @@ namespace MISApi.Services.ASM.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
+                    if (splits[i].ToLower().Contains("nationcode"))
+                    {
+                        string nationCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                        queryable = queryable.Where(row => row.Hospital.NationCode == nationCode);
+                    }
+                    if (splits[i].ToLower().Contains("provincecode"))
+                    {
+                        string provinceCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                        queryable = queryable.Where(row => row.Hospital.ProvinceCode == provinceCode);
+                    }
+                    if (splits[i].ToLower().Contains("citycode"))
+                    {
+                        string cityCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                        queryable = queryable.Where(row => row.Hospital.CityCode == cityCode);
+                    }
+                    if (splits[i].ToLower().Contains("divisioncode"))
+                    {
+                        string divisionCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                        queryable = queryable.Where(row => row.Hospital.DivisionCode == divisionCode);
+                    }
                     if (splits[i].ToLower().Contains("pid"))
                     {
                         int pid = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));

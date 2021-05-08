@@ -158,6 +158,36 @@ namespace MISApi.Entities.ASM
         [DefaultValue("")]
         public string LevelName { get; set; } = "";
         /// <summary>
+        /// 地址
+        /// </summary>
+        [StringLength(255)]
+        [Description("地址")]
+        [JsonProperty("address")]
+        [DefaultValue("")]
+        public string Address { get; set; } = "";
+        /// <summary>
+        /// 总计
+        /// </summary>
+        [StringLength(50)]
+        [Description("总计")]
+        [JsonProperty("phone")]
+        [DefaultValue("")]
+        public string Phone { get; set; } = "";
+        /// <summary>
+        /// 床位数量
+        /// </summary>
+        [Description("床位数量")]
+        [JsonProperty("bedQuantity")]
+        [DefaultValue(0)]
+        public int BedQuantity { get; set; } = 0;
+        /// <summary>
+        /// 医生数量
+        /// </summary>
+        [Description("医生数量")]
+        [JsonProperty("doctorQuantity")]
+        [DefaultValue(0)]
+        public int DoctorQuantity { get; set; } = 0;
+        /// <summary>
         /// 创建时间
         /// </summary>
         [Description("创建时间")]

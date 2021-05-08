@@ -1,6 +1,7 @@
 ﻿using MISApi.Entities.WFM;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -142,6 +143,13 @@ namespace MISApi.Entities.CMS
         #endregion
 
         #region Not Mapped Property
+        /// <summary>
+        /// 订单明细
+        /// </summary>
+        [Description("订单明细")]
+        [JsonProperty("orderDetails")]
+        [NotMapped]
+        public List<OrderDetail> OrderDetails { get; set; }
         /// <summary>
         /// 买家
         /// </summary>

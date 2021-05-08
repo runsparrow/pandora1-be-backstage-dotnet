@@ -34,6 +34,10 @@ namespace MISApi.Dal.EF
         /// 行政区划
         /// </summary>
         public virtual DbSet<Entities.ASM.Region> ASM_Region { get; set; }
+        /// <summary>
+        /// 医院
+        /// </summary>
+        public virtual DbSet<Entities.ASM.Hospital> ASM_Hospital { get; set; }
 
         #endregion
 

@@ -5771,7 +5771,7 @@
         </member>
         <member name="M:MISApi.Controllers.CMS.MemberActionController.BuyGoods(MISApi.Controllers.CMS.MemberActionController.DTO_Goods)">
             <summary>
-            购买套餐
+            购买素材
             </summary>
             <param name="dto"></param>
             <returns></returns>
@@ -10604,6 +10604,26 @@
         <member name="P:MISApi.Entities.ASM.Hospital.LevelName">
             <summary>
             级别名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.Phone">
+            <summary>
+            总计
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.BedQuantity">
+            <summary>
+            床位数量
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.DoctorQuantity">
+            <summary>
+            医生数量
             </summary>
         </member>
         <member name="P:MISApi.Entities.ASM.Hospital.CreateDateTime">

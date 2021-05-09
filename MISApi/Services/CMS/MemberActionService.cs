@@ -48,7 +48,7 @@ namespace MISApi.Services.CMS
                         MemberName = member.Name,
                         CollectDateTime = DateTime.Now
                     });
-                    // 商品被收藏数量
+                    // 商品被收藏次数
                     goods.CollectCount++;
                     new GoodsService.UpdateService().Update(goods);
                 });
@@ -86,7 +86,7 @@ namespace MISApi.Services.CMS
                         MemberName = member.Name,
                         CollectDateTime = DateTime.Now
                     });
-                    // 商品被收藏数量
+                    // 商品被收藏次数
                     goods.CollectCount--;
                     new GoodsService.UpdateService().Update(goods);
                 });
@@ -211,6 +211,9 @@ namespace MISApi.Services.CMS
                             TotalPrice = serial.DealAmount
                         }, "cms.orderdetail.open"
                     );
+                    // 商品被购买数量
+                    goods.BuyCount++;
+                    new GoodsService.UpdateService().Execute(goods);
                 });
                 // 提交
                 transService.TransCommit();

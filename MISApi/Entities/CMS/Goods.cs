@@ -82,11 +82,19 @@ namespace MISApi.Entities.CMS
         /// <summary>
         /// 路径
         /// </summary>
-        [StringLength(500)]
+        [StringLength(255)]
         [Description("路径")]
         [JsonProperty("url")]
         [DefaultValue("")]
         public string Url { get; set; } = "";
+        /// <summary>
+        /// 封面路径
+        /// </summary>
+        [StringLength(255)]
+        [Description("封面路径")]
+        [JsonProperty("coverUrl")]
+        [DefaultValue("")]
+        public string CoverUrl { get; set; } = "";
         /// <summary>
         /// 扩展名
         /// </summary>
@@ -141,6 +149,13 @@ namespace MISApi.Entities.CMS
         [JsonProperty("isImage")]
         [DefaultValue(0)]
         public bool IsImage { get; set; } = true;
+        /// <summary>
+        /// 是否原创
+        /// </summary>
+        [Description("是否原创")]
+        [JsonProperty("isOriginal")]
+        [DefaultValue(0)]
+        public bool IsOriginal { get; set; } = true;
         /// <summary>
         /// 价格
         /// </summary>

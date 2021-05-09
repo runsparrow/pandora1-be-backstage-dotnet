@@ -3217,16 +3217,23 @@
             <param name="keyWord"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Rows_ByMemberId_MemberId(System.Int32)">
+            <summary>
+            根据MemberId查询认证
+            </summary>
+            <param name="memberId"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Rows_ByApplierId_ApplierId(System.Int32)">
             <summary>
-            根据ApplierId查询提现记录
+            根据ApplierId查询认证
             </summary>
             <param name="applierId"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Rows_ByApproverId_ApproverId(System.Int32)">
             <summary>
-            根据ApproverId查询提现记录
+            根据ApproverId查询认证
             </summary>
             <param name="approverId"></param>
             <returns></returns>
@@ -3302,14 +3309,14 @@
         </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Unauthorized_Rows_ByApplierId_ApplierId(System.Int32)">
             <summary>
-            根据ApplierId查询提现记录
+            根据ApplierId查询认证
             </summary>
             <param name="applierId"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Unauthorized_Rows_ByApproverId_ApproverId(System.Int32)">
             <summary>
-            根据ApproverId查询提现记录
+            根据ApproverId查询认证
             </summary>
             <param name="approverId"></param>
             <returns></returns>
@@ -17083,6 +17090,14 @@
             </summary>
             <param name="keyWord">关键字</param>
             <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.AuthorityService.RowsService.ByMemberId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="memberId"></param>
+            <param name="joins"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Services.CMS.Base.AuthorityService.RowsService.ByApplierId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">

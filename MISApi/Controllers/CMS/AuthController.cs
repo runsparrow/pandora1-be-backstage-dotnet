@@ -49,6 +49,7 @@ namespace MISApi.Controllers.CMS
                         new Claim(JwtClaimTypes.Issuer, "http://localhost:44319"),
                         new Claim(JwtClaimTypes.Id, member.Id.ToString()),
                         new Claim(JwtClaimTypes.Name,member.Name),
+                        new Claim(JwtClaimTypes.NickName,member.AvatarUrl),
                     }),
                     Expires = expiresAt,
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -58,7 +59,7 @@ namespace MISApi.Controllers.CMS
                 {
                     Result = true,
                     Token = token,
-                    Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
+                    Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName, AvatarUrl = member.AvatarUrl }
                 });
             }
             else
@@ -83,7 +84,7 @@ namespace MISApi.Controllers.CMS
         {
             ClaimEntity claim = GetClaimFromToken(dto.Token);
 
-            return new JsonResult(new DTO_Result_Member { Result = true, Token = dto.Token, Member = new DTO_Member { MemberId = claim.Id, MemberName = claim.Name, RealName = claim.RealName } });
+            return new JsonResult(new DTO_Result_Member { Result = true, Token = dto.Token, Member = new DTO_Member { MemberId = claim.Id, MemberName = claim.Name, RealName = claim.RealName, AvatarUrl = claim.NickName } });
         }
         /// <summary>
         /// 获取短信验证码
@@ -167,7 +168,7 @@ namespace MISApi.Controllers.CMS
                         return new JsonResult(new DTO_Result_Member
                         {
                             Result = false,
-                            Member = new DTO_Member { MemberId = existMember.Id, MemberName = existMember.Name, RealName = existMember.RealName },
+                            Member = new DTO_Member { MemberId = existMember.Id, MemberName = existMember.Name, RealName = existMember.RealName, AvatarUrl = existMember.AvatarUrl },
                             Message = "手机号已被注册。"
                         });
                     }
@@ -219,7 +220,7 @@ namespace MISApi.Controllers.CMS
                     return new JsonResult(new DTO_Result_Member
                     {
                         Result = true,
-                        Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName }
+                        Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName, AvatarUrl = member.AvatarUrl }
                     });
                 }
                 else
@@ -289,6 +290,13 @@ namespace MISApi.Controllers.CMS
             [JsonProperty("realName")]
             [DefaultValue("")]
             public string RealName { get; set; } = "";
+            /// <summary>
+            /// 头像路径
+            /// </summary>
+            [Description("头像路径")]
+            [JsonProperty("avatarUrl")]
+            [DefaultValue("")]
+            public string AvatarUrl { get; set; } = "";
             /// <summary>
             /// 手机
             /// </summary>

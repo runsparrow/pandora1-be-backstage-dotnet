@@ -3061,6 +3061,11 @@
             实名
             </summary>
         </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Member.AvatarUrl">
+            <summary>
+            头像路径
+            </summary>
+        </member>
         <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Member.Mobile">
             <summary>
             手机
@@ -11760,6 +11765,11 @@
             路径
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Goods.CoverUrl">
+            <summary>
+            封面路径
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Goods.Ext">
             <summary>
             扩展名
@@ -11793,6 +11803,11 @@
         <member name="P:MISApi.Entities.CMS.Goods.IsImage">
             <summary>
             是否图片
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.IsOriginal">
+            <summary>
+            是否原创
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Goods.Price">
@@ -22576,6 +22591,11 @@
             </summary>
         </member>
         <member name="P:MISApi.Tools.AuthHelper.ClaimEntity.RealName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Tools.AuthHelper.ClaimEntity.NickName">
             <summary>
             
             </summary>

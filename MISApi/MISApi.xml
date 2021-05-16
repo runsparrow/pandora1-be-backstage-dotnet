@@ -3208,6 +3208,14 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Row_ByMemberId_MemberId_AuthorityIndex(System.Int32,System.Int32)">
+            <summary>
+            根据MemberId和认证序列查询认证
+            </summary>
+            <param name="memberId"></param>
+            <param name="authorityIndex"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
             <summary>
             根据关键字模糊查询认证
@@ -11175,6 +11183,11 @@
             身份Id
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Authority.AuthorityIndex">
+            <summary>
+            认证序号
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Authority.IdentityName">
             <summary>
             身份名称
@@ -17092,6 +17105,15 @@
             </summary>
             <param name="id">Id</param>
             <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.AuthorityService.RowService.ByMemberIdWithAuthorityIndex(System.Int32,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="memberId"></param>
+            <param name="authorityIndex"></param>
+            <param name="joins"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.Base.AuthorityService.RowsService">

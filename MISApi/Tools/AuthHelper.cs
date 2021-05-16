@@ -39,6 +39,10 @@ namespace MISApi.Tools
                     {
                         entity.RealName = claim.Value;
                     }
+                    if (claim.Type.ToLower().Equals("nickname"))
+                    {
+                        entity.NickName = claim.Value;
+                    }
                 }
             }
             // 返回
@@ -61,6 +65,10 @@ namespace MISApi.Tools
             /// 
             /// </summary>
             public string RealName { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string NickName { get; set; }
         }
     }
 }

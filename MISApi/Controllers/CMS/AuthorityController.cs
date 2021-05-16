@@ -415,6 +415,30 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.AuthorityController.Row_ById_Id", ex);
             }
         }
+        /// <summary>
+        /// 根据MemberId和认证序列查询认证
+        /// </summary>
+        /// <param name="memberId"></param>
+        /// <param name="authorityIndex"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Authority/Row/ByMemberId/{memberId}/{authorityIndex}", Name = "MIS_CMS_Authority_Row_ByMemberId_MemberId_AuthorityIndex")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Row_ByMemberId_MemberId_AuthorityIndex(int memberId, int authorityIndex)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowMode.Request().ToResponse(
+                        new AuthorityService.RowService().ByMemberIdWithAuthorityIndex(memberId, authorityIndex)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Row_ByMemberId_MemberId_AuthorityIndex", ex);
+            }
+        }
         #endregion
 
         #region RowsMode

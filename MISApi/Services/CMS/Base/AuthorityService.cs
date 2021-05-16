@@ -300,6 +300,31 @@ namespace MISApi.Services.CMS.Base
                     }
                 }
             }
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="memberId"></param>
+            /// <param name="authorityIndex"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public Authority ByMemberIdWithAuthorityIndex(int memberId, int authorityIndex, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToSingle(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Authority.MemberId == memberId && row.Authority.AuthorityIndex == authorityIndex)
+                                .SingleOrDefault()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.AuthorityService.RowService.ByMemberIdWithAuthorityIndex", ex);
+                    }
+                }
+            }
         }
 
         #endregion
@@ -663,6 +688,11 @@ namespace MISApi.Services.CMS.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
+                    if (splits[i].ToLower().Contains("authorityindex"))
+                    {
+                        int authorityIndex = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Authority.AuthorityIndex == authorityIndex);
+                    }
                     if (splits[i].ToLower().Contains("identityid"))
                     {
                         int identityId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));

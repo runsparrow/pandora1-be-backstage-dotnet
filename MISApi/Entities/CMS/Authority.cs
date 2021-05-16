@@ -56,6 +56,13 @@ namespace MISApi.Entities.CMS
         [DefaultValue(-1)]
         public int IdentityId { get; set; } = -1;
         /// <summary>
+        /// 认证序号
+        /// </summary>
+        [Description("认证序号")]
+        [JsonProperty("authorityIndex")]
+        [DefaultValue(-1)]
+        public int AuthorityIndex { get; set; } = 0;
+        /// <summary>
         /// 身份名称
         /// </summary>
         [StringLength(50)]

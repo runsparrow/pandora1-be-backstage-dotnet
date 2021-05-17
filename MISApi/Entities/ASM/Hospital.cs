@@ -158,6 +158,20 @@ namespace MISApi.Entities.ASM
         [DefaultValue("")]
         public string LevelName { get; set; } = "";
         /// <summary>
+        /// 是否公立
+        /// </summary>
+        [Description("是否公立")]
+        [JsonProperty("isGeneral")]
+        [DefaultValue(false)]
+        public bool IsGeneral { get; set; } = false;
+        /// <summary>
+        /// 是否专科
+        /// </summary>
+        [Description("是否专科")]
+        [JsonProperty("isSpecial")]
+        [DefaultValue(false)]
+        public bool IsSpecial { get; set; } = false;
+        /// <summary>
         /// 地址
         /// </summary>
         [StringLength(255)]

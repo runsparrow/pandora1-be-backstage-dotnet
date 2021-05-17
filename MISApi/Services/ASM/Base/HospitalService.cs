@@ -857,6 +857,16 @@ namespace MISApi.Services.ASM.Base
                         string divisionCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
                         queryable = queryable.Where(row => row.Hospital.DivisionCode == divisionCode);
                     }
+                    if (splits[i].ToLower().Contains("isgeneral"))
+                    {
+                        bool isGeneral = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Hospital.IsGeneral == isGeneral);
+                    }
+                    if (splits[i].ToLower().Contains("isspecial"))
+                    {
+                        bool isSpecial = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Hospital.IsSpecial == isSpecial);
+                    }
                     if (splits[i].ToLower().Contains("pid"))
                     {
                         int pid = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));

@@ -10626,6 +10626,16 @@
             级别名称
             </summary>
         </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.IsGeneral">
+            <summary>
+            是否公立
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.IsSpecial">
+            <summary>
+            是否专科
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.ASM.Hospital.Address">
             <summary>
             地址

@@ -50,6 +50,10 @@ namespace MISApi
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver();
                 // 设置时间格式
                 options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
+                //// DefaultValue默认值
+                //options.SerializerSettings.DefaultValueHandling = DefaultValueHandling.Ignore;
+                //// NullValue默认值
+                //options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
             });
             // Swagger
             services.AddSwaggerGen(options =>

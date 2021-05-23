@@ -630,6 +630,11 @@ namespace MISApi.Services.CMS.Base
                         int classifyId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                         queryable = queryable.Where(row => row.Goods.ClassifyId == classifyId);
                     }
+                    if (splits[i].ToLower().Contains("navigationid"))
+                    {
+                        int navigationId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Goods.NavigationId == navigationId);
+                    }
                     if (splits[i].ToLower().Contains("ownerid"))
                     {
                         int ownerId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));

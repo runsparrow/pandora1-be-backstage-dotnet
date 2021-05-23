@@ -28,7 +28,7 @@ namespace MISApi.Entities.CMS
         [NotMapped]
         public Down Down { get; set; }
         /// <summary>
-        /// 收款人
+        /// 商品
         /// </summary>
         [Description("商品")]
         [JsonProperty("goods")]

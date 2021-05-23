@@ -11730,7 +11730,7 @@
         </member>
         <member name="P:MISApi.Entities.CMS.File.Goods">
             <summary>
-            收款人
+            商品
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.File.Member">
@@ -11926,6 +11926,11 @@
         <member name="P:MISApi.Entities.CMS.Goods.EditUserId">
             <summary>
             最后修改用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.FullUrl">
+            <summary>
+            图片完整路径
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Goods.Status">

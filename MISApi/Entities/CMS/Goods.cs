@@ -1,4 +1,5 @@
 ﻿using MISApi.Entities.WFM;
+using MISApi.Tools;
 using Newtonsoft.Json;
 using System;
 using System.ComponentModel;
@@ -291,6 +292,19 @@ namespace MISApi.Entities.CMS
         #endregion
 
         #region Not Mapped Property
+        /// <summary>
+        /// 图片完整路径
+        /// </summary>
+        [Description("图片完整路径")]
+        [JsonProperty("fullUrl")]
+        [NotMapped]
+        public string FullUrl
+        {
+            get
+            {
+                return $@"{ConfigurationHelper.GetConnectionString("ImageHost")}{Url}";
+            }
+        }
         /// <summary>
         /// 状态
         /// </summary>

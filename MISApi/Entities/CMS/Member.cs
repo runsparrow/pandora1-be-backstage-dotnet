@@ -172,6 +172,12 @@ namespace MISApi.Entities.CMS
         [JsonProperty("isAuthority")]
         public bool IsAuthority { get; set; } = false;
         /// <summary>
+        /// 是否自有用户
+        /// </summary>
+        [Description("是否自有用户")]
+        [JsonProperty("isSelf")]
+        public bool IsSelf { get; set; } = false;
+        /// <summary>
         /// 备注
         /// </summary>
         [StringLength(255)]

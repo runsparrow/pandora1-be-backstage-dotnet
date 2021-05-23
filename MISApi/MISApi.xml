@@ -11928,6 +11928,11 @@
             最后修改用户Id
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Goods.StatusKey">
+            <summary>
+            状态键名
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Goods.FullUrl">
             <summary>
             图片完整路径

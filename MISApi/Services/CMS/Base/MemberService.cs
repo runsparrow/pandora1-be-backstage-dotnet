@@ -671,6 +671,11 @@ namespace MISApi.Services.CMS.Base
                         bool isAuthority = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                         queryable = queryable.Where(row => row.Member.IsAuthority == isAuthority);
                     }
+                    if (splits[i].ToLower().Contains("isself"))
+                    {
+                        bool isSelf = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                        queryable = queryable.Where(row => row.Member.IsSelf == isSelf);
+                    }
                     if (splits[i].ToLower().Contains("statusid"))
                     {
                         int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));

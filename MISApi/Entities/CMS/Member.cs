@@ -111,13 +111,6 @@ namespace MISApi.Entities.CMS
         [DefaultValue("")]
         public string ClassifyName { get; set; } = "";
         /// <summary>
-        /// 等级
-        /// </summary>
-        [Description("等级")]
-        [JsonProperty("level")]
-        [DefaultValue(0)]
-        public int Level { get; set; } = 0;
-        /// <summary>
         /// 等级有效期
         /// </summary>
         [Description("等级有效期")]
@@ -251,6 +244,46 @@ namespace MISApi.Entities.CMS
                         return "保密";
                     default:
                         return "";
+                }
+            }
+        }
+        /// <summary>
+        /// 等级
+        /// </summary>
+        [Description("等级")]
+        [JsonProperty("level")]
+        [DefaultValue(0)]
+        [NotMapped]
+        public int Level
+        {
+            get
+            {
+                if(LevelDeadline >= DateTime.Now)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+        /// <summary>
+        /// 等级名称
+        /// </summary>
+        [Description("等级名称")]
+        [JsonProperty("levelName")]
+        [NotMapped]
+        public string LevelName
+        {
+            get
+            {
+                switch (Level)
+                {
+                    case 1:
+                        return "付费用户";
+                    default:
+                        return "普通用户";
                 }
             }
         }

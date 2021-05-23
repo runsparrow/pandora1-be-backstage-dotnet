@@ -6973,6 +6973,13 @@
             <param name="keyWord"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Unauthorized_Rows_ByParentKey(System.String)">
+            <summary>
+            根据父节点键名查询导航子集
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.NavigationController.Unauthorized_Rows_SubsetById(System.Int32)">
             <summary>
             根据Id查询导航子集
@@ -6999,6 +7006,20 @@
             分页查询导航
             </summary>
             <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Unauthorized_Tree_SubsetByKey(System.String)">
+            <summary>
+            根据键名查询获得树型结构的导航
+            </summary>
+            <param name="key">键名</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.NavigationController.Unauthorized_Tree_SupersetByKey(System.String)">
+            <summary>
+            根据键名查询获得树型结构的导航
+            </summary>
+            <param name="key">键名</param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.NavigationController.Unauthorized_Tree_SubsetById(System.Int32)">
@@ -11831,6 +11852,16 @@
         <member name="P:MISApi.Entities.CMS.Goods.IsOriginal">
             <summary>
             是否原创
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.NavigationId">
+            <summary>
+            导航Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.NavigationName">
+            <summary>
+            导航名称
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Goods.Price">

@@ -293,6 +293,15 @@ namespace MISApi.Entities.CMS
 
         #region Not Mapped Property
         /// <summary>
+        /// 状态键名
+        /// </summary>
+        [StringLength(255)]
+        [Description("状态键名")]
+        [JsonProperty("statusKey")]
+        [DefaultValue("")]
+        [NotMapped]
+        public string StatusKey { get; set; } = "";
+        /// <summary>
         /// 图片完整路径
         /// </summary>
         [Description("图片完整路径")]

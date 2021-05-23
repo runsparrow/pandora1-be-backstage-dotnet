@@ -12008,11 +12008,6 @@
             归类名称
             </summary>
         </member>
-        <member name="P:MISApi.Entities.CMS.Member.Level">
-            <summary>
-            等级
-            </summary>
-        </member>
         <member name="P:MISApi.Entities.CMS.Member.LevelDeadline">
             <summary>
             等级有效期
@@ -12053,6 +12048,11 @@
             是否认证
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Member.IsSelf">
+            <summary>
+            是否自有用户
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Member.Remark">
             <summary>
             备注
@@ -12091,6 +12091,16 @@
         <member name="P:MISApi.Entities.CMS.Member.GenderName">
             <summary>
             性别
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Member.Level">
+            <summary>
+            等级
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Member.LevelName">
+            <summary>
+            等级名称
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Member.Status">

@@ -158,6 +158,21 @@ namespace MISApi.Entities.CMS
         [DefaultValue(0)]
         public bool IsOriginal { get; set; } = true;
         /// <summary>
+        /// 导航Id
+        /// </summary>
+        [Description("导航Id")]
+        [JsonProperty("navigationId")]
+        [DefaultValue(-1)]
+        public int NavigationId { get; set; } = -1;
+        /// <summary>
+        /// 导航名称
+        /// </summary>
+        [StringLength(255)]
+        [Description("导航名称")]
+        [JsonProperty("navigationName")]
+        [DefaultValue("")]
+        public string NavigationName { get; set; } = "";
+        /// <summary>
         /// 价格
         /// </summary>
         [Description("价格")]

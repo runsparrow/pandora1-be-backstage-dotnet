@@ -150,7 +150,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("创建时间")]
         [JsonProperty("createDateTime")]
-        public DateTime CreateDateTime { get; set; } = DateTime.MinValue;
+        public DateTime CreateDateTime { get; set; } = DateTime.Now;
         /// <summary>
         /// 创建用户Id
         /// </summary>
@@ -163,7 +163,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("最后修改时间")]
         [JsonProperty("editDateTime")]
-        public DateTime EditDateTime { get; set; } = DateTime.MinValue;
+        public DateTime EditDateTime { get; set; } = DateTime.Now;
         /// <summary>
         /// 最后修改用户Id
         /// </summary>

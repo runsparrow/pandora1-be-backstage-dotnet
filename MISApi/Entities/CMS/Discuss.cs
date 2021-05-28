@@ -99,6 +99,32 @@ namespace MISApi.Entities.CMS
         [DefaultValue("")]
         public string Content { get; set; } = "";
         /// <summary>
+        /// 创建时间
+        /// </summary>
+        [Description("创建时间")]
+        [JsonProperty("createDateTime")]
+        public DateTime CreateDateTime { get; set; } = DateTime.Now;
+        /// <summary>
+        /// 创建用户Id
+        /// </summary>
+        [Description("创建用户Id")]
+        [JsonProperty("createUserId")]
+        [DefaultValue(-1)]
+        public int CreateUserId { get; set; } = -1;
+        /// <summary>
+        /// 最后修改时间
+        /// </summary>
+        [Description("最后修改时间")]
+        [JsonProperty("editDateTime")]
+        public DateTime EditDateTime { get; set; } = DateTime.Now;
+        /// <summary>
+        /// 最后修改用户Id
+        /// </summary>
+        [Description("最后修改用户Id")]
+        [JsonProperty("editUserId")]
+        [DefaultValue(-1)]
+        public int EditUserId { get; set; } = -1;
+        /// <summary>
         /// 状态Id
         /// </summary>
         [Description("状态Id")]

@@ -10417,11 +10417,6 @@
             上传
             </summary>
         </member>
-        <member name="P:MISApi.Dal.EF.PandoraContext.CMS_Account">
-            <summary>
-            账户
-            </summary>
-        </member>
         <member name="P:MISApi.Dal.EF.PandoraContext.CMS_Authority">
             <summary>
             认证
@@ -10949,81 +10944,6 @@
             
             </summary>
         </member>
-        <member name="T:MISApi.Entities.CMS.Account">
-            <summary>
-            账户
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Account.Id">
-            <summary>
-            唯一标识
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Account.MemberId">
-            <summary>
-            会员Id
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Account.MemberName">
-            <summary>
-            会员名
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Account.AccountNo">
-            <summary>
-            账号
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Account.DepositBank">
-            <summary>
-            开户银行
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Account.RealName">
-            <summary>
-            实名
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Account.IdCard">
-            <summary>
-            身份证
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Account.ClassifyId">
-            <summary>
-            归类Id
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Account.ClassifyName">
-            <summary>
-            归类名称
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Account.Remark">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Account.StatusId">
-            <summary>
-            状态Id
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Account.StatusName">
-            <summary>
-            状态名
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Account.StatusValue">
-            <summary>
-            状态数值
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Account.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
         <member name="T:MISApi.Entities.CMS.Article">
             <summary>
             资讯
@@ -11384,6 +11304,26 @@
             备注
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Authority.CreateDateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.CreateUserId">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.EditDateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Authority.EditUserId">
+            <summary>
+            最后修改用户Id
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Authority.StatusId">
             <summary>
             状态Id
@@ -11499,6 +11439,26 @@
             备注
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.CashOut.CreateDateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.CashOut.CreateUserId">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.CashOut.EditDateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.CashOut.EditUserId">
+            <summary>
+            最后修改用户Id
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.CashOut.StatusId">
             <summary>
             状态Id
@@ -11574,6 +11534,26 @@
             收藏时间
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Collect.CreateDateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Collect.CreateUserId">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Collect.EditDateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Collect.EditUserId">
+            <summary>
+            最后修改用户Id
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Collect.Member">
             <summary>
             会员
@@ -11642,6 +11622,26 @@
         <member name="P:MISApi.Entities.CMS.Discuss.Content">
             <summary>
             内容
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.CreateDateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.CreateUserId">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.EditDateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Discuss.EditUserId">
+            <summary>
+            最后修改用户Id
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Discuss.StatusId">
@@ -11722,6 +11722,26 @@
         <member name="P:MISApi.Entities.CMS.Down.DownResult">
             <summary>
             是否下载成功
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Down.CreateDateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Down.CreateUserId">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Down.EditDateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Down.EditUserId">
+            <summary>
+            最后修改用户Id
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Down.Member">
@@ -11924,21 +11944,6 @@
             备注
             </summary>
         </member>
-        <member name="P:MISApi.Entities.CMS.Goods.StatusId">
-            <summary>
-            状态Id
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Goods.StatusName">
-            <summary>
-            状态名
-            </summary>
-        </member>
-        <member name="P:MISApi.Entities.CMS.Goods.StatusValue">
-            <summary>
-            状态数值
-            </summary>
-        </member>
         <member name="P:MISApi.Entities.CMS.Goods.CreateDateTime">
             <summary>
             创建时间
@@ -11957,6 +11962,21 @@
         <member name="P:MISApi.Entities.CMS.Goods.EditUserId">
             <summary>
             最后修改用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.StatusId">
+            <summary>
+            状态Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.StatusName">
+            <summary>
+            状态名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.StatusValue">
+            <summary>
+            状态数值
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Goods.StatusKey">
@@ -12104,6 +12124,26 @@
             最后登录IP
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Member.CreateDateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Member.CreateUserId">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Member.EditDateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Member.EditUserId">
+            <summary>
+            最后修改用户Id
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Member.StatusId">
             <summary>
             状态Id
@@ -12202,6 +12242,26 @@
         <member name="P:MISApi.Entities.CMS.MemberPower.BuyLimit">
             <summary>
             购买限制
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.MemberPower.CreateDateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.MemberPower.CreateUserId">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.MemberPower.EditDateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.MemberPower.EditUserId">
+            <summary>
+            最后修改用户Id
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.MemberPower.Classify">
@@ -12604,6 +12664,26 @@
             交易时间
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Recharge.CreateDateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Recharge.CreateUserId">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Recharge.EditDateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Recharge.EditUserId">
+            <summary>
+            最后修改用户Id
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Recharge.Member">
             <summary>
             会员
@@ -12694,6 +12774,26 @@
             备注
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Serial.CreateDateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Serial.CreateUserId">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Serial.EditDateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Serial.EditUserId">
+            <summary>
+            最后修改用户Id
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Serial.StatusId">
             <summary>
             状态Id
@@ -12772,6 +12872,26 @@
         <member name="P:MISApi.Entities.CMS.Upload.UploadResult">
             <summary>
             是否上传成功
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Upload.CreateDateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Upload.CreateUserId">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Upload.EditDateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Upload.EditUserId">
+            <summary>
+            最后修改用户Id
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Upload.Member">
@@ -22161,6 +22281,15 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="M:MISApi.Services.LinqExtensions.DefaultBy``1(System.Linq.IQueryable{``0},System.String)">
+            <summary>
+            排序
+            </summary>
+            <typeparam name="T">泛型</typeparam>
+            <param name="queryable"></param>
+            <param name="name">排序字段名称</param>
+            <returns></returns>
         </member>
         <member name="M:MISApi.Services.LinqExtensions.OrderBy``1(System.Linq.IQueryable{``0},System.String,MISApi.HttpClients.HttpModes.BaseMode.Sort.SortMode)">
             <summary>

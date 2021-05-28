@@ -83,10 +83,6 @@ namespace MISApi.Dal.EF
         /// </summary>
         public virtual DbSet<Entities.CMS.Upload> CMS_Upload { get; set; }
         /// <summary>
-        /// 账户
-        /// </summary>
-        public virtual DbSet<Entities.CMS.Account> CMS_Account { get; set; }
-        /// <summary>
         /// 认证
         /// </summary>
         public virtual DbSet<Entities.CMS.Authority> CMS_Authority { get; set; }

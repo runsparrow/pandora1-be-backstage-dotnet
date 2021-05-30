@@ -77,6 +77,7 @@ namespace MISApi.Entities.AVM
         /// </summary>
         [Description("最后登录时间")]
         [JsonProperty("loginDateTime")]
+        [DefaultValue("0001/1/1 0:00:00")]
         public DateTime LoginDateTime { get; set; } = DateTime.MinValue;
         /// <summary>
         /// 最后登录IP
@@ -91,7 +92,8 @@ namespace MISApi.Entities.AVM
         /// </summary>
         [Description("创建时间")]
         [JsonProperty("createDateTime")]
-        public DateTime CreateDateTime { get; set; } = DateTime.Now;
+        [DefaultValue("0001/1/1 0:00:00")]
+        public DateTime CreateDateTime { get; set; } = DateTime.MinValue;
         /// <summary>
         /// 创建用户Id
         /// </summary>
@@ -104,7 +106,8 @@ namespace MISApi.Entities.AVM
         /// </summary>
         [Description("最后修改时间")]
         [JsonProperty("editDateTime")]
-        public DateTime EditDateTime { get; set; } = DateTime.Now;
+        [DefaultValue("0001/1/1 0:00:00")]
+        public DateTime EditDateTime { get; set; } = DateTime.MinValue;
         /// <summary>
         /// 最后修改用户Id
         /// </summary>

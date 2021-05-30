@@ -607,10 +607,17 @@ namespace MISApi.Services.AVM.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
-                    if (splits[i].ToLower().Contains("statusid"))
+                    try
                     {
-                        int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.User.StatusId == statusId);
+                        if (splits[i].ToLower().Contains("statusid"))
+                        {
+                            int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.User.StatusId == statusId);
+                        }
+                    }
+                    catch
+                    {
+                        continue;
                     }
                 }
                 return queryable;
@@ -701,6 +708,10 @@ namespace MISApi.Services.AVM.Base
                             queryable = queryable.ThenBy($"{typeof(SQLEntity).ReflectedType.Name.Replace("Service", "")}.{sorts[i].Name}", sorts[i].Mode);
                         }
                     }
+                }
+                else
+                {
+                    queryable = queryable.DefaultBy($"{typeof(SQLEntity).ReflectedType.Name.Replace("Service", "")}.id");
                 }
                 return queryable;
             }

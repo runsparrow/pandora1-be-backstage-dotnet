@@ -347,7 +347,7 @@ namespace MISApi.HttpClients.HttpModes.BaseMode
         /// </summary>
         /// <param name="name"></param>
         /// <param name="mode"></param>
-        public Sort(string name, SortMode mode = SortMode.ASC)
+        public Sort(string name, SortMode mode = SortMode.DESC)
         {
             Name = name;
             Mode = mode;
@@ -360,9 +360,16 @@ namespace MISApi.HttpClients.HttpModes.BaseMode
         {
             try
             {
-                string[] protocalArray = protocal.Split("^");
-                Name = protocalArray[0];
-                Mode = protocalArray[1].ToLower() == SortMode.ASC.ToString().ToLower() ? SortMode.ASC : SortMode.DESC;
+                if (protocal!=null)
+                {
+                    string[] protocalArray = protocal.Split("^");
+                    Name = protocalArray[0];
+                    Mode = protocalArray[1].ToLower() == SortMode.ASC.ToString().ToLower() ? SortMode.ASC : SortMode.DESC;
+                }
+                else
+                {
+                    throw new Exception("Protocal is null!");
+                }
             }
             catch (Exception ex)
             {
@@ -376,12 +383,12 @@ namespace MISApi.HttpClients.HttpModes.BaseMode
         /// 
         /// </summary>
         [JsonProperty(PropertyName = "name")]
-        public virtual string Name { get; set; } = "";
+        public virtual string Name { get; set; } = "id";
         /// <summary>
         /// 
         /// </summary>
         [JsonProperty(PropertyName = "mode")]
-        public virtual SortMode Mode { get; set; } = SortMode.ASC;
+        public virtual SortMode Mode { get; set; } = SortMode.DESC;
         #endregion
 
         #region Methods

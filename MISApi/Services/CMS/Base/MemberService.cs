@@ -630,56 +630,63 @@ namespace MISApi.Services.CMS.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
-                    if (splits[i].ToLower().Contains("reuploadcount"))
+                    try
                     {
-                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                        queryable = queryable.Where(row => row.Member.ReUploadCount >= min && row.Member.ReUploadCount <= max);
+                        if (splits[i].ToLower().Contains("reuploadcount"))
+                        {
+                            decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                            decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                            queryable = queryable.Where(row => row.Member.ReUploadCount >= min && row.Member.ReUploadCount <= max);
+                        }
+                        if (splits[i].ToLower().Contains("uploadcount"))
+                        {
+                            decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                            decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                            queryable = queryable.Where(row => row.Member.UploadCount >= min && row.Member.UploadCount <= max);
+                        }
+                        if (splits[i].ToLower().Contains("redowncount"))
+                        {
+                            decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                            decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                            queryable = queryable.Where(row => row.Member.ReDownCount >= min && row.Member.ReDownCount <= max);
+                        }
+                        if (splits[i].ToLower().Contains("downcount"))
+                        {
+                            decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                            decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                            queryable = queryable.Where(row => row.Member.DownCount >= min && row.Member.DownCount <= max);
+                        }
+                        if (splits[i].ToLower().Contains("rebuycount"))
+                        {
+                            decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                            decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                            queryable = queryable.Where(row => row.Member.ReBuyCount >= min && row.Member.ReBuyCount <= max);
+                        }
+                        if (splits[i].ToLower().Contains("buycount"))
+                        {
+                            decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                            decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                            queryable = queryable.Where(row => row.Member.BuyCount >= min && row.Member.BuyCount <= max);
+                        }
+                        if (splits[i].ToLower().Contains("isauthority"))
+                        {
+                            bool isAuthority = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Member.IsAuthority == isAuthority);
+                        }
+                        if (splits[i].ToLower().Contains("isself"))
+                        {
+                            bool isSelf = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Member.IsSelf == isSelf);
+                        }
+                        if (splits[i].ToLower().Contains("statusid"))
+                        {
+                            int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Member.StatusId == statusId);
+                        }
                     }
-                    if (splits[i].ToLower().Contains("uploadcount"))
+                    catch
                     {
-                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                        queryable = queryable.Where(row => row.Member.UploadCount >= min && row.Member.UploadCount <= max);
-                    }
-                    if (splits[i].ToLower().Contains("redowncount"))
-                    {
-                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                        queryable = queryable.Where(row => row.Member.ReDownCount >= min && row.Member.ReDownCount <= max);
-                    }
-                    if (splits[i].ToLower().Contains("downcount"))
-                    {
-                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                        queryable = queryable.Where(row => row.Member.DownCount >= min && row.Member.DownCount <= max);
-                    }
-                    if (splits[i].ToLower().Contains("rebuycount"))
-                    {
-                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                        queryable = queryable.Where(row => row.Member.ReBuyCount >= min && row.Member.ReBuyCount <= max);
-                    }
-                    if (splits[i].ToLower().Contains("buycount"))
-                    {
-                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                        queryable = queryable.Where(row => row.Member.BuyCount >= min && row.Member.BuyCount <= max);
-                    }
-                    if (splits[i].ToLower().Contains("isauthority"))
-                    {
-                        bool isAuthority = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Member.IsAuthority == isAuthority);
-                    }
-                    if (splits[i].ToLower().Contains("isself"))
-                    {
-                        bool isSelf = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Member.IsSelf == isSelf);
-                    }
-                    if (splits[i].ToLower().Contains("statusid"))
-                    {
-                        int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Member.StatusId == statusId);
+                        continue;
                     }
                 }
                 return queryable;
@@ -770,6 +777,10 @@ namespace MISApi.Services.CMS.Base
                             queryable = queryable.ThenBy($"{typeof(SQLEntity).ReflectedType.Name.Replace("Service", "")}.{sorts[i].Name}", sorts[i].Mode);
                         }
                     }
+                }
+                else
+                {
+                    queryable = queryable.DefaultBy($"{typeof(SQLEntity).ReflectedType.Name.Replace("Service", "")}.id");
                 }
                 return queryable;
             }

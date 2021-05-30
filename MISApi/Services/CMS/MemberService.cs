@@ -381,7 +381,7 @@ namespace MISApi.Services.CMS
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.AVM.MemberService.RowService.Verify", ex);
+                        throw new Exception("MISApi.Services.CMS.MemberService.RowService.Verify", ex);
                     }
                 }
             }

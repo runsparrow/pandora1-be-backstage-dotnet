@@ -9,6 +9,7 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using Swashbuckle.AspNetCore.SwaggerUI;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -129,6 +130,7 @@ namespace MISApi
                 options.SwaggerEndpoint("/swagger/mis/swagger.json", "MIS Docs");
                 options.RoutePrefix = string.Empty;
                 options.DocumentTitle = "MIS API";
+                options.DocExpansion(DocExpansion.None);
             });
           
             // 启用中间件服务进行异常处理

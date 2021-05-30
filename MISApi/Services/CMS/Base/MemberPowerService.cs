@@ -557,10 +557,17 @@ namespace MISApi.Services.CMS.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
-                    if (splits[i].ToLower().Contains("classifyid"))
+                    try
                     {
-                        int classifyId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.MemberPower.ClassifyId == classifyId);
+                        if (splits[i].ToLower().Contains("classifyid"))
+                        {
+                            int classifyId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.MemberPower.ClassifyId == classifyId);
+                        }
+                    }
+                    catch
+                    {
+                        continue;
                     }
                 }
                 return queryable;
@@ -631,6 +638,10 @@ namespace MISApi.Services.CMS.Base
                             queryable = queryable.ThenBy($"{typeof(SQLEntity).ReflectedType.Name.Replace("Service", "")}.{sorts[i].Name}", sorts[i].Mode);
                         }
                     }
+                }
+                else
+                {
+                    queryable = queryable.DefaultBy($"{typeof(SQLEntity).ReflectedType.Name.Replace("Service", "")}.id");
                 }
                 return queryable;
             }

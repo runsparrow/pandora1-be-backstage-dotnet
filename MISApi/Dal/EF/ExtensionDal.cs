@@ -118,13 +118,18 @@ namespace MISApi.Dal.EF
                 foreach (var p in properties)
                 {
                     var reqEntityValue = p.GetValue(reqEntity, null);
+                    // 输入值不等于null
                     if (reqEntityValue != null)
                     {
-                        if (p.IsMapped())
+                        // 输入值不等于Entity中设置的DefaultValue
+                        if (reqEntityValue.ToString() != p.CustomAttributes.ToList().Find(row => row.AttributeType.Name == "DefaultValueAttribute")?.ConstructorArguments[0].Value.ToString())
                         {
-                            if (reqEntityValue != GetDefault(p.GetType()))
+                            if (p.IsMapped())
                             {
-                                p.SetValue(dbEntity, reqEntityValue, null);
+                                if (reqEntityValue != GetDefault(p.GetType()))
+                                {
+                                    p.SetValue(dbEntity, reqEntityValue, null);
+                                }
                             }
                         }
                     }

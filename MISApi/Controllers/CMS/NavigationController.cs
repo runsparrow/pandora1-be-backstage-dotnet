@@ -921,6 +921,28 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
+        /// 根据父节点键名查询导航子集
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Navigation/Rows/ByParentKey/{key}", Name = "Unauthorized_MIS_CMS_Navigation_Rows_ByParentKey_Key")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByParentKey(string key)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new NavigationService.RowsService().ByParentKey(key)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Unauthorized_Rows_ByParentKey", ex);
+            }
+        }
+        /// <summary>
         /// 根据Id查询导航子集
         /// </summary>
         /// <param name="id"></param>
@@ -1001,6 +1023,69 @@ namespace MISApi.Controllers.CMS
         #endregion
 
         #region TreeMode
+
+        /// <summary>
+        /// 根据键名查询获得树型结构的导航
+        /// </summary>
+        /// <param name="key">键名</param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Navigation/Tree/SubsetByKey/{key}", Name = "Unauthorized_MIS_CMS_Navigation_Tree_SubsetByKey_Key")]
+        [HttpGet]
+        public IActionResult Unauthorized_Tree_SubsetByKey(string key)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Navigation>("NavigationKey", "Name", "Id", "Pid", "true", "false"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SubsetByKey",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(key),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Unauthorized_Tree_SubsetByKey", ex);
+            }
+        }
+        /// <summary>
+        /// 根据键名查询获得树型结构的导航
+        /// </summary>
+        /// <param name="key">键名</param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Navigation/Tree/SupersetByKey/{key}", Name = "Unauthorized_MIS_CMS_Navigation_Tree_SupersetByKey_Key")]
+        [HttpGet]
+        public IActionResult Unauthorized_Tree_SupersetByKey(string key)
+        {
+            try
+            {
+                return Tree(
+                    new TreeMode.Request
+                    {
+                        Config = new Config<Navigation>("NavigationKey", "Name", "Id", "Pid", "true", "false"),
+                        Function = new BaseMode.Function
+                        {
+                            Name = "SupersetByKey",
+                            Args = new BaseMode.Arg[] {
+                                new BaseMode.Arg(key),
+                                new BaseMode.Arg(new BaseMode.Join [] {})
+                            }
+                        }
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.NavigationController.Unauthorized_Tree_SupersetByKey", ex);
+            }
+        }
         /// <summary>
         /// 根据Id查询获得树型结构的导航
         /// </summary>

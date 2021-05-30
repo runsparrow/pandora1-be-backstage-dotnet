@@ -634,31 +634,38 @@ namespace MISApi.Services.CMS.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
-                    if (splits[i].ToLower().Contains("payerid"))
+                    try
                     {
-                        int payerId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Serial.PayerId == payerId);
+                        if (splits[i].ToLower().Contains("payerid"))
+                        {
+                            int payerId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Serial.PayerId == payerId);
+                        }
+                        if (splits[i].ToLower().Contains("receiverid"))
+                        {
+                            int receiverId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Serial.ReceiverId == receiverId);
+                        }
+                        if (splits[i].ToLower().Contains("memberid"))
+                        {
+                            int memberId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Serial.ReceiverId == memberId || row.Serial.PayerId == memberId);
+                        }
+                        if (splits[i].ToLower().Contains("statusid"))
+                        {
+                            int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Serial.StatusId == statusId);
+                        }
+                        if (splits[i].ToLower().Contains("dealamount"))
+                        {
+                            decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                            decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                            queryable = queryable.Where(row => row.Serial.DealAmount >= min && row.Serial.DealAmount <= max);
+                        }
                     }
-                    if (splits[i].ToLower().Contains("receiverid"))
+                    catch
                     {
-                        int receiverId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Serial.ReceiverId == receiverId);
-                    }
-                    if (splits[i].ToLower().Contains("memberid"))
-                    {
-                        int memberId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Serial.ReceiverId == memberId || row.Serial.PayerId == memberId);
-                    }
-                    if (splits[i].ToLower().Contains("statusid"))
-                    {
-                        int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Serial.StatusId == statusId);
-                    }
-                    if (splits[i].ToLower().Contains("dealamount"))
-                    {
-                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                        queryable = queryable.Where(row => row.Serial.DealAmount >= min && row.Serial.DealAmount <= max);
+                        continue;
                     }
                 }
                 return queryable;
@@ -742,6 +749,10 @@ namespace MISApi.Services.CMS.Base
                             queryable = queryable.ThenBy($"{typeof(SQLEntity).ReflectedType.Name.Replace("Service", "")}.{sorts[i].Name}", sorts[i].Mode);
                         }
                     }
+                }
+                else
+                {
+                    queryable = queryable.DefaultBy($"{typeof(SQLEntity).ReflectedType.Name.Replace("Service", "")}.id");
                 }
                 return queryable;
             }

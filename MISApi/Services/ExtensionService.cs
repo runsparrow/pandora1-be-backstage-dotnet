@@ -307,6 +307,25 @@ namespace MISApi.Services
         /// <typeparam name="T">泛型</typeparam>
         /// <param name="queryable"></param>
         /// <param name="name">排序字段名称</param>
+        /// <returns></returns>
+        public static IQueryable<T> DefaultBy<T>(this IQueryable<T> queryable, string name)
+        {
+            LambdaExpression lambdaExpression = GetLambdaExpression(typeof(T), name);
+            PropertyInfo propertyInfo = GetPropertyInfo(typeof(T), name);
+            if (propertyInfo != null)
+            {
+                var method = typeof(Queryable).GetMethods().FirstOrDefault(m => m.Name == "OrderByDescending" && m.GetParameters().Length == 2);
+                var genericMethod = method.MakeGenericMethod(typeof(T), propertyInfo.PropertyType);
+                return (IQueryable<T>)genericMethod.Invoke(null, new object[] { queryable, lambdaExpression });
+            }
+            return queryable;
+        }
+        /// <summary>
+        /// 排序
+        /// </summary>
+        /// <typeparam name="T">泛型</typeparam>
+        /// <param name="queryable"></param>
+        /// <param name="name">排序字段名称</param>
         /// <param name="mode">排序字段方式</param>
         /// <returns></returns>
         public static IQueryable<T> OrderBy<T>(this IQueryable<T> queryable, string name, BaseMode.Sort.SortMode mode)
@@ -315,17 +334,20 @@ namespace MISApi.Services
             {
                 LambdaExpression lambdaExpression = GetLambdaExpression(typeof(T), name);
                 PropertyInfo propertyInfo = GetPropertyInfo(typeof(T), name);
-                if (mode == BaseMode.Sort.SortMode.ASC)
+                if (propertyInfo != null)
                 {
-                    var method = typeof(Queryable).GetMethods().FirstOrDefault(m => m.Name == "OrderBy" && m.GetParameters().Length == 2);
-                    var genericMethod = method.MakeGenericMethod(typeof(T), propertyInfo.PropertyType);
-                    return (IQueryable<T>)genericMethod.Invoke(null, new object[] { queryable, lambdaExpression });
-                }
-                else
-                {
-                    var method = typeof(Queryable).GetMethods().FirstOrDefault(m => m.Name == "OrderByDescending" && m.GetParameters().Length == 2);
-                    var genericMethod = method.MakeGenericMethod(typeof(T), propertyInfo.PropertyType);
-                    return (IQueryable<T>)genericMethod.Invoke(null, new object[] { queryable, lambdaExpression });
+                    if (mode == BaseMode.Sort.SortMode.ASC)
+                    {
+                        var method = typeof(Queryable).GetMethods().FirstOrDefault(m => m.Name == "OrderBy" && m.GetParameters().Length == 2);
+                        var genericMethod = method.MakeGenericMethod(typeof(T), propertyInfo.PropertyType);
+                        return (IQueryable<T>)genericMethod.Invoke(null, new object[] { queryable, lambdaExpression });
+                    }
+                    else
+                    {
+                        var method = typeof(Queryable).GetMethods().FirstOrDefault(m => m.Name == "OrderByDescending" && m.GetParameters().Length == 2);
+                        var genericMethod = method.MakeGenericMethod(typeof(T), propertyInfo.PropertyType);
+                        return (IQueryable<T>)genericMethod.Invoke(null, new object[] { queryable, lambdaExpression });
+                    }
                 }
             }
             return queryable;
@@ -344,17 +366,20 @@ namespace MISApi.Services
             {
                 LambdaExpression lambdaExpression = GetLambdaExpression(typeof(T), name);
                 PropertyInfo propertyInfo = GetPropertyInfo(typeof(T), name);
-                if (mode == BaseMode.Sort.SortMode.ASC)
+                if (propertyInfo != null)
                 {
-                    var method = typeof(Queryable).GetMethods().FirstOrDefault(m => m.Name == "Thenby" && m.GetParameters().Length == 2);
-                    var genericMethod = method.MakeGenericMethod(typeof(T), propertyInfo.PropertyType);
-                    return (IQueryable<T>)genericMethod.Invoke(null, new object[] { queryable, lambdaExpression });
-                }
-                else
-                {
-                    var method = typeof(Queryable).GetMethods().FirstOrDefault(m => m.Name == "ThenByDescending" && m.GetParameters().Length == 2);
-                    var genericMethod = method.MakeGenericMethod(typeof(T), propertyInfo.PropertyType);
-                    return (IQueryable<T>)genericMethod.Invoke(null, new object[] { queryable, lambdaExpression });
+                    if (mode == BaseMode.Sort.SortMode.ASC)
+                    {
+                        var method = typeof(Queryable).GetMethods().FirstOrDefault(m => m.Name == "Thenby" && m.GetParameters().Length == 2);
+                        var genericMethod = method.MakeGenericMethod(typeof(T), propertyInfo.PropertyType);
+                        return (IQueryable<T>)genericMethod.Invoke(null, new object[] { queryable, lambdaExpression });
+                    }
+                    else
+                    {
+                        var method = typeof(Queryable).GetMethods().FirstOrDefault(m => m.Name == "ThenByDescending" && m.GetParameters().Length == 2);
+                        var genericMethod = method.MakeGenericMethod(typeof(T), propertyInfo.PropertyType);
+                        return (IQueryable<T>)genericMethod.Invoke(null, new object[] { queryable, lambdaExpression });
+                    }
                 }
             }
             return queryable;

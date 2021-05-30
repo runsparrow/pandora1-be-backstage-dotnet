@@ -360,9 +360,16 @@ namespace MISApi.HttpClients.HttpModes.BaseMode
         {
             try
             {
-                string[] protocalArray = protocal.Split("^");
-                Name = protocalArray[0];
-                Mode = protocalArray[1].ToLower() == SortMode.ASC.ToString().ToLower() ? SortMode.ASC : SortMode.DESC;
+                if (protocal!=null)
+                {
+                    string[] protocalArray = protocal.Split("^");
+                    Name = protocalArray[0];
+                    Mode = protocalArray[1].ToLower() == SortMode.ASC.ToString().ToLower() ? SortMode.ASC : SortMode.DESC;
+                }
+                else
+                {
+                    throw new Exception("Protocal is null!");
+                }
             }
             catch (Exception ex)
             {

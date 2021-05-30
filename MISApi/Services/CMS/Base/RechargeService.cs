@@ -648,6 +648,10 @@ namespace MISApi.Services.CMS.Base
                         }
                     }
                 }
+                else
+                {
+                    queryable = queryable.DefaultBy($"{typeof(SQLEntity).ReflectedType.Name.Replace("Service", "")}.id");
+                }
                 return queryable;
             }
             catch (Exception ex)

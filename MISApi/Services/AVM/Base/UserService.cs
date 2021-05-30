@@ -702,6 +702,10 @@ namespace MISApi.Services.AVM.Base
                         }
                     }
                 }
+                else
+                {
+                    queryable = queryable.DefaultBy($"{typeof(SQLEntity).ReflectedType.Name.Replace("Service", "")}.id");
+                }
                 return queryable;
             }
             catch (Exception ex)

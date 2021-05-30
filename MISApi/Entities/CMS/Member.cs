@@ -85,7 +85,8 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("生日")]
         [JsonProperty("birthdate")]
-        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        //[DefaultValue(typeof(DateTime), "0001-01-01")]
+        [DefaultValue("0001/1/1 0:00:00")]
         public DateTime Birthdate { get; set; } = DateTime.MinValue;
         /// <summary>
         /// 性别
@@ -115,6 +116,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("等级有效期")]
         [JsonProperty("levelDeadline")]
+        [DefaultValue("0001/1/1 0:00:00")]
         public DateTime LevelDeadline { get; set; } = DateTime.MinValue;
         /// <summary>
         /// 可下载次数
@@ -183,12 +185,14 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("注册时间")]
         [JsonProperty("registDateTime")]
+        [DefaultValue("0001/1/1 0:00:00")]
         public DateTime RegistDateTime { get; set; } = DateTime.MinValue;
         /// <summary>
         /// 最后登录时间
         /// </summary>
         [Description("最后登录时间")]
         [JsonProperty("loginDateTime")]
+        [DefaultValue("0001/1/1 0:00:00")]
         public DateTime LoginDateTime { get; set; } = DateTime.MinValue;
         /// <summary>
         /// 最后登录IP
@@ -203,7 +207,8 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("创建时间")]
         [JsonProperty("createDateTime")]
-        public DateTime CreateDateTime { get; set; } = DateTime.Now;
+        [DefaultValue("0001/1/1 0:00:00")]
+        public DateTime CreateDateTime { get; set; } = DateTime.MinValue;
         /// <summary>
         /// 创建用户Id
         /// </summary>
@@ -216,7 +221,8 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("最后修改时间")]
         [JsonProperty("editDateTime")]
-        public DateTime EditDateTime { get; set; } = DateTime.Now;
+        [DefaultValue("0001/1/1 0:00:00")]
+        public DateTime EditDateTime { get; set; } = DateTime.MinValue;
         /// <summary>
         /// 最后修改用户Id
         /// </summary>

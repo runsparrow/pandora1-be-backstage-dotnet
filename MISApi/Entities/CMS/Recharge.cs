@@ -57,13 +57,15 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("交易时间")]
         [JsonProperty("dealDateTime")]
+        [DefaultValue("0001/1/1 0:00:00")]
         public DateTime DealDateTime { get; set; } = DateTime.Now;
         /// <summary>
         /// 创建时间
         /// </summary>
         [Description("创建时间")]
         [JsonProperty("createDateTime")]
-        public DateTime CreateDateTime { get; set; } = DateTime.Now;
+        [DefaultValue("0001/1/1 0:00:00")]
+        public DateTime CreateDateTime { get; set; } = DateTime.MinValue;
         /// <summary>
         /// 创建用户Id
         /// </summary>
@@ -76,7 +78,8 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("最后修改时间")]
         [JsonProperty("editDateTime")]
-        public DateTime EditDateTime { get; set; } = DateTime.Now;
+        [DefaultValue("0001/1/1 0:00:00")]
+        public DateTime EditDateTime { get; set; } = DateTime.MinValue;
         /// <summary>
         /// 最后修改用户Id
         /// </summary>

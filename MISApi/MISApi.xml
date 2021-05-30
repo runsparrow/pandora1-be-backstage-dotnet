@@ -10757,6 +10757,26 @@
             导入时间
             </summary>
         </member>
+        <member name="P:MISApi.Entities.ASM.Region.CreateDateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Region.CreateUserId">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Region.EditDateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Region.EditUserId">
+            <summary>
+            最后修改用户Id
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.ASM.Region.Path">
             <summary>
             路径

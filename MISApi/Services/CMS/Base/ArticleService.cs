@@ -600,59 +600,66 @@ namespace MISApi.Services.CMS.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
-                    if (splits[i].ToLower().Contains("statusid"))
+                    try
                     {
-                        int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Article.StatusId == statusId);
+                        if (splits[i].ToLower().Contains("statusid"))
+                        {
+                            int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Article.StatusId == statusId);
+                        }
+                        if (splits[i].ToLower().Contains("navigationid"))
+                        {
+                            int navigationId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Article.NavigationId == navigationId);
+                        }
+                        if (splits[i].ToLower().Contains("urltype"))
+                        {
+                            int urlType = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Article.UrlType == urlType);
+                        }
+                        if (splits[i].ToLower().Contains("isdisplay"))
+                        {
+                            bool isDisplay = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Article.IsDisplay == isDisplay);
+                        }
+                        if (splits[i].ToLower().Contains("istop"))
+                        {
+                            bool isTop = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Article.IsTop == isTop);
+                        }
+                        if (splits[i].ToLower().Contains("istarget"))
+                        {
+                            bool isTarget = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Article.IsTarget == isTarget);
+                        }
+                        if (splits[i].ToLower().Contains("hits"))
+                        {
+                            decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                            decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                            queryable = queryable.Where(row => row.Article.Hits >= min && row.Article.Hits <= max);
+                        }
+                        if (splits[i].ToLower().Contains("likes"))
+                        {
+                            decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                            decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                            queryable = queryable.Where(row => row.Article.Likes >= min && row.Article.Likes <= max);
+                        }
+                        if (splits[i].ToLower().Contains("collects"))
+                        {
+                            decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                            decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                            queryable = queryable.Where(row => row.Article.Collects >= min && row.Article.Collects <= max);
+                        }
+                        if (splits[i].ToLower().Contains("forwards"))
+                        {
+                            decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                            decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                            queryable = queryable.Where(row => row.Article.Forwards >= min && row.Article.Forwards <= max);
+                        }
                     }
-                    if (splits[i].ToLower().Contains("navigationid"))
+                    catch
                     {
-                        int navigationId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Article.NavigationId == navigationId);
-                    }
-                    if (splits[i].ToLower().Contains("urltype"))
-                    {
-                        int urlType = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Article.UrlType == urlType);
-                    }
-                    if (splits[i].ToLower().Contains("isdisplay"))
-                    {
-                        bool isDisplay = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Article.IsDisplay == isDisplay);
-                    }
-                    if (splits[i].ToLower().Contains("istop"))
-                    {
-                        bool isTop = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Article.IsTop == isTop);
-                    }
-                    if (splits[i].ToLower().Contains("istarget"))
-                    {
-                        bool isTarget = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Article.IsTarget == isTarget);
-                    }
-                    if (splits[i].ToLower().Contains("hits"))
-                    {
-                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                        queryable = queryable.Where(row => row.Article.Hits >= min && row.Article.Hits <= max);
-                    }
-                    if (splits[i].ToLower().Contains("likes"))
-                    {
-                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                        queryable = queryable.Where(row => row.Article.Likes >= min && row.Article.Likes <= max);
-                    }
-                    if (splits[i].ToLower().Contains("collects"))
-                    {
-                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                        queryable = queryable.Where(row => row.Article.Collects >= min && row.Article.Collects <= max);
-                    }
-                    if (splits[i].ToLower().Contains("forwards"))
-                    {
-                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                        queryable = queryable.Where(row => row.Article.Forwards >= min && row.Article.Forwards <= max);
+                        continue;
                     }
                 }
                 return queryable;

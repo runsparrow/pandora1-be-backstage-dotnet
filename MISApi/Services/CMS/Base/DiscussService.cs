@@ -630,20 +630,27 @@ namespace MISApi.Services.CMS.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
-                    if (splits[i].ToLower().Contains("identityid"))
+                    try
                     {
-                        int articleId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Discuss.ArticleId == articleId);
+                        if (splits[i].ToLower().Contains("identityid"))
+                        {
+                            int articleId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Discuss.ArticleId == articleId);
+                        }
+                        if (splits[i].ToLower().Contains("unitid"))
+                        {
+                            int approverId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Discuss.ApproverId == approverId);
+                        }
+                        if (splits[i].ToLower().Contains("statusid"))
+                        {
+                            int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Discuss.StatusId == statusId);
+                        }
                     }
-                    if (splits[i].ToLower().Contains("unitid"))
+                    catch
                     {
-                        int approverId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Discuss.ApproverId == approverId);
-                    }
-                    if (splits[i].ToLower().Contains("statusid"))
-                    {
-                        int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Discuss.StatusId == statusId);
+                        continue;
                     }
                 }
                 return queryable;

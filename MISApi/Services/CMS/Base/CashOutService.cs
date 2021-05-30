@@ -630,31 +630,38 @@ namespace MISApi.Services.CMS.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
-                    if (splits[i].ToLower().Contains("applierid"))
+                    try
                     {
-                        int applierId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.CashOut.ApplierId == applierId);
+                        if (splits[i].ToLower().Contains("applierid"))
+                        {
+                            int applierId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.CashOut.ApplierId == applierId);
+                        }
+                        if (splits[i].ToLower().Contains("approverid"))
+                        {
+                            int approverId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.CashOut.ApproverId == approverId);
+                        }
+                        if (splits[i].ToLower().Contains("loanerid"))
+                        {
+                            int loanerId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.CashOut.LoanerId == loanerId);
+                        }
+                        if (splits[i].ToLower().Contains("statusid"))
+                        {
+                            int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.CashOut.StatusId == statusId);
+                        }
+                        if (splits[i].ToLower().Contains("dealamount"))
+                        {
+                            decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                            decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                            queryable = queryable.Where(row => row.CashOut.DealAmount >= min && row.CashOut.DealAmount <= max);
+                        }
                     }
-                    if (splits[i].ToLower().Contains("approverid"))
+                    catch
                     {
-                        int approverId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.CashOut.ApproverId == approverId);
-                    }
-                    if (splits[i].ToLower().Contains("loanerid"))
-                    {
-                        int loanerId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.CashOut.LoanerId == loanerId) ;
-                    }
-                    if (splits[i].ToLower().Contains("statusid"))
-                    {
-                        int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.CashOut.StatusId == statusId);
-                    }
-                    if (splits[i].ToLower().Contains("dealamount"))
-                    {
-                        decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                        decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                        queryable = queryable.Where(row => row.CashOut.DealAmount >= min && row.CashOut.DealAmount <= max);
+                        continue;
                     }
                 }
                 return queryable;

@@ -837,45 +837,52 @@ namespace MISApi.Services.ASM.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
-                    if (splits[i].ToLower().Contains("nationcode"))
+                    try
                     {
-                        string nationCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
-                        queryable = queryable.Where(row => row.Hospital.NationCode == nationCode);
+                        if (splits[i].ToLower().Contains("nationcode"))
+                        {
+                            string nationCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Hospital.NationCode == nationCode);
+                        }
+                        if (splits[i].ToLower().Contains("provincecode"))
+                        {
+                            string provinceCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Hospital.ProvinceCode == provinceCode);
+                        }
+                        if (splits[i].ToLower().Contains("citycode"))
+                        {
+                            string cityCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Hospital.CityCode == cityCode);
+                        }
+                        if (splits[i].ToLower().Contains("divisioncode"))
+                        {
+                            string divisionCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Hospital.DivisionCode == divisionCode);
+                        }
+                        if (splits[i].ToLower().Contains("isgeneral"))
+                        {
+                            bool isGeneral = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Hospital.IsGeneral == isGeneral);
+                        }
+                        if (splits[i].ToLower().Contains("isspecial"))
+                        {
+                            bool isSpecial = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Hospital.IsSpecial == isSpecial);
+                        }
+                        if (splits[i].ToLower().Contains("pid"))
+                        {
+                            int pid = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Hospital.Pid == pid);
+                        }
+                        if (splits[i].ToLower().Contains("statusid"))
+                        {
+                            int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Hospital.StatusId == statusId);
+                        }
                     }
-                    if (splits[i].ToLower().Contains("provincecode"))
+                    catch
                     {
-                        string provinceCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
-                        queryable = queryable.Where(row => row.Hospital.ProvinceCode == provinceCode);
-                    }
-                    if (splits[i].ToLower().Contains("citycode"))
-                    {
-                        string cityCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
-                        queryable = queryable.Where(row => row.Hospital.CityCode == cityCode);
-                    }
-                    if (splits[i].ToLower().Contains("divisioncode"))
-                    {
-                        string divisionCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
-                        queryable = queryable.Where(row => row.Hospital.DivisionCode == divisionCode);
-                    }
-                    if (splits[i].ToLower().Contains("isgeneral"))
-                    {
-                        bool isGeneral = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Hospital.IsGeneral == isGeneral);
-                    }
-                    if (splits[i].ToLower().Contains("isspecial"))
-                    {
-                        bool isSpecial = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Hospital.IsSpecial == isSpecial);
-                    }
-                    if (splits[i].ToLower().Contains("pid"))
-                    {
-                        int pid = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Hospital.Pid == pid);
-                    }
-                    if (splits[i].ToLower().Contains("statusid"))
-                    {
-                        int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Hospital.StatusId == statusId);
+                        continue;
                     }
                 }
                 return queryable;

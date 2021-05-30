@@ -688,55 +688,62 @@ namespace MISApi.Services.CMS.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
-                    if (splits[i].ToLower().Contains("authorityindex"))
+                    try
                     {
-                        int authorityIndex = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Authority.AuthorityIndex == authorityIndex);
+                        if (splits[i].ToLower().Contains("authorityindex"))
+                        {
+                            int authorityIndex = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Authority.AuthorityIndex == authorityIndex);
+                        }
+                        if (splits[i].ToLower().Contains("identityid"))
+                        {
+                            int identityId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Authority.IdentityId == identityId);
+                        }
+                        if (splits[i].ToLower().Contains("unitid"))
+                        {
+                            int unitId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Authority.UnitId == unitId);
+                        }
+                        if (splits[i].ToLower().Contains("officeId"))
+                        {
+                            int officeId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Authority.OfficeId == officeId);
+                        }
+                        if (splits[i].ToLower().Contains("dutyid"))
+                        {
+                            int dutyId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Authority.DutyId == dutyId);
+                        }
+                        if (splits[i].ToLower().Contains("nationcode"))
+                        {
+                            string nationCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Authority.NationCode == nationCode);
+                        }
+                        if (splits[i].ToLower().Contains("provincecode"))
+                        {
+                            string provinceCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Authority.ProvinceCode == provinceCode);
+                        }
+                        if (splits[i].ToLower().Contains("citycode"))
+                        {
+                            string cityCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Authority.CityCode == cityCode);
+                        }
+                        if (splits[i].ToLower().Contains("divisioncode"))
+                        {
+                            string divisionCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Authority.DivisionCode == divisionCode);
+                        }
+                        if (splits[i].ToLower().Contains("statusid"))
+                        {
+                            int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Authority.StatusId == statusId);
+                        }
                     }
-                    if (splits[i].ToLower().Contains("identityid"))
+                    catch
                     {
-                        int identityId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Authority.IdentityId == identityId);
-                    }
-                    if (splits[i].ToLower().Contains("unitid"))
-                    {
-                        int unitId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Authority.UnitId == unitId);
-                    }
-                    if (splits[i].ToLower().Contains("officeId"))
-                    {
-                        int officeId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Authority.OfficeId == officeId);
-                    }
-                    if (splits[i].ToLower().Contains("dutyid"))
-                    {
-                        int dutyId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Authority.DutyId == dutyId);
-                    }
-                    if (splits[i].ToLower().Contains("nationcode"))
-                    {
-                        string nationCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
-                        queryable = queryable.Where(row => row.Authority.NationCode == nationCode);
-                    }
-                    if (splits[i].ToLower().Contains("provincecode"))
-                    {
-                        string provinceCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
-                        queryable = queryable.Where(row => row.Authority.ProvinceCode == provinceCode);
-                    }
-                    if (splits[i].ToLower().Contains("citycode"))
-                    {
-                        string cityCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
-                        queryable = queryable.Where(row => row.Authority.CityCode == cityCode);
-                    }
-                    if (splits[i].ToLower().Contains("divisioncode"))
-                    {
-                        string divisionCode = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
-                        queryable = queryable.Where(row => row.Authority.DivisionCode == divisionCode);
-                    }
-                    if (splits[i].ToLower().Contains("statusid"))
-                    {
-                        int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Authority.StatusId == statusId);
+                        continue;
                     }
                 }
                 return queryable;

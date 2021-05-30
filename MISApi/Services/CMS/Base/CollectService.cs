@@ -584,15 +584,22 @@ namespace MISApi.Services.CMS.Base
                 // 遍历
                 for (var i = 0; i < splits.Length; i++)
                 {
-                    if (splits[i].ToLower().Contains("memberid"))
+                    try
                     {
-                        int memberId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Collect.MemberId == memberId);
+                        if (splits[i].ToLower().Contains("memberid"))
+                        {
+                            int memberId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Collect.MemberId == memberId);
+                        }
+                        if (splits[i].ToLower().Contains("goodsid"))
+                        {
+                            int goodsId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Collect.GoodsId == goodsId);
+                        }
                     }
-                    if (splits[i].ToLower().Contains("goodsid"))
+                    catch
                     {
-                        int goodsId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                        queryable = queryable.Where(row => row.Collect.GoodsId == goodsId);
+                        continue;
                     }
                 }
                 return queryable;

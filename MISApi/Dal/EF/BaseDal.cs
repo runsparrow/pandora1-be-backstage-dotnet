@@ -138,9 +138,16 @@ namespace MISApi.Dal.EF
                 try
                 {
                     T dbEntity = DbSetEntity(context).Find(EntityPropertyValue(entity, "Id"));
-                    dbEntity.MergeFrom(entity);
-                    context.Entry(dbEntity).State = EntityState.Modified;
-                    context.SaveChanges();
+                    if(dbEntity != null)
+                    {
+                        dbEntity.MergeFrom(entity);
+                        context.Entry(dbEntity).State = EntityState.Modified;
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        throw new Exception("未发现指定Id的记录！");
+                    }
                     return dbEntity;
                 }
                 catch(Exception ex)

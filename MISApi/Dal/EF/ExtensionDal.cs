@@ -118,7 +118,8 @@ namespace MISApi.Dal.EF
                 foreach (var p in properties)
                 {
                     var reqEntityValue = p.GetValue(reqEntity, null);
-                    if (reqEntityValue != null)
+                    // 输入值不等于null 并且不等于Entity中设置的DefaultValue
+                    if (reqEntityValue != null && reqEntityValue != p.CustomAttributes.ToList().Find(row => row.AttributeType.Name == "DefaultValueAttribute")?.ConstructorArguments[0].Value)
                     {
                         if (p.IsMapped())
                         {

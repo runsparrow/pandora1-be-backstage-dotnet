@@ -60,6 +60,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("评论时间")]
         [JsonProperty("discussDateTime")]
+        [DefaultValue("0001/1/1 0:00:00")]
         public DateTime DiscussDateTime { get; set; } = DateTime.MinValue;
         /// <summary>
         /// 审批人Id
@@ -81,6 +82,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("审批时间")]
         [JsonProperty("approverDate")]
+        [DefaultValue("0001/1/1 0:00:00")]
         public DateTime ApproverDate { get; set; } = DateTime.MinValue;
         /// <summary>
         /// 审批意见
@@ -103,7 +105,8 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("创建时间")]
         [JsonProperty("createDateTime")]
-        public DateTime CreateDateTime { get; set; } = DateTime.Now;
+        [DefaultValue("0001/1/1 0:00:00")]
+        public DateTime CreateDateTime { get; set; } = DateTime.MinValue;
         /// <summary>
         /// 创建用户Id
         /// </summary>
@@ -116,7 +119,8 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("最后修改时间")]
         [JsonProperty("editDateTime")]
-        public DateTime EditDateTime { get; set; } = DateTime.Now;
+        [DefaultValue("0001/1/1 0:00:00")]
+        public DateTime EditDateTime { get; set; } = DateTime.MinValue;
         /// <summary>
         /// 最后修改用户Id
         /// </summary>

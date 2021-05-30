@@ -645,7 +645,10 @@ namespace MISApi.Services.CMS.Base
                         if (splits[i].ToLower().Contains("tags"))
                         {
                             string tags = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
-                            queryable = queryable.Where(row => row.Goods.Tags.Contains($",{tags},"));
+                            if (!tags.Equals("") && !tags.ToLower().Equals("undefined"))
+                            {
+                                queryable = queryable.Where(row => row.Goods.Tags.Contains($",{tags},"));
+                            }
                         }
                         if (splits[i].ToLower().Contains("isimage"))
                         {

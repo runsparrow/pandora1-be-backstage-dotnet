@@ -715,10 +715,10 @@ namespace MISApi.Services.CMS.Base
         {
             try
             {
-                if (status != null && status.Values.Count() > 0)
-                {
-                    return queryable.Where(row => status.Values.Contains(row.Serial.StatusValue));
-                }
+                //if (status != null && status.Values.Count() > 0)
+                //{
+                //    return queryable.Where(row => status.Values.Contains(row.Serial.StatusValue));
+                //}
                 return queryable;
             }
             catch (Exception ex)

@@ -129,7 +129,7 @@ namespace MISApi.Services.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.MemberActionService.PayMemberPower", ex);
+                throw new Exception("MISApi.Services.CMS.MemberActionService.BuyMemberPower", ex);
             }
         }
         /// <summary>
@@ -163,7 +163,7 @@ namespace MISApi.Services.CMS
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.MemberActionService.PayMemberPower", ex);
+                throw new Exception("MISApi.Services.CMS.MemberActionService.BuyMemberPower", ex);
             }
         }
         /// <summary>

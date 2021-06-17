@@ -779,6 +779,41 @@ namespace MISApi.Controllers.CMS
         /// <summary>
         /// 验证会员名是否被注册
         /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Member/Row/ByName", Name = "Unauthorized_MIS_CMS_Member_Row_ByName")]
+        [HttpPost]
+        public IActionResult Unauthorized_Row_ByName(DTO_ByName dto)
+        {
+            try
+            {
+                var member = new MemberService.RowService().ByName(dto.Name, dto.Id);
+                if (member == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "未发现重复会员名。"
+                    });
+                }
+                else
+                {
+                    return new JsonResult(new DTO_Result_Member
+                    {
+                        Result = true,
+                        Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName },
+                        Message = "发现重复会员名。"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.MemberController.Unauthorized_Row_ByName", ex);
+            }
+        }
+        /// <summary>
+        /// 验证会员名是否被注册
+        /// </summary>
         /// <param name="name"></param>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -1292,6 +1327,26 @@ namespace MISApi.Controllers.CMS
             [JsonProperty("mobile")]
             [DefaultValue("")]
             public string Mobile { get; set; } = "";
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public class DTO_ByName
+        {
+            /// <summary>
+            /// 姓名
+            /// </summary>
+            [Description("姓名")]
+            [JsonProperty("name")]
+            [DefaultValue("")]
+            public string Name { get; set; } = "";
+            /// <summary>
+            /// Id
+            /// </summary>
+            [Description("Id")]
+            [JsonProperty("id")]
+            [DefaultValue("-1")]
+            public int Id { get; set; } = -1;
         }
         #endregion
     }

@@ -6045,6 +6045,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.MemberController.Unauthorized_Row_ByName(MISApi.Controllers.CMS.MemberController.DTO_ByName)">
+            <summary>
+            验证会员名是否被注册
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.MemberController.Unauthorized_Row_ByName_Name_Id(System.String,System.Int32)">
             <summary>
             验证会员名是否被注册
@@ -6340,6 +6347,21 @@
         <member name="P:MISApi.Controllers.CMS.MemberController.DTO_Member.Mobile">
             <summary>
             手机
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.MemberController.DTO_ByName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.MemberController.DTO_ByName.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.MemberController.DTO_ByName.Id">
+            <summary>
+            Id
             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.MemberPowerController">

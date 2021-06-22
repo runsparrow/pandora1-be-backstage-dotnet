@@ -622,6 +622,11 @@ namespace MISApi.Services.CMS.Base
                 {
                     try
                     {
+                        if (splits[i].ToLower().Contains("goodsno"))
+                        {
+                            string goodsNo = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Goods.GoodsNo == goodsNo);
+                        }
                         if (splits[i].ToLower().Contains("statusid"))
                         {
                             int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));

@@ -571,6 +571,17 @@ namespace MISApi.Services.CMS.Base
                             int memberId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                             queryable = queryable.Where(row => row.Recharge.MemberId == memberId);
                         }
+                        if (splits[i].ToLower().Contains("serialno"))
+                        {
+                            string serialNo = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Recharge.SerialNo == serialNo);
+                        }
+                        if (splits[i].ToLower().Contains("dealamount"))
+                        {
+                            decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
+                            decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
+                            queryable = queryable.Where(row => row.Recharge.DealAmount >= min && row.Recharge.DealAmount <= max);
+                        }
                     }
                     catch
                     {

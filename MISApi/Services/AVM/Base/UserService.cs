@@ -614,6 +614,26 @@ namespace MISApi.Services.AVM.Base
                             int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                             queryable = queryable.Where(row => row.User.StatusId == statusId);
                         }
+                        if (splits[i].ToLower().Contains("name"))
+                        {
+                            string name = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.User.Name == name);
+                        }
+                        if (splits[i].ToLower().Contains("email"))
+                        {
+                            string email = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.User.Email == email);
+                        }
+                        if (splits[i].ToLower().Contains("realname"))
+                        {
+                            string realName = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.User.RealName == realName);
+                        }
+                        if (splits[i].ToLower().Contains("mobile"))
+                        {
+                            string mobile = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.User.Mobile == mobile);
+                        }
                     }
                     catch
                     {

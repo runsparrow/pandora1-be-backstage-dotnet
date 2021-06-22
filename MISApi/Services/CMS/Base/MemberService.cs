@@ -632,6 +632,31 @@ namespace MISApi.Services.CMS.Base
                 {
                     try
                     {
+                        if (splits[i].ToLower().Contains("name"))
+                        {
+                            string name = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Member.Name == name);
+                        }
+                        if (splits[i].ToLower().Contains("email"))
+                        {
+                            string email = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Member.Email == email);
+                        }
+                        if (splits[i].ToLower().Contains("realname"))
+                        {
+                            string realName = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Member.RealName == realName);
+                        }
+                        if (splits[i].ToLower().Contains("mobile"))
+                        {
+                            string mobile = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Member.Mobile == mobile);
+                        }
+                        if (splits[i].ToLower().Contains("idcard"))
+                        {
+                            string idcard = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Member.IdCard == idcard);
+                        }
                         if (splits[i].ToLower().Contains("reuploadcount"))
                         {
                             decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;

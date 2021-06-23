@@ -632,10 +632,25 @@ namespace MISApi.Services.CMS.Base
                 {
                     try
                     {
+                        if (splits[i].ToLower().Contains("serialno"))
+                        {
+                            string serialNo = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.CashOut.SerialNo == serialNo);
+                        }
+                        if (splits[i].ToLower().Contains("accountno"))
+                        {
+                            string accountNo = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.CashOut.AccountNo == accountNo);
+                        }
                         if (splits[i].ToLower().Contains("applierid"))
                         {
                             int applierId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                             queryable = queryable.Where(row => row.CashOut.ApplierId == applierId);
+                        }
+                        if (splits[i].ToLower().Contains("accountid"))
+                        {
+                            int accountId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.CashOut.AccountId == accountId);
                         }
                         if (splits[i].ToLower().Contains("approverid"))
                         {

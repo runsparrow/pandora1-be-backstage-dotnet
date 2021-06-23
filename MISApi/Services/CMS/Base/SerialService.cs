@@ -636,6 +636,31 @@ namespace MISApi.Services.CMS.Base
                 {
                     try
                     {
+                        if (splits[i].ToLower().Contains("serialno"))
+                        {
+                            string serialNo = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Serial.SerialNo == serialNo);
+                        }
+                        if (splits[i].ToLower().Contains("orderno"))
+                        {
+                            string orderNo = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Serial.OrderNo == orderNo);
+                        }
+                        if (splits[i].ToLower().Contains("payeraccount"))
+                        {
+                            string payerAccount = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Serial.PayerAccount == payerAccount);
+                        }
+                        if (splits[i].ToLower().Contains("receiveraccount"))
+                        {
+                            string receiverAccount = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Serial.ReceiverAccount == receiverAccount);
+                        }
+                        if (splits[i].ToLower().Contains("paysourceindex"))
+                        {
+                            int paySourceIndex = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Serial.PaySourceIndex == paySourceIndex);
+                        }
                         if (splits[i].ToLower().Contains("payerid"))
                         {
                             int payerId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));

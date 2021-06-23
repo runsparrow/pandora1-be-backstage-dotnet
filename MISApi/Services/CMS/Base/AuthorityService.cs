@@ -690,6 +690,51 @@ namespace MISApi.Services.CMS.Base
                 {
                     try
                     {
+                        if (splits[i].ToLower().Contains("jobno"))
+                        {
+                            string jobNo = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Authority.JobNo == jobNo);
+                        }
+                        if (splits[i].ToLower().Contains("certificateno"))
+                        {
+                            string certificateNo = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Authority.CertificateNo == certificateNo);
+                        }
+                        if (splits[i].ToLower().Contains("mobile"))
+                        {
+                            string mobile = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Authority.Mobile == mobile);
+                        }
+                        if (splits[i].ToLower().Contains("email"))
+                        {
+                            string email = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Authority.Email == email);
+                        }
+                        if (splits[i].ToLower().Contains("realname"))
+                        {
+                            string realName = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Authority.RealName == realName);
+                        }
+                        if (splits[i].ToLower().Contains("idcard"))
+                        {
+                            string idcard = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Authority.IdCard == idcard);
+                        }
+                        if (splits[i].ToLower().Contains("idcard"))
+                        {
+                            string idcard = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Authority.IdCard == idcard);
+                        }
+                        if (splits[i].ToLower().Contains("alipay"))
+                        {
+                            string alipay = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Authority.Alipay == alipay);
+                        }
+                        if (splits[i].ToLower().Contains("wechatpay"))
+                        {
+                            string wechatpay = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Authority.WechatPay == wechatpay);
+                        }
                         if (splits[i].ToLower().Contains("authorityindex"))
                         {
                             int authorityIndex = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));

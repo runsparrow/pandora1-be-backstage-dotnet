@@ -1906,6 +1906,20 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.AVM.AuthController.ChangePassword(MISApi.Controllers.AVM.AuthController.DTO_ChangePassword)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.AVM.AuthController.InitPassword(MISApi.Controllers.HttpEntities.DTO_Login)">
+            <summary>
+            初始密码
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Controllers.AVM.AuthController.DTO_Result_User">
             <summary>
             
@@ -1984,6 +1998,26 @@
         <member name="P:MISApi.Controllers.AVM.AuthController.DTO_Result_Auth.Code">
             <summary>
             验证码
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.AVM.AuthController.DTO_ChangePassword">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_ChangePassword.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_ChangePassword.OldPassword">
+            <summary>
+            旧密码
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_ChangePassword.NewPassword">
+            <summary>
+            新密码
             </summary>
         </member>
         <member name="T:MISApi.Controllers.AVM.UserController">

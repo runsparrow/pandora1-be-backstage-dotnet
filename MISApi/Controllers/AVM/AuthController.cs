@@ -1,9 +1,11 @@
 ﻿using IdentityModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using MISApi.Controllers.HttpEntities;
 using MISApi.Entities.AVM;
 using MISApi.Services.AVM;
+using MISApi.Tools;
 using Newtonsoft.Json;
 using System;
 using System.ComponentModel;
@@ -78,6 +80,49 @@ namespace MISApi.Controllers.AVM
             ClaimEntity claim = GetClaimFromToken(dto.Token);
 
             return new JsonResult(new DTO_Result_User { Result = true, Token = dto.Token, User = new DTO_User { UserId = claim.Id, UserName = claim.Name, RealName = claim.RealName } });
+        }
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/AVM/Auth/ChangePassword", Name = "MIS_AVM_Auth_ChangePassword")]
+        [HttpPost]
+        public IActionResult ChangePassword([FromBody] DTO_ChangePassword dto)
+        {
+            var user = new UserService.RowService().Verify(dto.UserName, dto.OldPassword);
+            if (user != null)
+            {
+                user.Password = EncryptHelper.GetBase64String(dto.NewPassword);
+                new UserService.UpdateService().Update(user);
+                return new JsonResult(new DTO_Result { Result = true, Message = "密码修改成功！" });
+            }
+            else
+            {
+                return new JsonResult(new DTO_Result { Result = false, Message = "旧密码输入错误！" });
+            }
+        }
+        /// <summary>
+        /// 初始密码
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/AVM/Auth/InitPassword", Name = "MIS_AVM_Auth_InitPassword")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult InitPassword([FromBody] DTO_Login dto)
+        {
+            var user = new UserService.RowService().ByName(dto.Name, -1);
+            if (user != null)
+            {
+                user.Password = EncryptHelper.GetBase64String(dto.Password);
+                new UserService.UpdateService().Update(user);
+                return new JsonResult(new DTO_Result { Result = true, Message = "密码初始成功！" });
+            }
+            else
+            {
+                return new JsonResult(new DTO_Result { Result = false, Message = "未找到该用户！" });
+            }
         }
         #endregion
 
@@ -187,6 +232,33 @@ namespace MISApi.Controllers.AVM
             [JsonProperty("code")]
             [DefaultValue("")]
             public string Code { get; set; } = "";
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public class DTO_ChangePassword
+        {
+            /// <summary>
+            /// 用户名
+            /// </summary>
+            [Description("用户名")]
+            [JsonProperty("userName")]
+            [DefaultValue("")]
+            public string UserName { get; set; } = "";
+            /// <summary>
+            /// 旧密码
+            /// </summary>
+            [Description("旧密码")]
+            [JsonProperty("oldPassword")]
+            [DefaultValue("")]
+            public string OldPassword { get; set; } = "";
+            /// <summary>
+            /// 新密码
+            /// </summary>
+            [Description("新密码")]
+            [JsonProperty("newPassword")]
+            [DefaultValue("")]
+            public string NewPassword { get; set; } = "";
         }
 
         #endregion

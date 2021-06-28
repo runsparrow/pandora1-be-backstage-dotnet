@@ -1906,6 +1906,20 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.AVM.AuthController.ChangePassword(MISApi.Controllers.AVM.AuthController.DTO_ChangePassword)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.AVM.AuthController.InitPassword(MISApi.Controllers.HttpEntities.DTO_Login)">
+            <summary>
+            初始密码
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Controllers.AVM.AuthController.DTO_Result_User">
             <summary>
             
@@ -1984,6 +1998,26 @@
         <member name="P:MISApi.Controllers.AVM.AuthController.DTO_Result_Auth.Code">
             <summary>
             验证码
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.AVM.AuthController.DTO_ChangePassword">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_ChangePassword.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_ChangePassword.OldPassword">
+            <summary>
+            旧密码
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.AVM.AuthController.DTO_ChangePassword.NewPassword">
+            <summary>
+            新密码
             </summary>
         </member>
         <member name="T:MISApi.Controllers.AVM.UserController">
@@ -3026,6 +3060,20 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.AuthController.VerifyCard(MISApi.Controllers.CMS.AuthController.DTO_Card)">
+            <summary>
+            验证发卡是否有效
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthController.ActivateCard(MISApi.Controllers.CMS.AuthController.DTO_ActivateCard)">
+            <summary>
+            激活卡号绑定会员账户
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Controllers.CMS.AuthController.DTO_Result_Member">
             <summary>
             
@@ -3094,6 +3142,56 @@
         <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Auth.Member">
             <summary>
             会员
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.AuthController.DTO_Result_Card">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Result_Card.Card">
+            <summary>
+            卡
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.AuthController.DTO_Card">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Card.CardNo">
+            <summary>
+            卡号
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Card.CardPassword">
+            <summary>
+            卡密
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.AuthController.DTO_ActivateCard">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_ActivateCard.CardNo">
+            <summary>
+            卡号
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_ActivateCard.CardPassword">
+            <summary>
+            卡密
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_ActivateCard.MemberName">
+            <summary>
+            会员名
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_ActivateCard.MemberPassword">
+            <summary>
+            会员密码
             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.AuthController.DTO_Result_Auth">
@@ -3565,6 +3663,448 @@
         <member name="T:MISApi.Controllers.CMS.AuthorityController.TreeMode.Response">
             <summary>
             
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController">
+            <summary>
+            发卡
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Create_Single(MISApi.Entities.CMS.Card)">
+            <summary>
+            创建发卡
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Create_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
+            <summary>
+            创建发卡
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Card})">
+            <summary>
+            创建发卡并设置状态
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Create_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Card})">
+            <summary>
+            批量创建发卡并设置状态
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Create_Batch(MISApi.Controllers.CMS.CardController.DTO_Batch)">
+            <summary>
+            批量发卡
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Update_Single(MISApi.Entities.CMS.Card)">
+            <summary>
+            编辑一条发卡
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Update_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
+            <summary>
+            编辑多条发卡
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Update_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Card})">
+            <summary>
+            编辑并设置状态
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Update_BatchToStatus(MISApi.Controllers.HttpEntities.DTO_EntitiesToStatus{MISApi.Entities.CMS.Card})">
+            <summary>
+            批量编辑并设置状态
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Delete_Single(MISApi.Entities.CMS.Card)">
+            <summary>
+             删除一条发卡
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Delete_Multiple(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
+            <summary>
+            删除多条发卡
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Columns_Single">
+            <summary>
+            查询发卡的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询发卡
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询发卡
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询发卡
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询发卡
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询发卡
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询发卡
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Tree_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWordWithConfig{MISApi.Entities.CMS.Card})">
+            <summary>
+            模糊查询获得树型结构的发卡
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Tree_ById(MISApi.Controllers.HttpEntities.DTO_IdWithConfig{MISApi.Entities.CMS.Card})">
+            <summary>
+            根据Id查询获得树型结构的发卡
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Tree(MISApi.Controllers.CMS.CardController.TreeMode.Request)">
+            <summary>
+            树形结构的复杂查询
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Unauthorized_Columns_Single">
+            <summary>
+            查询发卡的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Unauthorized_Row_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询发卡
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Unauthorized_Row_ById_Id(System.Int32)">
+            <summary>
+            根据Id查询发卡
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Unauthorized_Rows_ByKeyWord(MISApi.Controllers.HttpEntities.DTO_KeyWord)">
+            <summary>
+            根据关键字模糊查询发卡
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Unauthorized_Rows_ByKeyWord_KeyWord(System.String)">
+            <summary>
+            根据关键字模糊查询发卡
+            </summary>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Unauthorized_Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
+            <summary>
+            根据Id查询发卡
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Unauthorized_Query_ByNavigationId(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            分页查询指定导航下的发卡
+            </summary>
+            <param name="navigationId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Unauthorized_Query_Page(MISApi.Controllers.HttpEntities.DTO_Page)">
+            <summary>
+            分页查询发卡
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.CreateMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.CreateMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.CreateMode.Request.ToResponse(MISApi.Entities.CMS.Card)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.CreateMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.CreateMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.UpdateMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.UpdateMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.UpdateMode.Request.ToResponse(MISApi.Entities.CMS.Card)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.UpdateMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.UpdateMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.DeleteMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.DeleteMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.DeleteMode.Request.ToResponse(MISApi.Entities.CMS.Card)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.DeleteMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.DeleteMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.ColumnsMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.ColumnsMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.ColumnsMode.Request.ToResponse(MISApi.Entities.CMS.Card)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.ColumnsMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.RowMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.RowMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.RowMode.Request.ToResponse(MISApi.Entities.CMS.Card)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.RowMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.RowsMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.RowsMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.RowsMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.RowsMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.SingleMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.SingleMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.SingleMode.Request.ToResponse(MISApi.Entities.CMS.Card)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.SingleMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.QueryMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.QueryMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.QueryMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.QueryMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.TreeMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.TreeMode.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.TreeMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
+            <summary>
+            
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.TreeMode.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.CardController.DTO_Batch">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.CardController.DTO_Batch.Entity">
+            <summary>
+            发卡信息
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.CardController.DTO_Batch.CardQuantity">
+            <summary>
+            发卡数量
             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CashOutController">
@@ -10484,6 +11024,11 @@
             评论
             </summary>
         </member>
+        <member name="P:MISApi.Dal.EF.PandoraContext.CMS_Card">
+            <summary>
+            发卡
+            </summary>
+        </member>
         <member name="T:MISApi.Entities.ASM.Dictionary">
             <summary>
             数据字典
@@ -11392,6 +11937,126 @@
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Authority.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:MISApi.Entities.CMS.Card">
+            <summary>
+            发卡
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.Id">
+            <summary>
+            唯一标识
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.CardNo">
+            <summary>
+            卡号
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.CardPrefix">
+            <summary>
+            卡前缀
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.CardPassword">
+            <summary>
+            卡密
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.CardDate">
+            <summary>
+            发卡日期
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.DaysLimit">
+            <summary>
+            有效期天数限制
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.IsDown">
+            <summary>
+            是否可下载
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.DownLimit">
+            <summary>
+            下载限制
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.IsUpload">
+            <summary>
+            是否可上传
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.UploadLimit">
+            <summary>
+            上传限制
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.IsBuy">
+            <summary>
+            是否可购买
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.BuyLimit">
+            <summary>
+            购买限制
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.IsActivate">
+            <summary>
+            是否激活
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.ActivateMemberId">
+            <summary>
+            激活会员Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.CreateDateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.CreateUserId">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.EditDateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.EditUserId">
+            <summary>
+            最后修改用户Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.StatusId">
+            <summary>
+            状态Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.StatusName">
+            <summary>
+            状态名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.StatusValue">
+            <summary>
+            状态数值
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Card.Status">
             <summary>
             状态
             </summary>
@@ -17510,6 +18175,259 @@
             
             </summary>
         </member>
+        <member name="T:MISApi.Services.CMS.Base.CardService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.CardService.CreateService">
+            <summary>
+            CreateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.Base.CardService.CreateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.CreateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.CreateService.Execute(MISApi.Entities.CMS.Card)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.CreateService.Execute(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.CardService.UpdateService">
+            <summary>
+            UpdateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.Base.CardService.UpdateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.UpdateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.UpdateService.Execute(MISApi.Entities.CMS.Card)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.UpdateService.Execute(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entityList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.CardService.DeleteService">
+            <summary>
+            DeleteService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.Base.CardService.DeleteService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.DeleteService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.DeleteService.Execute(MISApi.Entities.CMS.Card)">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.DeleteService.Execute(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
+            <summary>
+            默认的事务方法
+            </summary>
+            <param name="entitys"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.CardService.ColumnsService">
+            <summary>
+            ColumnsMode Service
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.ColumnsService.Single">
+            <summary>
+            返回字段集
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.CardService.RowService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.RowService.ById(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 id 查询
+            </summary>
+            <param name="id">Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.CardService.RowsService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.RowsService.ByKeyWord(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据关键字查询
+            </summary>
+            <param name="keyWord">关键字</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="page"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.RowsService.PageCount(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页计数
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.RowsService.PageSummary(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            分页汇总
+            </summary>
+            <param name="keyWord"></param>
+            <param name="joins"></param>
+            <param name="dates"></param>
+            <param name="sorts"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.SQLQueryable(MISApi.Dal.EF.PandoraContext,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            默认查询
+            </summary>
+            <param name="context"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.KeyWordQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.CardService.SQLEntity},System.String)">
+            <summary>
+            关键字
+            </summary>
+            <param name="queryable"></param>
+            <param name="keyWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.KeyWordExtQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.CardService.SQLEntity},System.String)">
+            <summary>
+            关键字扩展
+            </summary>
+            <param name="queryable"></param>
+            <param name="keyWordExt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.DateQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.CardService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Date[])">
+            <summary>
+            日期
+            </summary>
+            <param name="queryable"></param>
+            <param name="dates"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.StatusQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.CardService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Status)">
+            <summary>
+            状态
+            </summary>
+            <param name="queryable"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.SortQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.CardService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Sort[])">
+            <summary>
+            排序
+            </summary>
+            <param name="queryable"></param>
+            <param name="sorts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.PageQueryable(System.Linq.IQueryable{MISApi.Services.CMS.Base.CardService.SQLEntity},MISApi.HttpClients.HttpModes.BaseMode.Page)">
+            <summary>
+            分页
+            </summary>
+            <param name="queryable"></param>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.SQLEntityToSingle(MISApi.Services.CMS.Base.CardService.SQLEntity)">
+            <summary>
+            SQLEntity转换
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.SQLEntityToList(System.Collections.Generic.List{MISApi.Services.CMS.Base.CardService.SQLEntity})">
+            <summary>
+            SQLEntity转换
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.CardService.SQLEntity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.CardService.SQLEntity.Card">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.CardService.SQLEntity.Status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.Base.CardService.SummaryEntity">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:MISApi.Services.CMS.Base.CashOutService">
             <summary>
             
@@ -21157,6 +22075,109 @@
             
             </summary>
         </member>
+        <member name="T:MISApi.Services.CMS.CardService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.CardService.CreateService">
+            <summary>
+            CreateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.CardService.CreateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.CardService.CreateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.CardService.CreateService.ToStatus(MISApi.Entities.CMS.Card,System.String)">
+            <summary>
+            创建指定状态
+            </summary>
+            <param name="entity"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.CardService.CreateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Card},System.String)">
+            <summary>
+            批量创建指定状态
+            </summary>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.CardService.UpdateService">
+            <summary>
+            UpdateService
+            </summary>
+        </member>
+        <member name="F:MISApi.Services.CMS.CardService.UpdateService.transService">
+            <summary>
+            定义事务服务
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.CardService.UpdateService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.CardService.UpdateService.ToStatus(MISApi.Entities.CMS.Card,System.String)">
+            <summary>
+            编辑指定状态
+            </summary>
+            <param name="entity"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.CardService.UpdateService.BatchToStatus(System.Collections.Generic.List{MISApi.Entities.CMS.Card},System.String)">
+            <summary>
+            批量编辑指定状态
+            </summary>
+            <param name="entities"></param>
+            <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.CardService.UpdateService.Activate(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="cardId"></param>
+            <param name="memberId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.CardService.DeleteService">
+            <summary>
+            DeleteService
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.CardService.ColumnsService">
+            <summary>
+            ColumnsMode Service
+            </summary>
+        </member>
+        <member name="T:MISApi.Services.CMS.CardService.RowService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.CardService.RowService.Verify(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="cardNo"></param>
+            <param name="cardPassword"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Services.CMS.CardService.RowsService">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:MISApi.Services.CMS.CashOutService">
             <summary>
             
@@ -22268,6 +23289,20 @@
             <param name="arrs"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.ExtensionService.ConvertDateTimeToInt(System.DateTime)">
+            <summary>
+            转换Unix时间戳
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.ExtensionService.ConvertStringToDateTime(System.String)">
+            <summary>        
+            时间戳转为C#格式时间        
+            </summary>        
+            <param name="timeStamp"></param>        
+            <returns></returns>        
+        </member>
         <member name="M:MISApi.Services.ExtensionService.MergeFrom``1(``0,``0)">
             <summary>
              将Request传入的Entity与原始Entity进行比较并合并
@@ -22904,6 +23939,25 @@
             </summary>
             <param name="key"></param>
             <returns></returns>
+        </member>
+        <member name="T:MISApi.Tools.ConvertHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Tools.ConvertHelper.DateTimeToInt(System.DateTime)">
+            <summary>
+            转换Unix时间戳
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.ConvertHelper.StringToDateTime(System.String)">
+            <summary>        
+            时间戳转为C#格式时间        
+            </summary>        
+            <param name="timeStamp"></param>        
+            <returns></returns>        
         </member>
         <member name="T:MISApi.Tools.EncryptHelper">
             <summary>

@@ -92,6 +92,11 @@ namespace MISApi.Dal.EF
             {
                 try
                 {
+                    PropertyInfo p = entity.GetType().GetProperty("Id");
+                    if (p != null)
+                    {
+                        p.SetValue(entity, 0);
+                    }
                     DbSetEntity(context).Add(entity);
                     context.SaveChanges();
                     return entity;

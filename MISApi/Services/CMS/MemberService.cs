@@ -260,12 +260,12 @@ namespace MISApi.Services.CMS
                             MemberPower memberPower = new MemberPowerService.RowService().ById(memberPowerId);
                             if(memberPower != null)
                             {
-                                member.BuyCount += memberPower.BuyLimit;
-                                member.ReBuyCount += memberPower.BuyLimit;
-                                member.DownCount += memberPower.DownLimit;
-                                member.ReDownCount += memberPower.DownLimit;
-                                member.UploadCount += memberPower.UploadLimit;
-                                member.ReUploadCount += memberPower.UploadLimit;
+                                member.BuyCount = memberPower.BuyLimit == -1? -1: member.BuyCount + memberPower.BuyLimit;
+                                member.ReBuyCount = memberPower.BuyLimit == -1 ? -1 : member.ReBuyCount + memberPower.BuyLimit;
+                                member.DownCount = memberPower.DownLimit == -1 ? -1 : member.DownCount + memberPower.DownLimit;
+                                member.ReDownCount = memberPower.DownLimit == -1 ? -1 : member.ReDownCount + memberPower.DownLimit;
+                                member.UploadCount = memberPower.UploadLimit == -1 ? -1 : member.UploadCount + memberPower.UploadLimit;
+                                member.ReUploadCount = memberPower.UploadLimit == -1 ? -1 : member.ReUploadCount + memberPower.UploadLimit;
                                 member.LevelDeadline = member.LevelDeadline.AddDays(memberPower.DaysLimit);
                                 new MemberService.UpdateService().Execute(member);
                             }
@@ -303,12 +303,12 @@ namespace MISApi.Services.CMS
                             MemberPower memberPower = new MemberPowerService.RowService().ById(memberPowerId);
                             if (memberPower != null)
                             {
-                                member.BuyCount -= memberPower.BuyLimit;
-                                member.ReBuyCount -= memberPower.BuyLimit;
-                                member.DownCount -= memberPower.DownLimit;
-                                member.ReDownCount -= memberPower.DownLimit;
-                                member.UploadCount -= memberPower.UploadLimit;
-                                member.ReUploadCount -= memberPower.UploadLimit;
+                                member.BuyCount = memberPower.BuyLimit == -1? -1: member.BuyCount - memberPower.BuyLimit;
+                                member.ReBuyCount = memberPower.BuyLimit == -1 ? -1 : member.ReBuyCount - memberPower.BuyLimit;
+                                member.DownCount = memberPower.DownLimit == -1 ? -1 : member.DownCount - memberPower.DownLimit;
+                                member.ReDownCount = memberPower.DownLimit == -1 ? -1 : member.ReDownCount - memberPower.DownLimit;
+                                member.UploadCount = memberPower.UploadLimit == -1 ? -1 : member.UploadCount - memberPower.UploadLimit;
+                                member.ReUploadCount = memberPower.UploadLimit == -1 ? -1 : member.ReUploadCount - memberPower.UploadLimit;
                                 member.LevelDeadline = member.LevelDeadline.AddDays(-1*memberPower.DaysLimit);
                                 new MemberService.UpdateService().Execute(member);
                             }

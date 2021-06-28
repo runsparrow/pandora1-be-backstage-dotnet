@@ -242,6 +242,69 @@ namespace MISApi.Controllers.CMS
                 });
             }
         }
+        /// <summary>
+        /// 验证发卡是否有效
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Auth/VerifyCard", Name = "MIS_CMS_Auth_VerifyCard")]
+        [HttpPost]
+        public IActionResult VerifyCard(DTO_Card dto)
+        {
+            var card = new CardService.RowService().Verify(dto.CardNo, dto.CardPassword);
+            if (card != null)
+            {
+                return new JsonResult(new DTO_Result_Card
+                {
+                    Result = true,
+                    Card = new DTO_Card{ CardNo = card.CardNo, CardPassword = card.CardPassword},
+                    Message = "发现未激活的卡号，验证有效！"
+                });
+            }
+            else
+            {
+                return new JsonResult(new DTO_Result_Member
+                {
+                    Result = false,
+                    Token = "",
+                    Member = null,
+                    Message = "未找到有效卡号！"
+                });
+            }
+        }
+        /// <summary>
+        /// 激活卡号绑定会员账户
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Auth/ActivateCard", Name = "MIS_CMS_Auth_ActivateCard")]
+        [HttpPost]
+        public IActionResult ActivateCard(DTO_ActivateCard dto)
+        {
+            var card = new CardService.RowService().Verify(dto.CardNo, dto.CardPassword);
+            var member = new MemberService.RowService().Verify(dto.MemberName, dto.MemberPassword);
+            if (card != null && member != null)
+            {
+                new CardService.UpdateService().Activate(card.Id, member.Id);
+                return new JsonResult(new DTO_Result_Card
+                {
+                    Result = true,
+                    Card = new DTO_Card { CardNo = card.CardNo, CardPassword = card.CardPassword },
+                    Message = "激活成功！"
+                });
+            }
+            else
+            {
+                return new JsonResult(new DTO_Result_Member
+                {
+                    Result = false,
+                    Token = "",
+                    Member = null,
+                    Message = "激活失败，未发现有效卡号或未绑定有效会员！"
+                });
+            }
+        }
+        
         #endregion
 
         #region HttpEntities
@@ -337,6 +400,73 @@ namespace MISApi.Controllers.CMS
             [Description("会员")]
             [JsonProperty("member")]
             public Member Member { get; set; }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public class DTO_Result_Card : DTO_Result
+        {
+            /// <summary>
+            /// 卡
+            /// </summary>
+            [Description("卡")]
+            [JsonProperty("card")]
+            public DTO_Card Card { get; set; } = new DTO_Card();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public class DTO_Card
+        {
+            /// <summary>
+            /// 卡号
+            /// </summary>
+            [Description("卡号")]
+            [JsonProperty("cardNo")]
+            [DefaultValue("")]
+            public string CardNo { get; set; } = "";
+            /// <summary>
+            /// 卡密
+            /// </summary>
+            [Description("卡密")]
+            [JsonProperty("cardPassword")]
+            [DefaultValue("")]
+            public string CardPassword { get; set; } = "";
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public class DTO_ActivateCard
+        {
+            /// <summary>
+            /// 卡号
+            /// </summary>
+            [Description("卡号")]
+            [JsonProperty("cardNo")]
+            [DefaultValue("")]
+            public string CardNo { get; set; } = "";
+            /// <summary>
+            /// 卡密
+            /// </summary>
+            [Description("卡密")]
+            [JsonProperty("cardPassword")]
+            [DefaultValue("")]
+            public string CardPassword { get; set; } = "";
+            /// <summary>
+            /// 会员名
+            /// </summary>
+            [Description("会员名")]
+            [JsonProperty("memberName")]
+            [DefaultValue("")]
+            public string MemberName { get; set; } = "";
+            /// <summary>
+            /// 会员密码
+            /// </summary>
+            [Description("会员密码")]
+            [JsonProperty("memberPassword")]
+            [DefaultValue("")]
+            public string MemberPassword { get; set; } = "";
         }
         /// <summary>
         /// 

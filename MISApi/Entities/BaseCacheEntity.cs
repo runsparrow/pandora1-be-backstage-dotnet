@@ -1,5 +1,6 @@
 ﻿using CacheManager.Core;
 using CacheManager.Serialization.Json;
+using MISApi.Tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -44,9 +45,9 @@ namespace MISApi.Entities
                         .WithRedisConfiguration("redis", config =>
                         {
                             config.WithAllowAdmin()
-                                .WithDatabase(1)
-                                .WithEndpoint("8.133.164.41", 6389)
-                                .WithPassword("redis1234567890");
+                                .WithDatabase(int.Parse(ConfigurationHelper.GetRedisConnectionString("CacheManagerDBIndex")))
+                                .WithEndpoint(ConfigurationHelper.GetRedisConnectionString("CacheManagerHost"), int.Parse(ConfigurationHelper.GetRedisConnectionString("CacheManagerPort")))
+                                .WithPassword(ConfigurationHelper.GetRedisConnectionString("CacheManagerPassword"));
                         })
                         .WithMaxRetries(1000)
                         .WithRetryTimeout(100)

@@ -118,6 +118,10 @@ namespace MISApi.Dal.EF
         /// 评论
         /// </summary>
         public virtual DbSet<Entities.CMS.Discuss> CMS_Discuss { get; set; }
+        /// <summary>
+        /// 发卡
+        /// </summary>
+        public virtual DbSet<Entities.CMS.Card> CMS_Card { get; set; }
 
         #endregion
     }

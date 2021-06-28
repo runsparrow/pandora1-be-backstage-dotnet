@@ -1,25 +1,25 @@
 ﻿using MISApi.Dal.EF;
-using MISApi.Entities.ASM;
-using MISApi.Entities.CMS;
+using BaseMode = MISApi.HttpClients.HttpModes.BaseMode;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using BaseMode = MISApi.HttpClients.HttpModes.BaseMode;
+using MISApi.Entities.CMS;
+using MISApi.Entities.WFM;
 
 namespace MISApi.Services.CMS.Base
 {
     /// <summary>
     /// 
     /// </summary>
-    public class MemberPowerService : BaseService.EF<MemberPower, PandoraContext>
+    public class CardService : BaseService.EF<Card, PandoraContext>
     {
 
         #region CreateService
         /// <summary>
         /// CreateService
         /// </summary>
-        public class CreateService : MemberPowerService
+        public class CreateService : CardService
         {
             /// <summary>
             /// 定义事务服务
@@ -37,12 +37,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public MemberPower Execute(MemberPower entity)
+            public Card Execute(Card entity)
             {
                 try
                 {
                     // 定义
-                    MemberPower result = new MemberPower();
+                    Card result = new Card();
                     // 事务
                     transService.TransRegist(delegate {
                         result = base.Create(entity);
@@ -54,7 +54,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.CreateService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.CardService.CreateService.Execute", ex);
                 }
             }
             /// <summary>
@@ -62,12 +62,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entityList"></param>
             /// <returns></returns>
-            public List<MemberPower> Execute(List<MemberPower> entityList)
+            public List<Card> Execute(List<Card> entityList)
             {
                 try
                 {
                     // 定义
-                    List<MemberPower> resultList = new List<MemberPower>();
+                    List<Card> resultList = new List<Card>();
                     // 事务
                     transService.TransRegist(delegate {
                         // 遍历
@@ -85,7 +85,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.CreateService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.CardService.CreateService.Execute", ex);
                 }
             }
 
@@ -97,7 +97,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// UpdateService
         /// </summary>
-        public class UpdateService : MemberPowerService
+        public class UpdateService : CardService
         {
             /// <summary>
             /// 定义事务服务
@@ -115,12 +115,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public MemberPower Execute(MemberPower entity)
+            public Card Execute(Card entity)
             {
                 try
                 {
                     // 定义
-                    MemberPower result = new MemberPower();
+                    Card result = new Card();
                     // 事务
                     transService.TransRegist(delegate {
                         result = base.Update(entity);
@@ -132,7 +132,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.UpdateService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.CardService.UpdateService.Execute", ex);
                 }
             }
             /// <summary>
@@ -140,12 +140,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entityList"></param>
             /// <returns></returns>
-            public List<MemberPower> Execute(List<MemberPower> entityList)
+            public List<Card> Execute(List<Card> entityList)
             {
                 try
                 {
                     // 定义
-                    List<MemberPower> resultList = new List<MemberPower>();
+                    List<Card> resultList = new List<Card>();
                     // 事务
                     transService.TransRegist(delegate
                     {
@@ -163,7 +163,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.UpdateService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.CardService.UpdateService.Execute", ex);
                 }
             }
         }
@@ -173,7 +173,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// DeleteService
         /// </summary>
-        public class DeleteService : MemberPowerService
+        public class DeleteService : CardService
         {
             /// <summary>
             /// 定义事务服务
@@ -191,12 +191,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entity"></param>
             /// <returns></returns>
-            public MemberPower Execute(MemberPower entity)
+            public Card Execute(Card entity)
             {
                 try
                 {
                     // 定义
-                    MemberPower result = new MemberPower();
+                    Card result = new Card();
                     // 事务
                     transService.TransRegist(delegate {
                         result = base.Delete(entity);
@@ -208,7 +208,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.DeleteService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.CardService.DeleteService.Execute", ex);
                 }
             }
             /// <summary>
@@ -216,12 +216,12 @@ namespace MISApi.Services.CMS.Base
             /// </summary>
             /// <param name="entitys"></param>
             /// <returns></returns>
-            public List<MemberPower> Execute(List<MemberPower> entitys)
+            public List<Card> Execute(List<Card> entitys)
             {
                 try
                 {
                     // 定义
-                    List<MemberPower> resultList = new List<MemberPower>();
+                    List<Card> resultList = new List<Card>();
                     // 事务
                     transService.TransRegist(delegate {
                         entitys.ForEach(entity =>
@@ -238,7 +238,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.DeleteService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.CardService.DeleteService.Execute", ex);
                 }
             }
         }
@@ -248,21 +248,21 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// ColumnsMode Service
         /// </summary>
-        public class ColumnsService : MemberPowerService
+        public class ColumnsService : CardService
         {
             /// <summary>
             /// 返回字段集
             /// </summary>
             /// <returns></returns>
-            public MemberPower Single()
+            public Card Single()
             {
                 try
                 {
-                    return new MemberPower();
+                    return new Card();
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.ColumnsService.Execute", ex);
+                    throw new Exception("MISApi.Services.CMS.Base.CardService.ColumnsService.Execute", ex);
                 }
             }
         }
@@ -274,7 +274,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// 
         /// </summary>
-        public class RowService : MemberPowerService
+        public class RowService : CardService
         {
             /// <summary>
             /// 根据 id 查询
@@ -282,7 +282,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="id">Id</param>
             /// <param name="joins">关联表</param>
             /// <returns></returns>
-            public MemberPower ById(int id, params BaseMode.Join[] joins)
+            public Card ById(int id, params BaseMode.Join[] joins)
             {
                 using (PandoraContext context = new PandoraContext())
                 {
@@ -290,13 +290,13 @@ namespace MISApi.Services.CMS.Base
                     {
                         return SQLEntityToSingle(
                             SQLQueryable(context, joins)
-                                .Where(row => row.MemberPower.Id == id)
+                                .Where(row => row.Card.Id == id)
                                 .SingleOrDefault()
                         );
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.RowService.ById", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.CardService.RowService.ById", ex);
                     }
                 }
             }
@@ -309,7 +309,7 @@ namespace MISApi.Services.CMS.Base
         /// <summary>
         /// 
         /// </summary>
-        public class RowsService : MemberPowerService
+        public class RowsService : CardService
         {
             /// <summary>
             /// 根据关键字查询
@@ -317,7 +317,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="keyWord">关键字</param>
             /// <param name="joins">关联表</param>
             /// <returns></returns>
-            public List<MemberPower> ByKeyWord(BaseMode.KeyWord keyWord, params BaseMode.Join[] joins)
+            public List<Card> ByKeyWord(BaseMode.KeyWord keyWord, params BaseMode.Join[] joins)
             {
                 try
                 {
@@ -325,31 +325,7 @@ namespace MISApi.Services.CMS.Base
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.RowsService.ByKeyWord", ex);
-                }
-            }
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="classifyId"></param>
-            /// <param name="joins"></param>
-            /// <returns></returns>
-            public List<MemberPower> ByClassifyId(int classifyId, params BaseMode.Join[] joins)
-            {
-                using (PandoraContext context = new PandoraContext())
-                {
-                    try
-                    {
-                        return SQLEntityToList(
-                            SQLQueryable(context, joins)
-                                .Where(row => row.MemberPower.ClassifyId == classifyId)
-                                .ToList()
-                        );
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.RowsService.ByClassifyId", ex);
-                    }
+                    throw new Exception("MISApi.Services.CMS.Base.CardService.RowsService.ByKeyWord", ex);
                 }
             }
             /// <summary>
@@ -362,7 +338,7 @@ namespace MISApi.Services.CMS.Base
             /// <param name="sorts"></param>
             /// <param name="status"></param>
             /// <returns></returns>
-            public List<MemberPower> Page(BaseMode.KeyWord keyWord, BaseMode.Join[] joins, BaseMode.Page page, BaseMode.Date[] dates, BaseMode.Sort[] sorts, BaseMode.Status status)
+            public List<Card> Page(BaseMode.KeyWord keyWord, BaseMode.Join[] joins, BaseMode.Page page, BaseMode.Date[] dates, BaseMode.Sort[] sorts, BaseMode.Status status)
             {
                 using (PandoraContext context = new PandoraContext())
                 {
@@ -389,7 +365,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.RowsService.Page", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.CardService.RowsService.Page", ex);
                     }
                 }
             }
@@ -425,7 +401,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.RowsService.PageCount", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.CardService.RowsService.PageCount", ex);
                     }
                 }
             }
@@ -449,7 +425,7 @@ namespace MISApi.Services.CMS.Base
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.RowsService.PageSummary", ex);
+                        throw new Exception("MISApi.Services.CMS.Base.CardService.RowsService.PageSummary", ex);
                     }
                 }
             }
@@ -470,19 +446,28 @@ namespace MISApi.Services.CMS.Base
             try
             {
                 // 定义
-                var left = context.CMS_MemberPower.Select(Main => new SQLEntity
+                var left = context.CMS_Card.Select(Main => new SQLEntity
                 {
-                    MemberPower = Main
+                    Card = Main
                 });
                 // 遍历
                 foreach (var join in joins)
                 {
-
+                    // SQLEntity.Status
+                    if (join.Name.ToLower().Equals("status"))
+                    {
+                        left = left.LeftOuterJoin(context.WFM_Status, Main => Main.Card.StatusId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Card = Main.Card,
+                            Status = Left
+                        });
+                    }
                 }
                 // 一对多
                 var group = left.Select(Main => new SQLEntity
                 {
-                    MemberPower = Main.MemberPower
+                    Card = Main.Card,
+                    Status = Main.Status
                 });
                 // 遍历
                 foreach (var join in joins)
@@ -492,9 +477,9 @@ namespace MISApi.Services.CMS.Base
                 // 返回
                 return group;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.SQLQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.CardService.SQLQueryable", ex);
             }
         }
         /// <summary>
@@ -518,20 +503,26 @@ namespace MISApi.Services.CMS.Base
                     {
                         var andKeyWord = ands[i];
                         queryable = queryable.Where(row =>
-                                row.MemberPower.ClassifyName.Contains(andKeyWord)
+                                row.Card.CardNo.Contains(andKeyWord) ||
+                                row.Card.Remark.Contains(andKeyWord) ||
+                                row.Card.StatusName.Contains(andKeyWord)
                             );
                     }
                 }
                 else if (ors.Length > 1)
                 {
                     queryable = queryable.Where(row =>
-                            ors.Contains(row.MemberPower.ClassifyName)
+                            ors.Contains(row.Card.CardNo) ||
+                            ors.Contains(row.Card.Remark) ||
+                            ors.Contains(row.Card.StatusName)
                         );
                 }
                 else
                 {
                     queryable = queryable.Where(row =>
-                            row.MemberPower.ClassifyName.Contains(keyWord)
+                            row.Card.CardNo.Contains(keyWord) ||
+                            row.Card.Remark.Contains(keyWord) ||
+                            row.Card.StatusName.Contains(keyWord)
                         );
                 }
                 // 返回
@@ -539,7 +530,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.KeyWordQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.CardService.KeyWordQueryable", ex);
             }
         }
         /// <summary>
@@ -559,49 +550,54 @@ namespace MISApi.Services.CMS.Base
                 {
                     try
                     {
-                        if (splits[i].ToLower().Contains("classifyid"))
+                        if (splits[i].ToLower().Contains("isactivate"))
                         {
-                            int classifyId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                            queryable = queryable.Where(row => row.MemberPower.ClassifyId == classifyId);
+                            bool isActivate = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Card.IsActivate == isActivate);
                         }
                         if (splits[i].ToLower().Contains("isdown"))
                         {
                             bool isDown = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                            queryable = queryable.Where(row => row.MemberPower.IsDown == isDown);
+                            queryable = queryable.Where(row => row.Card.IsDown == isDown);
                         }
                         if (splits[i].ToLower().Contains("isupload"))
                         {
                             bool isUpload = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                            queryable = queryable.Where(row => row.MemberPower.IsUpload == isUpload);
+                            queryable = queryable.Where(row => row.Card.IsUpload == isUpload);
                         }
                         if (splits[i].ToLower().Contains("isbuy"))
                         {
                             bool isBuy = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
-                            queryable = queryable.Where(row => row.MemberPower.IsBuy == isBuy);
+                            queryable = queryable.Where(row => row.Card.IsBuy == isBuy);
                         }
                         if (splits[i].ToLower().Contains("dayslimit"))
                         {
                             decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
                             decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                            queryable = queryable.Where(row => row.MemberPower.DaysLimit >= min && row.MemberPower.DaysLimit <= max);
+                            queryable = queryable.Where(row => row.Card.DaysLimit >= min && row.Card.DaysLimit <= max);
                         }
                         if (splits[i].ToLower().Contains("downlimit"))
                         {
                             decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
                             decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                            queryable = queryable.Where(row => row.MemberPower.DownLimit >= min && row.MemberPower.DownLimit <= max);
+                            queryable = queryable.Where(row => row.Card.DownLimit >= min && row.Card.DownLimit <= max);
                         }
                         if (splits[i].ToLower().Contains("uploadlimit"))
                         {
                             decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
                             decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                            queryable = queryable.Where(row => row.MemberPower.UploadLimit >= min && row.MemberPower.UploadLimit <= max);
+                            queryable = queryable.Where(row => row.Card.UploadLimit >= min && row.Card.UploadLimit <= max);
                         }
                         if (splits[i].ToLower().Contains("buylimit"))
                         {
                             decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
                             decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                            queryable = queryable.Where(row => row.MemberPower.BuyLimit >= min && row.MemberPower.BuyLimit <= max);
+                            queryable = queryable.Where(row => row.Card.BuyLimit >= min && row.Card.BuyLimit <= max);
+                        }
+                        if (splits[i].ToLower().Contains("statusid"))
+                        {
+                            int statusId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Card.StatusId == statusId);
                         }
                     }
                     catch
@@ -613,7 +609,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.KeyWordExtQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.CardService.KeyWordExtQueryable", ex);
             }
         }
         /// <summary>
@@ -628,13 +624,36 @@ namespace MISApi.Services.CMS.Base
             {
                 if (dates != null)
                 {
-
+                    dates.ToList().ForEach(date =>
+                    {
+                        if (date.Name.ToLower().Equals("publishdatetime"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.Card.CardDate >= date.MinDate && row.Card.CardDate <= date.MaxDate
+                                );
+                        }
+                        if (date.Name.ToLower().Equals("createdatetime"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.Card.CreateDateTime >= date.MinDate && row.Card.CreateDateTime <= date.MaxDate
+                                );
+                        }
+                        if (date.Name.ToLower().Equals("editdatetime"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.Card.EditDateTime >= date.MinDate && row.Card.EditDateTime <= date.MaxDate
+                                );
+                        }
+                    });
                 }
                 return queryable;
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.DateQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.CardService.DateQueryable", ex);
             }
         }
         /// <summary>
@@ -647,11 +666,15 @@ namespace MISApi.Services.CMS.Base
         {
             try
             {
+                if (status != null && status.Values.Count() > 0)
+                {
+                    return queryable.Where(row => status.Values.Contains(row.Card.StatusValue));
+                }
                 return queryable;
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.StatusQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.CardService.StatusQueryable", ex);
             }
         }
         /// <summary>
@@ -686,7 +709,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.SortQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.CardService.SortQueryable", ex);
             }
         }
         /// <summary>
@@ -709,7 +732,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.PageQueryable", ex);
+                throw new Exception("MISApi.Services.CMS.Base.CardService.PageQueryable", ex);
             }
         }
         /// <summary>
@@ -717,7 +740,7 @@ namespace MISApi.Services.CMS.Base
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        protected MemberPower SQLEntityToSingle(SQLEntity entity)
+        protected Card SQLEntityToSingle(SQLEntity entity)
         {
             try
             {
@@ -725,15 +748,15 @@ namespace MISApi.Services.CMS.Base
                 if (entity == null)
                     return null;
                 // 主表
-                MemberPower memberPowerEntity = entity.MemberPower;
-                // 类别
-                memberPowerEntity.Classify = entity.Classify ?? null;
+                Card cardEntity = entity.Card;
+                // 状态
+                cardEntity.Status = entity.Status ?? null;
                 // 返回
-                return memberPowerEntity;
+                return cardEntity;
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.SQLEntityToSingle", ex);
+                throw new Exception("MISApi.Services.CMS.Base.CardService.SQLEntityToSingle", ex);
             }
         }
         /// <summary>
@@ -741,7 +764,7 @@ namespace MISApi.Services.CMS.Base
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        protected List<MemberPower> SQLEntityToList(List<SQLEntity> list)
+        protected List<Card> SQLEntityToList(List<SQLEntity> list)
         {
             try
             {
@@ -749,7 +772,7 @@ namespace MISApi.Services.CMS.Base
             }
             catch (Exception ex)
             {
-                throw new Exception("MISApi.Services.CMS.Base.MemberPowerService.SQLEntityToList", ex);
+                throw new Exception("MISApi.Services.CMS.Base.CardService.SQLEntityToList", ex);
             }
         }
 
@@ -764,11 +787,11 @@ namespace MISApi.Services.CMS.Base
             /// <summary>
             /// 
             /// </summary>
-            public MemberPower MemberPower { get; set; }
+            public Card Card { get; set; }
             /// <summary>
             /// 
             /// </summary>
-            public Dictionary Classify { get; set; }
+            public Status Status { get; set; }
         }
         /// <summary>
         /// 

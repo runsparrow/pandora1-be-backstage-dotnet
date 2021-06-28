@@ -101,6 +101,7 @@ namespace MISApi.Controllers.AVM
                 // Entity
                 if (dto.Entity != null)
                 {
+                    dto.Entity.Password = EncryptHelper.GetBase64String(dto.Entity.Password);
                     dto.Entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
                     dto.Entity.CreateDateTime = DateTime.Now;
                     dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -134,6 +135,7 @@ namespace MISApi.Controllers.AVM
                 if (dto.Entities != null)
                 {
                     dto.Entities.ForEach(entity => {
+                        entity.Password = EncryptHelper.GetBase64String(entity.Password);
                         entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
                         entity.CreateDateTime = DateTime.Now;
                         entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;

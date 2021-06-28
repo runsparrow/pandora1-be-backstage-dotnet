@@ -501,12 +501,47 @@ namespace MISApi.Services.CMS.Base
                 // 遍历
                 foreach (var join in joins)
                 {
-
+                    // SQLEntity.Member
+                    if (join.Name.ToLower().Equals("member"))
+                    {
+                        left = left.LeftOuterJoin(context.CMS_Member, Main => Main.Down.MemberId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Down = Main.Down,
+                            Member = Left,
+                            Goods = Main.Goods,
+                            Owner = Main.Owner
+                        });
+                    }
+                    // SQLEntity.Goods
+                    if (join.Name.ToLower().Equals("goods"))
+                    {
+                        left = left.LeftOuterJoin(context.CMS_Goods, Main => Main.Down.GoodsId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Down = Main.Down,
+                            Member = Main.Member,
+                            Goods = Left,
+                            Owner = Main.Owner
+                        });
+                    }
+                    // SQLEntity.Owner
+                    if (join.Name.ToLower().Equals("owner"))
+                    {
+                        left = left.LeftOuterJoin(context.CMS_Member, Main => Main.Down.MemberId, Left => Left.Id, (Main, Left) => new SQLEntity
+                        {
+                            Down = Main.Down,
+                            Member = Main.Member,
+                            Goods = Main.Goods,
+                            Owner = Left
+                        });
+                    }
                 }
                 // 一对多
                 var group = left.Select(Main => new SQLEntity
                 {
-                    Down = Main.Down
+                    Down = Main.Down,
+                    Member = Main.Member,
+                    Goods = Main.Goods,
+                    Owner = Main.Owner
                 });
                 // 遍历
                 foreach (var join in joins)
@@ -595,6 +630,11 @@ namespace MISApi.Services.CMS.Base
                         {
                             int goodsId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                             queryable = queryable.Where(row => row.Down.GoodsId == goodsId);
+                        }
+                        if (splits[i].ToLower().Contains("ownerid"))
+                        {
+                            int ownerId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Down.OwnerId == ownerId);
                         }
                     }
                     catch
@@ -723,6 +763,8 @@ namespace MISApi.Services.CMS.Base
                 downEntity.Member = entity.Member ?? null;
                 // 商品
                 downEntity.Goods = entity.Goods ?? null;
+                // 作者
+                downEntity.Owner = entity.Owner ?? null;
                 // 返回
                 return downEntity;
             }
@@ -757,17 +799,21 @@ namespace MISApi.Services.CMS.Base
         protected class SQLEntity
         {
             /// <summary>
-            /// 
+            /// 下载记录
             /// </summary>
             public Down Down { get; set; }
             /// <summary>
-            /// 
+            /// 下载人
             /// </summary>
             public Member Member { get; set; }
             /// <summary>
-            /// 
+            /// 作品
             /// </summary>
             public Goods Goods { get; set; }
+            /// <summary>
+            /// 作者
+            /// </summary>
+            public Member Owner { get; set; }
         }
         /// <summary>
         /// 

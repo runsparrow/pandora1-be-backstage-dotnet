@@ -315,6 +315,8 @@ namespace MISApi.Services.CMS
                         GoodsName = entity.Goods.Name,
                         MemberId = entity.Member.Id,
                         MemberName = entity.Member.Name,
+                        OwnerId = entity.Goods.OwnerId,
+                        OwnerName = entity.Goods.OwnerName,
                         DownResult = true
                     });
                     // 修改商品下载次数

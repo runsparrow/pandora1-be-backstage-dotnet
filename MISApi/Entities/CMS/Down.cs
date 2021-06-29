@@ -62,6 +62,21 @@ namespace MISApi.Entities.CMS
         [DefaultValue("")]
         public string GoodsUrl { get; set; } = "";
         /// <summary>
+        /// 作者Id
+        /// </summary>
+        [Description("作者Id")]
+        [JsonProperty("ownerId")]
+        [DefaultValue(-1)]
+        public int OwnerId { get; set; } = -1;
+        /// <summary>
+        /// 作者姓名
+        /// </summary>
+        [StringLength(255)]
+        [Description("作者姓名")]
+        [JsonProperty("ownerName")]
+        [DefaultValue("")]
+        public string OwnerName { get; set; } = "";
+        /// <summary>
         /// 下载时间
         /// </summary>
         [Description("下载时间")]
@@ -120,6 +135,13 @@ namespace MISApi.Entities.CMS
         [JsonProperty("goods")]
         [NotMapped]
         public Goods Goods { get; set; }
+        /// <summary>
+        /// 作者
+        /// </summary>
+        [Description("作者")]
+        [JsonProperty("owner")]
+        [NotMapped]
+        public Member Owner { get; set; }
         #endregion
     }
 }

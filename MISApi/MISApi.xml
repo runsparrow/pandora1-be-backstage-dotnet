@@ -12421,6 +12421,16 @@
             商品路径
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Down.OwnerId">
+            <summary>
+            作者Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Down.OwnerName">
+            <summary>
+            作者姓名
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Down.DownDateTime">
             <summary>
             下载时间
@@ -12459,6 +12469,11 @@
         <member name="P:MISApi.Entities.CMS.Down.Goods">
             <summary>
             商品
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Down.Owner">
+            <summary>
+            作者
             </summary>
         </member>
         <member name="T:MISApi.Entities.CMS.File">
@@ -19537,17 +19552,22 @@
         </member>
         <member name="P:MISApi.Services.CMS.Base.DownService.SQLEntity.Down">
             <summary>
-            
+            下载记录
             </summary>
         </member>
         <member name="P:MISApi.Services.CMS.Base.DownService.SQLEntity.Member">
             <summary>
-            
+            下载人
             </summary>
         </member>
         <member name="P:MISApi.Services.CMS.Base.DownService.SQLEntity.Goods">
             <summary>
-            
+            作品
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.DownService.SQLEntity.Owner">
+            <summary>
+            作者
             </summary>
         </member>
         <member name="T:MISApi.Services.CMS.Base.DownService.SummaryEntity">
@@ -23958,6 +23978,27 @@
             </summary>        
             <param name="timeStamp"></param>        
             <returns></returns>        
+        </member>
+        <member name="M:MISApi.Tools.ConvertHelper.StringToInt(System.String)">
+            <summary>
+            字符转数字
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.ConvertHelper.ObjectToString(System.Object)">
+            <summary>
+            对象转字符
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.ConvertHelper.ObjectToInt(System.Object)">
+            <summary>
+            对象转数字
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
         </member>
         <member name="T:MISApi.Tools.EncryptHelper">
             <summary>

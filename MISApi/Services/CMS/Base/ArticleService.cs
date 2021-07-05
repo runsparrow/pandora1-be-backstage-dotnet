@@ -538,6 +538,7 @@ namespace MISApi.Services.CMS.Base
                         var andKeyWord = ands[i];
                         queryable = queryable.Where(row =>
                                 row.Article.NavigationName.Contains(andKeyWord) ||
+                                row.Article.Tags.Contains(andKeyWord) ||
                                 row.Article.Title.Contains(andKeyWord) ||
                                 row.Article.Content.Contains(andKeyWord) ||
                                 row.Article.Publisher.Contains(andKeyWord) ||
@@ -553,6 +554,7 @@ namespace MISApi.Services.CMS.Base
                 {
                     queryable = queryable.Where(row =>
                             ors.Contains(row.Article.NavigationName) ||
+                            ors.Contains(row.Article.Tags) ||
                             ors.Contains(row.Article.Title) ||
                             ors.Contains(row.Article.Content) ||
                             ors.Contains(row.Article.Publisher) ||
@@ -567,6 +569,7 @@ namespace MISApi.Services.CMS.Base
                 {
                     queryable = queryable.Where(row =>
                             row.Article.NavigationName.Contains(keyWord) ||
+                            row.Article.Tags.Contains(keyWord) ||
                             row.Article.Title.Contains(keyWord) ||
                             row.Article.Content.Contains(keyWord) ||
                             row.Article.Publisher.Contains(keyWord) ||

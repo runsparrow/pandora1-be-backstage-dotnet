@@ -552,6 +552,7 @@ namespace MISApi.Services.CMS.Base
                         var andKeyWord = ands[i];
                         queryable = queryable.Where(row =>
                             row.Goods.Name.Contains(andKeyWord) ||
+                            row.Goods.Tags.Contains(andKeyWord) ||
                             row.Goods.Desc.Contains(andKeyWord) ||
                             row.Goods.AuthDesc.Contains(andKeyWord) ||
                             row.Goods.Ext.Contains(andKeyWord) ||
@@ -569,6 +570,7 @@ namespace MISApi.Services.CMS.Base
                 {
                     queryable = queryable.Where(row =>
                             ors.Contains(row.Goods.Name) ||
+                            ors.Contains(row.Goods.Tags) ||
                             ors.Contains(row.Goods.Desc) ||
                             ors.Contains(row.Goods.AuthDesc) ||
                             ors.Contains(row.Goods.Ext) ||
@@ -585,6 +587,7 @@ namespace MISApi.Services.CMS.Base
                 {
                     queryable = queryable.Where(row =>
                             row.Goods.Name.Contains(keyWord) ||
+                            row.Goods.Tags.Contains(keyWord) ||
                             row.Goods.Desc.Contains(keyWord) ||
                             row.Goods.AuthDesc.Contains(keyWord) ||
                             row.Goods.Ext.Contains(keyWord) ||

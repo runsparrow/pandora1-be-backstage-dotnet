@@ -12706,6 +12706,11 @@
             状态键名
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Goods.PluginTags">
+            <summary>
+            控件用Tags
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Goods.FullUrl">
             <summary>
             图片完整路径

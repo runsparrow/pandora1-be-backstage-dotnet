@@ -20,7 +20,7 @@ namespace MISApi.Tools
                 TimeSpan ts = (time - dd);
                 return (long)ts.TotalMilliseconds;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("MISApi.Tools.ConvertHelper.ConvertDateTimeToInt", ex);
             }
@@ -42,6 +42,54 @@ namespace MISApi.Tools
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Tools.ConvertHelper.StringToDateTime", ex);
+            }
+        }
+        /// <summary>
+        /// 字符转数字
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static long StringToInt(string s)
+        {
+            try
+            {
+                return int.Parse(s);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Tools.ConvertHelper.StringToInt", ex);
+            }
+        }
+        /// <summary>
+        /// 对象转字符
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public static string ObjectToString(object o)
+        {
+            try
+            {
+                return o.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Tools.ConvertHelper.ObjectToString", ex);
+            }
+        }
+        /// <summary>
+        /// 对象转数字
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public static int ObjectToInt(object o)
+        {
+            try
+            {
+                return (int)o;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Tools.ConvertHelper.ObjectToInt", ex);
             }
         }
     }

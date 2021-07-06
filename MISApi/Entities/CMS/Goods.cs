@@ -321,6 +321,27 @@ namespace MISApi.Entities.CMS
         [NotMapped]
         public string StatusKey { get; set; } = "";
         /// <summary>
+        /// 控件用Tags
+        /// </summary>
+        [Description("控件用Tags")]
+        [JsonProperty("pluginTags")]
+        [DefaultValue("")]
+        [NotMapped]
+        public string PluginTags
+        {
+            get
+            {
+                if(Tags.Length > 2)
+                {
+                    return Tags.Substring(1, Tags.Length-2);
+                }
+                else
+                {
+                    return "";
+                }
+            }
+        }
+        /// <summary>
         /// 图片完整路径
         /// </summary>
         [Description("图片完整路径")]

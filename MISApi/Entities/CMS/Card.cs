@@ -28,7 +28,7 @@ namespace MISApi.Entities.CMS
         /// <summary>
         /// 卡号
         /// </summary>
-        [StringLength(255)]
+        [StringLength(50)]
         [Description("卡号")]
         [JsonProperty("cardNo")]
         [DefaultValue("")]
@@ -36,7 +36,7 @@ namespace MISApi.Entities.CMS
         /// <summary>
         /// 卡前缀
         /// </summary>
-        [StringLength(255)]
+        [StringLength(50)]
         [Description("卡前缀")]
         [JsonProperty("cardPrefix")]
         [DefaultValue("")]
@@ -44,7 +44,7 @@ namespace MISApi.Entities.CMS
         /// <summary>
         /// 卡密
         /// </summary>
-        [StringLength(255)]
+        [StringLength(50)]
         [Description("卡密")]
         [JsonProperty("cardPassword")]
         [DefaultValue("")]
@@ -120,6 +120,14 @@ namespace MISApi.Entities.CMS
         [DefaultValue(-1)]
         public int ActivateMemberId { get; set; } = -1;
         /// <summary>
+        /// 激活会员名
+        /// </summary>
+        [StringLength(50)]
+        [Description("激活会员名")]
+        [JsonProperty("activateMemberName")]
+        [DefaultValue("")]
+        public string ActivateMemberName { get; set; } = "";
+        /// <summary>
         /// 备注
         /// </summary>
         [StringLength(500)]
@@ -165,7 +173,7 @@ namespace MISApi.Entities.CMS
         /// <summary>
         /// 状态名
         /// </summary>
-        [StringLength(255)]
+        [StringLength(50)]
         [Description("状态名")]
         [JsonProperty("statusName")]
         [DefaultValue("")]

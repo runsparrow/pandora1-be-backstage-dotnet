@@ -12023,6 +12023,11 @@
             激活会员Id
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Card.ActivateMemberName">
+            <summary>
+            激活会员名
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Card.Remark">
             <summary>
             备注
@@ -22174,12 +22179,12 @@
             <param name="statusKey"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.CardService.UpdateService.Activate(System.Int32,System.Int32)">
+        <member name="M:MISApi.Services.CMS.CardService.UpdateService.Activate(MISApi.Entities.CMS.Card,MISApi.Entities.CMS.Member)">
             <summary>
             
             </summary>
-            <param name="cardId"></param>
-            <param name="memberId"></param>
+            <param name="c"></param>
+            <param name="m"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.CardService.DeleteService">

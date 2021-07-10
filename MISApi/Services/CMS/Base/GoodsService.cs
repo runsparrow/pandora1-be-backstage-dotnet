@@ -668,6 +668,11 @@ namespace MISApi.Services.CMS.Base
                             bool isOriginal = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                             queryable = queryable.Where(row => row.Goods.IsOriginal == isOriginal);
                         }
+                        if (splits[i].ToLower().Contains("ext"))
+                        {
+                            string ext = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Goods.Ext == ext);
+                        }
                         if (splits[i].ToLower().Contains("level"))
                         {
                             int level = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));

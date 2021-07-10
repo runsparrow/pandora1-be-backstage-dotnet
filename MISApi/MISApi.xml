@@ -3074,6 +3074,13 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.AuthController.GetToken(MISApi.Entities.CMS.Member)">
+            <summary>
+            
+            </summary>
+            <param name="member"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Controllers.CMS.AuthController.DTO_Result_Member">
             <summary>
             

@@ -175,10 +175,10 @@ namespace MISApi.Services.CMS
             /// <summary>
             /// 
             /// </summary>
-            /// <param name="cardId"></param>
-            /// <param name="memberId"></param>
+            /// <param name="c"></param>
+            /// <param name="m"></param>
             /// <returns></returns>
-            public virtual Card Activate(int cardId, int memberId)
+            public virtual Card Activate(Card c, Member m)
             {
                 try
                 {
@@ -187,15 +187,16 @@ namespace MISApi.Services.CMS
                     // 事务
                     transService.TransRegist(delegate {
                         // 更新卡信息
-                        var card = new CardService.RowService().ById(cardId);
+                        var card = new CardService.RowService().ById(c.Id);
                         if (card != null)
                         {
                             card.IsActivate = true;
-                            card.ActivateMemberId = memberId;
+                            card.ActivateMemberId = m.Id;
+                            card.ActivateMemberName = m.Name;
                         }
                         result = new CardService.UpdateService().Execute(card);
                         // 更新会员信息
-                        var member = new MemberService.RowService().ById(memberId);
+                        var member = new MemberService.RowService().ById(m.Id);
                         if (member != null)
                         {
                             member.UploadCount = card.UploadLimit == -1 ? -1 : member.UploadCount + card.UploadLimit;

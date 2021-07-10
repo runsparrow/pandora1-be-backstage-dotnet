@@ -3069,7 +3069,7 @@
         </member>
         <member name="M:MISApi.Controllers.CMS.AuthController.ActivateCard(MISApi.Controllers.CMS.AuthController.DTO_ActivateCard)">
             <summary>
-            激活卡号绑定会员账户
+            激活卡号绑定会员账户，现有会员绑定现有会员，未发现现有会员注册新会员
             </summary>
             <param name="dto"></param>
             <returns></returns>

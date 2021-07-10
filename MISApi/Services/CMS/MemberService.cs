@@ -269,6 +269,7 @@ namespace MISApi.Services.CMS
                                 member.LevelDeadline = member.LevelDeadline.AddDays(memberPower.DaysLimit);
                                 new MemberService.UpdateService().Execute(member);
                             }
+                            result = member;
                         }
                     });
                     // 提交

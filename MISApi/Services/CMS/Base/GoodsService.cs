@@ -670,9 +670,8 @@ namespace MISApi.Services.CMS.Base
                         }
                         if (splits[i].ToLower().Contains("level"))
                         {
-                            decimal min = splits[i].IndexOf(">") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf(">") + 1, splits[i].Length - splits[i].IndexOf(">") - 1)) : int.MinValue;
-                            decimal max = splits[i].IndexOf("<") > -1 ? decimal.Parse(splits[i].Substring(splits[i].IndexOf("<") + 1, splits[i].Length - splits[i].IndexOf("<") - 1)) : int.MaxValue;
-                            queryable = queryable.Where(row => row.Goods.Level >= min && row.Goods.Level <= max);
+                            int level = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Goods.Level == level);
                         }
                         if (splits[i].ToLower().Contains("price"))
                         {

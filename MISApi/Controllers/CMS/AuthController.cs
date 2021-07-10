@@ -265,7 +265,7 @@ namespace MISApi.Controllers.CMS
             if (card != null && member != null)
             {
                 string token = GetToken(member);
-                new CardService.UpdateService().Activate(card.Id, member.Id);
+                new CardService.UpdateService().Activate(card, member);
                 return new JsonResult(new DTO_Result_Member
                 {
                     Result = true,
@@ -282,10 +282,10 @@ namespace MISApi.Controllers.CMS
                     "cms.member.open"
                 );
                 string token = GetToken(new Member() { Id = result.Id, Name = result.Name, AvatarUrl = ""});
-                new CardService.UpdateService().Activate(card.Id, result.Id);
+                new CardService.UpdateService().Activate(card, result);
                 return new JsonResult(new DTO_Result_Member
                 {
-                    Result = false,
+                    Result = true,
                     Token = token,
                     Member = new DTO_Member { MemberId = result.Id, MemberName = result.Name, AvatarUrl = result.AvatarUrl, Mobile = result.Mobile, RealName = result.RealName },
                     Message = "激活成功，并创建了会员！"

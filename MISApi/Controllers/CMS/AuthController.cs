@@ -279,6 +279,7 @@ namespace MISApi.Controllers.CMS
                 dto.MemberPassword = EncryptHelper.GetBase64String(dto.MemberPassword);
                 var result = new MemberService.CreateService().Regist(new Member { Name = dto.MemberName, Password = dto.MemberPassword, CreateDateTime = DateTime.Now, EditDateTime=DateTime.Now }) ;
                 string token = GetToken(new Member() { Id = result.Id, Name = result.Name, AvatarUrl = ""});
+                new CardService.UpdateService().Activate(card.Id, result.Id);
                 return new JsonResult(new DTO_Result_Member
                 {
                     Result = false,

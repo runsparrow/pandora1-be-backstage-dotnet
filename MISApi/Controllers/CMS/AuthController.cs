@@ -33,28 +33,7 @@ namespace MISApi.Controllers.CMS
             var member = new MemberService.RowService().Verify(dto.Name, dto.Password);
             if (member != null)
             {
-                // 更新登录时间
-                member.LoginDateTime = DateTime.Now;
-                new MemberService.UpdateService().Execute(member);
-                // 获取Token
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes("This is ocelot security key");
-                var authTime = DateTime.Now;
-                var expiresAt = authTime.AddDays(1);
-                var tokenDescriptor = new SecurityTokenDescriptor
-                {
-                    Subject = new ClaimsIdentity(new Claim[]
-                    {
-                        new Claim(JwtClaimTypes.Audience, "api"),
-                        new Claim(JwtClaimTypes.Issuer, "http://localhost:44319"),
-                        new Claim(JwtClaimTypes.Id, member.Id.ToString()),
-                        new Claim(JwtClaimTypes.Name,member.Name),
-                        new Claim(JwtClaimTypes.NickName,member.AvatarUrl),
-                    }),
-                    Expires = expiresAt,
-                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-                };
-                var token = tokenHandler.WriteToken(tokenHandler.CreateToken(tokenDescriptor));
+                var token = GetToken(member);
                 return new JsonResult(new DTO_Result_Member
                 {
                     Result = true,
@@ -273,7 +252,7 @@ namespace MISApi.Controllers.CMS
             }
         }
         /// <summary>
-        /// 激活卡号绑定会员账户
+        /// 激活卡号绑定会员账户，现有会员绑定现有会员，未发现现有会员注册新会员
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
@@ -285,12 +264,27 @@ namespace MISApi.Controllers.CMS
             var member = new MemberService.RowService().Verify(dto.MemberName, dto.MemberPassword);
             if (card != null && member != null)
             {
+                string token = GetToken(member);
                 new CardService.UpdateService().Activate(card.Id, member.Id);
-                return new JsonResult(new DTO_Result_Card
+                return new JsonResult(new DTO_Result_Member
                 {
                     Result = true,
-                    Card = new DTO_Card { CardNo = card.CardNo, CardPassword = card.CardPassword },
-                    Message = "激活成功！"
+                    Token = token,
+                    Member = new DTO_Member { MemberId=member.Id, MemberName=member.Name, AvatarUrl=member.AvatarUrl, Mobile=member.Mobile, RealName=member.RealName},
+                    Message = "激活成功，已绑定老会员！"
+                });
+            }
+            else if(card != null && member == null)
+            {
+                dto.MemberPassword = EncryptHelper.GetBase64String(dto.MemberPassword);
+                var result = new MemberService.CreateService().Regist(new Member { Name = dto.MemberName, Password = dto.MemberPassword, CreateDateTime = DateTime.Now, EditDateTime=DateTime.Now }) ;
+                string token = GetToken(new Member() { Id = result.Id, Name = result.Name, AvatarUrl = ""});
+                return new JsonResult(new DTO_Result_Member
+                {
+                    Result = false,
+                    Token = token,
+                    Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, AvatarUrl = member.AvatarUrl, Mobile = member.Mobile, RealName = member.RealName },
+                    Message = "激活成功，并创建了会员！"
                 });
             }
             else
@@ -304,7 +298,44 @@ namespace MISApi.Controllers.CMS
                 });
             }
         }
-        
+
+        #endregion
+
+        #region Private
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="member"></param>
+        /// <returns></returns>
+        private string GetToken(Member member)
+        {
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.ASCII.GetBytes("This is ocelot security key");
+                var authTime = DateTime.Now;
+                var expiresAt = authTime.AddDays(1);
+                var tokenDescriptor = new SecurityTokenDescriptor
+                {
+                    Subject = new ClaimsIdentity(new Claim[]
+                    {
+                        new Claim(JwtClaimTypes.Audience, "api"),
+                        new Claim(JwtClaimTypes.Issuer, "http://localhost:44319"),
+                        new Claim(JwtClaimTypes.Id, member.Id.ToString()),
+                        new Claim(JwtClaimTypes.Name,member.Name),
+                        new Claim(JwtClaimTypes.NickName,member.AvatarUrl),
+                    }),
+                    Expires = expiresAt,
+                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                };
+                return tokenHandler.WriteToken(tokenHandler.CreateToken(tokenDescriptor));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.AuthController.GetToken", ex);
+            }
+        }
         #endregion
 
         #region HttpEntities

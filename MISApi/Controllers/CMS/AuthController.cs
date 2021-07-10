@@ -277,14 +277,17 @@ namespace MISApi.Controllers.CMS
             else if(card != null && member == null)
             {
                 dto.MemberPassword = EncryptHelper.GetBase64String(dto.MemberPassword);
-                var result = new MemberService.CreateService().Regist(new Member { Name = dto.MemberName, Password = dto.MemberPassword, CreateDateTime = DateTime.Now, EditDateTime=DateTime.Now }) ;
+                var result = new MemberService.CreateService().ToStatus(
+                    new Member { Name = dto.MemberName, Password = dto.MemberPassword, CreateDateTime = DateTime.Now, EditDateTime = DateTime.Now },
+                    "cms.member.open"
+                );
                 string token = GetToken(new Member() { Id = result.Id, Name = result.Name, AvatarUrl = ""});
                 new CardService.UpdateService().Activate(card.Id, result.Id);
                 return new JsonResult(new DTO_Result_Member
                 {
                     Result = false,
                     Token = token,
-                    Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, AvatarUrl = member.AvatarUrl, Mobile = member.Mobile, RealName = member.RealName },
+                    Member = new DTO_Member { MemberId = result.Id, MemberName = result.Name, AvatarUrl = result.AvatarUrl, Mobile = result.Mobile, RealName = result.RealName },
                     Message = "激活成功，并创建了会员！"
                 });
             }

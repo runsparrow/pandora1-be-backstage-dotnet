@@ -245,6 +245,7 @@ namespace MISApi.Services.CMS
                         GoodsName = result.Goods.Name,
                         MemberId = entity.Member.Id,
                         MemberName = entity.Member.Name,
+                        UploadDateTime = DateTime.Now,
                         UploadResult = true
                     });
                     // 用户剩余上传数
@@ -317,6 +318,7 @@ namespace MISApi.Services.CMS
                         MemberName = entity.Member.Name,
                         OwnerId = entity.Goods.OwnerId,
                         OwnerName = entity.Goods.OwnerName,
+                        DownDateTime = DateTime.Now,
                         DownResult = true
                     });
                     // 修改商品下载次数

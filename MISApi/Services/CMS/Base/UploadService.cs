@@ -595,6 +595,16 @@ namespace MISApi.Services.CMS.Base
                             int goodsId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                             queryable = queryable.Where(row => row.Upload.GoodsId == goodsId);
                         }
+                        if (splits[i].ToLower().Contains("goodsname"))
+                        {
+                            string goodsName = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Upload.GoodsName == goodsName);
+                        }
+                        if (splits[i].ToLower().Contains("membername"))
+                        {
+                            string memberName = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Upload.MemberName == memberName);
+                        }
                     }
                     catch
                     {

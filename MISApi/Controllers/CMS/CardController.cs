@@ -173,6 +173,7 @@ namespace MISApi.Controllers.CMS
                         entities.Add(new Card
                         {
                             CardPrefix = dto.Entity.CardPrefix,
+                            DaysLimit = dto.Entity.DaysLimit,
                             IsBuy = dto.Entity.IsBuy,
                             IsDown = dto.Entity.IsDown,
                             IsUpload = dto.Entity.IsUpload,

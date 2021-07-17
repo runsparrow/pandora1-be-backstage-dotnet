@@ -311,7 +311,7 @@ namespace MISApi.Services.CMS
                                 member.ReDownCount = memberPower.DownLimit == -1 ? -1 : member.ReDownCount - memberPower.DownLimit;
                                 member.UploadCount = memberPower.UploadLimit == -1 ? -1 : member.UploadCount - memberPower.UploadLimit;
                                 member.ReUploadCount = memberPower.UploadLimit == -1 ? -1 : member.ReUploadCount - memberPower.UploadLimit;
-                                member.LevelDeadline = DateTime.Now.AddDays(-1);
+                                member.LevelDeadline = member.LevelDeadline.AddDays(-memberPower.DaysLimit);
                                 new MemberService.UpdateService().Execute(member);
                             }
                         }

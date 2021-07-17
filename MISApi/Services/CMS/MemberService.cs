@@ -266,6 +266,7 @@ namespace MISApi.Services.CMS
                                 member.ReDownCount = memberPower.DownLimit == -1 ? -1 : member.ReDownCount + memberPower.DownLimit;
                                 member.UploadCount = memberPower.UploadLimit == -1 ? -1 : member.UploadCount + memberPower.UploadLimit;
                                 member.ReUploadCount = memberPower.UploadLimit == -1 ? -1 : member.ReUploadCount + memberPower.UploadLimit;
+                                member.LevelDeadline = member.LevelDeadline < DateTime.Now ? DateTime.Now : member.LevelDeadline;
                                 member.LevelDeadline = member.LevelDeadline.AddDays(memberPower.DaysLimit);
                                 new MemberService.UpdateService().Execute(member);
                             }
@@ -310,7 +311,7 @@ namespace MISApi.Services.CMS
                                 member.ReDownCount = memberPower.DownLimit == -1 ? -1 : member.ReDownCount - memberPower.DownLimit;
                                 member.UploadCount = memberPower.UploadLimit == -1 ? -1 : member.UploadCount - memberPower.UploadLimit;
                                 member.ReUploadCount = memberPower.UploadLimit == -1 ? -1 : member.ReUploadCount - memberPower.UploadLimit;
-                                member.LevelDeadline = member.LevelDeadline.AddDays(-1*memberPower.DaysLimit);
+                                member.LevelDeadline = member.LevelDeadline.AddDays(-memberPower.DaysLimit);
                                 new MemberService.UpdateService().Execute(member);
                             }
                         }

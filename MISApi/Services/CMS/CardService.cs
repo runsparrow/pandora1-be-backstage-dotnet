@@ -44,7 +44,8 @@ namespace MISApi.Services.CMS
                     // 定义
                     Card result = new Card();
                     // 事务
-                    transService.TransRegist(delegate {
+                    transService.TransRegist(delegate
+                    {
                         Status status = new StatusCacheService.RowService().ByKey(statusKey);
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
@@ -74,7 +75,8 @@ namespace MISApi.Services.CMS
                     // 定义
                     List<Card> results = new List<Card>();
                     // 事务
-                    transService.TransRegist(delegate {
+                    transService.TransRegist(delegate
+                    {
                         // 遍历
                         entities.ForEach(entity =>
                         {
@@ -125,7 +127,8 @@ namespace MISApi.Services.CMS
                     // 定义
                     Card result = new Card();
                     // 事务
-                    transService.TransRegist(delegate {
+                    transService.TransRegist(delegate
+                    {
                         Status status = new StatusCacheService.RowService().ByKey(statusKey);
                         entity.StatusId = status.Id;
                         entity.StatusValue = status.Value;
@@ -155,7 +158,8 @@ namespace MISApi.Services.CMS
                     // 定义
                     List<Card> results = new List<Card>();
                     // 事务
-                    transService.TransRegist(delegate {
+                    transService.TransRegist(delegate
+                    {
                         // 遍历
                         entities.ForEach(entity =>
                         {
@@ -185,7 +189,8 @@ namespace MISApi.Services.CMS
                     // 定义
                     Card result = new Card();
                     // 事务
-                    transService.TransRegist(delegate {
+                    transService.TransRegist(delegate
+                    {
                         // 更新卡信息
                         var card = new CardService.RowService().ById(c.Id);
                         if (card != null)
@@ -202,6 +207,7 @@ namespace MISApi.Services.CMS
                             member.UploadCount = card.UploadLimit == -1 ? -1 : member.UploadCount + card.UploadLimit;
                             member.DownCount = card.DownLimit == -1 ? -1 : member.DownCount + card.DownLimit;
                             member.BuyCount = card.BuyLimit == -1 ? -1 : member.BuyCount + card.BuyLimit;
+                            member.LevelDeadline = member.LevelDeadline < DateTime.Now ? DateTime.Now : member.LevelDeadline;
                             member.LevelDeadline = member.LevelDeadline.AddDays(card.DaysLimit);
                         }
                         new MemberService.UpdateService().Execute(member);

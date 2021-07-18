@@ -302,7 +302,27 @@ namespace MISApi.Controllers.CMS
                 });
             }
         }
-
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Auth/ChangePassword", Name = "MIS_CMS_Auth_ChangePassword")]
+        [HttpPost]
+        public IActionResult ChangePassword([FromBody] DTO_ChangePassword dto)
+        {
+            var member = new MemberService.RowService().Verify(dto.MemberName, dto.OldPassword);
+            if (member != null)
+            {
+                member.Password = EncryptHelper.GetBase64String(dto.NewPassword);
+                new MemberService.UpdateService().Update(member);
+                return new JsonResult(new DTO_Result { Result = true, Message = "密码修改成功！" });
+            }
+            else
+            {
+                return new JsonResult(new DTO_Result { Result = false, Message = "旧密码输入错误！" });
+            }
+        }
         #endregion
 
         #region Private
@@ -515,6 +535,33 @@ namespace MISApi.Controllers.CMS
             [JsonProperty("mobile")]
             [DefaultValue("")]
             public string Mobile { get; set; } = "";
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public class DTO_ChangePassword
+        {
+            /// <summary>
+            /// 会员名
+            /// </summary>
+            [Description("会员名")]
+            [JsonProperty("memberName")]
+            [DefaultValue("")]
+            public string MemberName { get; set; } = "";
+            /// <summary>
+            /// 旧密码
+            /// </summary>
+            [Description("旧密码")]
+            [JsonProperty("oldPassword")]
+            [DefaultValue("")]
+            public string OldPassword { get; set; } = "";
+            /// <summary>
+            /// 新密码
+            /// </summary>
+            [Description("新密码")]
+            [JsonProperty("newPassword")]
+            [DefaultValue("")]
+            public string NewPassword { get; set; } = "";
         }
 
         #endregion

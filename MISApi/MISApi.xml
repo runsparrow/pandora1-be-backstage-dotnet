@@ -3074,6 +3074,13 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.AuthController.ChangePassword(MISApi.Controllers.CMS.AuthController.DTO_ChangePassword)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.AuthController.GetToken(MISApi.Entities.CMS.Member)">
             <summary>
             
@@ -3209,6 +3216,26 @@
         <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Result_Auth.Mobile">
             <summary>
             手机号
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.AuthController.DTO_ChangePassword">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_ChangePassword.MemberName">
+            <summary>
+            会员名
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_ChangePassword.OldPassword">
+            <summary>
+            旧密码
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_ChangePassword.NewPassword">
+            <summary>
+            新密码
             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.AuthorityController">

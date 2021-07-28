@@ -148,14 +148,14 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("是否图片")]
         [JsonProperty("isImage")]
-        [DefaultValue(0)]
+        [DefaultValue(true)]
         public bool IsImage { get; set; } = true;
         /// <summary>
         /// 是否原创
         /// </summary>
         [Description("是否原创")]
         [JsonProperty("isOriginal")]
-        [DefaultValue(0)]
+        [DefaultValue(true)]
         public bool IsOriginal { get; set; } = true;
         /// <summary>
         /// 导航Id

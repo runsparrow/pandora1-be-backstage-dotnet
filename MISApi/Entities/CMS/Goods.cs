@@ -227,7 +227,7 @@ namespace MISApi.Entities.CMS
         [Description("所有权用户Id")]
         [JsonProperty("ownerId")]
         [DefaultValue(-1)]
-        public int OwnerId { get; set; } = -1;
+        public int OwnerId { get; set; } = -1; 
         /// <summary>
         /// 所有权用户名
         /// </summary>

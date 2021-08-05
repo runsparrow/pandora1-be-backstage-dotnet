@@ -32,7 +32,7 @@ namespace MISApi.Entities.CMS
         [Description("名称")]
         [JsonProperty("name")]
         [DefaultValue("")]
-        public string Name { get; set; } = "";
+        public string  Name { get; set; } = "";
         /// <summary>
         /// 商品编号
         /// </summary>
@@ -141,8 +141,8 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("等级")]
         [JsonProperty("level")]
-        [DefaultValue(0)]
-        public int Level { get; set; } = 0;
+        [DefaultValue(-1)]
+        public int Level { get; set; } = -1;
         /// <summary>
         /// 是否图片
         /// </summary>

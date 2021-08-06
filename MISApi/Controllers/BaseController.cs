@@ -15,7 +15,7 @@ namespace MISApi.Controllers
     [ApiController]
     [Route("", Name = "")]
     public abstract class BaseController<T> : ControllerBase
-        where T : class
+        where T : class, new()
     {
         private object service = Type.GetType($"{typeof(T).FullName.Split(".")[0]}.Services.{typeof(T).FullName.Split(".")[2]}.{typeof(T).Name}Service") .GetConstructor(Type.EmptyTypes).Invoke(null);
 
@@ -29,7 +29,6 @@ namespace MISApi.Controllers
         {
             return DbSetEntity().Count(e => (int)EntityPropertyValue(e, "Id") == id) > 0;
         }
-
         /// <summary>
         /// 从 TService 中获取 T 数据集合
         /// </summary>
@@ -43,7 +42,6 @@ namespace MISApi.Controllers
             }
             return (DbSet<T>)p.GetValue(service);
         }
-
         /// <summary>
         /// 从 Model 中获取 属性值
         /// </summary>
@@ -59,7 +57,6 @@ namespace MISApi.Controllers
             }
             return p.GetValue(entity);
         }
-
         /// <summary>
         /// 使用反射方法调用Service类中对应的方法。
         /// </summary>
@@ -103,7 +100,6 @@ namespace MISApi.Controllers
             }
             return null;
         }
-
         /// <summary>
         /// 
         /// </summary>

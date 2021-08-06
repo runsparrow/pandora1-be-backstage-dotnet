@@ -31,7 +31,7 @@ namespace MISApi.Entities.AVM
         [Description("用户名")]
         [JsonProperty("name")]
         [DefaultValue("")]
-        public string Name { get; set; } = "";
+        public string Name { get; set; }
         /// <summary>
         /// 密码
         /// </summary>
@@ -39,7 +39,7 @@ namespace MISApi.Entities.AVM
         [Description("密码")]
         [JsonProperty("password")]
         [DefaultValue("")]
-        public string Password { get; set; } = "";
+        public string Password { get; set; }
         /// <summary>
         /// 实名
         /// </summary>
@@ -47,7 +47,7 @@ namespace MISApi.Entities.AVM
         [Description("实名")]
         [JsonProperty("realName")]
         [DefaultValue("")]
-        public string RealName { get; set; } = "";
+        public string RealName { get; set; }
         /// <summary>
         /// 邮箱
         /// </summary>
@@ -55,7 +55,7 @@ namespace MISApi.Entities.AVM
         [Description("邮箱")]
         [JsonProperty("email")]
         [DefaultValue("")]
-        public string Email { get; set; } = "";
+        public string Email { get; set; }
         /// <summary>
         /// 手机
         /// </summary>
@@ -63,7 +63,7 @@ namespace MISApi.Entities.AVM
         [Description("手机")]
         [JsonProperty("mobile")]
         [DefaultValue("")]
-        public string Mobile { get; set; } = "";
+        public string Mobile { get; set; }
         /// <summary>
         /// 备注
         /// </summary>
@@ -71,14 +71,14 @@ namespace MISApi.Entities.AVM
         [Description("备注")]
         [JsonProperty("remark")]
         [DefaultValue("")]
-        public string Remark { get; set; } = "";
+        public string Remark { get; set; }
         /// <summary>
         /// 最后登录时间
         /// </summary>
         [Description("最后登录时间")]
         [JsonProperty("loginDateTime")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime LoginDateTime { get; set; } = DateTime.MinValue;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? LoginDateTime { get; set; }
         /// <summary>
         /// 最后登录IP
         /// </summary>
@@ -86,41 +86,41 @@ namespace MISApi.Entities.AVM
         [Description("最后登录IP")]
         [JsonProperty("loginIPAddress")]
         [DefaultValue("")]
-        public string LoginIPAddress { get; set; } = "";
+        public string LoginIPAddress { get; set; }
         /// <summary>
         /// 创建时间
         /// </summary>
         [Description("创建时间")]
         [JsonProperty("createDateTime")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime CreateDateTime { get; set; } = DateTime.MinValue;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? CreateDateTime { get; set; } 
         /// <summary>
         /// 创建用户Id
         /// </summary>
         [Description("创建用户Id")]
         [JsonProperty("createUserId")]
         [DefaultValue(-1)]
-        public int CreateUserId { get; set; } = -1;
+        public int? CreateUserId { get; set; }
         /// <summary>
         /// 最后修改时间
         /// </summary>
         [Description("最后修改时间")]
         [JsonProperty("editDateTime")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime EditDateTime { get; set; } = DateTime.MinValue;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? EditDateTime { get; set; }
         /// <summary>
         /// 最后修改用户Id
         /// </summary>
         [Description("最后修改用户Id")]
         [JsonProperty("editUserId")]
         [DefaultValue(-1)]
-        public int EditUserId { get; set; } = -1;
+        public int? EditUserId { get; set; }
         /// <summary>
         /// 状态Id
         /// </summary>
         [Description("状态Id")]
         [JsonProperty("statusId")]
-        public int StatusId { get; set; } = -1;
+        public int? StatusId { get; set; }
         /// <summary>
         /// 状态名
         /// </summary>
@@ -128,14 +128,14 @@ namespace MISApi.Entities.AVM
         [Description("状态名")]
         [JsonProperty("statusName")]
         [DefaultValue("")]
-        public string StatusName { get; set; } = "";
+        public string StatusName { get; set; }
         /// <summary>
         /// 状态数值
         /// </summary>
         [Description("状态数值")]
         [JsonProperty("statusValue")]
         [DefaultValue(0)]
-        public int StatusValue { get; set; } = 0;
+        public int? StatusValue { get; set; }
         #endregion
 
         #region Not Mapped Property

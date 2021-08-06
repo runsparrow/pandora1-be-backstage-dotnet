@@ -29,7 +29,7 @@ namespace MISApi.Entities.CMS
         [Description("会员Id")]
         [JsonProperty("memberId")]
         [DefaultValue(-1)]
-        public int MemberId { get; set; } = -1;
+        public int? MemberId { get; set; }
         /// <summary>
         /// 会员姓名
         /// </summary>
@@ -37,14 +37,14 @@ namespace MISApi.Entities.CMS
         [Description("会员姓名")]
         [JsonProperty("memberName")]
         [DefaultValue("")]
-        public string MemberName { get; set; } = "";
+        public string MemberName { get; set; }
         /// <summary>
         /// 商品Id
         /// </summary>
         [Description("商品Id")]
         [JsonProperty("goodsId")]
         [DefaultValue(-1)]
-        public int GoodsId { get; set; } = -1;
+        public int? GoodsId { get; set; }
         /// <summary>
         /// 商品名称
         /// </summary>
@@ -52,7 +52,7 @@ namespace MISApi.Entities.CMS
         [Description("商品名称")]
         [JsonProperty("goodsName")]
         [DefaultValue("")]
-        public string GoodsName { get; set; } = "";
+        public string GoodsName { get; set; }
         /// <summary>
         /// 商品路径
         /// </summary>
@@ -60,42 +60,42 @@ namespace MISApi.Entities.CMS
         [Description("商品路径")]
         [JsonProperty("goodsUrl")]
         [DefaultValue("")]
-        public string GoodsUrl { get; set; } = "";
+        public string GoodsUrl { get; set; }
         /// <summary>
         /// 收藏时间
         /// </summary>
         [Description("收藏时间")]
         [JsonProperty("collectDateTime")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime CollectDateTime { get; set; } = DateTime.Now;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? CollectDateTime { get; set; }
         /// <summary>
         /// 创建时间
         /// </summary>
         [Description("创建时间")]
         [JsonProperty("createDateTime")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime CreateDateTime { get; set; } = DateTime.MinValue;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? CreateDateTime { get; set; } 
         /// <summary>
         /// 创建用户Id
         /// </summary>
         [Description("创建用户Id")]
         [JsonProperty("createUserId")]
         [DefaultValue(-1)]
-        public int CreateUserId { get; set; } = -1;
+        public int? CreateUserId { get; set; }
         /// <summary>
         /// 最后修改时间
         /// </summary>
         [Description("最后修改时间")]
         [JsonProperty("editDateTime")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime EditDateTime { get; set; } = DateTime.MinValue;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? EditDateTime { get; set; }
         /// <summary>
         /// 最后修改用户Id
         /// </summary>
         [Description("最后修改用户Id")]
         [JsonProperty("editUserId")]
         [DefaultValue(-1)]
-        public int EditUserId { get; set; } = -1;
+        public int? EditUserId { get; set; }
         #endregion
 
         #region Not Mapped Property

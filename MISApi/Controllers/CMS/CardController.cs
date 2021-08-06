@@ -1152,7 +1152,6 @@ namespace MISApi.Controllers.CMS
             /// </summary>
             [Description("发卡信息")]
             [JsonProperty("entity")]
-            [DefaultValue("")]
             public Card Entity { get; set; } = new Card();
             /// <summary>
             /// 发卡数量

@@ -424,7 +424,7 @@ namespace MISApi.Services.ASM.Base
                 try
                 {
                     Dictionary currentDictionary = new RowService().ByKey(key) ?? new Dictionary();
-                    List<Dictionary> result = SupersetByIdRecursion(new List<Dictionary>(), currentDictionary.Pid, joins);
+                    List<Dictionary> result = SupersetByIdRecursion(new List<Dictionary>(), currentDictionary.Pid??-1, joins);
                     result.Add(currentDictionary);
                     string path = "^";
                     // 生成path
@@ -468,7 +468,7 @@ namespace MISApi.Services.ASM.Base
                 try
                 {
                     Dictionary currentDictionary = new RowService().ById(id);
-                    List<Dictionary> result = SupersetByIdRecursion(new List<Dictionary>(), currentDictionary.Pid, joins);
+                    List<Dictionary> result = SupersetByIdRecursion(new List<Dictionary>(), currentDictionary.Pid??-1, joins);
                     result.Add(currentDictionary);
                     string path = "^";
                     // 生成path
@@ -680,7 +680,7 @@ namespace MISApi.Services.ASM.Base
                 try
                 {
                     SQLQueryable(context, joins).Where(row => row.Dictionary.Id == pid).ToList().ForEach(sqlEntity => {
-                        SupersetByIdRecursion(list, sqlEntity.Dictionary.Pid, joins);
+                        SupersetByIdRecursion(list, sqlEntity.Dictionary.Pid??-1, joins);
                         list.Add(sqlEntity.Dictionary);
                     });
                     return list;
@@ -893,7 +893,7 @@ namespace MISApi.Services.ASM.Base
             {
                 if (status != null && status.Values.Count() > 0)
                 {
-                    return queryable.Where(row => status.Values.Contains(row.Dictionary.StatusValue));
+                    return queryable.Where(row => status.Values.Contains(row.Dictionary.StatusValue??0));
                 }
                 return queryable;
             }

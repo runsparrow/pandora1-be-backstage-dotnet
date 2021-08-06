@@ -56,7 +56,7 @@ namespace MISApi.Tools
             /// <summary>
             /// 
             /// </summary>
-            public int Id { get; set; }
+            public int Id { get; set; } = -1;
             /// <summary>
             /// 
             /// </summary>

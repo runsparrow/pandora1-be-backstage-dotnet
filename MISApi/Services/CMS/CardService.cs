@@ -208,7 +208,7 @@ namespace MISApi.Services.CMS
                             member.DownCount = card.DownLimit == -1 ? -1 : member.DownCount + card.DownLimit;
                             member.BuyCount = card.BuyLimit == -1 ? -1 : member.BuyCount + card.BuyLimit;
                             member.LevelDeadline = member.LevelDeadline < DateTime.Now ? DateTime.Now : member.LevelDeadline;
-                            member.LevelDeadline = member.LevelDeadline.AddDays(card.DaysLimit);
+                            member.LevelDeadline = member.LevelDeadline.Value.AddDays(card.DaysLimit??0);
                         }
                         new MemberService.UpdateService().Execute(member);
                     });

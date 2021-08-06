@@ -31,7 +31,7 @@ namespace MISApi.Entities.CMS
         [Description("文章Id")]
         [JsonProperty("articleId")]
         [DefaultValue(-1)]
-        public int ArticleId { get; set; } = -1;
+        public int? ArticleId { get; set; }
         /// <summary>
         /// 文章标题
         /// </summary>
@@ -39,14 +39,14 @@ namespace MISApi.Entities.CMS
         [Description("文章标题")]
         [JsonProperty("articleTitle")]
         [DefaultValue("")]
-        public string ArticleTitle { get; set; } = "";
+        public string ArticleTitle { get; set; }
         /// <summary>
         /// 评论人Id
         /// </summary>
         [Description("评论人Id")]
         [JsonProperty("discussId")]
         [DefaultValue(-1)]
-        public int DiscussId { get; set; } = -1;
+        public int? DiscussId { get; set; }
         /// <summary>
         /// 评论人姓名
         /// </summary>
@@ -54,21 +54,21 @@ namespace MISApi.Entities.CMS
         [Description("评论人姓名")]
         [JsonProperty("discussName")]
         [DefaultValue("")]
-        public string DiscussName { get; set; } = "";
+        public string DiscussName { get; set; }
         /// <summary>
         /// 评论时间
         /// </summary>
         [Description("评论时间")]
         [JsonProperty("discussDateTime")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime DiscussDateTime { get; set; } = DateTime.MinValue;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? DiscussDateTime { get; set; }
         /// <summary>
         /// 审批人Id
         /// </summary>
         [Description("审批人Id")]
         [JsonProperty("approverId")]
         [DefaultValue(-1)]
-        public int ApproverId { get; set; } = -1;
+        public int? ApproverId { get; set; }
         /// <summary>
         /// 审批人姓名
         /// </summary>
@@ -76,14 +76,14 @@ namespace MISApi.Entities.CMS
         [Description("审批人姓名")]
         [JsonProperty("approverName")]
         [DefaultValue("")]
-        public string ApproverName { get; set; } = "";
+        public string ApproverName { get; set; }
         /// <summary>
         /// 审批时间
         /// </summary>
         [Description("审批时间")]
         [JsonProperty("approverDate")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime ApproverDate { get; set; } = DateTime.MinValue;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? ApproverDate { get; set; }
         /// <summary>
         /// 审批意见
         /// </summary>
@@ -91,7 +91,7 @@ namespace MISApi.Entities.CMS
         [Description("审批意见")]
         [JsonProperty("approverDesc")]
         [DefaultValue("")]
-        public string ApproverDesc { get; set; } = "";
+        public string ApproverDesc { get; set; }
         /// <summary>
         /// 内容
         /// </summary>
@@ -99,42 +99,42 @@ namespace MISApi.Entities.CMS
         [Description("内容")]
         [JsonProperty("content")]
         [DefaultValue("")]
-        public string Content { get; set; } = "";
+        public string Content { get; set; }
         /// <summary>
         /// 创建时间
         /// </summary>
         [Description("创建时间")]
         [JsonProperty("createDateTime")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime CreateDateTime { get; set; } = DateTime.MinValue;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? CreateDateTime { get; set; } 
         /// <summary>
         /// 创建用户Id
         /// </summary>
         [Description("创建用户Id")]
         [JsonProperty("createUserId")]
         [DefaultValue(-1)]
-        public int CreateUserId { get; set; } = -1;
+        public int? CreateUserId { get; set; }
         /// <summary>
         /// 最后修改时间
         /// </summary>
         [Description("最后修改时间")]
         [JsonProperty("editDateTime")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime EditDateTime { get; set; } = DateTime.MinValue;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? EditDateTime { get; set; }
         /// <summary>
         /// 最后修改用户Id
         /// </summary>
         [Description("最后修改用户Id")]
         [JsonProperty("editUserId")]
         [DefaultValue(-1)]
-        public int EditUserId { get; set; } = -1;
+        public int? EditUserId { get; set; }
         /// <summary>
         /// 状态Id
         /// </summary>
         [Description("状态Id")]
         [JsonProperty("statusId")]
         [DefaultValue(-1)]
-        public int StatusId { get; set; } = -1;
+        public int? StatusId { get; set; }
         /// <summary>
         /// 状态名
         /// </summary>
@@ -142,14 +142,14 @@ namespace MISApi.Entities.CMS
         [Description("状态名")]
         [JsonProperty("statusName")]
         [DefaultValue("")]
-        public string StatusName { get; set; } = "";
+        public string StatusName { get; set; }
         /// <summary>
         /// 状态数值
         /// </summary>
         [Description("状态数值")]
         [JsonProperty("statusValue")]
         [DefaultValue(0)]
-        public int StatusValue { get; set; } = 0;
+        public int? StatusValue { get; set; }
         #endregion
 
         #region Not Mapped Property

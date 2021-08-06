@@ -121,17 +121,21 @@ namespace MISApi.Dal.EF
                     // 输入值不等于null
                     if (reqEntityValue != null)
                     {
-                        // 输入值不等于Entity中设置的DefaultValue
-                        if (reqEntityValue.ToString() != p.CustomAttributes.ToList().Find(row => row.AttributeType.Name == "DefaultValueAttribute")?.ConstructorArguments[0].Value.ToString())
+                        if (p.IsMapped())
                         {
-                            if (p.IsMapped())
-                            {
-                                if (reqEntityValue != GetDefault(p.GetType()))
-                                {
-                                    p.SetValue(dbEntity, reqEntityValue, null);
-                                }
-                            }
+                            p.SetValue(dbEntity, reqEntityValue, null);
                         }
+                        //// 输入值不等于Entity中设置的DefaultValue
+                        //if (reqEntityValue.ToString() != p.CustomAttributes.ToList().Find(row => row.AttributeType.Name == "DefaultValueAttribute")?.ConstructorArguments[0].Value.ToString())
+                        //{
+                        //    if (p.IsMapped())
+                        //    {
+                        //        if (reqEntityValue != GetDefault(p.GetType()))
+                        //        {
+                        //            p.SetValue(dbEntity, reqEntityValue, null);
+                        //        }
+                        //    }
+                        //}
                     }
                 }
             }

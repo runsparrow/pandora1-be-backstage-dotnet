@@ -11565,6 +11565,13 @@
             
             </summary>
         </member>
+        <member name="M:MISApi.Entities.BaseEntity`1.DefaultValue(`0)">
+            <summary>
+            为实体设置默认值【只对Null值的Property产生效果】
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Entities.CMS.Article">
             <summary>
             资讯
@@ -12736,7 +12743,7 @@
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Goods.StatusValue">
-            <summary>
+            <summary>B
             状态数值
             </summary>
         </member>
@@ -13262,7 +13269,7 @@
         </member>
         <member name="T:MISApi.Entities.CMS.OrderDetail">
             <summary>
-            
+            订单明细
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.OrderDetail.Id">

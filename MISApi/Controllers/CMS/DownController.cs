@@ -33,7 +33,11 @@ namespace MISApi.Controllers.CMS
                 // Entity
                 if (entity != null)
                 {
-
+                    entity.DownDateTime = DateTime.Now;
+                    entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    entity.CreateDateTime = DateTime.Now;
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
@@ -63,7 +67,11 @@ namespace MISApi.Controllers.CMS
                 if (entities != null)
                 {
                     entities.ForEach(entity => {
-
+                        entity.DownDateTime = DateTime.Now;
+                        entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.CreateDateTime = DateTime.Now;
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
                     });
                 }
                 // 返回
@@ -96,7 +104,8 @@ namespace MISApi.Controllers.CMS
                 // Entity
                 if (entity != null)
                 {
-
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
@@ -127,7 +136,8 @@ namespace MISApi.Controllers.CMS
                 {
                     entities.ForEach(entity =>
                     {
-
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
                     });
                 }
                 // 返回

@@ -33,6 +33,7 @@ namespace MISApi.Controllers.CMS
                 // Entity
                 if (entity != null)
                 {
+                    entity.PublishDateTime = DateTime.Now;
                     entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
                     entity.CreateDateTime = DateTime.Now;
                     entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -66,6 +67,7 @@ namespace MISApi.Controllers.CMS
                 if (entities != null)
                 {
                     entities.ForEach(entity => {
+                        entity.PublishDateTime = DateTime.Now;
                         entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
                         entity.CreateDateTime = DateTime.Now;
                         entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -99,6 +101,7 @@ namespace MISApi.Controllers.CMS
                 // Entity
                 if (dto.Entity != null)
                 {
+                    dto.Entity.PublishDateTime = DateTime.Now;
                     dto.Entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
                     dto.Entity.CreateDateTime = DateTime.Now;
                     dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -132,6 +135,7 @@ namespace MISApi.Controllers.CMS
                 if (dto.Entities != null)
                 {
                     dto.Entities.ForEach(entity => {
+                        entity.PublishDateTime = DateTime.Now;
                         entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
                         entity.CreateDateTime = DateTime.Now;
                         entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;

@@ -31,7 +31,7 @@ namespace MISApi.Entities.CMS
         [Description("流水号")]
         [JsonProperty("serialNo")]
         [DefaultValue("")]
-        public string SerialNo { get; set; } = "";
+        public string SerialNo { get; set; }
         /// <summary>
         /// 商户订单号
         /// </summary>
@@ -39,14 +39,14 @@ namespace MISApi.Entities.CMS
         [Description("商户订单号")]
         [JsonProperty("orderNo")]
         [DefaultValue("")]
-        public string OrderNo { get; set; } = "";
+        public string OrderNo { get; set; }
         /// <summary>
         /// 付款人Id
         /// </summary>
         [Description("付款人Id")]
         [JsonProperty("payerId")]
         [DefaultValue(-1)]
-        public int PayerId { get; set; } = -1;
+        public int? PayerId { get; set; }
         /// <summary>
         /// 付款人用户名
         /// </summary>
@@ -54,7 +54,7 @@ namespace MISApi.Entities.CMS
         [Description("付款人用户名")]
         [JsonProperty("payerName")]
         [DefaultValue("")]
-        public string PayerName { get; set; } = "";
+        public string PayerName { get; set; }
         /// <summary>
         /// 付款人实名
         /// </summary>
@@ -62,7 +62,7 @@ namespace MISApi.Entities.CMS
         [Description("付款人实名")]
         [JsonProperty("payerRealName")]
         [DefaultValue("")]
-        public string PayerRealName { get; set; } = "";
+        public string PayerRealName { get; set; }
         /// <summary>
         /// 付款人账号
         /// </summary>
@@ -70,14 +70,14 @@ namespace MISApi.Entities.CMS
         [Description("付款人账号")]
         [JsonProperty("payerAccount")]
         [DefaultValue("")]
-        public string PayerAccount { get; set; } = "";
+        public string PayerAccount { get; set; }
         /// <summary>
         /// 收款人Id
         /// </summary>
         [Description("收款人Id")]
         [JsonProperty("receiverId")]
         [DefaultValue(-1)]
-        public int ReceiverId { get; set; } = -1;
+        public int? ReceiverId { get; set; }
         /// <summary>
         /// 收款人用户名
         /// </summary>
@@ -85,7 +85,7 @@ namespace MISApi.Entities.CMS
         [Description("收款人用户名")]
         [JsonProperty("receiverName")]
         [DefaultValue("")]
-        public string ReceiverName { get; set; } = "";
+        public string ReceiverName { get; set; }
         /// <summary>
         /// 收款人实名
         /// </summary>
@@ -93,7 +93,7 @@ namespace MISApi.Entities.CMS
         [Description("收款人实名")]
         [JsonProperty("receiverRealName")]
         [DefaultValue("")]
-        public string ReceiverRealName { get; set; } = "";
+        public string ReceiverRealName { get; set; }
         /// <summary>
         /// 收款人账号
         /// </summary>
@@ -101,21 +101,21 @@ namespace MISApi.Entities.CMS
         [Description("收款人账号")]
         [JsonProperty("receiverAccount")]
         [DefaultValue("")]
-        public string ReceiverAccount { get; set; } = "";
+        public string ReceiverAccount { get; set; }
         /// <summary>
         /// 交易时间
         /// </summary>
         [Description("交易时间")]
         [JsonProperty("dealDateTime")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime DealDateTime { get; set; } = DateTime.MinValue;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? DealDateTime { get; set; }
         /// <summary>
         /// 交易金额
         /// </summary>
         [Description("交易金额")]
         [JsonProperty("dealAmount")]
         [DefaultValue(0)]
-        public decimal DealAmount { get; set; } = 0;
+        public decimal? DealAmount { get; set; }
         /// <summary>
         /// 交易类型
         /// </summary>
@@ -123,14 +123,14 @@ namespace MISApi.Entities.CMS
         [Description("交易类型")]
         [JsonProperty("dealType")]
         [DefaultValue("")]
-        public string DealType { get; set; } = "";
+        public string DealType { get; set; }
         /// <summary>
         /// 支付工具Index
         /// </summary>
         [Description("支付工具Index")]
         [JsonProperty("paySourceIndex")]
         [DefaultValue(0)]
-        public int PaySourceIndex { get; set; } = 0;
+        public int? PaySourceIndex { get; set; }
         /// <summary>
         /// 备注
         /// </summary>
@@ -138,42 +138,42 @@ namespace MISApi.Entities.CMS
         [Description("备注")]
         [JsonProperty("remark")]
         [DefaultValue("")]
-        public string Remark { get; set; } = "";
+        public string Remark { get; set; }
         /// <summary>
         /// 创建时间
         /// </summary>
         [Description("创建时间")]
         [JsonProperty("createDateTime")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime CreateDateTime { get; set; } = DateTime.MinValue;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? CreateDateTime { get; set; } 
         /// <summary>
         /// 创建用户Id
         /// </summary>
         [Description("创建用户Id")]
         [JsonProperty("createUserId")]
         [DefaultValue(-1)]
-        public int CreateUserId { get; set; } = -1;
+        public int? CreateUserId { get; set; }
         /// <summary>
         /// 最后修改时间
         /// </summary>
         [Description("最后修改时间")]
         [JsonProperty("editDateTime")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime EditDateTime { get; set; } = DateTime.MinValue;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? EditDateTime { get; set; }
         /// <summary>
         /// 最后修改用户Id
         /// </summary>
         [Description("最后修改用户Id")]
         [JsonProperty("editUserId")]
         [DefaultValue(-1)]
-        public int EditUserId { get; set; } = -1;
+        public int? EditUserId { get; set; }
         /// <summary>
         /// 状态Id
         /// </summary>
         [Description("状态Id")]
         [JsonProperty("statusId")]
         [DefaultValue(-1)]
-        public int StatusId { get; set; } = -1;
+        public int? StatusId { get; set; }
         /// <summary>
         /// 状态名
         /// </summary>
@@ -181,14 +181,14 @@ namespace MISApi.Entities.CMS
         [Description("状态名")]
         [JsonProperty("statusName")]
         [DefaultValue("")]
-        public string StatusName { get; set; } = "";
+        public string StatusName { get; set; }
         /// <summary>
         /// 状态数值
         /// </summary>
         [Description("状态数值")]
         [JsonProperty("statusValue")]
         [DefaultValue(0)]
-        public int StatusValue { get; set; } = 0;
+        public int? StatusValue { get; set; }
         #endregion
 
         #region Not Mapped Property

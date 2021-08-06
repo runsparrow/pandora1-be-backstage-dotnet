@@ -696,7 +696,7 @@ namespace MISApi.Services.AVM.Base
             {
                 if (status != null && status.Values.Count() > 0)
                 {
-                    return queryable.Where(row => status.Values.Contains(row.User.StatusValue));
+                    return queryable.Where(row => status.Values.Contains(row.User.StatusValue??0));
                 }
                 return queryable;
             }

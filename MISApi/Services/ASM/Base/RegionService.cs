@@ -424,7 +424,7 @@ namespace MISApi.Services.ASM.Base
                 try
                 {
                     Region currentRegion = new RowService().ByCode(code) ?? new Region();
-                    List<Region> result = SupersetByIdRecursion(new List<Region>(), currentRegion.Pid, joins);
+                    List<Region> result = SupersetByIdRecursion(new List<Region>(), currentRegion.Pid??-1, joins);
                     result.Add(currentRegion);
                     string path = "^";
                     // 生成path
@@ -468,7 +468,7 @@ namespace MISApi.Services.ASM.Base
                 try
                 {
                     Region currentRegion = new RowService().ById(id);
-                    List<Region> result = SupersetByIdRecursion(new List<Region>(), currentRegion.Pid, joins);
+                    List<Region> result = SupersetByIdRecursion(new List<Region>(), currentRegion.Pid??-1, joins);
                     result.Add(currentRegion);
                     string path = "^";
                     // 生成path
@@ -628,7 +628,7 @@ namespace MISApi.Services.ASM.Base
                 try
                 {
                     SQLQueryable(context, joins).Where(row => row.Region.Id == pid).ToList().ForEach(sqlEntity => {
-                        SupersetByIdRecursion(list, sqlEntity.Region.Pid, joins);
+                        SupersetByIdRecursion(list, sqlEntity.Region.Pid??-1, joins);
                         list.Add(sqlEntity.Region);
                     });
                     return list;

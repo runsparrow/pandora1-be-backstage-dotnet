@@ -30,7 +30,7 @@ namespace MISApi.Entities.CMS
         [Description("#")]
         [JsonProperty("pid")]
         [DefaultValue(-1)]
-        public int Pid { get; set; } = -1;
+        public int? Pid { get; set; }
         /// <summary>
         /// 名称
         /// </summary>
@@ -38,7 +38,7 @@ namespace MISApi.Entities.CMS
         [Description("名称")]
         [JsonProperty("name")]
         [DefaultValue("")]
-        public string Name { get; set; } = "";
+        public string Name { get; set; }
         /// <summary>
         /// 键名
         /// </summary>
@@ -46,7 +46,7 @@ namespace MISApi.Entities.CMS
         [Description("键名")]
         [JsonProperty("key")]
         [DefaultValue("")]
-        public string Key { get; set; } = "";
+        public string Key { get; set; }
         /// <summary>
         /// 键值
         /// </summary>
@@ -54,7 +54,7 @@ namespace MISApi.Entities.CMS
         [Description("键值")]
         [JsonProperty("value")]
         [DefaultValue("")]
-        public string Value { get; set; } = "";
+        public string Value { get; set; }
         /// <summary>
         /// 排序
         /// </summary>
@@ -62,7 +62,7 @@ namespace MISApi.Entities.CMS
         [Description("排序")]
         [JsonProperty("sort")]
         [DefaultValue("")]
-        public string Sort { get; set; } = "";
+        public string Sort { get; set; }
         /// <summary>
         /// 分组
         /// </summary>
@@ -70,7 +70,7 @@ namespace MISApi.Entities.CMS
         [Description("分组")]
         [JsonProperty("group")]
         [DefaultValue("")]
-        public string Group { get; set; } = "";
+        public string Group { get; set; }
         /// <summary>
         /// 路径
         /// </summary>
@@ -78,14 +78,14 @@ namespace MISApi.Entities.CMS
         [Description("路径")]
         [JsonProperty("url")]
         [DefaultValue("")]
-        public string Url { get; set; } = "";
+        public string Url { get; set; }
         /// <summary>
         /// 路径类型
         /// </summary>
         [Description("路径类型")]
         [JsonProperty("urlType")]
         [DefaultValue(0)]
-        public int UrlType { get; set; } = 0;
+        public int? UrlType { get; set; }
         /// <summary>
         /// 备注
         /// </summary>
@@ -93,28 +93,28 @@ namespace MISApi.Entities.CMS
         [Description("备注")]
         [JsonProperty("remark")]
         [DefaultValue("")]
-        public string Remark { get; set; } = "";
+        public string Remark { get; set; }
         /// <summary>
         /// 是否显示
         /// </summary>
         [Description("是否显示")]
         [JsonProperty("isDisplay")]
         [DefaultValue(false)]
-        public bool IsDisplay { get; set; } = false;
+        public bool? IsDisplay { get; set; }
         /// <summary>
         /// 是否作为链接
         /// </summary>
         [Description("是否作为链接")]
         [JsonProperty("isLink")]
         [DefaultValue(false)]
-        public bool IsLink { get; set; } = false;
+        public bool? IsLink { get; set; }
         /// <summary>
         /// 是否弹出
         /// </summary>
         [Description("是否弹出")]
         [JsonProperty("isTarget")]
         [DefaultValue(false)]
-        public bool IsTarget { get; set; } = false;
+        public bool? IsTarget { get; set; }
         /// <summary>
         /// 图标
         /// </summary>
@@ -122,14 +122,14 @@ namespace MISApi.Entities.CMS
         [Description("图标")]
         [JsonProperty("Icon")]
         [DefaultValue("")]
-        public string Icon { get; set; } = "";
+        public string Icon { get; set; }
         /// <summary>
         /// 状态Id
         /// </summary>
         [Description("状态Id")]
         [JsonProperty("statusId")]
         [DefaultValue(-1)]
-        public int StatusId { get; set; } = -1;
+        public int? StatusId { get; set; }
         /// <summary>
         /// 状态名
         /// </summary>
@@ -137,42 +137,42 @@ namespace MISApi.Entities.CMS
         [Description("状态名")]
         [JsonProperty("statusName")]
         [DefaultValue("")]
-        public string StatusName { get; set; } = "";
+        public string StatusName { get; set; }
         /// <summary>
         /// 状态数值
         /// </summary>
         [Description("状态数值")]
         [JsonProperty("statusValue")]
         [DefaultValue(0)]
-        public int StatusValue { get; set; } = 0;
+        public int? StatusValue { get; set; }
         /// <summary>
         /// 创建时间
         /// </summary>
         [Description("创建时间")]
         [JsonProperty("createDateTime")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime CreateDateTime { get; set; } = DateTime.MinValue;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? CreateDateTime { get; set; } 
         /// <summary>
         /// 创建用户Id
         /// </summary>
         [Description("创建用户Id")]
         [JsonProperty("createUserId")]
         [DefaultValue(-1)]
-        public int CreateUserId { get; set; } = -1;
+        public int? CreateUserId { get; set; }
         /// <summary>
         /// 最后修改时间
         /// </summary>
         [Description("最后修改时间")]
         [JsonProperty("editDateTime")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime EditDateTime { get; set; } = DateTime.MinValue;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? EditDateTime { get; set; }
         /// <summary>
         /// 最后修改用户Id
         /// </summary>
         [Description("最后修改用户Id")]
         [JsonProperty("editUserId")]
         [DefaultValue(-1)]
-        public int EditUserId { get; set; } = -1;
+        public int? EditUserId { get; set; }
         #endregion
 
         #region Not Mapped Property
@@ -184,7 +184,7 @@ namespace MISApi.Entities.CMS
         [JsonProperty("path")]
         [DefaultValue("")]
         [NotMapped]
-        public string Path { get; set; } = "";
+        public string Path { get; set; }
         /// <summary>
         /// 状态
         /// </summary>

@@ -105,7 +105,7 @@ namespace MISApi.Services.CMS
                         // 认证信息
                         result = new AuthorityService.CreateService().ToStatus(entity, "cms.authority.open");
                         // 会员信息
-                        new MemberService.UpdateService().AuthorityPass(entity.MemberId);
+                        new MemberService.UpdateService().AuthorityPass(entity.MemberId??-1);
                     });
                     // 提交
                     transService.TransCommit();

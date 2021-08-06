@@ -29,7 +29,7 @@ namespace MISApi.Entities.ASM
         [Description("#")]
         [JsonProperty("pid")]
         [DefaultValue(-1)]
-        public int Pid { get; set; } = -1;
+        public int? Pid { get; set; }
         /// <summary>
         /// 名称
         /// </summary>
@@ -37,7 +37,7 @@ namespace MISApi.Entities.ASM
         [Description("名称")]
         [JsonProperty("name")]
         [DefaultValue("")]
-        public string Name { get; set; } = "";
+        public string Name { get; set; }
         /// <summary>
         /// 代码
         /// </summary>
@@ -45,7 +45,7 @@ namespace MISApi.Entities.ASM
         [Description("代码")]
         [JsonProperty("code")]
         [DefaultValue("")]
-        public string Code { get; set; } = "";
+        public string Code { get; set; }
         /// <summary>
         /// 导入版本
         /// </summary>
@@ -53,41 +53,41 @@ namespace MISApi.Entities.ASM
         [Description("导入版本")]
         [JsonProperty("importVersion")]
         [DefaultValue("")]
-        public string ImportVersion { get; set; } = "";
+        public string ImportVersion { get; set; }
         /// <summary>
         /// 导入时间
         /// </summary>
         [Description("导入时间")]
         [JsonProperty("importDateTime")]
-        public DateTime ImportDateTime { get; set; } = DateTime.MinValue;
+        public DateTime? ImportDateTime { get; set; }
         /// <summary>
         /// 创建时间
         /// </summary>
         [Description("创建时间")]
         [JsonProperty("createDateTime")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime CreateDateTime { get; set; } = DateTime.MinValue;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? CreateDateTime { get; set; } 
         /// <summary>
         /// 创建用户Id
         /// </summary>
         [Description("创建用户Id")]
         [JsonProperty("createUserId")]
         [DefaultValue(-1)]
-        public int CreateUserId { get; set; } = -1;
+        public int? CreateUserId { get; set; }
         /// <summary>
         /// 最后修改时间
         /// </summary>
         [Description("最后修改时间")]
         [JsonProperty("editDateTime")]
-        [DefaultValue("0001/1/1 0:00:00")]
-        public DateTime EditDateTime { get; set; } = DateTime.MinValue;
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? EditDateTime { get; set; }
         /// <summary>
         /// 最后修改用户Id
         /// </summary>
         [Description("最后修改用户Id")]
         [JsonProperty("editUserId")]
         [DefaultValue(-1)]
-        public int EditUserId { get; set; } = -1;
+        public int? EditUserId { get; set; }
         #endregion
 
         #region Not Mapped Property
@@ -99,7 +99,7 @@ namespace MISApi.Entities.ASM
         [JsonProperty("path")]
         [DefaultValue("")]
         [NotMapped]
-        public string Path { get; set; } = "";
+        public string Path { get; set; }
         /// <summary>
         /// 上级字典
         /// </summary>

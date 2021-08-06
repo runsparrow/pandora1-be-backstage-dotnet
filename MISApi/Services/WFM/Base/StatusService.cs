@@ -423,7 +423,7 @@ namespace MISApi.Services.WFM.Base
                 try
                 {
                     Status currentStatus = new RowService().ByKey(key) ?? new Status();
-                    List<Status> result = SupersetByIdRecursion(new List<Status>(), currentStatus.Pid, joins);
+                    List<Status> result = SupersetByIdRecursion(new List<Status>(), currentStatus.Pid??-1, joins);
                     result.Add(currentStatus);
                     string path = "^";
                     // 生成path
@@ -467,7 +467,7 @@ namespace MISApi.Services.WFM.Base
                 try
                 {
                     Status currentStatus = new RowService().ById(id);
-                    List<Status> result = SupersetByIdRecursion(new List<Status>(), currentStatus.Pid, joins);
+                    List<Status> result = SupersetByIdRecursion(new List<Status>(), currentStatus.Pid??-1, joins);
                     result.Add(currentStatus);
                     string path = "^";
                     // 生成path
@@ -627,7 +627,7 @@ namespace MISApi.Services.WFM.Base
                 try
                 {
                     SQLQueryable(context, joins).Where(row => row.Status.Id == pid).ToList().ForEach(sqlEntity => {
-                        SupersetByIdRecursion(list, sqlEntity.Status.Pid, joins);
+                        SupersetByIdRecursion(list, sqlEntity.Status.Pid??-1, joins);
                         list.Add(sqlEntity.Status);
                     });
                     return list;

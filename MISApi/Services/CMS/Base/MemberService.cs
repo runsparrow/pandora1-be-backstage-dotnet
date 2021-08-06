@@ -770,7 +770,7 @@ namespace MISApi.Services.CMS.Base
             {
                 if (status != null && status.Values.Count() > 0)
                 {
-                    return queryable.Where(row => status.Values.Contains(row.Member.StatusValue));
+                    return queryable.Where(row => status.Values.Contains(row.Member.StatusValue??0));
                 }
                 return queryable;
             }

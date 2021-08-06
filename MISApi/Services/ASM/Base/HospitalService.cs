@@ -424,7 +424,7 @@ namespace MISApi.Services.ASM.Base
                 try
                 {
                     Hospital currentHospital = new RowService().ByKey(key) ?? new Hospital();
-                    List<Hospital> result = SupersetByIdRecursion(new List<Hospital>(), currentHospital.Pid, joins);
+                    List<Hospital> result = SupersetByIdRecursion(new List<Hospital>(), currentHospital.Pid??-1, joins);
                     result.Add(currentHospital);
                     string path = "^";
                     // 生成path
@@ -468,7 +468,7 @@ namespace MISApi.Services.ASM.Base
                 try
                 {
                     Hospital currentHospital = new RowService().ById(id);
-                    List<Hospital> result = SupersetByIdRecursion(new List<Hospital>(), currentHospital.Pid, joins);
+                    List<Hospital> result = SupersetByIdRecursion(new List<Hospital>(), currentHospital.Pid??-1, joins);
                     result.Add(currentHospital);
                     string path = "^";
                     // 生成path
@@ -680,7 +680,7 @@ namespace MISApi.Services.ASM.Base
                 try
                 {
                     SQLQueryable(context, joins).Where(row => row.Hospital.Id == pid).ToList().ForEach(sqlEntity => {
-                        SupersetByIdRecursion(list, sqlEntity.Hospital.Pid, joins);
+                        SupersetByIdRecursion(list, sqlEntity.Hospital.Pid??-1, joins);
                         list.Add(sqlEntity.Hospital);
                     });
                     return list;
@@ -941,7 +941,7 @@ namespace MISApi.Services.ASM.Base
             {
                 if (status != null && status.Values.Count() > 0)
                 {
-                    return queryable.Where(row => status.Values.Contains(row.Hospital.StatusValue));
+                    return queryable.Where(row => status.Values.Contains(row.Hospital.StatusValue??0));
                 }
                 return queryable;
             }

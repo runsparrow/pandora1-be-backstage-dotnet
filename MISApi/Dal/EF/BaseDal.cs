@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MISApi.Entities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -92,6 +93,12 @@ namespace MISApi.Dal.EF
             {
                 try
                 {
+                    // 设置默认值
+                    MethodInfo m = entity.GetType().GetMethod("DefaultValue", BindingFlags.Instance | BindingFlags.Public | BindingFlags.IgnoreCase);
+                    if(m != null)
+                    {
+                        entity = (T)m.Invoke(entity, new object[] { entity });
+                    }
                     PropertyInfo p = entity.GetType().GetProperty("Id");
                     if (p != null)
                     {
@@ -117,6 +124,15 @@ namespace MISApi.Dal.EF
             {
                 try
                 {
+                    for(var i=0; i<entities.Count; i++)
+                    {
+                        // 设置默认值
+                        MethodInfo m = entities[i].GetType().GetMethod("DefaultValue", BindingFlags.Instance | BindingFlags.Public | BindingFlags.IgnoreCase);
+                        if (m != null)
+                        {
+                            entities[i] = (T)m.Invoke(entities[i], new object[] { entities[i] });
+                        }
+                    }
                     DbSetEntity(context).AddRange(entities);
                     context.SaveChanges();
                     return entities;

@@ -20,7 +20,7 @@ namespace MISApi.Tools
         {
             options = new RedisCacheOptions();
             options.Configuration = ConfigurationHelper.GetRedisConnectionString("Connection");
-            options.InstanceName = ConfigurationHelper.GetRedisConnectionString("Connection");
+            options.InstanceName = ConfigurationHelper.GetRedisConnectionString("InstanceName");
             redisCache = new RedisCache(options);
         }
         /// <summary>

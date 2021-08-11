@@ -52,7 +52,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("总价")]
         [JsonProperty("totalPrice")]
-        [DefaultValue(0)]
+        [DefaultValue(typeof(decimal), "0")]
         public decimal? TotalPrice { get; set; }
         /// <summary>
         /// 买家

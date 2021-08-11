@@ -75,7 +75,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("交易金额")]
         [JsonProperty("dealAmount")]
-        [DefaultValue(0)]
+        [DefaultValue(typeof(decimal), "0")]
         public decimal? DealAmount { get; set; }
         /// <summary>
         /// 交易时间

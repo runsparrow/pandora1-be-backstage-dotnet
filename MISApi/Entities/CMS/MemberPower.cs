@@ -52,7 +52,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("价格")]
         [JsonProperty("price")]
-        [DefaultValue(0)]
+        [DefaultValue(typeof(decimal), "0")]
         public decimal? Price { get; set; }
         /// <summary>
         /// 有效期天数限制

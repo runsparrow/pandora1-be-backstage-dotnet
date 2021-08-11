@@ -31,6 +31,11 @@ namespace MISApi.Entities
                     {
                         p.SetValue(entity, DateTime.Parse(p.CustomAttributes.ToList().Find(row => row.AttributeType.Name == "DefaultValueAttribute")?.ConstructorArguments[1].Value.ToString()), null);
                     }
+                    // 如果是decimal类型，特性 [DefaultValue(typeof(Decimal), "0")]取ConstructorArguments第二个参数
+                    else if (p.PropertyType.FullName.Contains("System.Decimal"))
+                    {
+                        p.SetValue(entity, decimal.Parse(p.CustomAttributes.ToList().Find(row => row.AttributeType.Name == "DefaultValueAttribute")?.ConstructorArguments[1].Value.ToString()), null);
+                    }
                     else
                     {
                         p.SetValue(entity, p.CustomAttributes.ToList().Find(row => row.AttributeType.Name == "DefaultValueAttribute")?.ConstructorArguments[0].Value, null);

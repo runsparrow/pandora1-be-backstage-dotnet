@@ -99,6 +99,7 @@ namespace MISApi.Dal.EF
                     {
                         entity = (T)m.Invoke(entity, new object[] { entity });
                     }
+                    // 排除Id自增字段
                     PropertyInfo p = entity.GetType().GetProperty("Id");
                     if (p != null)
                     {
@@ -131,6 +132,12 @@ namespace MISApi.Dal.EF
                         if (m != null)
                         {
                             entities[i] = (T)m.Invoke(entities[i], new object[] { entities[i] });
+                        }
+                        // 排除Id自增字段
+                        PropertyInfo p = entities[i].GetType().GetProperty("Id");
+                        if (p != null)
+                        {
+                            p.SetValue(entities[i], 0);
                         }
                     }
                     DbSetEntity(context).AddRange(entities);

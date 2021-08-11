@@ -89,7 +89,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("单价")]
         [JsonProperty("unitPrice")]
-        [DefaultValue(0)]
+        [DefaultValue(typeof(decimal), "0")]
         public decimal? UnitPrice { get; set; }
         /// <summary>
         /// 数量
@@ -110,7 +110,7 @@ namespace MISApi.Entities.CMS
         /// </summary>
         [Description("总价")]
         [JsonProperty("totalPrice")]
-        [DefaultValue(0)]
+        [DefaultValue(typeof(decimal), "0")]
         public decimal? TotalPrice { get; set; }
         /// <summary>
         /// 备注

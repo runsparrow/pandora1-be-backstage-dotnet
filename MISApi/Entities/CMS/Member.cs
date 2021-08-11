@@ -266,6 +266,10 @@ namespace MISApi.Entities.CMS
         {
             get
             {
+                if(Gender == null)
+                {
+                    return "";
+                }
                 switch (Gender.ToLower())
                 {
                     case "f":
@@ -310,6 +314,10 @@ namespace MISApi.Entities.CMS
         {
             get
             {
+                if(Level == null)
+                {
+                    return "";
+                }
                 switch (Level)
                 {
                     case 1:

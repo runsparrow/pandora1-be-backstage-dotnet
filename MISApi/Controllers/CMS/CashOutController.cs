@@ -30,7 +30,7 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // 默认值
                 if (entity != null)
                 {
 
@@ -59,7 +59,7 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entities
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity => {
@@ -153,7 +153,7 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // 默认值
                 if (entity != null)
                 {
 
@@ -182,7 +182,7 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entities
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity =>

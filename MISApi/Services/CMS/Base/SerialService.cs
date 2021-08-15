@@ -312,6 +312,31 @@ namespace MISApi.Services.CMS.Base
         public class RowsService : SerialService
         {
             /// <summary>
+            /// 根据 流水号并排除流水Id 查询
+            /// </summary>
+            /// <param name="serialNo">流水编号</param>
+            /// <param name="extraId">被排除判断的Id</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Serial> BySerialNo(string serialNo, int extraId = -1, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Serial.SerialNo == serialNo && row.Serial.Id != extraId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.SerialService.RowsService.BySerialNo", ex);
+                    }
+                }
+            }
+            /// <summary>
             /// 根据关键字查询
             /// </summary>
             /// <param name="keyWord">关键字</param>

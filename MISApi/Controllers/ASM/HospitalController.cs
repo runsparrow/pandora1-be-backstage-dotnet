@@ -31,7 +31,29 @@ namespace MISApi.Controllers.ASM
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复Key
+                if (!string.IsNullOrEmpty(entity.Key))
+                {
+                    List<Hospital> existHospital = new HospitalService.RowsService().ByKey(entity.Key);
+                    if (existHospital.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复Key值的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (entity != null)
                 {
                     entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -63,7 +85,33 @@ namespace MISApi.Controllers.ASM
         {
             try
             {
-                // Entities
+                // Entities空值
+                if (entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Hospital entity in entities)
+                {
+                    // Key
+                    if (!string.IsNullOrEmpty(entity.Key))
+                    {
+                        List<Hospital> existHospital = new HospitalService.RowsService().ByKey(entity.Key);
+                        if (existHospital.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复Key值的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity => {
@@ -97,7 +145,29 @@ namespace MISApi.Controllers.ASM
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (dto.Entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.DTO.Entity为空。"
+                    });
+                }
+                // 重复Key
+                if (!string.IsNullOrEmpty(dto.Entity.Key))
+                {
+                    List<Hospital> existHospital = new HospitalService.RowsService().ByKey(dto.Entity.Key);
+                    if (existHospital.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复Key值的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (dto.Entity != null)
                 {
                     dto.Entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -129,7 +199,33 @@ namespace MISApi.Controllers.ASM
         {
             try
             {
-                // Entity
+                // Entities空值
+                if (dto.Entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.DTO.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Hospital entity in dto.Entities)
+                {
+                    // Key
+                    if (!string.IsNullOrEmpty(entity.Key))
+                    {
+                        List<Hospital> existHospital = new HospitalService.RowsService().ByKey(entity.Key);
+                        if (existHospital.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复Key值的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (dto.Entities != null)
                 {
                     dto.Entities.ForEach(entity => {
@@ -166,7 +262,29 @@ namespace MISApi.Controllers.ASM
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复Key
+                if (!string.IsNullOrEmpty(entity.Key))
+                {
+                    List<Hospital> existHospital = new HospitalService.RowsService().ByKey(entity.Key, entity.Id);
+                    if (existHospital.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复Key值的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (entity != null)
                 {
                     entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -196,7 +314,33 @@ namespace MISApi.Controllers.ASM
         {
             try
             {
-                // Entities
+                // Entities空值
+                if (entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Hospital entity in entities)
+                {
+                    // Key
+                    if (!string.IsNullOrEmpty(entity.Key))
+                    {
+                        List<Hospital> existHospital = new HospitalService.RowsService().ByKey(entity.Key, entity.Id);
+                        if (existHospital.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复Key值的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity =>
@@ -229,7 +373,29 @@ namespace MISApi.Controllers.ASM
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (dto.Entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复Key
+                if (!string.IsNullOrEmpty(dto.Entity.Key))
+                {
+                    List<Hospital> existHospital = new HospitalService.RowsService().ByKey(dto.Entity.Key, dto.Entity.Id);
+                    if (existHospital.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复Key值的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (dto.Entity != null)
                 {
                     dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -259,7 +425,33 @@ namespace MISApi.Controllers.ASM
         {
             try
             {
-                // Entity
+                // Entities空值
+                if (dto.Entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Hospital entity in dto.Entities)
+                {
+                    // Key
+                    if (!string.IsNullOrEmpty(entity.Key))
+                    {
+                        List<Hospital> existHospital = new HospitalService.RowsService().ByKey(entity.Key, entity.Id);
+                        if (existHospital.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复Key值的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (dto.Entities != null)
                 {
                     dto.Entities.ForEach(entity =>

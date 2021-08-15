@@ -300,30 +300,6 @@ namespace MISApi.Services.ASM.Base
                     }
                 }
             }
-            /// <summary>
-            /// 根据 key 查询
-            /// </summary>
-            /// <param name="key">Key</param>
-            /// <param name="joins">关联表</param>
-            /// <returns></returns>
-            public Dictionary ByKey(string key, params BaseMode.Join[] joins)
-            {
-                using (PandoraContext context = new PandoraContext())
-                {
-                    try
-                    {
-                        return SQLEntityToSingle(
-                            SQLQueryable(context, joins)
-                                .Where(row => row.Dictionary.Key == key)
-                                .SingleOrDefault()
-                        );
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("MISApi.Services.ASM.Base.DictionaryService.RowService.ByKey", ex);
-                    }
-                }
-            }
         }
 
         #endregion
@@ -335,6 +311,31 @@ namespace MISApi.Services.ASM.Base
         /// </summary>
         public class RowsService : DictionaryService
         {
+            /// <summary>
+            /// 根据 key 查询
+            /// </summary>
+            /// <param name="key">Key</param>
+            /// <param name="extraId">被排除判断的Id</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Dictionary> ByKey(string key, int extraId = -1, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Dictionary.Key == key && row.Dictionary.Id != extraId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.ASM.Base.DictionaryService.RowsService.ByKey", ex);
+                    }
+                }
+            }
             /// <summary>
             /// 根据关键字查询
             /// </summary>
@@ -386,8 +387,8 @@ namespace MISApi.Services.ASM.Base
                 {
                     try
                     {
-                        Dictionary dictionary = new RowService().ByKey(key);
-                        return new RowsService().ByPid(dictionary == null ? 0 : dictionary.Id);
+                        List<Dictionary> existList = new RowsService().ByKey(key);
+                        return new RowsService().ByPid(existList.Count == 0 ? 0 : existList[0].Id);
                     }
                     catch (Exception ex)
                     {
@@ -405,8 +406,8 @@ namespace MISApi.Services.ASM.Base
             {
                 try
                 {
-                    List<Dictionary> list = new RowService().ByKey(key) == null ? new List<Dictionary>() : new List<Dictionary> { new RowService().ByKey(key) };
-                    return SubsetByIdRecursion(list, list[0].Id, joins);
+                    List<Dictionary> existList = new RowsService().ByKey(key);
+                    return SubsetByIdRecursion(existList, existList.Count == 0 ? 0 : existList[0].Id, joins);
                 }
                 catch (Exception ex)
                 {
@@ -423,9 +424,9 @@ namespace MISApi.Services.ASM.Base
             {
                 try
                 {
-                    Dictionary currentDictionary = new RowService().ByKey(key) ?? new Dictionary();
-                    List<Dictionary> result = SupersetByIdRecursion(new List<Dictionary>(), currentDictionary.Pid??-1, joins);
-                    result.Add(currentDictionary);
+                    List<Dictionary> existList = new RowsService().ByKey(key);
+                    List<Dictionary> result = SupersetByIdRecursion(new List<Dictionary>(), existList.Count==0?-1:(existList[0].Pid??-1), joins);
+                    result.Add(existList[0]);
                     string path = "^";
                     // 生成path
                     result.ForEach(dictionary =>
@@ -602,10 +603,10 @@ namespace MISApi.Services.ASM.Base
             {
                 try
                 {
-                    var entity = new RowService().ByKey(key);
-                    if(entity != null)
+                    List<Dictionary> existList = new RowsService().ByKey(key);
+                    if(list.Count > 0)
                     {
-                        SubsetByIdRecursion(list, entity.Id, joins);
+                        SubsetByIdRecursion(list, existList[0].Id, joins);
                     }
                     return list;
                 }
@@ -628,10 +629,10 @@ namespace MISApi.Services.ASM.Base
             {
                 try
                 {
-                    var entity = new RowService().ByKey(key);
-                    if (entity != null)
+                    List<Dictionary> existList = new RowsService().ByKey(key);
+                    if (list.Count > 0)
                     {
-                        SupersetByIdRecursion(list, entity.Id, joins);
+                        SupersetByIdRecursion(list, existList[0].Id, joins);
                     }
                     return list;
                 }

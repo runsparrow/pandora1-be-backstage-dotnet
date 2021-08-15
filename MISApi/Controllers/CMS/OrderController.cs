@@ -30,7 +30,29 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复订单号
+                if (!string.IsNullOrEmpty(entity.OrderNo))
+                {
+                    List<Order> existOrder = new OrderService.RowsService().ByOrderNo(entity.OrderNo);
+                    if (existOrder.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复订单编号的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (entity != null)
                 {
                     entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -62,7 +84,33 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entities
+                // Entities空值
+                if (entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Order entity in entities)
+                {
+                    // 订单编号
+                    if (!string.IsNullOrEmpty(entity.OrderNo))
+                    {
+                        List<Order> existOrder = new OrderService.RowsService().ByOrderNo(entity.OrderNo);
+                        if (existOrder.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复订单编号的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity => {
@@ -96,6 +144,28 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                // Entity空值
+                if (dto.Entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.DTO.Entity为空。"
+                    });
+                }
+                // 重复订单编号
+                if (!string.IsNullOrEmpty(dto.Entity.OrderNo))
+                {
+                    List<Order> existOrder = new OrderService.RowsService().ByOrderNo(dto.Entity.OrderNo);
+                    if (existOrder.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复订单编号的数据。"
+                        });
+                    }
+                }
                 // Entity
                 if (dto.Entity != null)
                 {
@@ -128,6 +198,32 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                // Entities空值
+                if (dto.Entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.DTO.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Order entity in dto.Entities)
+                {
+                    // 订单编号
+                    if (!string.IsNullOrEmpty(entity.OrderNo))
+                    {
+                        List<Order> existOrder = new OrderService.RowsService().ByOrderNo(entity.OrderNo);
+                        if (existOrder.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复订单编号的数据。"
+                            });
+                        }
+                    }
+                }
                 // Entity
                 if (dto.Entities != null)
                 {
@@ -165,7 +261,29 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复订单号
+                if (!string.IsNullOrEmpty(entity.OrderNo))
+                {
+                    List<Order> existOrder = new OrderService.RowsService().ByOrderNo(entity.OrderNo, entity.Id);
+                    if (existOrder.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复订单编号的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (entity != null)
                 {
                     entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -195,7 +313,33 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entities
+                // Entities空值
+                if (entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Order entity in entities)
+                {
+                    // 订单编号
+                    if (!string.IsNullOrEmpty(entity.OrderNo))
+                    {
+                        List<Order> existOrder = new OrderService.RowsService().ByOrderNo(entity.OrderNo, entity.Id);
+                        if (existOrder.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复订单编号的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity =>
@@ -228,6 +372,28 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                // Entity空值
+                if (dto.Entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 订单编号
+                if (!string.IsNullOrEmpty(dto.Entity.OrderNo))
+                {
+                    List<Order> existOrder = new OrderService.RowsService().ByOrderNo(dto.Entity.OrderNo, dto.Entity.Id);
+                    if (existOrder.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复订单编号的数据。"
+                        });
+                    }
+                }
                 // Entity
                 if (dto.Entity != null)
                 {
@@ -258,6 +424,32 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                // Entities空值
+                if (dto.Entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Order entity in dto.Entities)
+                {
+                    // 订单编号
+                    if (!string.IsNullOrEmpty(entity.OrderNo))
+                    {
+                        List<Order> existOrder = new OrderService.RowsService().ByOrderNo(entity.OrderNo, entity.Id);
+                        if (existOrder.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复订单编号的数据。"
+                            });
+                        }
+                    }
+                }
                 // Entity
                 if (dto.Entities != null)
                 {

@@ -30,7 +30,42 @@ namespace MISApi.Controllers.AVM
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复用户名
+                if (!string.IsNullOrEmpty(entity.Name))
+                {
+                    List<User> existUser = new UserService.RowsService().ByName(entity.Name);
+                    if (existUser.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复用户名的数据。"
+                        });
+                    }
+                }
+                // 重复手机号
+                if (!string.IsNullOrEmpty(entity.Mobile))
+                {
+                    List<User> existUser = new UserService.RowsService().ByMobile(entity.Mobile);
+                    if (existUser.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复手机号的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (entity != null)
                 {
                     entity.Password = EncryptHelper.GetBase64String(entity.Password);
@@ -63,7 +98,46 @@ namespace MISApi.Controllers.AVM
         {
             try
             {
-                // Entities
+                // Entities空值
+                if (entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (User entity in entities)
+                {
+                    // 用户名
+                    if (!string.IsNullOrEmpty(entity.Name))
+                    {
+                        List<User> existUser = new UserService.RowsService().ByName(entity.Name);
+                        if (existUser.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复用户名的数据。"
+                            });
+                        }
+                    }
+                    // 手机号
+                    if (!string.IsNullOrEmpty(entity.Mobile))
+                    {
+                        List<User> existUser = new UserService.RowsService().ByMobile(entity.Mobile);
+                        if (existUser.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复手机号的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity => {
@@ -98,7 +172,42 @@ namespace MISApi.Controllers.AVM
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (dto.Entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.DTO.Entity为空。"
+                    });
+                }
+                // 重复用户名
+                if (!string.IsNullOrEmpty(dto.Entity.Name))
+                {
+                    List<User> existUser = new UserService.RowsService().ByName(dto.Entity.Name);
+                    if (existUser.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复用户名的数据。"
+                        });
+                    }
+                }
+                // 重复手机号
+                if (!string.IsNullOrEmpty(dto.Entity.Mobile))
+                {
+                    List<User> existUser = new UserService.RowsService().ByMobile(dto.Entity.Mobile);
+                    if (existUser.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复手机号的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (dto.Entity != null)
                 {
                     dto.Entity.Password = EncryptHelper.GetBase64String(dto.Entity.Password);
@@ -131,7 +240,46 @@ namespace MISApi.Controllers.AVM
         {
             try
             {
-                // Entity
+                // Entities空值
+                if (dto.Entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.DTO.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (User entity in dto.Entities)
+                {
+                    // 用户名
+                    if (!string.IsNullOrEmpty(entity.Name))
+                    {
+                        List<User> existUser = new UserService.RowsService().ByName(entity.Name);
+                        if (existUser.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复用户名的数据。"
+                            });
+                        }
+                    }
+                    // 手机号
+                    if (!string.IsNullOrEmpty(entity.Mobile))
+                    {
+                        List<User> existUser = new UserService.RowsService().ByMobile(entity.Mobile);
+                        if (existUser.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复手机号的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (dto.Entities != null)
                 {
                     dto.Entities.ForEach(entity => {
@@ -169,7 +317,42 @@ namespace MISApi.Controllers.AVM
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复用户名
+                if (!string.IsNullOrEmpty(entity.Name))
+                {
+                    List<User> existUser = new UserService.RowsService().ByName(entity.Name, entity.Id);
+                    if (existUser.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复用户名的数据。"
+                        });
+                    }
+                }
+                // 重复手机号
+                if (!string.IsNullOrEmpty(entity.Mobile))
+                {
+                    List<User> existUser = new UserService.RowsService().ByMobile(entity.Mobile, entity.Id);
+                    if (existUser.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复手机号的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (entity != null)
                 {
                     entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -199,7 +382,46 @@ namespace MISApi.Controllers.AVM
         {
             try
             {
-                // Entities
+                // Entities空值
+                if (entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (User entity in entities)
+                {
+                    // 用户名
+                    if (!string.IsNullOrEmpty(entity.Name))
+                    {
+                        List<User> existUser = new UserService.RowsService().ByName(entity.Name, entity.Id);
+                        if (existUser.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复用户名的数据。"
+                            });
+                        }
+                    }
+                    // 手机号
+                    if (!string.IsNullOrEmpty(entity.Mobile))
+                    {
+                        List<User> existUser = new UserService.RowsService().ByMobile(entity.Mobile, entity.Id);
+                        if (existUser.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复手机号的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity =>
@@ -232,7 +454,42 @@ namespace MISApi.Controllers.AVM
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (dto.Entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复用户名
+                if (!string.IsNullOrEmpty(dto.Entity.Name))
+                {
+                    List<User> existUser = new UserService.RowsService().ByName(dto.Entity.Name, dto.Entity.Id);
+                    if (existUser.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复用户名的数据。"
+                        });
+                    }
+                }
+                // 重复手机号
+                if (!string.IsNullOrEmpty(dto.Entity.Mobile))
+                {
+                    List<User> existUser = new UserService.RowsService().ByMobile(dto.Entity.Mobile, dto.Entity.Id);
+                    if (existUser.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复手机号的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (dto.Entity != null)
                 {
                     dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -262,7 +519,46 @@ namespace MISApi.Controllers.AVM
         {
             try
             {
-                // Entity
+                // Entities空值
+                if (dto.Entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (User entity in dto.Entities)
+                {
+                    // 用户名
+                    if (!string.IsNullOrEmpty(entity.Name))
+                    {
+                        List<User> existUser = new UserService.RowsService().ByName(entity.Name, entity.Id);
+                        if (existUser.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复用户名的数据。"
+                            });
+                        }
+                    }
+                    // 手机号
+                    if (!string.IsNullOrEmpty(entity.Mobile))
+                    {
+                        List<User> existUser = new UserService.RowsService().ByMobile(entity.Mobile, entity.Id);
+                        if (existUser.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复手机号的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (dto.Entities != null)
                 {
                     dto.Entities.ForEach(entity =>
@@ -295,7 +591,7 @@ namespace MISApi.Controllers.AVM
         {
             try
             {
-                // Entity
+                // 默认值
                 if (entity != null)
                 {
                     entity.Password = EncryptHelper.GetBase64String(entity.Password);

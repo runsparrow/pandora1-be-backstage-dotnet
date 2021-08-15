@@ -15981,18 +15981,19 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.ASM.Base.DictionaryService.RowService.ByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
-            <summary>
-            根据 key 查询
-            </summary>
-            <param name="key">Key</param>
-            <param name="joins">关联表</param>
-            <returns></returns>
-        </member>
         <member name="T:MISApi.Services.ASM.Base.DictionaryService.RowsService">
             <summary>
             
             </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.DictionaryService.RowsService.ByKey(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 key 查询
+            </summary>
+            <param name="key">Key</param>
+            <param name="extraId">被排除判断的Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
         </member>
         <member name="M:MISApi.Services.ASM.Base.DictionaryService.RowsService.ByKeyWord(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
             <summary>
@@ -16331,18 +16332,19 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.ASM.Base.HospitalService.RowService.ByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
-            <summary>
-            根据 key 查询
-            </summary>
-            <param name="key">Key</param>
-            <param name="joins">关联表</param>
-            <returns></returns>
-        </member>
         <member name="T:MISApi.Services.ASM.Base.HospitalService.RowsService">
             <summary>
             
             </summary>
+        </member>
+        <member name="M:MISApi.Services.ASM.Base.HospitalService.RowsService.ByKey(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 key 查询
+            </summary>
+            <param name="key">Key</param>
+            <param name="extraId">被排除判断的Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
         </member>
         <member name="M:MISApi.Services.ASM.Base.HospitalService.RowsService.ByKeyWord(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
             <summary>
@@ -17237,27 +17239,28 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.AVM.Base.UserService.RowService.ByName(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
-            <summary>
-            根据 用户名并排除用户Id 查询
-            </summary>
-            <param name="name">用户名</param>
-            <param name="id">用户Id</param>
-            <param name="joins">关联表</param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.AVM.Base.UserService.RowService.ByMobile(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
-            <summary>
-            根据 手机号 查询
-            </summary>
-            <param name="mobile">手机号</param>
-            <param name="joins">关联表</param>
-            <returns></returns>
-        </member>
         <member name="T:MISApi.Services.AVM.Base.UserService.RowsService">
             <summary>
             
             </summary>
+        </member>
+        <member name="M:MISApi.Services.AVM.Base.UserService.RowsService.ByName(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 用户名并排除用户Id 查询
+            </summary>
+            <param name="name">用户名</param>
+            <param name="extraId">被排除判断的Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.AVM.Base.UserService.RowsService.ByMobile(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 手机号 查询
+            </summary>
+            <param name="mobile">手机号</param>
+            <param name="extraId">被排除判断的Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
         </member>
         <member name="M:MISApi.Services.AVM.Base.UserService.RowsService.ByKeyWord(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
             <summary>
@@ -17679,6 +17682,15 @@
             
             </summary>
         </member>
+        <member name="M:MISApi.Services.CMS.AuthorityService.RowsService.ByMemberIdWithAuthorityIndex(System.Int32,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="memberId"></param>
+            <param name="authorityIndex"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Services.CMS.Base.ArticleService">
             <summary>
             
@@ -18061,15 +18073,6 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.Base.AuthorityService.RowService.ByMemberIdWithAuthorityIndex(System.Int32,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
-            <summary>
-            
-            </summary>
-            <param name="memberId"></param>
-            <param name="authorityIndex"></param>
-            <param name="joins"></param>
-            <returns></returns>
-        </member>
         <member name="T:MISApi.Services.CMS.Base.AuthorityService.RowsService">
             <summary>
             
@@ -18361,6 +18364,15 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.CardService.RowsService.ByCardNo(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 CardNo 查询
+            </summary>
+            <param name="cardNo">卡号</param>
+            <param name="extraId">被排除判断的Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
         </member>
         <member name="M:MISApi.Services.CMS.Base.CardService.RowsService.ByKeyWord(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
             <summary>
@@ -19747,6 +19759,15 @@
             
             </summary>
         </member>
+        <member name="M:MISApi.Services.CMS.Base.GoodsService.RowsService.ByGoodsNo(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 GoodsNo 查询
+            </summary>
+            <param name="goodsNo">商品编号</param>
+            <param name="extraId">被排除判断的Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.CMS.Base.GoodsService.RowsService.ByKeyWord(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
             <summary>
             根据关键字查询
@@ -20272,35 +20293,37 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.Base.MemberService.RowService.ByName(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
-            <summary>
-            根据 会员名并排除会员Id 查询
-            </summary>
-            <param name="name">会员名</param>
-            <param name="id">会员Id</param>
-            <param name="joins">关联表</param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.Base.MemberService.RowService.ByMobile(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
-            <summary>
-            根据 手机号 查询
-            </summary>
-            <param name="mobile">手机号</param>
-            <param name="joins">关联表</param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.Base.MemberService.RowService.ByIdCard(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
-            <summary>
-            根据 身份证 查询
-            </summary>
-            <param name="idCard">身份证</param>
-            <param name="joins">关联表</param>
-            <returns></returns>
-        </member>
         <member name="T:MISApi.Services.CMS.Base.MemberService.RowsService">
             <summary>
             
             </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.MemberService.RowsService.ByName(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 会员名并排除会员Id 查询
+            </summary>
+            <param name="name">会员名</param>
+            <param name="extraId">被排除判断的Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.MemberService.RowsService.ByMobile(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 手机号 查询
+            </summary>
+            <param name="mobile">手机号</param>
+            <param name="extraId">被排除判断的Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.MemberService.RowsService.ByIdCard(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 身份证 查询
+            </summary>
+            <param name="idCard">身份证</param>
+            <param name="extraId">被排除判断的Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
         </member>
         <member name="M:MISApi.Services.CMS.Base.MemberService.RowsService.ByKeyWord(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
             <summary>
@@ -20550,18 +20573,18 @@
             <param name="joins">关联表</param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.Base.NavigationService.RowService.ByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+        <member name="T:MISApi.Services.CMS.Base.NavigationService.RowsService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.NavigationService.RowsService.ByKey(System.String,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
             <summary>
             根据 键名 查询
             </summary>
             <param name="key">键名</param>
             <param name="joins">关联表</param>
             <returns></returns>
-        </member>
-        <member name="T:MISApi.Services.CMS.Base.NavigationService.RowsService">
-            <summary>
-            
-            </summary>
         </member>
         <member name="M:MISApi.Services.CMS.Base.NavigationService.RowsService.ByKeyWord(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
             <summary>
@@ -21187,6 +21210,15 @@
             
             </summary>
         </member>
+        <member name="M:MISApi.Services.CMS.Base.OrderService.RowsService.ByOrderNo(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 订单号并排除订单Id 查询
+            </summary>
+            <param name="orderNo">订单编号</param>
+            <param name="extraId">被排除判断的Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.CMS.Base.OrderService.RowsService.ByKeyWord(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
             <summary>
             根据关键字查询
@@ -21713,6 +21745,15 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="M:MISApi.Services.CMS.Base.SerialService.RowsService.BySerialNo(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            根据 流水号并排除流水Id 查询
+            </summary>
+            <param name="serialNo">流水编号</param>
+            <param name="extraId">被排除判断的Id</param>
+            <param name="joins">关联表</param>
+            <returns></returns>
         </member>
         <member name="M:MISApi.Services.CMS.Base.SerialService.RowsService.ByKeyWord(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
             <summary>
@@ -22792,13 +22833,6 @@
             </summary>
             <param name="entities"></param>
             <param name="statusKey"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MISApi.Services.CMS.MemberService.CreateService.Regist(MISApi.Entities.CMS.Member)">
-            <summary>
-            注册
-            </summary>
-            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.MemberService.UpdateService">

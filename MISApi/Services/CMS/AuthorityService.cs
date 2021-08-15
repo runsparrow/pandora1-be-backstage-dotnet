@@ -1,8 +1,10 @@
 ﻿using MISApi.CacheServices.WFM;
+using MISApi.Dal.EF;
 using MISApi.Entities.CMS;
 using MISApi.Entities.WFM;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MISApi.Services.CMS
 {
@@ -242,6 +244,31 @@ namespace MISApi.Services.CMS
         public class RowsService : Base.AuthorityService.RowsService
         {
 
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="memberId"></param>
+            /// <param name="authorityIndex"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Authority> ByMemberIdWithAuthorityIndex(int memberId, int authorityIndex, params HttpClients.HttpModes.BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Authority.MemberId == memberId && row.Authority.AuthorityIndex == authorityIndex)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.AuthorityService.RowsService.ByMemberIdWithAuthorityIndex", ex);
+                    }
+                }
+            }
         }
 
         #endregion

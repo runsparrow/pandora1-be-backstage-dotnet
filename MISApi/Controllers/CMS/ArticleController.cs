@@ -30,7 +30,7 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // 默认值
                 if (entity != null)
                 {
                     entity.PublishDateTime = DateTime.Now;
@@ -63,7 +63,7 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entities
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity => {
@@ -169,7 +169,7 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // 默认值
                 if (entity != null)
                 {
                     entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -199,7 +199,7 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entities
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity =>

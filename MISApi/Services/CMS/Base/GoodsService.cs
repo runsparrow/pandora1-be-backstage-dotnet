@@ -312,6 +312,31 @@ namespace MISApi.Services.CMS.Base
         public class RowsService : GoodsService
         {
             /// <summary>
+            /// 根据 GoodsNo 查询
+            /// </summary>
+            /// <param name="goodsNo">商品编号</param>
+            /// <param name="extraId">被排除判断的Id</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Goods> ByGoodsNo(string goodsNo, int extraId = -1, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Goods.GoodsNo == goodsNo && row.Goods.Id != extraId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.GoodsService.RowsService.ByGoodsNo", ex);
+                    }
+                }
+            }
+            /// <summary>
             /// 根据关键字查询
             /// </summary>
             /// <param name="keyWord">关键字</param>

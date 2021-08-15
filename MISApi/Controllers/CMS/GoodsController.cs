@@ -30,7 +30,29 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 商品编号
+                if (!string.IsNullOrEmpty(entity.GoodsNo))
+                {
+                    List<Goods> existGoods = new GoodsService.RowsService().ByGoodsNo(entity.GoodsNo);
+                    if (existGoods.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复商品编号的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (entity != null)
                 {
                     entity.PublicDateTime = DateTime.Now;
@@ -63,7 +85,33 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entities
+                // Entities空值
+                if (entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Goods entity in entities)
+                {
+                    // 商品编号
+                    if (!string.IsNullOrEmpty(entity.GoodsNo))
+                    {
+                        List<Goods> existGoods = new GoodsService.RowsService().ByGoodsNo(entity.GoodsNo);
+                        if (existGoods.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复商品编号的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity => {
@@ -98,7 +146,29 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (dto.Entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.DTO.Entity为空。"
+                    });
+                }
+                // 商品编号
+                if (!string.IsNullOrEmpty(dto.Entity.GoodsNo))
+                {
+                    List<Goods> existGoods = new GoodsService.RowsService().ByGoodsNo(dto.Entity.GoodsNo);
+                    if (existGoods.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复商品编号的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (dto.Entity != null)
                 {
                     dto.Entity.PublicDateTime = DateTime.Now;
@@ -131,7 +201,33 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entities空值
+                if (dto.Entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.DTO.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Goods entity in dto.Entities)
+                {
+                    // 商品编号
+                    if (!string.IsNullOrEmpty(entity.GoodsNo))
+                    {
+                        List<Goods> existGoods = new GoodsService.RowsService().ByGoodsNo(entity.GoodsNo);
+                        if (existGoods.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复商品编号的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (dto.Entities != null)
                 {
                     dto.Entities.ForEach(entity => {
@@ -169,7 +265,29 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 商品编号
+                if (!string.IsNullOrEmpty(entity.GoodsNo))
+                {
+                    List<Goods> existGoods = new GoodsService.RowsService().ByGoodsNo(entity.GoodsNo, entity.Id);
+                    if (existGoods.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复商品编号的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (entity != null)
                 {
                     entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -199,7 +317,33 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entities
+                // Entities空值
+                if (entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Goods entity in entities)
+                {
+                    // 商品编号
+                    if (!string.IsNullOrEmpty(entity.GoodsNo))
+                    {
+                        List<Goods> existGoods = new GoodsService.RowsService().ByGoodsNo(entity.GoodsNo, entity.Id);
+                        if (existGoods.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复商品编号的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity =>
@@ -232,7 +376,29 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (dto.Entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 商品编号
+                if (!string.IsNullOrEmpty(dto.Entity.GoodsNo))
+                {
+                    List<Goods> existGoods = new GoodsService.RowsService().ByGoodsNo(dto.Entity.GoodsNo, dto.Entity.Id);
+                    if (existGoods.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复商品编号的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (dto.Entity != null)
                 {
                     dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -262,7 +428,33 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entities空值
+                if (dto.Entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Goods entity in dto.Entities)
+                {
+                    // 商品编号
+                    if (!string.IsNullOrEmpty(entity.GoodsNo))
+                    {
+                        List<Goods> existGoods = new GoodsService.RowsService().ByGoodsNo(entity.GoodsNo, entity.Id);
+                        if (existGoods.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复商品编号的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (dto.Entities != null)
                 {
                     dto.Entities.ForEach(entity =>

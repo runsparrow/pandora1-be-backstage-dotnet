@@ -300,30 +300,6 @@ namespace MISApi.Services.CMS.Base
                     }
                 }
             }
-            /// <summary>
-            /// 根据 键名 查询
-            /// </summary>
-            /// <param name="key">键名</param>
-            /// <param name="joins">关联表</param>
-            /// <returns></returns>
-            public Navigation ByKey(string key, params BaseMode.Join[] joins)
-            {
-                using (PandoraContext context = new PandoraContext())
-                {
-                    try
-                    {
-                        return SQLEntityToSingle(
-                            SQLQueryable(context, joins)
-                                .Where(row => row.Navigation.Key == key)
-                                .SingleOrDefault()
-                        );
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("MISApi.Services.CMS.Base.NavigationService.RowService.ByKey", ex);
-                    }
-                }
-            }
         }
 
         #endregion
@@ -335,6 +311,30 @@ namespace MISApi.Services.CMS.Base
         /// </summary>
         public class RowsService : NavigationService
         {
+            /// <summary>
+            /// 根据 键名 查询
+            /// </summary>
+            /// <param name="key">键名</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Navigation> ByKey(string key, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Navigation.Key == key)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.NavigationService.RowsService.ByKey", ex);
+                    }
+                }
+            }
             /// <summary>
             /// 根据关键字查询
             /// </summary>
@@ -388,8 +388,8 @@ namespace MISApi.Services.CMS.Base
                 {
                     try
                     {
-                        Navigation navigation = new RowService().ByKey(key);
-                        return new RowsService().ByPid(navigation == null ? 0 : navigation.Id);
+                        List<Navigation> existList = new RowsService().ByKey(key);
+                        return new RowsService().ByPid(existList.Count == 0 ? 0 : existList[0].Id);
                     }
                     catch (Exception ex)
                     {
@@ -407,8 +407,8 @@ namespace MISApi.Services.CMS.Base
             {
                 try
                 {
-                    List<Navigation> list = new RowService().ByKey(key) == null ? new List<Navigation>() : new List<Navigation> { new RowService().ByKey(key) };
-                    return SubsetByIdRecursion(list, list[0].Id, joins);
+                    List<Navigation> existList = new RowsService().ByKey(key);
+                    return SubsetByIdRecursion(existList, existList.Count == 0 ? -1: existList[0].Id, joins);
                 }
                 catch (Exception ex)
                 {
@@ -425,9 +425,9 @@ namespace MISApi.Services.CMS.Base
             {
                 try
                 {
-                    Navigation currentNavigation = new RowService().ByKey(key) ?? new Navigation();
-                    List<Navigation> result = SupersetByIdRecursion(new List<Navigation>(), currentNavigation.Pid??-1, joins);
-                    result.Add(currentNavigation);
+                    List<Navigation> existList = new RowsService().ByKey(key);
+                    List<Navigation> result = SupersetByIdRecursion(new List<Navigation>(), existList.Count == 0? -1:(existList[0].Pid??-1), joins);
+                    result.Add(existList[0]);
                     string path = "^";
                     // 生成path
                     result.ForEach(navigation =>

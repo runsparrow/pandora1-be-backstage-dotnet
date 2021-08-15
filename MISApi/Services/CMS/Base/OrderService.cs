@@ -320,6 +320,31 @@ namespace MISApi.Services.CMS.Base
         public class RowsService : OrderService
         {
             /// <summary>
+            /// 根据 订单号并排除订单Id 查询
+            /// </summary>
+            /// <param name="orderNo">订单编号</param>
+            /// <param name="extraId">被排除判断的Id</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Order> ByOrderNo(string orderNo, int extraId = -1, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Order.OrderNo == orderNo && row.Order.Id != extraId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.OrderService.RowsService.ByOrderNo", ex);
+                    }
+                }
+            }
+            /// <summary>
             /// 根据关键字查询
             /// </summary>
             /// <param name="keyWord">关键字</param>

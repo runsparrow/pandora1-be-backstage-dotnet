@@ -30,7 +30,29 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复认证
+                if (entity.MemberId != null && entity.MemberId != -1 || entity.AuthorityIndex != null && entity.AuthorityIndex != -1)
+                {
+                    List<Authority> existAuthority = new AuthorityService.RowsService().ByMemberIdWithAuthorityIndex(entity.MemberId??-1, entity.AuthorityIndex??-1);
+                    if (existAuthority.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复认证的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (entity != null)
                 {
 
@@ -59,7 +81,7 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entities
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity => {
@@ -90,7 +112,7 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // 默认值
                 if (entity != null)
                 {
 
@@ -182,7 +204,7 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // 默认值
                 if (entity != null)
                 {
 
@@ -211,7 +233,7 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entities
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity =>
@@ -428,9 +450,26 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                List<Authority> list = new AuthorityService.RowsService().ByMemberIdWithAuthorityIndex(memberId, authorityIndex);
+                if(list.Count > 1)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "该会员存在重复的认证信息。"
+                    });
+                }
+                if(list.Count == 0)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "未发现会员认证信息。"
+                    });
+                }
                 return ResponseOk(
                     new RowMode.Request().ToResponse(
-                        new AuthorityService.RowService().ByMemberIdWithAuthorityIndex(memberId, authorityIndex)
+                        list[0]
                     )
                 );
             }

@@ -32,7 +32,7 @@ namespace MISApi.Controllers.ASM
         {
             try
             {
-                // Entity
+                // 默认值
                 if (entity != null)
                 {
                     entity.ImportDateTime = DateTime.Now;
@@ -61,7 +61,7 @@ namespace MISApi.Controllers.ASM
         {
             try
             {
-                // Entities
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity => {
@@ -95,7 +95,7 @@ namespace MISApi.Controllers.ASM
         {
             try
             {
-                // Entity
+                // 默认值
                 if (entity != null)
                 {
                     entity.ImportDateTime = DateTime.Now;
@@ -124,7 +124,7 @@ namespace MISApi.Controllers.ASM
         {
             try
             {
-                // Entities
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity =>

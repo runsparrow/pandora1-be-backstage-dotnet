@@ -93,39 +93,6 @@ namespace MISApi.Services.CMS
                     throw new Exception("MISApi.Services.CMS.MemberService.CreateService.BatchToStatus", ex);
                 }
             }
-            /// <summary>
-            /// 注册
-            /// </summary>
-            /// <param name="entity"></param>
-            /// <returns></returns>
-            public virtual Member Regist(Member entity)
-            {
-                try
-                {
-                    // 定义
-                    Member result = new Member();
-                    // 事务
-                    transService.TransRegist(delegate
-                    {
-                        if(new MemberService.RowService().ByMobile(entity.Mobile) == null)
-                        {
-                            result = new MemberService.CreateService().ToStatus(entity, "cms.member.open");
-                        }
-                        else
-                        {
-                            throw new Exception("手机号码已存在，不能注册！"); ;
-                        }
-                    });
-                    // 提交
-                    transService.TransCommit();
-                    // 返回
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("MISApi.Services.CMS.MemberService.CreateService.Regist", ex);
-                }
-            }
         }
 
         #endregion

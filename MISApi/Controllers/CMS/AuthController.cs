@@ -7,6 +7,7 @@ using MISApi.Services.CMS;
 using MISApi.Tools;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -131,10 +132,10 @@ namespace MISApi.Controllers.CMS
                             dto.Member.Name = RandHelper.GenerateRandomAlphabet(12);
                         }
                     }
-                    var existMember = new MemberService.RowService().ByMobile(dto.Member.Mobile);
-                    if (existMember == null)
+                    List<Member> existMember = new MemberService.RowsService().ByMobile(dto.Member.Mobile, -1);
+                    if (existMember.Count == 0)
                     {
-                        var member = new MemberService.CreateService().Regist(dto.Member);
+                        var member = new MemberService.CreateService().ToStatus(dto.Member, "cms.member.open");
                         // 返回
                         return new JsonResult(new DTO_Result_Member
                         {
@@ -147,7 +148,7 @@ namespace MISApi.Controllers.CMS
                         return new JsonResult(new DTO_Result_Member
                         {
                             Result = false,
-                            Member = new DTO_Member { MemberId = existMember.Id, MemberName = existMember.Name, RealName = existMember.RealName, AvatarUrl = existMember.AvatarUrl },
+                            Member = new DTO_Member { MemberId = existMember[0].Id, MemberName = existMember[0].Name, RealName = existMember[0].RealName, AvatarUrl = existMember[0].AvatarUrl },
                             Message = "手机号已被注册。"
                         });
                     }
@@ -190,7 +191,19 @@ namespace MISApi.Controllers.CMS
                     // Entity
                     if (dto.Member != null)
                     {
-                        member = new MemberService.RowService().ByMobile(dto.Member.Mobile);
+                        List<Member> list = new MemberService.RowsService().ByMobile(dto.Member.Mobile, -1);
+                        if(list.Count == 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "手机号未被注册过。"
+                            });
+                        }
+                        else
+                        {
+                            member = list[0];
+                        }
                         member.Password = EncryptHelper.GetBase64String(dto.Member.Password);
                     }
                     // 提交

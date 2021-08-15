@@ -30,7 +30,29 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复流水号
+                if (!string.IsNullOrEmpty(entity.SerialNo))
+                {
+                    List<Serial> existSerial = new SerialService.RowsService().BySerialNo(entity.SerialNo);
+                    if (existSerial.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复流水号的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (entity != null)
                 {
 
@@ -59,7 +81,33 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entities
+                // Entities空值
+                if (entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Serial entity in entities)
+                {
+                    // 流水号
+                    if (!string.IsNullOrEmpty(entity.SerialNo))
+                    {
+                        List<Serial> existSerial = new SerialService.RowsService().BySerialNo(entity.SerialNo);
+                        if (existSerial.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复流水号的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity => {
@@ -90,6 +138,28 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                // Entity空值
+                if (dto.Entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.DTO.Entity为空。"
+                    });
+                }
+                // 重复流水号
+                if (!string.IsNullOrEmpty(dto.Entity.SerialNo))
+                {
+                    List<Serial> existSerial = new SerialService.RowsService().BySerialNo(dto.Entity.SerialNo);
+                    if (existSerial.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复流水号的数据。"
+                        });
+                    }
+                }
                 // Entity
                 if (dto.Entity != null)
                 {
@@ -119,6 +189,32 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                // Entities空值
+                if (dto.Entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.DTO.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Serial entity in dto.Entities)
+                {
+                    // 流水号
+                    if (!string.IsNullOrEmpty(entity.SerialNo))
+                    {
+                        List<Serial> existSerial = new SerialService.RowsService().BySerialNo(entity.SerialNo);
+                        if (existSerial.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复流水号的数据。"
+                            });
+                        }
+                    }
+                }
                 // Entity
                 if (dto.Entities != null)
                 {
@@ -153,7 +249,29 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复流水号
+                if (!string.IsNullOrEmpty(entity.SerialNo))
+                {
+                    List<Serial> existSerial = new SerialService.RowsService().BySerialNo(entity.SerialNo, entity.Id);
+                    if (existSerial.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复流水号的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (entity != null)
                 {
 
@@ -182,7 +300,33 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entities
+                // Entities空值
+                if (entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Serial entity in entities)
+                {
+                    // 流水号
+                    if (!string.IsNullOrEmpty(entity.SerialNo))
+                    {
+                        List<Serial> existSerial = new SerialService.RowsService().BySerialNo(entity.SerialNo, entity.Id);
+                        if (existSerial.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复流水号的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity =>
@@ -214,6 +358,28 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                // Entity空值
+                if (dto.Entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复流水号
+                if (!string.IsNullOrEmpty(dto.Entity.SerialNo))
+                {
+                    List<Serial> existSerial = new SerialService.RowsService().BySerialNo(dto.Entity.SerialNo, dto.Entity.Id);
+                    if (existSerial.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复流水号的数据。"
+                        });
+                    }
+                }
                 // Entity
                 if (dto.Entity != null)
                 {
@@ -243,6 +409,32 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                // Entities空值
+                if (dto.Entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Serial entity in dto.Entities)
+                {
+                    // 流水号
+                    if (!string.IsNullOrEmpty(entity.SerialNo))
+                    {
+                        List<Serial> existSerial = new SerialService.RowsService().BySerialNo(entity.SerialNo, entity.Id);
+                        if (existSerial.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复流水号的数据。"
+                            });
+                        }
+                    }
+                }
                 // Entity
                 if (dto.Entities != null)
                 {

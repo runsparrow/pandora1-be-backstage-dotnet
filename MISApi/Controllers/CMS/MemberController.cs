@@ -32,10 +32,62 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复会员名
+                if (!string.IsNullOrEmpty(entity.Name))
+                {
+                    List<Member> existMember = new MemberService.RowsService().ByName(entity.Name);
+                    if (existMember.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复会员名的数据。"
+                        });
+                    }
+                }
+                // 重复手机号
+                if (!string.IsNullOrEmpty(entity.Mobile))
+                {
+                    List<Member> existMember = new MemberService.RowsService().ByMobile(entity.Mobile);
+                    if (existMember.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复手机号的数据。"
+                        });
+                    }
+                }
+                // 重复身份证
+                if (!string.IsNullOrEmpty(entity.IdCard))
+                {
+                    List<Member> existMember = new MemberService.RowsService().ByIdCard(entity.IdCard);
+                    if (existMember.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复身份证的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (entity != null)
                 {
                     entity.Password = EncryptHelper.GetBase64String(entity.Password);
+                    entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    entity.CreateDateTime = DateTime.Now;
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
@@ -61,11 +113,67 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entities
+                // Entities空值
+                if (entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Member entity in entities)
+                {
+                    // 会员名
+                    if (!string.IsNullOrEmpty(entity.Name))
+                    {
+                        List<Member> existMember = new MemberService.RowsService().ByName(entity.Name);
+                        if (existMember.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复会员名的数据。"
+                            });
+                        }
+                    }
+                    // 手机号
+                    if (!string.IsNullOrEmpty(entity.Mobile))
+                    {
+                        List<Member> existMember = new MemberService.RowsService().ByMobile(entity.Mobile);
+                        if (existMember.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复手机号的数据。"
+                            });
+                        }
+                    }
+                    // 身份证
+                    if (!string.IsNullOrEmpty(entity.IdCard))
+                    {
+                        List<Member> existMember = new MemberService.RowsService().ByIdCard(entity.IdCard);
+                        if (existMember.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复身份证的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity => {
                         entity.Password = EncryptHelper.GetBase64String(entity.Password);
+                        entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.CreateDateTime = DateTime.Now;
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
                     });
                 }
                 // 返回
@@ -92,10 +200,62 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (dto.Entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.DTO.Entity为空。"
+                    });
+                }
+                // 重复会员名
+                if (!string.IsNullOrEmpty(dto.Entity.Name))
+                {
+                    List<Member> existMember = new MemberService.RowsService().ByName(dto.Entity.Name);
+                    if (existMember.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复会员名的数据。"
+                        });
+                    }
+                }
+                // 重复手机号
+                if (!string.IsNullOrEmpty(dto.Entity.Mobile))
+                {
+                    List<Member> existMember = new MemberService.RowsService().ByMobile(dto.Entity.Mobile);
+                    if (existMember.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复手机号的数据。"
+                        });
+                    }
+                }
+                // 重复身份证
+                if (!string.IsNullOrEmpty(dto.Entity.IdCard))
+                {
+                    List<Member> existMember = new MemberService.RowsService().ByIdCard(dto.Entity.IdCard);
+                    if (existMember.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复身份证的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (dto.Entity != null)
                 {
-
+                    dto.Entity.Password = EncryptHelper.GetBase64String(dto.Entity.Password);
+                    dto.Entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.CreateDateTime = DateTime.Now;
+                    dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
@@ -121,11 +281,67 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entities空值
+                if (dto.Entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.DTO.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Member entity in dto.Entities)
+                {
+                    // 会员名
+                    if (!string.IsNullOrEmpty(entity.Name))
+                    {
+                        List<Member> existMember = new MemberService.RowsService().ByName(entity.Name);
+                        if (existMember.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复会员名的数据。"
+                            });
+                        }
+                    }
+                    // 手机号
+                    if (!string.IsNullOrEmpty(entity.Mobile))
+                    {
+                        List<Member> existMember = new MemberService.RowsService().ByMobile(entity.Mobile);
+                        if (existMember.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复手机号的数据。"
+                            });
+                        }
+                    }
+                    // 身份证
+                    if (!string.IsNullOrEmpty(entity.IdCard))
+                    {
+                        List<Member> existMember = new MemberService.RowsService().ByIdCard(entity.IdCard);
+                        if (existMember.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复身份证的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (dto.Entities != null)
                 {
                     dto.Entities.ForEach(entity => {
-
+                        entity.Password = EncryptHelper.GetBase64String(entity.Password);
+                        entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.CreateDateTime = DateTime.Now;
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
                     });
                 }
                 // 返回
@@ -155,10 +371,59 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复会员名
+                if (!string.IsNullOrEmpty(entity.Name))
+                {
+                    List<Member> existMember = new MemberService.RowsService().ByName(entity.Name, entity.Id);
+                    if (existMember.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复会员名的数据。"
+                        });
+                    }
+                }
+                // 重复手机号
+                if (!string.IsNullOrEmpty(entity.Mobile))
+                {
+                    List<Member> existMember = new MemberService.RowsService().ByMobile(entity.Mobile, entity.Id);
+                    if (existMember.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复手机号的数据。"
+                        });
+                    }
+                }
+                // 重复身份证
+                if (!string.IsNullOrEmpty(entity.Mobile))
+                {
+                    List<Member> existMember = new MemberService.RowsService().ByIdCard(entity.IdCard, entity.Id);
+                    if (existMember.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复身份证的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (entity != null)
                 {
-
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
@@ -184,12 +449,65 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entities
+                // Entities空值
+                if (entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Member entity in entities)
+                {
+                    // 会员名
+                    if (!string.IsNullOrEmpty(entity.Name))
+                    {
+                        List<Member> existMember = new MemberService.RowsService().ByName(entity.Name, entity.Id);
+                        if (existMember.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复会员名的数据。"
+                            });
+                        }
+                    }
+                    // 手机号
+                    if (!string.IsNullOrEmpty(entity.Mobile))
+                    {
+                        List<Member> existMember = new MemberService.RowsService().ByMobile(entity.Mobile, entity.Id);
+                        if (existMember.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复手机号的数据。"
+                            });
+                        }
+                    }
+                    // 身份证
+                    if (!string.IsNullOrEmpty(entity.IdCard))
+                    {
+                        List<Member> existMember = new MemberService.RowsService().ByIdCard(entity.IdCard, entity.Id);
+                        if (existMember.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复身份证的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity =>
                     {
-
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
                     });
                 }
                 // 返回
@@ -216,10 +534,12 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // 默认值
                 if (entity != null)
                 {
                     entity.Password = EncryptHelper.GetBase64String(entity.Password);
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
@@ -245,10 +565,59 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entity空值
+                if (dto.Entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复会员名
+                if (!string.IsNullOrEmpty(dto.Entity.Name))
+                {
+                    List<Member> existMember = new MemberService.RowsService().ByName(dto.Entity.Name, dto.Entity.Id);
+                    if (existMember.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复会员名的数据。"
+                        });
+                    }
+                }
+                // 重复手机号
+                if (!string.IsNullOrEmpty(dto.Entity.Mobile))
+                {
+                    List<Member> existMember = new MemberService.RowsService().ByMobile(dto.Entity.Mobile, dto.Entity.Id);
+                    if (existMember.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复手机号的数据。"
+                        });
+                    }
+                }
+                // 重复身份证
+                if (!string.IsNullOrEmpty(dto.Entity.Mobile))
+                {
+                    List<Member> existMember = new MemberService.RowsService().ByIdCard(dto.Entity.IdCard, dto.Entity.Id);
+                    if (existMember.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复身份证的数据。"
+                        });
+                    }
+                }
+                // 默认值
                 if (dto.Entity != null)
                 {
-
+                    dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
@@ -274,12 +643,65 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                // Entity
+                // Entities空值
+                if (dto.Entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Member entity in dto.Entities)
+                {
+                    // 会员名
+                    if (!string.IsNullOrEmpty(entity.Name))
+                    {
+                        List<Member> existMember = new MemberService.RowsService().ByName(entity.Name, entity.Id);
+                        if (existMember.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复会员名的数据。"
+                            });
+                        }
+                    }
+                    // 手机号
+                    if (!string.IsNullOrEmpty(entity.Mobile))
+                    {
+                        List<Member> existMember = new MemberService.RowsService().ByMobile(entity.Mobile, entity.Id);
+                        if (existMember.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复手机号的数据。"
+                            });
+                        }
+                    }
+                    // 身份证
+                    if (!string.IsNullOrEmpty(entity.Mobile))
+                    {
+                        List<Member> existMember = new MemberService.RowsService().ByIdCard(entity.IdCard, entity.Id);
+                        if (existMember.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复身份证的数据。"
+                            });
+                        }
+                    }
+                }
+                // 默认值
                 if (dto.Entities != null)
                 {
                     dto.Entities.ForEach(entity =>
                     {
-
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
                     });
                 }
                 // 返回
@@ -630,7 +1052,7 @@ namespace MISApi.Controllers.CMS
         //{
         //    try
         //    {
-        //        // Entity
+        //        // 默认值
         //        if (entity != null)
         //        {
         //            entity.Password = EncryptHelper.GetBase64String(entity.Password);
@@ -690,7 +1112,7 @@ namespace MISApi.Controllers.CMS
         //    try
         //    {
         //        var member = new Member();
-        //        // Entity
+        //        // 默认值
         //        if (entity != null)
         //        {
         //            member = new MemberService.RowService().ByMobile(entity.Mobile);
@@ -787,8 +1209,8 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                var member = new MemberService.RowService().ByName(dto.Name, dto.Id);
-                if (member == null)
+                List<Member> list = new MemberService.RowsService().ByName(dto.Name, dto.Id);
+                if (list.Count == 0)
                 {
                     return new JsonResult(new DTO_Result
                     {
@@ -801,7 +1223,7 @@ namespace MISApi.Controllers.CMS
                     return new JsonResult(new DTO_Result_Member
                     {
                         Result = true,
-                        Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName },
+                        Member = new DTO_Member { MemberId = list[0].Id, MemberName = list[0].Name, RealName = list[0].RealName },
                         Message = "发现重复会员名。"
                     });
                 }
@@ -823,8 +1245,8 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                var member = new MemberService.RowService().ByName(name, id);
-                if (member == null)
+                List<Member> list = new MemberService.RowsService().ByName(name, id);
+                if (list.Count == 0)
                 {
                     return new JsonResult(new DTO_Result
                     {
@@ -837,7 +1259,7 @@ namespace MISApi.Controllers.CMS
                     return new JsonResult(new DTO_Result_Member
                     {
                         Result = true,
-                        Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName },
+                        Member = new DTO_Member { MemberId = list[0].Id, MemberName = list[0].Name, RealName = list[0].RealName },
                         Message = "发现重复会员名。"
                     });
                 }
@@ -858,8 +1280,8 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
-                var member = new MemberService.RowService().ByMobile(mobile);
-                if (member == null)
+                List<Member> list = new MemberService.RowsService().ByMobile(mobile, -1);
+                if (list.Count == 0)
                 {
                     return new JsonResult(new DTO_Result
                     {
@@ -872,7 +1294,7 @@ namespace MISApi.Controllers.CMS
                     return new JsonResult(new DTO_Result_Member
                     {
                         Result = true,
-                        Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName },
+                        Member = new DTO_Member { MemberId = list[0].Id, MemberName = list[0].Name, RealName = list[0].RealName },
                         Message = "发现重复手机号。"
                     });
                 }

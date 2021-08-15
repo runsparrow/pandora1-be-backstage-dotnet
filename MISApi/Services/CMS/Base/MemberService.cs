@@ -300,79 +300,6 @@ namespace MISApi.Services.CMS.Base
                     }
                 }
             }
-            /// <summary>
-            /// 根据 会员名并排除会员Id 查询
-            /// </summary>
-            /// <param name="name">会员名</param>
-            /// <param name="id">会员Id</param>
-            /// <param name="joins">关联表</param>
-            /// <returns></returns>
-            public Member ByName(string name, int id, params BaseMode.Join[] joins)
-            {
-                using (PandoraContext context = new PandoraContext())
-                {
-                    try
-                    {
-                        return SQLEntityToSingle(
-                            SQLQueryable(context, joins)
-                                .Where(row => row.Member.Name == name && row.Member.Id != id)
-                                .SingleOrDefault()
-                        );
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("MISApi.Services.CMS.Base.MemberService.RowService.ByName", ex);
-                    }
-                }
-            }
-            /// <summary>
-            /// 根据 手机号 查询
-            /// </summary>
-            /// <param name="mobile">手机号</param>
-            /// <param name="joins">关联表</param>
-            /// <returns></returns>
-            public Member ByMobile(string mobile, params BaseMode.Join[] joins)
-            {
-                using (PandoraContext context = new PandoraContext())
-                {
-                    try
-                    {
-                        return SQLEntityToSingle(
-                            SQLQueryable(context, joins)
-                                .Where(row => row.Member.Mobile == mobile)
-                                .SingleOrDefault()
-                        );
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("MISApi.Services.CMS.Base.MemberService.RowService.ByMobile", ex);
-                    }
-                }
-            }
-            /// <summary>
-            /// 根据 身份证 查询
-            /// </summary>
-            /// <param name="idCard">身份证</param>
-            /// <param name="joins">关联表</param>
-            /// <returns></returns>
-            public Member ByIdCard(string idCard, params BaseMode.Join[] joins)
-            {
-                using (PandoraContext context = new PandoraContext())
-                {
-                    try
-                    {
-                        return SQLEntityToSingle(
-                            SQLQueryable(context, joins)
-                                .Where(row => row.Member.IdCard == idCard)
-                                .SingleOrDefault()
-                        );
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("MISApi.Services.CMS.Base.MemberService.RowService.ByIdCard", ex);
-                    }
-                }
-            }
         }
 
         #endregion
@@ -384,6 +311,81 @@ namespace MISApi.Services.CMS.Base
         /// </summary>
         public class RowsService : MemberService
         {
+            /// <summary>
+            /// 根据 会员名并排除会员Id 查询
+            /// </summary>
+            /// <param name="name">会员名</param>
+            /// <param name="extraId">被排除判断的Id</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Member> ByName(string name, int extraId = -1, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Member.Name == name && row.Member.Id != extraId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.MemberService.RowsService.ByName", ex);
+                    }
+                }
+            }
+            /// <summary>
+            /// 根据 手机号 查询
+            /// </summary>
+            /// <param name="mobile">手机号</param>
+            /// <param name="extraId">被排除判断的Id</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Member> ByMobile(string mobile, int extraId = -1, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Member.Mobile == mobile && row.Member.Id != extraId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.MemberService.RowsService.ByMobile", ex);
+                    }
+                }
+            }
+            /// <summary>
+            /// 根据 身份证 查询
+            /// </summary>
+            /// <param name="idCard">身份证</param>
+            /// <param name="extraId">被排除判断的Id</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Member> ByIdCard(string idCard, int extraId = -1, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Member.IdCard == idCard && row.Member.Id != extraId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.MemberService.RowsService.ByIdCard", ex);
+                    }
+                }
+            }
             /// <summary>
             /// 根据关键字查询
             /// </summary>

@@ -300,31 +300,6 @@ namespace MISApi.Services.CMS.Base
                     }
                 }
             }
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="memberId"></param>
-            /// <param name="authorityIndex"></param>
-            /// <param name="joins"></param>
-            /// <returns></returns>
-            public Authority ByMemberIdWithAuthorityIndex(int memberId, int authorityIndex, params BaseMode.Join[] joins)
-            {
-                using (PandoraContext context = new PandoraContext())
-                {
-                    try
-                    {
-                        return SQLEntityToSingle(
-                            SQLQueryable(context, joins)
-                                .Where(row => row.Authority.MemberId == memberId && row.Authority.AuthorityIndex == authorityIndex)
-                                .SingleOrDefault()
-                        );
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("MISApi.Services.CMS.Base.AuthorityService.RowService.ByMemberIdWithAuthorityIndex", ex);
-                    }
-                }
-            }
         }
 
         #endregion

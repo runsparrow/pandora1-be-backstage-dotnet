@@ -301,55 +301,6 @@ namespace MISApi.Services.AVM.Base
                     }
                 }
             }
-            /// <summary>
-            /// 根据 用户名并排除用户Id 查询
-            /// </summary>
-            /// <param name="name">用户名</param>
-            /// <param name="id">用户Id</param>
-            /// <param name="joins">关联表</param>
-            /// <returns></returns>
-            public User ByName(string name, int id, params BaseMode.Join[] joins)
-            {
-                using (PandoraContext context = new PandoraContext())
-                {
-                    try
-                    {
-                        return SQLEntityToSingle(
-                            SQLQueryable(context, joins)
-                                .Where(row => row.User.Name == name && row.User.Id != id)
-                                .SingleOrDefault()
-                        );
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowService.ByName", ex);
-                    }
-                }
-            }
-            /// <summary>
-            /// 根据 手机号 查询
-            /// </summary>
-            /// <param name="mobile">手机号</param>
-            /// <param name="joins">关联表</param>
-            /// <returns></returns>
-            public User ByMobile(string mobile, params BaseMode.Join[] joins)
-            {
-                using (PandoraContext context = new PandoraContext())
-                {
-                    try
-                    {
-                        return SQLEntityToSingle(
-                            SQLQueryable(context, joins)
-                                .Where(row => row.User.Mobile == mobile)
-                                .SingleOrDefault()
-                        );
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowService.ByMobile", ex);
-                    }
-                }
-            }
         }
 
         #endregion
@@ -361,6 +312,56 @@ namespace MISApi.Services.AVM.Base
         /// </summary>
         public class RowsService : UserService
         {
+            /// <summary>
+            /// 根据 用户名并排除用户Id 查询
+            /// </summary>
+            /// <param name="name">用户名</param>
+            /// <param name="extraId">被排除判断的Id</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<User> ByName(string name, int extraId = -1, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.User.Name == name && row.User.Id != extraId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowsService.ByName", ex);
+                    }
+                }
+            }
+            /// <summary>
+            /// 根据 手机号 查询
+            /// </summary>
+            /// <param name="mobile">手机号</param>
+            /// <param name="extraId">被排除判断的Id</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<User> ByMobile(string mobile, int extraId = -1, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.User.Mobile == mobile && row.User.Id != extraId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.UserService.RowsService.ByMobile", ex);
+                    }
+                }
+            }
             /// <summary>
             /// 根据关键字查询
             /// </summary>

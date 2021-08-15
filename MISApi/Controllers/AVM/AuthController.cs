@@ -8,6 +8,7 @@ using MISApi.Services.AVM;
 using MISApi.Tools;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -112,11 +113,11 @@ namespace MISApi.Controllers.AVM
         [Authorize]
         public IActionResult InitPassword([FromBody] DTO_Login dto)
         {
-            var user = new UserService.RowService().ByName(dto.Name, -1);
-            if (user != null)
+            List<User> existList = new UserService.RowsService().ByName(dto.Name, -1);
+            if (existList != null)
             {
-                user.Password = EncryptHelper.GetBase64String(dto.Password);
-                new UserService.UpdateService().Update(user);
+                existList[0].Password = EncryptHelper.GetBase64String(dto.Password);
+                new UserService.UpdateService().Update(existList[0]);
                 return new JsonResult(new DTO_Result { Result = true, Message = "密码初始成功！" });
             }
             else

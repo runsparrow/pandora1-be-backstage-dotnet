@@ -300,30 +300,6 @@ namespace MISApi.Services.ASM.Base
                     }
                 }
             }
-            /// <summary>
-            /// 根据 key 查询
-            /// </summary>
-            /// <param name="key">Key</param>
-            /// <param name="joins">关联表</param>
-            /// <returns></returns>
-            public Hospital ByKey(string key, params BaseMode.Join[] joins)
-            {
-                using (PandoraContext context = new PandoraContext())
-                {
-                    try
-                    {
-                        return SQLEntityToSingle(
-                            SQLQueryable(context, joins)
-                                .Where(row => row.Hospital.Key == key)
-                                .SingleOrDefault()
-                        );
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("MISApi.Services.ASM.Base.HospitalService.RowService.ByKey", ex);
-                    }
-                }
-            }
         }
 
         #endregion
@@ -335,6 +311,31 @@ namespace MISApi.Services.ASM.Base
         /// </summary>
         public class RowsService : HospitalService
         {
+            /// <summary>
+            /// 根据 key 查询
+            /// </summary>
+            /// <param name="key">Key</param>
+            /// <param name="extraId">被排除判断的Id</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Hospital> ByKey(string key, int extraId = -1, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Hospital.Key == key && row.Hospital.Id != extraId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.ASM.Base.HospitalService.RowsService.ByKey", ex);
+                    }
+                }
+            }
             /// <summary>
             /// 根据关键字查询
             /// </summary>
@@ -386,8 +387,8 @@ namespace MISApi.Services.ASM.Base
                 {
                     try
                     {
-                        Hospital hospital = new RowService().ByKey(key);
-                        return new RowsService().ByPid(hospital == null ? 0 : hospital.Id);
+                        List<Hospital> existLIst = new RowsService().ByKey(key);
+                        return new RowsService().ByPid(existLIst.Count == 0 ? 0 : existLIst[0].Id);
                     }
                     catch (Exception ex)
                     {
@@ -405,8 +406,8 @@ namespace MISApi.Services.ASM.Base
             {
                 try
                 {
-                    List<Hospital> list = new RowService().ByKey(key) == null ? new List<Hospital>() : new List<Hospital> { new RowService().ByKey(key) };
-                    return SubsetByIdRecursion(list, list[0].Id, joins);
+                    List<Hospital> existList = new RowsService().ByKey(key);
+                    return SubsetByIdRecursion(existList, existList.Count == 0 ? 0 : existList[0].Id, joins);
                 }
                 catch (Exception ex)
                 {
@@ -423,9 +424,9 @@ namespace MISApi.Services.ASM.Base
             {
                 try
                 {
-                    Hospital currentHospital = new RowService().ByKey(key) ?? new Hospital();
-                    List<Hospital> result = SupersetByIdRecursion(new List<Hospital>(), currentHospital.Pid??-1, joins);
-                    result.Add(currentHospital);
+                    List<Hospital> existList = new RowsService().ByKey(key);
+                    List<Hospital> result = SupersetByIdRecursion(new List<Hospital>(), existList.Count ==0?-1:(existList[0].Pid??-1), joins);
+                    result.Add(existList[0]);
                     string path = "^";
                     // 生成path
                     result.ForEach(hospital =>
@@ -602,10 +603,10 @@ namespace MISApi.Services.ASM.Base
             {
                 try
                 {
-                    var entity = new RowService().ByKey(key);
-                    if (entity != null)
+                    List<Hospital> existList = new RowsService().ByKey(key);
+                    if (existList.Count > 0)
                     {
-                        SubsetByIdRecursion(list, entity.Id, joins);
+                        SubsetByIdRecursion(list, existList[0].Id, joins);
                     }
                     return list;
                 }
@@ -628,10 +629,10 @@ namespace MISApi.Services.ASM.Base
             {
                 try
                 {
-                    var entity = new RowService().ByKey(key);
-                    if (entity != null)
+                    List<Hospital> existList = new RowsService().ByKey(key);
+                    if (existList.Count > 0)
                     {
-                        SupersetByIdRecursion(list, entity.Id, joins);
+                        SupersetByIdRecursion(list, existList[0].Id, joins);
                     }
                     return list;
                 }

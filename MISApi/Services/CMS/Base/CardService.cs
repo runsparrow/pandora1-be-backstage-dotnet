@@ -312,6 +312,31 @@ namespace MISApi.Services.CMS.Base
         public class RowsService : CardService
         {
             /// <summary>
+            /// 根据 CardNo 查询
+            /// </summary>
+            /// <param name="cardNo">卡号</param>
+            /// <param name="extraId">被排除判断的Id</param>
+            /// <param name="joins">关联表</param>
+            /// <returns></returns>
+            public List<Card> ByCardNo(string cardNo, int extraId = -1, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Card.CardNo == cardNo && row.Card.Id != extraId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.CardService.RowsService.ByCardNo", ex);
+                    }
+                }
+            }
+            /// <summary>
             /// 根据关键字查询
             /// </summary>
             /// <param name="keyWord">关键字</param>

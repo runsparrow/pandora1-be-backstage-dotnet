@@ -113,8 +113,8 @@ namespace MISApi.Controllers.AVM
         [Authorize]
         public IActionResult InitPassword([FromBody] DTO_Login dto)
         {
-            List<User> existList = new UserService.RowsService().ByName(dto.Name, -1);
-            if (existList != null)
+            List<User> existList = new UserService.RowsService().ByName(dto.Name);
+            if (existList.Count > 0)
             {
                 existList[0].Password = EncryptHelper.GetBase64String(dto.Password);
                 new UserService.UpdateService().Update(existList[0]);

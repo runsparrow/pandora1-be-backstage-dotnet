@@ -6012,6 +6012,13 @@
             <param name="classifyId"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Rows_ByApproverId_ApproverId(System.Int32)">
+            <summary>
+            根据ApproverId查询商品
+            </summary>
+            <param name="approverId"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.GoodsController.Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
             <summary>
             根据Id查询商品
@@ -6093,6 +6100,13 @@
             根据ClassifyId查询商品
             </summary>
             <param name="classifyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.GoodsController.Unauthorized_Rows_ByApproverId_ApproverId(System.Int32)">
+            <summary>
+            根据ApproverId查询商品
+            </summary>
+            <param name="approverId"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.GoodsController.Unauthorized_Single_ById(MISApi.Controllers.HttpEntities.DTO_Id)">
@@ -11927,6 +11941,11 @@
             审批时间
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Authority.ApproverDesc">
+            <summary>
+            审批意见
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Authority.Remark">
             <summary>
             备注
@@ -12707,6 +12726,26 @@
             最后更新时间
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Goods.ApproverId">
+            <summary>
+            审批人Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.ApproverName">
+            <summary>
+            审批人姓名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.ApproverDate">
+            <summary>
+            审批时间
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.ApproverDesc">
+            <summary>
+            审批意见
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Goods.Remark">
             <summary>
             备注
@@ -12760,6 +12799,11 @@
         <member name="P:MISApi.Entities.CMS.Goods.FullUrl">
             <summary>
             图片完整路径
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Goods.Approver">
+            <summary>
+            审批人
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Goods.Status">
@@ -19792,6 +19836,14 @@
             <param name="joins"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.Base.GoodsService.RowsService.ByApproverId(System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="approverId"></param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Services.CMS.Base.GoodsService.RowsService.Page(MISApi.HttpClients.HttpModes.BaseMode.KeyWord,MISApi.HttpClients.HttpModes.BaseMode.Join[],MISApi.HttpClients.HttpModes.BaseMode.Page,MISApi.HttpClients.HttpModes.BaseMode.Date[],MISApi.HttpClients.HttpModes.BaseMode.Sort[],MISApi.HttpClients.HttpModes.BaseMode.Status)">
             <summary>
             分页
@@ -19904,6 +19956,11 @@
         <member name="P:MISApi.Services.CMS.Base.GoodsService.SQLEntity.Goods">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:MISApi.Services.CMS.Base.GoodsService.SQLEntity.Approver">
+            <summary>
+            审批人
             </summary>
         </member>
         <member name="P:MISApi.Services.CMS.Base.GoodsService.SQLEntity.Status">

@@ -693,6 +693,29 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.GoodsController.Rows_ByClassifyId_ClassifyId", ex);
             }
         }
+        /// <summary>
+        /// 根据ApproverId查询商品
+        /// </summary>
+        /// <param name="approverId"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Goods/Rows/ByApproverId/{approverId}", Name = "MIS_CMS_Goods_Rows_ByApproverId_ApproverId")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Rows_ByApproverId_ApproverId(int approverId)
+        {
+            try
+            {
+                return ResponseOk(
+                    new RowsMode.Request().ToResponse(
+                        new GoodsService.RowsService().ByApproverId(approverId)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.GoodsController.Rows_ByApproverId_ApproverId", ex);
+            }
+        }
         #endregion
 
         #region SingleMode
@@ -975,6 +998,24 @@ namespace MISApi.Controllers.CMS
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.CMS.GoodsController.Unauthorized_Rows_ByClassifyId_ClassifyId", ex);
+            }
+        }
+        /// <summary>
+        /// 根据ApproverId查询商品
+        /// </summary>
+        /// <param name="approverId"></param>
+        /// <returns></returns>
+        [Route("Unauthorized/MIS/CMS/Goods/Rows/ByApproverId/{approverId}", Name = "Unauthorized_MIS_CMS_Goods_Rows_ByApproverId_ApproverId")]
+        [HttpGet]
+        public IActionResult Unauthorized_Rows_ByApproverId_ApproverId(int approverId)
+        {
+            try
+            {
+                return Rows_ByApproverId_ApproverId(approverId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.GoodsController.Unauthorized_Rows_ByApproverId_ApproverId", ex);
             }
         }
         #endregion

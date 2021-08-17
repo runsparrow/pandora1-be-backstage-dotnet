@@ -191,7 +191,7 @@ namespace MISApi.Controllers.CMS
                     // Entity
                     if (dto.Member != null)
                     {
-                        List<Member> list = new MemberService.RowsService().ByMobile(dto.Member.Mobile, -1);
+                        List<Member> list = new MemberService.RowsService().ByMobile(dto.Member.Mobile);
                         if(list.Count == 0)
                         {
                             return new JsonResult(new DTO_Result

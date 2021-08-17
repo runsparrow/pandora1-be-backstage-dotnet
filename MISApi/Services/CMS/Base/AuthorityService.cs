@@ -591,6 +591,7 @@ namespace MISApi.Services.CMS.Base
                                 row.Authority.Email.Contains(andKeyWord) ||
                                 row.Authority.ApplierName.Contains(andKeyWord) ||
                                 row.Authority.ApproverName.Contains(andKeyWord) ||
+                                row.Authority.ApproverDesc.Contains(andKeyWord) ||
                                 row.Authority.Remark.Contains(andKeyWord) ||
                                 row.Authority.StatusName.Contains(andKeyWord)
                             );
@@ -614,6 +615,7 @@ namespace MISApi.Services.CMS.Base
                             ors.Contains(row.Authority.Email) ||
                             ors.Contains(row.Authority.ApplierName) ||
                             ors.Contains(row.Authority.ApproverName) ||
+                            ors.Contains(row.Authority.ApproverDesc) ||
                             ors.Contains(row.Authority.Remark) ||
                             ors.Contains(row.Authority.StatusName)
                         );
@@ -636,6 +638,7 @@ namespace MISApi.Services.CMS.Base
                             row.Authority.Email.Contains(keyWord) ||
                             row.Authority.ApplierName.Contains(keyWord) ||
                             row.Authority.ApproverName.Contains(keyWord) ||
+                            row.Authority.ApproverDesc.Contains(keyWord) ||
                             row.Authority.Remark.Contains(keyWord) ||
                             row.Authority.StatusName.Contains(keyWord)
                         );

@@ -1,4 +1,5 @@
-﻿using MISApi.Entities.WFM;
+﻿using MISApi.Entities.AVM;
+using MISApi.Entities.WFM;
 using MISApi.Tools;
 using Newtonsoft.Json;
 using System;
@@ -249,7 +250,37 @@ namespace MISApi.Entities.CMS
         [Description("最后更新时间")]
         [JsonProperty("finalDateTime")]
         [DefaultValue(typeof(DateTime), "0001-01-01")]
-        public DateTime? FinalDateTime { get; set; } 
+        public DateTime? FinalDateTime { get; set; }
+        /// <summary>
+        /// 审批人Id
+        /// </summary>
+        [Description("审批人Id")]
+        [JsonProperty("approverId")]
+        [DefaultValue(-1)]
+        public int? ApproverId { get; set; }
+        /// <summary>
+        /// 审批人姓名
+        /// </summary>
+        [StringLength(255)]
+        [Description("审批人姓名")]
+        [JsonProperty("approverName")]
+        [DefaultValue("")]
+        public string ApproverName { get; set; }
+        /// <summary>
+        /// 审批时间
+        /// </summary>
+        [Description("审批时间")]
+        [JsonProperty("approverDate")]
+        [DefaultValue(typeof(DateTime), "0001-01-01")]
+        public DateTime? ApproverDate { get; set; }
+        /// <summary>
+        /// 审批意见
+        /// </summary>
+        [StringLength(255)]
+        [Description("审批意见")]
+        [JsonProperty("approverDesc")]
+        [DefaultValue("")]
+        public string ApproverDesc { get; set; }
         /// <summary>
         /// 备注
         /// </summary>
@@ -354,6 +385,13 @@ namespace MISApi.Entities.CMS
                 return $@"{ConfigurationHelper.GetConnectionString("ImageHost")}{Url}";
             }
         }
+        /// <summary>
+        /// 审批人
+        /// </summary>
+        [Description("审批人")]
+        [JsonProperty("approver")]
+        [NotMapped]
+        public User Approver { get; set; }
         /// <summary>
         /// 状态
         /// </summary>

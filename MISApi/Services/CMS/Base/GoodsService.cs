@@ -402,6 +402,30 @@ namespace MISApi.Services.CMS.Base
                 }
             }
             /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="approverId"></param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Goods> ByApproverId(int approverId, params BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Goods.ApproverId == approverId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.Base.GoodsService.RowsService.ByApproverId", ex);
+                    }
+                }
+            }
+            /// <summary>
             /// 分页
             /// </summary>
             /// <param name="keyWord"></param>
@@ -586,6 +610,8 @@ namespace MISApi.Services.CMS.Base
                             row.Goods.RGB.Contains(andKeyWord) ||
                             row.Goods.Size.Contains(andKeyWord) ||
                             row.Goods.ClassifyName.Contains(andKeyWord) ||
+                            row.Goods.ApproverName.Contains(andKeyWord) ||
+                            row.Goods.ApproverDesc.Contains(andKeyWord) ||
                             row.Goods.Remark.Contains(andKeyWord) ||
                             row.Goods.StatusName.Contains(andKeyWord)
                         );
@@ -604,6 +630,8 @@ namespace MISApi.Services.CMS.Base
                             ors.Contains(row.Goods.RGB) ||
                             ors.Contains(row.Goods.Size) ||
                             ors.Contains(row.Goods.ClassifyName) ||
+                            ors.Contains(row.Goods.ApproverName) ||
+                            ors.Contains(row.Goods.ApproverDesc) ||
                             ors.Contains(row.Goods.Remark) ||
                             ors.Contains(row.Goods.StatusName)
                         );
@@ -621,6 +649,8 @@ namespace MISApi.Services.CMS.Base
                             row.Goods.RGB.Contains(keyWord) ||
                             row.Goods.Size.Contains(keyWord) ||
                             row.Goods.ClassifyName.Contains(keyWord) ||
+                            row.Goods.ApproverName.Contains(keyWord) ||
+                            row.Goods.ApproverDesc.Contains(keyWord) ||
                             row.Goods.Remark.Contains(keyWord) ||
                             row.Goods.StatusName.Contains(keyWord)
                         );
@@ -674,6 +704,11 @@ namespace MISApi.Services.CMS.Base
                         {
                             int ownerId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                             queryable = queryable.Where(row => row.Goods.OwnerId == ownerId);
+                        }
+                        if (splits[i].ToLower().Contains("approverid"))
+                        {
+                            int approverId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Goods.ApproverId == approverId);
                         }
                         if (splits[i].ToLower().Contains("tags"))
                         {
@@ -765,6 +800,13 @@ namespace MISApi.Services.CMS.Base
                             queryable = queryable
                                 .Where(row =>
                                     row.Goods.PublicDateTime >= date.MinDate && row.Goods.PublicDateTime <= date.MaxDate
+                                );
+                        }
+                        if (date.Name.ToLower().Equals("approverdate"))
+                        {
+                            queryable = queryable
+                                .Where(row =>
+                                    row.Goods.ApproverDate >= date.MinDate && row.Goods.ApproverDate <= date.MaxDate
                                 );
                         }
                         if (date.Name.ToLower().Equals("finaldatetime"))
@@ -890,6 +932,8 @@ namespace MISApi.Services.CMS.Base
                     return null;
                 // 主表
                 Goods goodsEntity = entity.Goods;
+                // 审批人
+                goodsEntity.Approver = entity.Approver ?? null;
                 // 状态
                 goodsEntity.Status = entity.Status ?? null;
                 // 返回
@@ -929,6 +973,10 @@ namespace MISApi.Services.CMS.Base
             /// 
             /// </summary>
             public Goods Goods { get; set; }
+            /// <summary>
+            /// 审批人
+            /// </summary>
+            public Entities.AVM.User Approver { get; set; }
             /// <summary>
             /// 
             /// </summary>

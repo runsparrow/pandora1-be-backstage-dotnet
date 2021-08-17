@@ -312,6 +312,14 @@ namespace MISApi.Entities.CMS
         [DefaultValue(typeof(DateTime), "0001-01-01")]
         public DateTime? ApproverDate { get; set; }
         /// <summary>
+        /// 审批意见
+        /// </summary>
+        [StringLength(255)]
+        [Description("审批意见")]
+        [JsonProperty("approverDesc")]
+        [DefaultValue("")]
+        public string ApproverDesc { get; set; }
+        /// <summary>
         /// 备注
         /// </summary>
         [StringLength(255)]

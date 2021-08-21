@@ -408,7 +408,7 @@ namespace MISApi.Services.CMS.Base
                 try
                 {
                     List<Navigation> existList = new RowsService().ByKey(key);
-                    return SubsetByIdRecursion(existList, existList.Count == 0 ? -1: existList[0].Id, joins);
+                    return SubsetById(existList.Count == 0 ? -1: existList[0].Id, joins);
                 }
                 catch (Exception ex)
                 {
@@ -452,7 +452,15 @@ namespace MISApi.Services.CMS.Base
                 try
                 {
                     List<Navigation> list = new RowService().ById(id) == null ? new List<Navigation>() : new List<Navigation> { new RowService().ById(id) };
-                    return SubsetByIdRecursion(list, id, joins);
+                    if (id == -1)
+                    {
+                        list = new RowsService().ByKeyWord(new BaseMode.KeyWord());
+                    }
+                    else
+                    {
+                        SubsetByIdRecursion(list, id, joins);
+                    }
+                    return list;
                 }
                 catch (Exception ex)
                 {

@@ -1031,6 +1031,11 @@ namespace MISApi.Services.ASM.Base
                     return null;
                 // 主表
                 Hospital hospitalEntity = entity.Hospital;
+                // IsLeaf
+                using (PandoraContext context = new PandoraContext())
+                {
+                    hospitalEntity.IsLeaf = SQLQueryable(context, new BaseMode.Join[] { }).Count(row => row.Hospital.Pid == hospitalEntity.Id) > 0;
+                }
                 // 上级医院
                 hospitalEntity.ParentHospital = entity.ParentHospital ?? null;
                 // 状态

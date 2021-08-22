@@ -983,6 +983,11 @@ namespace MISApi.Services.ASM.Base
                     return null;
                 // 主表
                 Dictionary dictionaryEntity = entity.Dictionary;
+                // IsLeaf
+                using (PandoraContext context = new PandoraContext())
+                {
+                    dictionaryEntity.IsLeaf = SQLQueryable(context, new BaseMode.Join[] { }).Count(row => row.Dictionary.Pid == dictionaryEntity.Id) > 0;
+                }
                 // 上级字典
                 dictionaryEntity.ParentDictionary = entity.ParentDictionary ?? null;
                 // 状态

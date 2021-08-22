@@ -290,7 +290,7 @@ namespace MISApi.Entities.CMS
         [JsonProperty("level")]
         [DefaultValue(0)]
         [NotMapped]
-        public int? Level
+        public int Level
         {
             get
             {

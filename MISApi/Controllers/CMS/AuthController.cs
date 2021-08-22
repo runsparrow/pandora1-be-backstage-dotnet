@@ -39,7 +39,7 @@ namespace MISApi.Controllers.CMS
                 {
                     Result = true,
                     Token = token,
-                    Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName, AvatarUrl = member.AvatarUrl }
+                    Member = new DTO_Member { MemberId = member.Id, MemberName = member.Name, RealName = member.RealName, AvatarUrl = member.AvatarUrl, Level = member.Level }
                 });
             }
             else
@@ -435,6 +435,13 @@ namespace MISApi.Controllers.CMS
             [JsonProperty("mobile")]
             [DefaultValue("")]
             public string Mobile { get; set; } = "";
+            /// <summary>
+            /// 会员等级
+            /// </summary>
+            [Description("会员等级")]
+            [JsonProperty("level")]
+            [DefaultValue(0)]
+            public int Level { get; set; } = 0;
         }
         /// <summary>
         /// 

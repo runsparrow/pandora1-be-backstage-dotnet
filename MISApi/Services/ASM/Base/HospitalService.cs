@@ -407,7 +407,7 @@ namespace MISApi.Services.ASM.Base
                 try
                 {
                     List<Hospital> existList = new RowsService().ByKey(key);
-                    return SubsetByIdRecursion(existList, existList.Count == 0 ? 0 : existList[0].Id, joins);
+                    return SubsetById(existList.Count == 0 ? -1 : existList[0].Id, joins);
                 }
                 catch (Exception ex)
                 {
@@ -451,7 +451,15 @@ namespace MISApi.Services.ASM.Base
                 try
                 {
                     List<Hospital> list = new RowService().ById(id) == null ? new List<Hospital>() : new List<Hospital> { new RowService().ById(id) };
-                    return SubsetByIdRecursion(list, id, joins);
+                    if(id == -1)
+                    {
+                        list = new RowsService().ByKeyWord(new BaseMode.KeyWord());
+                    }
+                    else
+                    {
+                        SubsetByIdRecursion(list, id, joins);
+                    }
+                    return list;
                 }
                 catch (Exception ex)
                 {
@@ -1023,6 +1031,11 @@ namespace MISApi.Services.ASM.Base
                     return null;
                 // 主表
                 Hospital hospitalEntity = entity.Hospital;
+                // IsLeaf
+                using (PandoraContext context = new PandoraContext())
+                {
+                    hospitalEntity.IsLeaf = SQLQueryable(context, new BaseMode.Join[] { }).Count(row => row.Hospital.Pid == hospitalEntity.Id) > 0;
+                }
                 // 上级医院
                 hospitalEntity.ParentHospital = entity.ParentHospital ?? null;
                 // 状态

@@ -450,7 +450,15 @@ namespace MISApi.Services.ASM.Base
                 try
                 {
                     List<Region> list = new RowService().ById(id) == null ? new List<Region>() : new List<Region> { new RowService().ById(id) };
-                    return SubsetByIdRecursion(list, id, joins);
+                    if (id == -1)
+                    {
+                        list = new RowsService().ByKeyWord(new BaseMode.KeyWord());
+                    }
+                    else
+                    {
+                        SubsetByIdRecursion(list, id, joins);
+                    }
+                    return list;
                 }
                 catch (Exception ex)
                 {

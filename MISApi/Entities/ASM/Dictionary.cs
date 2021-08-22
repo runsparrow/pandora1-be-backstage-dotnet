@@ -126,6 +126,14 @@ namespace MISApi.Entities.ASM
         [NotMapped]
         public string Path { get; set; }
         /// <summary>
+        /// 是否展开
+        /// </summary>
+        [Description("是否展开")]
+        [JsonProperty("isLeaf")]
+        [DefaultValue(false)]
+        [NotMapped]
+        public bool IsLeaf { get; set; }
+        /// <summary>
         /// 上级字典
         /// </summary>
         [Description("上级字典")]

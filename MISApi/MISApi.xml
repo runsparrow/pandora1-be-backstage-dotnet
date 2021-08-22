@@ -11152,6 +11152,11 @@
             路径
             </summary>
         </member>
+        <member name="P:MISApi.Entities.ASM.Dictionary.IsLeaf">
+            <summary>
+            是否展开
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.ASM.Dictionary.ParentDictionary">
             <summary>
             上级字典
@@ -11325,6 +11330,11 @@
         <member name="P:MISApi.Entities.ASM.Hospital.Path">
             <summary>
             路径
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.ASM.Hospital.IsLeaf">
+            <summary>
+            是否展开
             </summary>
         </member>
         <member name="P:MISApi.Entities.ASM.Hospital.ParentHospital">

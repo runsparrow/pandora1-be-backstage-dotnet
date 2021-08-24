@@ -326,7 +326,7 @@ namespace MISApi.Services.CMS.Base
                     {
                         return SQLEntityToList(
                             SQLQueryable(context, joins)
-                                .Where(row => row.Member.Name == name && row.Member.Id != extraId)
+                                .Where(row => row.Member.Name == name && row.Member.Id != extraId && row.Member.StatusValue > 0)
                                 .ToList()
                         );
                     }
@@ -351,7 +351,7 @@ namespace MISApi.Services.CMS.Base
                     {
                         return SQLEntityToList(
                             SQLQueryable(context, joins)
-                                .Where(row => row.Member.Mobile == mobile && row.Member.Id != extraId)
+                                .Where(row => row.Member.Mobile == mobile && row.Member.Id != extraId && row.Member.StatusValue > 0)
                                 .ToList()
                         );
                     }
@@ -376,7 +376,7 @@ namespace MISApi.Services.CMS.Base
                     {
                         return SQLEntityToList(
                             SQLQueryable(context, joins)
-                                .Where(row => row.Member.IdCard == idCard && row.Member.Id != extraId)
+                                .Where(row => row.Member.IdCard == idCard && row.Member.Id != extraId && row.Member.StatusValue > 0)
                                 .ToList()
                         );
                     }

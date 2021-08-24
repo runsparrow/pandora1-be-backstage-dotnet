@@ -259,7 +259,7 @@ namespace MISApi.Services.CMS
                     {
                         return SQLEntityToList(
                             SQLQueryable(context, joins)
-                                .Where(row => row.Authority.MemberId == memberId && row.Authority.AuthorityIndex == authorityIndex && row.Authority.Id != extraId)
+                                .Where(row => row.Authority.MemberId == memberId && row.Authority.AuthorityIndex == authorityIndex && row.Authority.Id != extraId && row.Authority.StatusValue > 0)
                                 .ToList()
                         );
                     }
@@ -285,7 +285,7 @@ namespace MISApi.Services.CMS
                     {
                         return SQLEntityToList(
                             SQLQueryable(context, joins)
-                                .Where(row => row.Authority.IdCard == idCard && row.Authority.AuthorityIndex == authorityIndex && row.Authority.Id != extraId)
+                                .Where(row => row.Authority.IdCard == idCard && row.Authority.AuthorityIndex == authorityIndex && row.Authority.Id != extraId && row.Authority.StatusValue > 0)
                                 .ToList()
                         );
                     }

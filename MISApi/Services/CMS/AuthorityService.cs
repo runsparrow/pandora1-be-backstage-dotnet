@@ -243,15 +243,15 @@ namespace MISApi.Services.CMS
         /// </summary>
         public class RowsService : Base.AuthorityService.RowsService
         {
-
             /// <summary>
             /// 
             /// </summary>
             /// <param name="memberId"></param>
             /// <param name="authorityIndex"></param>
+            /// <param name="extraId">被排除判断的Id</param>
             /// <param name="joins"></param>
             /// <returns></returns>
-            public List<Authority> ByMemberIdWithAuthorityIndex(int memberId, int authorityIndex, params HttpClients.HttpModes.BaseMode.Join[] joins)
+            public List<Authority> ByMemberIdWithAuthorityIndex(int memberId, int authorityIndex, int extraId = -1, params HttpClients.HttpModes.BaseMode.Join[] joins)
             {
                 using (PandoraContext context = new PandoraContext())
                 {
@@ -259,13 +259,39 @@ namespace MISApi.Services.CMS
                     {
                         return SQLEntityToList(
                             SQLQueryable(context, joins)
-                                .Where(row => row.Authority.MemberId == memberId && row.Authority.AuthorityIndex == authorityIndex)
+                                .Where(row => row.Authority.MemberId == memberId && row.Authority.AuthorityIndex == authorityIndex && row.Authority.Id != extraId)
                                 .ToList()
                         );
                     }
                     catch (Exception ex)
                     {
                         throw new Exception("MISApi.Services.CMS.AuthorityService.RowsService.ByMemberIdWithAuthorityIndex", ex);
+                    }
+                }
+            }
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="idCard"></param>
+            /// <param name="authorityIndex"></param>
+            /// <param name="extraId">被排除判断的Id</param>
+            /// <param name="joins"></param>
+            /// <returns></returns>
+            public List<Authority> ByIdCardWithAuthorityIndex(string idCard, int authorityIndex, int extraId = -1, params HttpClients.HttpModes.BaseMode.Join[] joins)
+            {
+                using (PandoraContext context = new PandoraContext())
+                {
+                    try
+                    {
+                        return SQLEntityToList(
+                            SQLQueryable(context, joins)
+                                .Where(row => row.Authority.IdCard == idCard && row.Authority.AuthorityIndex == authorityIndex && row.Authority.Id != extraId)
+                                .ToList()
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("MISApi.Services.CMS.AuthorityService.RowsService.ByIdCardWithAuthorityIndex", ex);
                     }
                 }
             }

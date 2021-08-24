@@ -718,6 +718,11 @@ namespace MISApi.Services.CMS.Base
                             int authorityIndex = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
                             queryable = queryable.Where(row => row.Authority.AuthorityIndex == authorityIndex);
                         }
+                        if (splits[i].ToLower().Contains("memberid"))
+                        {
+                            int memberId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));
+                            queryable = queryable.Where(row => row.Authority.MemberId == memberId);
+                        }
                         if (splits[i].ToLower().Contains("identityid"))
                         {
                             int identityId = int.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));

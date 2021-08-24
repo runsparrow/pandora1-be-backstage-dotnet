@@ -362,13 +362,13 @@ namespace MISApi.Services.CMS.Base
                 }
             }
             /// <summary>
-            /// 根据 身份证 查询
+            /// 根据 身份证和验证类型 查询
             /// </summary>
             /// <param name="idCard">身份证</param>
             /// <param name="extraId">被排除判断的Id</param>
             /// <param name="joins">关联表</param>
             /// <returns></returns>
-            public List<Member> ByIdCard(string idCard, int extraId = -1, params BaseMode.Join[] joins)
+            public List<Member> ByIdCard(string idCard,  int extraId = -1, params BaseMode.Join[] joins)
             {
                 using (PandoraContext context = new PandoraContext())
                 {

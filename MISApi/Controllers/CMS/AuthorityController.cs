@@ -626,19 +626,19 @@ namespace MISApi.Controllers.CMS
         /// <summary>
         /// 审批通过
         /// </summary>
-        /// <param name="authorityId"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Authority/Update/Pass/{authorityId}", Name = "MIS_CMS_Authority_Update_Pass_AuthorityId")]
+        [Route("MIS/CMS/Authority/Update/Pass/{id}", Name = "MIS_CMS_Authority_Update_Pass_Id")]
         [HttpGet]
         [Authorize]
-        public IActionResult Update_Pass(int authorityId)
+        public IActionResult Update_Pass(int id)
         {
             try
             {
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new AuthorityService.UpdateService().Pass(authorityId)
+                        new AuthorityService.UpdateService().Pass(id)
                     )
                 );
             }
@@ -650,19 +650,19 @@ namespace MISApi.Controllers.CMS
         /// <summary>
         /// 审批拒绝
         /// </summary>
-        /// <param name="authorityId"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        [Route("MIS/CMS/Authority/Update/Refuse/{authorityId}", Name = "MIS_CMS_Authority_Update_Refuse_AuthorityId")]
+        [Route("MIS/CMS/Authority/Update/Refuse/{id}", Name = "MIS_CMS_Authority_Update_Refuse_Id")]
         [HttpGet]
         [Authorize]
-        public IActionResult Update_Refuse(int authorityId)
+        public IActionResult Update_Refuse(int id)
         {
             try
             {
                 // 返回
                 return ResponseOk(
                     new UpdateMode.Request().ToResponse(
-                        new AuthorityService.UpdateService().Refuse(authorityId)
+                        new AuthorityService.UpdateService().Refuse(id)
                     )
                 );
             }

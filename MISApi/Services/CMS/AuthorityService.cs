@@ -91,34 +91,34 @@ namespace MISApi.Services.CMS
                     throw new Exception("MISApi.Services.CMS.AuthorityService.CreateService.BatchToStatus", ex);
                 }
             }
-            /// <summary>
-            /// 验证通过
-            /// </summary>
-            /// <param name="entity"></param>
-            /// <returns></returns>
-            public virtual Authority Pass(Authority entity)
-            {
-                try
-                {
-                    // 定义
-                    Authority result = new Authority();
-                    // 事务
-                    transService.TransRegist(delegate {
-                        // 认证信息
-                        result = new AuthorityService.CreateService().ToStatus(entity, "cms.authority.open");
-                        // 会员信息
-                        new MemberService.UpdateService().AuthorityPass(entity.MemberId??-1);
-                    });
-                    // 提交
-                    transService.TransCommit();
-                    // 返回
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("MISApi.Services.CMS.AuthorityService.CreateService.ToStatus", ex);
-                }
-            }
+            ///// <summary>
+            ///// 验证通过
+            ///// </summary>
+            ///// <param name="entity"></param>
+            ///// <returns></returns>
+            //public virtual Authority Pass(Authority entity)
+            //{
+            //    try
+            //    {
+            //        // 定义
+            //        Authority result = new Authority();
+            //        // 事务
+            //        transService.TransRegist(delegate {
+            //            // 认证信息
+            //            result = new AuthorityService.CreateService().ToStatus(entity, "cms.authority.open");
+            //            // 会员信息
+            //            new MemberService.UpdateService().AuthorityPass(entity.MemberId??-1);
+            //        });
+            //        // 提交
+            //        transService.TransCommit();
+            //        // 返回
+            //        return result;
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        throw new Exception("MISApi.Services.CMS.AuthorityService.CreateService.Pass", ex);
+            //    }
+            //}
         }
 
         #endregion
@@ -198,6 +198,64 @@ namespace MISApi.Services.CMS
                 catch (Exception ex)
                 {
                     throw new Exception("MISApi.Services.CMS.AuthorityService.UpdateService.BatchToStatus", ex);
+                }
+            }
+            /// <summary>
+            /// 验证通过
+            /// </summary>
+            /// <param name="authorityId"></param>
+            /// <returns></returns>
+            public virtual Authority Pass(int authorityId)
+            {
+                try
+                {
+                    // 定义
+                    Authority result = new Authority();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        // 获取认证数据
+                        Authority entity = new AuthorityService.RowService().ById(authorityId);
+                        // 认证信息
+                        result = new AuthorityService.UpdateService().ToStatus(entity, "cms.authority.approver.pass");
+                        // 会员信息
+                        new MemberService.UpdateService().AuthorityPass(entity.MemberId ?? -1);
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.AuthorityService.UpdateService.Pass", ex);
+                }
+            }
+            /// <summary>
+            /// 验证拒绝
+            /// </summary>
+            /// <param name="authorityId"></param>
+            /// <returns></returns>
+            public virtual Authority Refuse(int authorityId)
+            {
+                try
+                {
+                    // 定义
+                    Authority result = new Authority();
+                    // 事务
+                    transService.TransRegist(delegate {
+                        // 获取认证数据
+                        Authority entity = new AuthorityService.RowService().ById(authorityId);
+                        // 认证信息
+                        result = new AuthorityService.UpdateService().ToStatus(entity, "cms.authority.approver.refuse");
+                    });
+                    // 提交
+                    transService.TransCommit();
+                    // 返回
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("MISApi.Services.CMS.AuthorityService.UpdateService.Refuse", ex);
                 }
             }
         }

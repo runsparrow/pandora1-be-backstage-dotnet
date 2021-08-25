@@ -3262,13 +3262,6 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.AuthorityController.Create_Pass(MISApi.Entities.CMS.Authority)">
-            <summary>
-            创建认证并更新会员信息
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Authority})">
             <summary>
             创建认证并设置状态
@@ -3309,6 +3302,20 @@
             批量编辑并设置状态
             </summary>
             <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_Pass(System.Int32)">
+            <summary>
+            审批通过
+            </summary>
+            <param name="authorityId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_Refuse(System.Int32)">
+            <summary>
+            审批拒绝
+            </summary>
+            <param name="authorityId"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Delete_Single(MISApi.Entities.CMS.Authority)">
@@ -17688,13 +17695,6 @@
             <param name="statusKey"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.AuthorityService.CreateService.Pass(MISApi.Entities.CMS.Authority)">
-            <summary>
-            验证通过
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
         <member name="T:MISApi.Services.CMS.AuthorityService.UpdateService">
             <summary>
             UpdateService
@@ -17724,6 +17724,20 @@
             </summary>
             <param name="entities"></param>
             <param name="statusKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.AuthorityService.UpdateService.Pass(System.Int32)">
+            <summary>
+            验证通过
+            </summary>
+            <param name="authorityId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.AuthorityService.UpdateService.Refuse(System.Int32)">
+            <summary>
+            验证拒绝
+            </summary>
+            <param name="authorityId"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.AuthorityService.DeleteService">

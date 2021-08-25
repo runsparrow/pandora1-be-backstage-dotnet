@@ -3308,14 +3308,14 @@
             <summary>
             审批通过
             </summary>
-            <param name="authorityId"></param>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_Refuse(System.Int32)">
             <summary>
             审批拒绝
             </summary>
-            <param name="authorityId"></param>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Delete_Single(MISApi.Entities.CMS.Authority)">
@@ -17730,14 +17730,14 @@
             <summary>
             验证通过
             </summary>
-            <param name="authorityId"></param>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Services.CMS.AuthorityService.UpdateService.Refuse(System.Int32)">
             <summary>
             验证拒绝
             </summary>
-            <param name="authorityId"></param>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.AuthorityService.DeleteService">

@@ -203,9 +203,9 @@ namespace MISApi.Services.CMS
             /// <summary>
             /// 验证通过
             /// </summary>
-            /// <param name="authorityId"></param>
+            /// <param name="id"></param>
             /// <returns></returns>
-            public virtual Authority Pass(int authorityId)
+            public virtual Authority Pass(int id)
             {
                 try
                 {
@@ -214,7 +214,7 @@ namespace MISApi.Services.CMS
                     // 事务
                     transService.TransRegist(delegate {
                         // 获取认证数据
-                        Authority entity = new AuthorityService.RowService().ById(authorityId);
+                        Authority entity = new AuthorityService.RowService().ById(id);
                         // 认证信息
                         result = new AuthorityService.UpdateService().ToStatus(entity, "cms.authority.approver.pass");
                         // 会员信息
@@ -233,9 +233,9 @@ namespace MISApi.Services.CMS
             /// <summary>
             /// 验证拒绝
             /// </summary>
-            /// <param name="authorityId"></param>
+            /// <param name="id"></param>
             /// <returns></returns>
-            public virtual Authority Refuse(int authorityId)
+            public virtual Authority Refuse(int id)
             {
                 try
                 {
@@ -244,7 +244,7 @@ namespace MISApi.Services.CMS
                     // 事务
                     transService.TransRegist(delegate {
                         // 获取认证数据
-                        Authority entity = new AuthorityService.RowService().ById(authorityId);
+                        Authority entity = new AuthorityService.RowService().ById(id);
                         // 认证信息
                         result = new AuthorityService.UpdateService().ToStatus(entity, "cms.authority.approver.refuse");
                     });

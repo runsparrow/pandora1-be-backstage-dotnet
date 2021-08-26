@@ -575,6 +575,16 @@ namespace MISApi.Services.CMS.Base
                 {
                     try
                     {
+                        if (splits[i].ToLower().Contains("cardno") && splits[i].ToLower().Contains("="))
+                        {
+                            string cardNo = splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1);
+                            queryable = queryable.Where(row => row.Card.CardNo == cardNo);
+                        }
+                        if (splits[i].ToLower().Contains("cardno") && splits[i].ToLower().Contains("~"))
+                        {
+                            string cardNo = splits[i].Substring(splits[i].IndexOf("~") + 1, splits[i].Length - splits[i].IndexOf("~") - 1);
+                            queryable = queryable.Where(row => row.Card.CardNo.Contains(cardNo));
+                        }
                         if (splits[i].ToLower().Contains("isactivate"))
                         {
                             bool isActivate = bool.Parse(splits[i].Substring(splits[i].IndexOf("=") + 1, splits[i].Length - splits[i].IndexOf("=") - 1));

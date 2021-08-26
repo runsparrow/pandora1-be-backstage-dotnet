@@ -3133,6 +3133,11 @@
             手机
             </summary>
         </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Member.Level">
+            <summary>
+            会员等级
+            </summary>
+        </member>
         <member name="T:MISApi.Controllers.CMS.AuthController.DTO_Auth">
             <summary>
             
@@ -3257,13 +3262,6 @@
             <param name="entities"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.AuthorityController.Create_Pass(MISApi.Entities.CMS.Authority)">
-            <summary>
-            创建认证并更新会员信息
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Create_ToStatus(MISApi.Controllers.HttpEntities.DTO_EntityToStatus{MISApi.Entities.CMS.Authority})">
             <summary>
             创建认证并设置状态
@@ -3304,6 +3302,20 @@
             批量编辑并设置状态
             </summary>
             <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_Pass(System.Int32)">
+            <summary>
+            审批通过
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.AuthorityController.Update_Refuse(System.Int32)">
+            <summary>
+            审批拒绝
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.AuthorityController.Delete_Single(MISApi.Entities.CMS.Authority)">
@@ -12626,6 +12638,11 @@
             路径
             </summary>
         </member>
+        <member name="P:MISApi.Entities.CMS.Goods.ZipUrl">
+            <summary>
+            压缩包路径
+            </summary>
+        </member>
         <member name="P:MISApi.Entities.CMS.Goods.CoverUrl">
             <summary>
             封面路径
@@ -17678,13 +17695,6 @@
             <param name="statusKey"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.AuthorityService.CreateService.Pass(MISApi.Entities.CMS.Authority)">
-            <summary>
-            验证通过
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
         <member name="T:MISApi.Services.CMS.AuthorityService.UpdateService">
             <summary>
             UpdateService
@@ -17716,6 +17726,20 @@
             <param name="statusKey"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.AuthorityService.UpdateService.Pass(System.Int32)">
+            <summary>
+            验证通过
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.AuthorityService.UpdateService.Refuse(System.Int32)">
+            <summary>
+            验证拒绝
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Services.CMS.AuthorityService.DeleteService">
             <summary>
             DeleteService
@@ -17736,12 +17760,23 @@
             
             </summary>
         </member>
-        <member name="M:MISApi.Services.CMS.AuthorityService.RowsService.ByMemberIdWithAuthorityIndex(System.Int32,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+        <member name="M:MISApi.Services.CMS.AuthorityService.RowsService.ByMemberIdWithAuthorityIndex(System.Int32,System.Int32,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
             <summary>
             
             </summary>
             <param name="memberId"></param>
             <param name="authorityIndex"></param>
+            <param name="extraId">被排除判断的Id</param>
+            <param name="joins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.AuthorityService.RowsService.ByIdCardWithAuthorityIndex(System.String,System.Int32,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
+            <summary>
+            
+            </summary>
+            <param name="idCard"></param>
+            <param name="authorityIndex"></param>
+            <param name="extraId">被排除判断的Id</param>
             <param name="joins"></param>
             <returns></returns>
         </member>
@@ -20385,7 +20420,7 @@
         </member>
         <member name="M:MISApi.Services.CMS.Base.MemberService.RowsService.ByIdCard(System.String,System.Int32,MISApi.HttpClients.HttpModes.BaseMode.Join[])">
             <summary>
-            根据 身份证 查询
+            根据 身份证和验证类型 查询
             </summary>
             <param name="idCard">身份证</param>
             <param name="extraId">被排除判断的Id</param>

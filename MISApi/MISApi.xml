@@ -10363,6 +10363,11 @@
             
             </summary>
         </member>
+        <member name="P:MISApi.Controllers.TestController.TestObject.UpdateTime">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:MISApi.Controllers.ValidationAttribute">
             <summary>
             

@@ -23,7 +23,7 @@ namespace MISApi.Controllers
                 //RedisCacheHelper.Set("objectValue", new Entities.AVM.User { Name = "Test" });
                 //return new OkObjectResult(new TestObject() { Title = "测试通过", Content = ((Entities.AVM.User)RedisCacheHelper.Get("objectValue")).Name});
 
-                return new OkObjectResult(new TestObject() { Title = "测试通过", Content = "MIS Test Success！", UpdateTime="20210826v1" });
+                return new OkObjectResult(new TestObject() { Title = "测试通过", Content = "MIS Test Success！", UpdateTime="20210902v1" });
             }
             catch (Exception ex)
             {

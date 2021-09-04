@@ -90,6 +90,14 @@ namespace MISApi.Entities.CMS
         [DefaultValue("")]
         public string Url { get; set; }
         /// <summary>
+        /// 压缩包路径
+        /// </summary>
+        [StringLength(255)]
+        [Description("压缩包路径")]
+        [JsonProperty("zipUrl")]
+        [DefaultValue("")]
+        public string ZipUrl { get; set; }
+        /// <summary>
         /// 封面路径
         /// </summary>
         [StringLength(255)]

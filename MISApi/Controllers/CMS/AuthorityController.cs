@@ -39,6 +39,19 @@ namespace MISApi.Controllers.CMS
                         Message = "Request.Entity为空。"
                     });
                 }
+                // 重复身份证
+                if (!string.IsNullOrEmpty(entity.IdCard))
+                {
+                    List<Authority> existAuthority = new AuthorityService.RowsService().ByIdCardWithAuthorityIndex(entity.IdCard, entity.AuthorityIndex ?? -1);
+                    if (existAuthority.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复身份证的数据。"
+                        });
+                    }
+                }
                 // 重复认证
                 if (entity.MemberId != null && entity.MemberId != -1 || entity.AuthorityIndex != null && entity.AuthorityIndex != -1)
                 {
@@ -55,7 +68,10 @@ namespace MISApi.Controllers.CMS
                 // 默认值
                 if (entity != null)
                 {
-
+                    entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    entity.CreateDateTime = DateTime.Now;
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
@@ -81,11 +97,53 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                // Entities空值
+                if (entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Authority entity in entities)
+                {
+                    // 身份证
+                    if (!string.IsNullOrEmpty(entity.IdCard))
+                    {
+                        List<Authority> existAuthority = new AuthorityService.RowsService().ByIdCardWithAuthorityIndex(entity.IdCard, entity.AuthorityIndex ?? -1);
+                        if (existAuthority.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复身份证的数据。"
+                            });
+                        }
+                    }
+                    // 认证
+                    if (entity.MemberId != null && entity.MemberId != -1 || entity.AuthorityIndex != null && entity.AuthorityIndex != -1)
+                    {
+                        List<Authority> existAuthority = new AuthorityService.RowsService().ByMemberIdWithAuthorityIndex(entity.MemberId ?? -1, entity.AuthorityIndex ?? -1);
+                        if (existAuthority.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复认证的数据。"
+                            });
+                        }
+                    }
+                }
                 // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity => {
-
+                        entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.CreateDateTime = DateTime.Now;
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
                     });
                 }
                 // 返回
@@ -100,35 +158,70 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.AuthorityController.Create_Multiple", ex);
             }
         }
-        /// <summary>
-        /// 创建认证并更新会员信息
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        [Route("MIS/CMS/Authority/Create/Pass", Name = "MIS_CMS_Authority_Create_Pass")]
-        [HttpPost]
-        [Authorize]
-        public IActionResult Create_Pass(Authority entity)
-        {
-            try
-            {
-                // 默认值
-                if (entity != null)
-                {
+        ///// <summary>
+        ///// 创建认证并更新会员信息
+        ///// </summary>
+        ///// <param name="entity"></param>
+        ///// <returns></returns>
+        //[Route("MIS/CMS/Authority/Create/Pass", Name = "MIS_CMS_Authority_Create_Pass")]
+        //[HttpPost]
+        //[Authorize]
+        //public IActionResult Create_Pass(Authority entity)
+        //{
+        //    try
+        //    {
+        //        // Entity空值
+        //        if (entity == null)
+        //        {
+        //            return new JsonResult(new DTO_Result
+        //            {
+        //                Result = false,
+        //                Message = "Request.Entity为空。"
+        //            });
+        //        }
+        //        // 重复身份证
+        //        if (!string.IsNullOrEmpty(entity.IdCard))
+        //        {
+        //            List<Authority> existAuthority = new AuthorityService.RowsService().ByIdCardWithAuthorityIndex(entity.IdCard, entity.AuthorityIndex ?? -1);
+        //            if (existAuthority.Count > 0)
+        //            {
+        //                return new JsonResult(new DTO_Result
+        //                {
+        //                    Result = false,
+        //                    Message = "存在重复身份证的数据。"
+        //                });
+        //            }
+        //        }
+        //        // 重复认证
+        //        if (entity.MemberId != null && entity.MemberId != -1 || entity.AuthorityIndex != null && entity.AuthorityIndex != -1)
+        //        {
+        //            List<Authority> existAuthority = new AuthorityService.RowsService().ByMemberIdWithAuthorityIndex(entity.MemberId ?? -1, entity.AuthorityIndex ?? -1);
+        //            if (existAuthority.Count > 0)
+        //            {
+        //                return new JsonResult(new DTO_Result
+        //                {
+        //                    Result = false,
+        //                    Message = "存在重复认证的数据。"
+        //                });
+        //            }
+        //        }
+        //        // 默认值
+        //        if (entity != null)
+        //        {
 
-                }
-                // 返回
-                return ResponseOk(
-                    new CreateMode.Request().ToResponse(
-                        new AuthorityService.CreateService().Pass(entity)
-                    )
-                );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Create_Pass", ex);
-            }
-        }
+        //        }
+        //        // 返回
+        //        return ResponseOk(
+        //            new CreateMode.Request().ToResponse(
+        //                new AuthorityService.CreateService().Pass(entity)
+        //            )
+        //        );
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("MISApi.Controllers.CMS.AuthorityController.Create_Pass", ex);
+        //    }
+        //}
         /// <summary>
         /// 创建认证并设置状态
         /// </summary>
@@ -141,10 +234,48 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                // Entity空值
+                if (dto.Entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复身份证
+                if (!string.IsNullOrEmpty(dto.Entity.IdCard))
+                {
+                    List<Authority> existAuthority = new AuthorityService.RowsService().ByIdCardWithAuthorityIndex(dto.Entity.IdCard, dto.Entity.AuthorityIndex ?? -1);
+                    if (existAuthority.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复身份证的数据。"
+                        });
+                    }
+                }
+                // 重复认证
+                if (dto.Entity.MemberId != null && dto.Entity.MemberId != -1 || dto.Entity.AuthorityIndex != null && dto.Entity.AuthorityIndex != -1)
+                {
+                    List<Authority> existAuthority = new AuthorityService.RowsService().ByMemberIdWithAuthorityIndex(dto.Entity.MemberId ?? -1, dto.Entity.AuthorityIndex ?? -1);
+                    if (existAuthority.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复认证的数据。"
+                        });
+                    }
+                }
                 // Entity
                 if (dto.Entity != null)
                 {
-
+                    dto.Entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.CreateDateTime = DateTime.Now;
+                    dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
@@ -170,11 +301,53 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                // Entities空值
+                if (dto.Entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Authority entity in dto.Entities)
+                {
+                    // 身份证
+                    if (!string.IsNullOrEmpty(entity.IdCard))
+                    {
+                        List<Authority> existAuthority = new AuthorityService.RowsService().ByIdCardWithAuthorityIndex(entity.IdCard, entity.AuthorityIndex ?? -1);
+                        if (existAuthority.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复身份证的数据。"
+                            });
+                        }
+                    }
+                    // 认证
+                    if (entity.MemberId != null && entity.MemberId != -1 || entity.AuthorityIndex != null && entity.AuthorityIndex != -1)
+                    {
+                        List<Authority> existAuthority = new AuthorityService.RowsService().ByMemberIdWithAuthorityIndex(entity.MemberId ?? -1, entity.AuthorityIndex ?? -1);
+                        if (existAuthority.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复认证的数据。"
+                            });
+                        }
+                    }
+                }
                 // Entity
                 if (dto.Entities != null)
                 {
                     dto.Entities.ForEach(entity => {
-
+                        entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.CreateDateTime = DateTime.Now;
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
                     });
                 }
                 // 返回
@@ -204,10 +377,46 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                // Entity空值
+                if (entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复身份证
+                if (!string.IsNullOrEmpty(entity.IdCard))
+                {
+                    List<Authority> existAuthority = new AuthorityService.RowsService().ByIdCardWithAuthorityIndex(entity.IdCard, entity.AuthorityIndex ?? -1, entity.Id);
+                    if (existAuthority.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复身份证的数据。"
+                        });
+                    }
+                }
+                // 重复认证
+                if (entity.MemberId != null && entity.MemberId != -1 || entity.AuthorityIndex != null && entity.AuthorityIndex != -1)
+                {
+                    List<Authority> existAuthority = new AuthorityService.RowsService().ByMemberIdWithAuthorityIndex(entity.MemberId ?? -1, entity.AuthorityIndex ?? -1, entity.Id);
+                    if (existAuthority.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复认证的数据。"
+                        });
+                    }
+                }
                 // 默认值
                 if (entity != null)
                 {
-
+                    entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
@@ -233,12 +442,52 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                // Entities空值
+                if (entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Authority entity in entities)
+                {
+                    // 身份证
+                    if (!string.IsNullOrEmpty(entity.IdCard))
+                    {
+                        List<Authority> existAuthority = new AuthorityService.RowsService().ByIdCardWithAuthorityIndex(entity.IdCard, entity.AuthorityIndex ?? -1, entity.Id);
+                        if (existAuthority.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复身份证的数据。"
+                            });
+                        }
+                    }
+                    // 认证
+                    if (entity.MemberId != null && entity.MemberId != -1 || entity.AuthorityIndex != null && entity.AuthorityIndex != -1)
+                    {
+                        List<Authority> existAuthority = new AuthorityService.RowsService().ByMemberIdWithAuthorityIndex(entity.MemberId ?? -1, entity.AuthorityIndex ?? -1, entity.Id);
+                        if (existAuthority.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复认证的数据。"
+                            });
+                        }
+                    }
+                }
                 // 默认值
                 if (entities != null)
                 {
                     entities.ForEach(entity =>
                     {
-
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
                     });
                 }
                 // 返回
@@ -265,10 +514,46 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                // Entity空值
+                if (dto.Entity == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entity为空。"
+                    });
+                }
+                // 重复身份证
+                if (!string.IsNullOrEmpty(dto.Entity.IdCard))
+                {
+                    List<Authority> existAuthority = new AuthorityService.RowsService().ByIdCardWithAuthorityIndex(dto.Entity.IdCard, dto.Entity.AuthorityIndex ?? -1, dto.Entity.Id);
+                    if (existAuthority.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复身份证的数据。"
+                        });
+                    }
+                }
+                // 重复认证
+                if (dto.Entity.MemberId != null && dto.Entity.MemberId != -1 || dto.Entity.AuthorityIndex != null && dto.Entity.AuthorityIndex != -1)
+                {
+                    List<Authority> existAuthority = new AuthorityService.RowsService().ByMemberIdWithAuthorityIndex(dto.Entity.MemberId ?? -1, dto.Entity.AuthorityIndex ?? -1, dto.Entity.Id);
+                    if (existAuthority.Count > 0)
+                    {
+                        return new JsonResult(new DTO_Result
+                        {
+                            Result = false,
+                            Message = "存在重复认证的数据。"
+                        });
+                    }
+                }
                 // Entity
                 if (dto.Entity != null)
                 {
-
+                    dto.Entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                    dto.Entity.EditDateTime = DateTime.Now;
                 }
                 // 返回
                 return ResponseOk(
@@ -294,12 +579,52 @@ namespace MISApi.Controllers.CMS
         {
             try
             {
+                // Entities空值
+                if (dto.Entities == null)
+                {
+                    return new JsonResult(new DTO_Result
+                    {
+                        Result = false,
+                        Message = "Request.Entities为空。"
+                    });
+                }
+                // 重复数据
+                foreach (Authority entity in dto.Entities)
+                {
+                    // 身份证
+                    if (!string.IsNullOrEmpty(entity.IdCard))
+                    {
+                        List<Authority> existAuthority = new AuthorityService.RowsService().ByIdCardWithAuthorityIndex(entity.IdCard, entity.AuthorityIndex ?? -1, entity.Id);
+                        if (existAuthority.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复身份证的数据。"
+                            });
+                        }
+                    }
+                    // 认证
+                    if (entity.MemberId != null && entity.MemberId != -1 || entity.AuthorityIndex != null && entity.AuthorityIndex != -1)
+                    {
+                        List<Authority> existAuthority = new AuthorityService.RowsService().ByMemberIdWithAuthorityIndex(entity.MemberId ?? -1, entity.AuthorityIndex ?? -1, entity.Id);
+                        if (existAuthority.Count > 0)
+                        {
+                            return new JsonResult(new DTO_Result
+                            {
+                                Result = false,
+                                Message = "存在重复认证的数据。"
+                            });
+                        }
+                    }
+                }
                 // Entity
                 if (dto.Entities != null)
                 {
                     dto.Entities.ForEach(entity =>
                     {
-
+                        entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
+                        entity.EditDateTime = DateTime.Now;
                     });
                 }
                 // 返回
@@ -312,6 +637,54 @@ namespace MISApi.Controllers.CMS
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.CMS.AuthorityController.Update_BatchToStatus", ex);
+            }
+        }
+        /// <summary>
+        /// 审批通过
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Authority/Update/Pass/{id}", Name = "MIS_CMS_Authority_Update_Pass_Id")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Update_Pass(int id)
+        {
+            try
+            {
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new AuthorityService.UpdateService().Pass(id)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Update_Pass", ex);
+            }
+        }
+        /// <summary>
+        /// 审批拒绝
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("MIS/CMS/Authority/Update/Refuse/{id}", Name = "MIS_CMS_Authority_Update_Refuse_Id")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult Update_Refuse(int id)
+        {
+            try
+            {
+                // 返回
+                return ResponseOk(
+                    new UpdateMode.Request().ToResponse(
+                        new AuthorityService.UpdateService().Refuse(id)
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.AuthorityController.Update_Refuse", ex);
             }
         }
         #endregion

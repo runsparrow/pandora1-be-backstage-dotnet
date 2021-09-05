@@ -6449,6 +6449,11 @@
             会员套餐Id
             </summary>
         </member>
+        <member name="P:MISApi.Controllers.CMS.MemberActionController.DTO_MemberPower.MemberPowerName">
+            <summary>
+            会员套餐名称
+            </summary>
+        </member>
         <member name="T:MISApi.Controllers.CMS.MemberActionController.DTO_Goods">
             <summary>
             
@@ -13496,6 +13501,16 @@
         <member name="P:MISApi.Entities.CMS.Recharge.MemberName">
             <summary>
             会员姓名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Recharge.MemberPowerId">
+            <summary>
+            套餐Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Recharge.MemberPowerName">
+            <summary>
+            套餐名称
             </summary>
         </member>
         <member name="P:MISApi.Entities.CMS.Recharge.SerialNo">
@@ -22799,20 +22814,20 @@
             <param name="memberId">会员Id</param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.MemberActionService.BuyMemberPower(MISApi.Entities.CMS.Serial,System.Int32)">
+        <member name="M:MISApi.Services.CMS.MemberActionService.BuyMemberPower(MISApi.Entities.CMS.Serial,MISApi.Entities.CMS.MemberPower)">
             <summary>
             买套餐
             </summary>
             <param name="serialEntity">流水号实体</param>
-            <param name="memberPowerId">套餐Id</param>
+            <param name="memberPower">套餐</param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.MemberActionService.RefundMemberPower(MISApi.Entities.CMS.Serial,System.Int32)">
+        <member name="M:MISApi.Services.CMS.MemberActionService.RefundMemberPower(MISApi.Entities.CMS.Serial,MISApi.Entities.CMS.MemberPower)">
             <summary>
             退套餐
             </summary>
             <param name="serialEntity">流水号实体</param>
-            <param name="memberPowerId">套餐Id</param>
+            <param name="memberPower">套餐</param>
             <returns></returns>
         </member>
         <member name="M:MISApi.Services.CMS.MemberActionService.BuyGoods(MISApi.Entities.CMS.Serial,System.Int32)">

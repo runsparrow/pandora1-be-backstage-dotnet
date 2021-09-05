@@ -102,9 +102,9 @@ namespace MISApi.Services.CMS
         /// 买套餐
         /// </summary>
         /// <param name="serialEntity">流水号实体</param>
-        /// <param name="memberPowerId">套餐Id</param>
+        /// <param name="memberPower">套餐</param>
         /// <returns></returns>
-        public virtual void BuyMemberPower(Serial serialEntity, int memberPowerId)
+        public virtual void BuyMemberPower(Serial serialEntity, MemberPower memberPower)
         {
             try
             {
@@ -113,12 +113,14 @@ namespace MISApi.Services.CMS
                     // 新增流水
                     var serial = new SerialService.CreateService().ToStatus(serialEntity, "cms.serial.open");
                     // 修改会员相关信息
-                    var member = new MemberService.UpdateService().AddByMemberPowerId(serialEntity.PayerId??-1, memberPowerId);
+                    var member = new MemberService.UpdateService().AddByMemberPowerId(serialEntity.PayerId??-1, memberPower.Id);
                     // 新增充值记录
                     new RechargeService.CreateService().Execute(new Recharge
                     {
                         MemberId = member.Id,
                         MemberName = member.Name,
+                        MemberPowerId = memberPower.Id,
+                        MemberPowerName = memberPower.Name,
                         SerialNo = serial.SerialNo,
                         DealAmount = serial.DealAmount,
                         DealDateTime = serial.DealDateTime
@@ -136,9 +138,9 @@ namespace MISApi.Services.CMS
         /// 退套餐
         /// </summary>
         /// <param name="serialEntity">流水号实体</param>
-        /// <param name="memberPowerId">套餐Id</param>
+        /// <param name="memberPower">套餐</param>
         /// <returns></returns>
-        public virtual void RefundMemberPower(Serial serialEntity, int memberPowerId)
+        public virtual void RefundMemberPower(Serial serialEntity, MemberPower memberPower)
         {
             try
             {
@@ -147,12 +149,14 @@ namespace MISApi.Services.CMS
                     // 新增流水
                     var serial = new SerialService.CreateService().ToStatus(serialEntity, "cms.serial.open");
                     // 修改会员
-                    var member = new MemberService.UpdateService().ReduceByMemberPowerId(serialEntity.ReceiverId??-1, memberPowerId);
+                    var member = new MemberService.UpdateService().ReduceByMemberPowerId(serialEntity.ReceiverId??-1, memberPower.Id);
                     // 新增充值记录
                     new RechargeService.CreateService().Execute(new Recharge
                     {
                         MemberId = member.Id,
                         MemberName = member.Name,
+                        MemberPowerId = memberPower.Id,
+                        MemberPowerName = memberPower.Name,
                         SerialNo = serial.SerialNo,
                         DealAmount = -1 * serial.DealAmount,
                         DealDateTime = serial.DealDateTime

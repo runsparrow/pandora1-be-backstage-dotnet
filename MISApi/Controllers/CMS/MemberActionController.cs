@@ -92,7 +92,7 @@ namespace MISApi.Controllers.CMS
                 // DTO
                 if (dto != null)
                 {
-                    new MemberActionService().BuyMemberPower(dto, dto.MemberPowerId);
+                    new MemberActionService().BuyMemberPower(dto, new MemberPower { Id = dto.MemberPowerId, Name = dto.MemberPowerName});
 
                     return new JsonResult(new DTO_Result
                     {
@@ -132,7 +132,7 @@ namespace MISApi.Controllers.CMS
                 // DTO
                 if (dto != null)
                 {
-                    new MemberActionService().RefundMemberPower(dto, dto.MemberPowerId);
+                    new MemberActionService().RefundMemberPower(dto, new MemberPower { Id = dto.MemberPowerId, Name = dto.MemberPowerName });
 
                     return new JsonResult(new DTO_Result
                     {
@@ -442,6 +442,12 @@ namespace MISApi.Controllers.CMS
             [Description("会员套餐Id")]
             [JsonProperty("memberPowerId")]
             public int MemberPowerId { get; set; } = -1;
+            /// <summary>
+            /// 会员套餐名称
+            /// </summary>
+            [Description("会员套餐名称")]
+            [JsonProperty("memberPowerName")]
+            public string MemberPowerName { get; set; } = "";
         }
         /// <summary>
         /// 

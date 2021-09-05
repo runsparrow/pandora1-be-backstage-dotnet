@@ -39,6 +39,21 @@ namespace MISApi.Entities.CMS
         [DefaultValue("")]
         public string MemberName { get; set; }
         /// <summary>
+        /// 套餐Id
+        /// </summary>
+        [Description("套餐Id")]
+        [JsonProperty("memberPowerId")]
+        [DefaultValue(-1)]
+        public int? MemberPowerId { get; set; }
+        /// <summary>
+        /// 套餐名称
+        /// </summary>
+        [StringLength(255)]
+        [Description("套餐名称")]
+        [JsonProperty("memberPowerName")]
+        [DefaultValue("")]
+        public string MemberPowerName { get; set; }
+        /// <summary>
         /// 流水号
         /// </summary>
         [Description("流水号")]

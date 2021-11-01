@@ -247,6 +247,7 @@ namespace MISApi.Services.CMS
                     {
                         GoodsId = result.Goods.Id,
                         GoodsName = result.Goods.Name,
+                        GoodsUrl = result.Goods.Url,
                         MemberId = entity.Member.Id,
                         MemberName = entity.Member.Name,
                         UploadDateTime = DateTime.Now,
@@ -318,6 +319,7 @@ namespace MISApi.Services.CMS
                     {
                         GoodsId = entity.Goods.Id,
                         GoodsName = entity.Goods.Name,
+                        GoodsUrl = entity.Goods.Url,
                         MemberId = entity.Member.Id,
                         MemberName = entity.Member.Name,
                         OwnerId = entity.Goods.OwnerId,

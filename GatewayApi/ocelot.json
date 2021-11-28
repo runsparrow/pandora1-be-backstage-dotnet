@@ -5,7 +5,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "fourlifecode.com",
+          "Host": "t-pic.cn",
           "Port": 8001
         }
       ],
@@ -20,7 +20,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "fourlifecode.com",
+          "Host": "t-pic.cn",
           "Port": 8001
         }
       ],

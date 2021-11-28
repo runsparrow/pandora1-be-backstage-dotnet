@@ -30,7 +30,7 @@ namespace MISApi
                  {
                      options.Listen(IPAddress.Any, 8001, listenOptions =>
                      {
-                         listenOptions.UseHttps("fourlifecode-com-iis-0421170611.pfx", "fourlifecode");
+                         listenOptions.UseHttps("t-pic-cn-iis-1128142825.pfx", "t-pic.cn");
                      });
                  })
                 .UseStartup<Startup>();

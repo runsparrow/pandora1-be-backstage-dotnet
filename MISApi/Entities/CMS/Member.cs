@@ -314,10 +314,6 @@ namespace MISApi.Entities.CMS
         {
             get
             {
-                if(Level == null)
-                {
-                    return "";
-                }
                 switch (Level)
                 {
                     case 1:

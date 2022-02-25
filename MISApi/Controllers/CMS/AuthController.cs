@@ -546,6 +546,19 @@ namespace MISApi.Controllers.CMS
         /// <summary>
         /// 
         /// </summary>
+        public class DTO_Result_RMS : DTO_Result
+        {
+            /// <summary>
+            /// 文件路径
+            /// </summary>
+            [Description("文件路径")]
+            [JsonProperty("url")]
+            [DefaultValue("")]
+            public string Url { get; set; } = "";
+        }
+        /// <summary>
+        /// 
+        /// </summary>
         public class DTO_Result_Auth : DTO_Result
         {
             /// <summary>

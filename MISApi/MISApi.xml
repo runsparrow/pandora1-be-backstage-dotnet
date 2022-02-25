@@ -2654,6 +2654,12 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.ArticleController.Update_RMS">
+            <summary>
+            导出全量数据
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.ArticleController.Delete_Single(MISApi.Entities.CMS.Article)">
             <summary>
              删除一条资讯
@@ -3211,6 +3217,16 @@
         <member name="P:MISApi.Controllers.CMS.AuthController.DTO_ActivateCard.MemberPassword">
             <summary>
             会员密码
+            </summary>
+        </member>
+        <member name="T:MISApi.Controllers.CMS.AuthController.DTO_Result_RMS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Controllers.CMS.AuthController.DTO_Result_RMS.Url">
+            <summary>
+            文件路径
             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.AuthController.DTO_Result_Auth">
@@ -3777,6 +3793,12 @@
             批量编辑并设置状态
             </summary>
             <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Controllers.CMS.CardController.Update_RMS">
+            <summary>
+            导出全量数据
+            </summary>
             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.CardController.Delete_Single(MISApi.Entities.CMS.Card)">
@@ -11618,6 +11640,81 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
+        <member name="T:MISApi.Entities.CMS.Account">
+            <summary>
+            账户
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Account.Id">
+            <summary>
+            唯一标识
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Account.MemberId">
+            <summary>
+            会员Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Account.MemberName">
+            <summary>
+            会员名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Account.AccountNo">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Account.DepositBank">
+            <summary>
+            开户银行
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Account.RealName">
+            <summary>
+            实名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Account.IdCard">
+            <summary>
+            身份证
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Account.ClassifyId">
+            <summary>
+            归类Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Account.ClassifyName">
+            <summary>
+            归类名称
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Account.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Account.StatusId">
+            <summary>
+            状态Id
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Account.StatusName">
+            <summary>
+            状态名
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Account.StatusValue">
+            <summary>
+            状态数值
+            </summary>
+        </member>
+        <member name="P:MISApi.Entities.CMS.Account.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
         <member name="T:MISApi.Entities.CMS.Article">
             <summary>
             资讯
@@ -17659,6 +17756,11 @@
             <param name="statusKey"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.ArticleService.UpdateService.RMS">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:MISApi.Services.CMS.ArticleService.DeleteService">
             <summary>
             DeleteService
@@ -22384,6 +22486,11 @@
             <param name="m"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Services.CMS.CardService.UpdateService.RMS">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:MISApi.Services.CMS.CardService.DeleteService">
             <summary>
             DeleteService
@@ -24167,6 +24274,13 @@
             <param name="key"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Tools.ConfigurationHelper.GetRMS(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Tools.ConvertHelper">
             <summary>
             
@@ -24303,6 +24417,905 @@
             <param name="data"></param>
             <returns></returns>
         </member>
+        <member name="T:MISApi.Tools.NPOIHelper">
+            <summary>
+            NPOI操作excel辅助类
+            </summary>
+        </member>
+        <member name="F:MISApi.Tools.NPOIHelper._workbook">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MISApi.Tools.NPOIHelper._cellStyle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MISApi.Tools.NPOIHelper._officeVersion">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Tools.NPOIHelper.OfficeVersion">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MISApi.Tools.NPOIHelper.OfficeVersion.OFFICE_03">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MISApi.Tools.NPOIHelper.OfficeVersion.OFFICE_07">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Tools.NPOIHelper.LinkType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MISApi.Tools.NPOIHelper.LinkType.WEB_SITE">
+            <summary>
+            网址
+            </summary>
+        </member>
+        <member name="F:MISApi.Tools.NPOIHelper.LinkType.DOCUMENT">
+            <summary>
+            文档
+            </summary>
+        </member>
+        <member name="F:MISApi.Tools.NPOIHelper.LinkType.MAIL">
+            <summary>
+            邮件
+            </summary>
+        </member>
+        <member name="F:MISApi.Tools.NPOIHelper.LinkType.CONTENT">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.CreateWorkbook">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.CreateWorkbook(System.IO.Stream)">
+            <summary>
+            
+            </summary>
+            <param name="inputStream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.CreateWorkbook(System.IO.FileStream)">
+            <summary>
+            
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.InitializeHSSFWorkbook">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.InitializeXSSFWorkbook">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.#cctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.WriteSteamToFile(System.String,System.IO.MemoryStream)">
+            <summary>
+            
+            </summary>
+            <param name="fileUrl"></param>
+            <param name="ms"></param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.WriteSteamToFile(System.String,System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="fileUrl"></param>
+            <param name="buffer"></param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.WorkBookToStream(NPOI.HSSF.UserModel.HSSFWorkbook)">
+            <summary>
+            
+            </summary>
+            <param name="inputWorkBook"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.StreamToWorkBook(System.IO.Stream)">
+            <summary>
+            
+            </summary>
+            <param name="inputStream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.MemoryStreamToWorkBook(System.IO.MemoryStream)">
+            <summary>
+            
+            </summary>
+            <param name="inputStream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.WorkBookToMemoryStream(NPOI.HSSF.UserModel.HSSFWorkbook)">
+            <summary>
+            
+            </summary>
+            <param name="inputStream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.FileToStream(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.MemoryStreamToStream(System.IO.MemoryStream)">
+            <summary>
+            
+            </summary>
+            <param name="ms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderDataTableToExcel(System.Data.DataTable)">
+            <summary>
+            将DataTable转成Stream输出.
+            </summary>
+            <param name="sourceTable">The source table.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderDataTableToWorkBook(System.Data.DataTable)">
+            <summary>
+            将DataTable转成Workbook(自定资料型态)输出.
+            </summary>
+            <param name="sourceTable">The source table.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderDataTableToExcel(System.Data.DataTable,System.String)">
+            <summary>
+            将DataTable资料输出成DOCUMENT。
+            </summary>
+            <param name="sourceTable">The source table.</param>
+            <param name="fileName">文件保存路径</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderDataTableFromExcel(System.IO.Stream,System.String,System.Boolean)">
+            <summary>
+            从流读取资料到DataTable.
+            </summary>
+            <param name="excelFileStream">The excel file stream.</param>
+            <param name="sheetName">Name of the sheet.</param>
+            <param name="haveHeader">if set to <c>true</c> [have header].</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderDataTableFromExcel(System.IO.Stream,System.Int32,System.Boolean)">
+            <summary>
+            從位元流讀取資料到DataTable.
+            </summary>
+            <param name="excelFileStream">The excel file stream.</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+            <param name="haveHeader">if set to <c>true</c> [have header].</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderListToExcel``1(System.Collections.Generic.List{``0})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sourceList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderListToExcel``1(System.Collections.Generic.List{``0},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sourceList"></param>
+            <param name="head"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderListToWorkbook``1(System.Collections.Generic.List{``0})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sourceList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderListToWorkbook``1(System.Collections.Generic.List{``0},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sourceList"></param>
+            <param name="head"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderListToExcel``1(System.Collections.Generic.List{``0},System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sourceList"></param>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderListToExcel``1(System.Collections.Generic.List{``0},System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sourceList"></param>
+            <param name="head"></param>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderListFromExcel``1(System.IO.Stream,System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="excelFileStream"></param>
+            <param name="sheetName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderListFromExcel``1(System.IO.Stream,System.Int32)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="excelFileStream"></param>
+            <param name="sheetIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderListFromExcel``1(System.IO.Stream,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="excelFileStream"></param>
+            <param name="sheetName"></param>
+            <param name="head"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderListFromExcel``1(System.IO.Stream,System.Int32,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="excelFileStream"></param>
+            <param name="sheetIndex"></param>
+            <param name="head"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.ToType(System.Type,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.CreateDataTable(System.String,System.String[0:,0:])">
+            <summary>
+            建立datatable
+            </summary>
+            <param name="ColumnName">欄位名用逗號分隔</param>
+            <param name="value">data陣列 , rowmajor</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.CreateStringArray(System.Data.DataTable)">
+            <summary>
+            Creates the string array.
+            </summary>
+            <param name="dt">The dt.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderArrayToExcel(System.String,System.String[0:,0:])">
+            <summary>
+            將陣列輸出成位元流.
+            </summary>
+            <param name="ColumnName">Name of the column.</param>
+            <param name="sourceTable">The source table.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderArrayToExcel(System.String,System.String,System.String[0:,0:])">
+            <summary>
+            將陣列輸出成DOCUMENT.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="ColumnName">Name of the column.</param>
+            <param name="sourceTable">The source table.</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderArrayToWorkBook(System.String,System.String[0:,0:])">
+            <summary>
+            將陣列輸出成WorkBook(自訂資料型態).
+            </summary>
+            <param name="ColumnName">Name of the column.</param>
+            <param name="sourceTable">The source table.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderArrayFromExcel(System.IO.Stream,System.String,System.Int32,System.Boolean)">
+            <summary>
+            將位元流資料輸出成陣列.
+            </summary>
+            <param name="excelFileStream">The excel file stream.</param>
+            <param name="sheetName">Name of the sheet.</param>
+            <param name="HeaderrowIndex">Index of the header row.</param>
+            <param name="haveHeader">if set to <c>true</c> [have header].</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.RenderArrayFromExcel(System.IO.Stream,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            將位元流資料輸出成陣列.
+            </summary>
+            <param name="excelFileStream">The excel file stream.</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+            <param name="HeaderrowIndex">Index of the header row.</param>
+            <param name="haveHeader">if set to <c>true</c> [have header].</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.MakeLink(System.IO.Stream,System.String,System.String,System.String,MISApi.Tools.NPOIHelper.LinkType,System.Int32,System.Int32)">
+            <summary>
+            在位元流储存格中建立超連結.
+            </summary>
+            <param name="inputStream">The input stream.</param>
+            <param name="sheetNameOrIndex">Index of the sheet name or.</param>
+            <param name="linkName">Name of the link.</param>
+            <param name="linkValueOrIndex">Index of the link value or.</param>
+            <param name="s1">The s1.</param>
+            <param name="rowIndex">Index of the row.</param>
+            <param name="cellIndex">Index of the cell.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.MakeLink(System.String,System.IO.Stream,System.String,System.String,System.String,MISApi.Tools.NPOIHelper.LinkType,System.Int32,System.Int32)">
+            <summary>
+            在DOCUMENT储存格中建立超連結.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="inputStream">The input stream.</param>
+            <param name="sheetNameOrIndex">Index of the sheet name or.</param>
+            <param name="linkName">Name of the link.</param>
+            <param name="linkValueOrIndex">Index of the link value or.</param>
+            <param name="s1">The s1.</param>
+            <param name="rowIndex">Index of the row.</param>
+            <param name="cellIndex">Index of the cell.</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.MakeLinkFromEmpty(System.String,System.String,System.String,MISApi.Tools.NPOIHelper.LinkType,System.Int32,System.Int32)">
+            <summary>
+            建立新位元流并在储存格中建立超連結.
+            </summary>
+            <param name="sheetNameOrIndex">Index of the sheet name or.</param>
+            <param name="linkName">Name of the link.</param>
+            <param name="linkValueOrIndex">Index of the link value or.</param>
+            <param name="s1">The s1.</param>
+            <param name="rowIndex">Index of the row.</param>
+            <param name="cellIndex">Index of the cell.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.MakeLinkFromEmpty(System.String,System.String,System.String,System.String,MISApi.Tools.NPOIHelper.LinkType,System.Int32,System.Int32)">
+            <summary>
+            建立新DOCUMENT并在储存格中建立超連結.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="sheetNameOrIndex">Index of the sheet name or.</param>
+            <param name="linkName">Name of the link.</param>
+            <param name="linkValueOrIndex">Index of the link value or.</param>
+            <param name="s1">The s1.</param>
+            <param name="rowIndex">Index of the row.</param>
+            <param name="cellIndex">Index of the cell.</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetCellDefaultStyle">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetCellStyle(System.Int16,System.Boolean,System.Int16)">
+            <summary>
+            
+            </summary>
+            <param name="colorIndex">例:NPOI.HSSF.Util.HSSFColor.Red.Index</param>
+            <param name="isBorder"></param>
+            <param name="cellStyleIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetCellStyle(System.String,System.Int16,System.Boolean,System.Int16,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="fontName"></param>
+            <param name="color"></param>
+            <param name="isBold"></param>
+            <param name="boldWeight"></param>
+            <param name="isItalic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetCellStyle(NPOI.SS.UserModel.BorderStyle,NPOI.SS.UserModel.BorderStyle,NPOI.SS.UserModel.BorderStyle,NPOI.SS.UserModel.BorderStyle,System.Int16,System.Int16,System.Int16,System.Int16)">
+            <summary>
+            
+            </summary>
+            <param name="borderTop"></param>
+            <param name="borderRight"></param>
+            <param name="borderBottom"></param>
+            <param name="borderLeft"></param>
+            <param name="topBorderColor"></param>
+            <param name="rightBorderColor"></param>
+            <param name="bottomBorderColor"></param>
+            <param name="leftBorderColor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetCellStyle(NPOI.SS.UserModel.IFont)">
+            <summary>
+            
+            </summary>
+            <param name="InputFont"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.ApplyStyleToFile(System.IO.Stream,System.String,System.Int16,System.Boolean,System.String[])">
+            <summary>
+            设定字體顏色大小到位元流.
+            </summary>
+            <param name="inputStream">The input stream.</param>
+            <param name="fontName">Name of the font.</param>
+            <param name="fontSize">Size of the font.</param>
+            <param name="isAllSheet">if set to <c>true</c> [is all sheet].</param>
+            <param name="sheetName">Name of the sheet.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.ApplyStyleToFile(System.IO.Stream,System.String,System.Int16,System.Boolean,System.Int32[])">
+            <summary>
+            设定字體顏色大小到位元流.
+            </summary>
+            <param name="inputStream">The input stream.</param>
+            <param name="fontName">Name of the font.</param>
+            <param name="fontSize">Size of the font.</param>
+            <param name="isAllSheet">if set to <c>true</c> [is all sheet].</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.ApplyStyleToFile(System.String,System.IO.Stream,System.String,System.Int16,System.Boolean,System.String[])">
+            <summary>
+            设定字體顏色大小到DOCUMENT.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="inputStream">The input stream.</param>
+            <param name="fontName">Name of the font.</param>
+            <param name="fontSize">Size of the font.</param>
+            <param name="isAllSheet">if set to <c>true</c> [is all sheet].</param>
+            <param name="sheetName">Name of the sheet.</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.ApplyStyleToFile(System.String,System.IO.Stream,System.String,System.Int16,System.Boolean,System.Int32[])">
+            <summary>
+            设定字體顏色大小到DOCUMENT.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="inputStream">The input stream.</param>
+            <param name="fontName">Name of the font.</param>
+            <param name="fontSize">Size of the font.</param>
+            <param name="isAllSheet">if set to <c>true</c> [is all sheet].</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.CreateEmptyFile(System.String[])">
+            <summary>
+            建立空白excel档到位元流.
+            </summary>
+            <param name="sheetName">Name of the sheet.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.CreateEmptyFile(System.String,System.String[])">
+            <summary>
+            建立空白excel档到DOCUMENT.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="sheetName">Name of the sheet.</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetGridLine(System.IO.Stream,System.Boolean,System.String[])">
+            <summary>
+            设定格线到位元流.
+            </summary>
+            <param name="inputSteam">The input steam.</param>
+            <param name="haveGridLine">if set to <c>true</c> [have grid line].</param>
+            <param name="sheetName">Name of the sheet.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetGridLine(System.IO.Stream,System.Boolean,System.Int32[])">
+            <summary>
+            设定格线到位元流.
+            </summary>
+            <param name="inputSteam">The input steam.</param>
+            <param name="haveGridLine">if set to <c>true</c> [have grid line].</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetGridLine(System.String,System.IO.Stream,System.Boolean,System.Int32[])">
+            <summary>
+            设定格线到DOCUMENT.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="inputSteam">The input steam.</param>
+            <param name="haveGridLine">if set to <c>true</c> [have grid line].</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetGridLine(System.String,System.IO.Stream,System.Boolean,System.String[])">
+            <summary>
+            设定格线到DOCUMENT.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="inputSteam">The input steam.</param>
+            <param name="haveGridLine">if set to <c>true</c> [have grid line].</param>
+            <param name="sheetName">Name of the sheet.</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.ExtractStringFromFileStream(System.IO.Stream)">
+            <summary>
+            從位元流將資料轉成字串輸出
+            </summary>
+            <param name="inputStream">The input stream.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.ExtractStringFromFileStream(System.String)">
+            <summary>
+            從DOCUMENT將資料轉成字串輸出
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.CreateGroup(System.String,System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            设定群組到位元流.
+            </summary>
+            <param name="sheetName">Name of the sheet.</param>
+            <param name="IsRow">if set to <c>true</c> [is row].</param>
+            <param name="From">From.</param>
+            <param name="End">The end.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.CreateGroup(System.String,System.String,System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            建立群組到DOCUMENT.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="sheetName">Name of the sheet.</param>
+            <param name="IsRow">if set to <c>true</c> [is row].</param>
+            <param name="From">From.</param>
+            <param name="End">The end.</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.CreateFileStreamFromTemplate(System.String)">
+            <summary>
+            從樣板建立位元流.
+            </summary>
+            <param name="templateFileName">Name of the template file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.CreateFileFromTemplate(System.String,System.String)">
+            <summary>
+            從樣板建立DOCUMENT.
+            </summary>
+            <param name="templateFileName">Name of the template file.</param>
+            <param name="outputFileName">Name of the output file.</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.LoadImage(System.String,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            Loads the image.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="wb">The wb.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.EmbedImage(System.IO.Stream,System.Int32,System.String,System.Boolean,System.Int32[])">
+            <summary>
+            嵌入图片到位元流.
+            </summary>
+            <param name="inputStream">The input stream.</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+            <param name="picFileName">Name of the pic file.</param>
+            <param name="isOriginalSize">if set to <c>true</c> [is original size].</param>
+            <param name="rowPosition">The row position.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.EmbedImage(System.String,System.Int32,System.IO.Stream,System.String,System.Boolean,System.Int32[])">
+            <summary>
+            嵌入图片到DOCUMENT.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+            <param name="inputStream">The input stream.</param>
+            <param name="picFileName">Name of the pic file.</param>
+            <param name="isOriginalSize">if set to <c>true</c> [is original size].</param>
+            <param name="rowPosition">The row position.</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.EmbedImage(System.String,System.Boolean,System.Int32[])">
+            <summary>
+            建立新位元流并嵌入图片.
+            </summary>
+            <param name="picFileName">Name of the pic file.</param>
+            <param name="isOriginalSize">if set to <c>true</c> [is original size].</param>
+            <param name="rowPosition">The row position.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.EmbedImage(System.String,System.String,System.Boolean,System.Int32[])">
+            <summary>
+            建立新DOCUMENT并嵌入图片.
+            </summary>
+            <param name="excelfileName">Name of the excel file.</param>
+            <param name="picFileName">Name of the pic file.</param>
+            <param name="isOriginalSize">if set to <c>true</c> [is original size].</param>
+            <param name="rowPosition">The row position.</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.MergeCell(System.IO.Stream,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            合并储存格于位元流.
+            </summary>
+            <param name="inputStream">The input stream.</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+            <param name="rowFrom">The row from.</param>
+            <param name="columnFrom">The column from.</param>
+            <param name="rowTo">The row to.</param>
+            <param name="columnTo">The column to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.MergeCell(System.String,System.IO.Stream,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            合并储存格于DOCUMENT.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="inputStream">The input stream.</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+            <param name="rowFrom">The row from.</param>
+            <param name="columnFrom">The column from.</param>
+            <param name="rowTo">The row to.</param>
+            <param name="columnTo">The column to.</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.MergeCell(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            建立新位元流并合并储存格.
+            </summary>
+            <param name="rowFrom">The row from.</param>
+            <param name="columnFrom">The column from.</param>
+            <param name="rowTo">The row to.</param>
+            <param name="columnTo">The column to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.MergeCell(System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            建立新DOCUMENT并合并储存格.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="rowFrom">The row from.</param>
+            <param name="columnFrom">The column from.</param>
+            <param name="rowTo">The row to.</param>
+            <param name="columnTo">The column to.</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetFormula(System.IO.Stream,System.Int32,System.String,System.Int32,System.Int32)">
+            <summary>
+            设定储存格公式于位元流.
+            </summary>
+            <param name="inputStream">The input stream.</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+            <param name="formula">The formula.</param>
+            <param name="rowIndex">Index of the row.</param>
+            <param name="columnIndex">Index of the column.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetFormula(System.String,System.IO.Stream,System.Int32,System.String,System.Int32,System.Int32)">
+            <summary>
+            设定储存格公式于DOCUMENT.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="inputStream">The input stream.</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+            <param name="formula">The formula.</param>
+            <param name="rowIndex">Index of the row.</param>
+            <param name="columnIndex">Index of the column.</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.Createformula(System.String,System.Int32,System.Int32)">
+            <summary>
+            建立新位元流并设定储存格公式.
+            </summary>
+            <param name="formula">The formula.</param>
+            <param name="rowIndex">Index of the row.</param>
+            <param name="columnIndex">Index of the column.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetFormula(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            建立新DOCUMENT并设定储存格公式.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="formula">The formula.</param>
+            <param name="rowIndex">Index of the row.</param>
+            <param name="columnIndex">Index of the column.</param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetCellValue(System.IO.Stream,System.Int32,System.Object,System.Int32,System.Int32)">
+            <summary>
+            设定储存格公式于位元流.
+            </summary>
+            <param name="inputStream">The input stream.</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+            <param name="cellValue">The cellValue.</param>
+            <param name="rowIndex">Index of the row.</param>
+            <param name="columnIndex">Index of the column.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetCellValue(System.IO.Stream,System.Int32,System.Double,System.Int32,System.Int32)">
+            <summary>
+            设定储存格公式于位元流.
+            </summary>
+            <param name="inputStream">The input stream.</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+            <param name="cellValue">The cellValue.</param>
+            <param name="rowIndex">Index of the row.</param>
+            <param name="columnIndex">Index of the column.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetCellValue(System.IO.Stream,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            设定储存格公式于位元流.
+            </summary>
+            <param name="inputStream">The input stream.</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+            <param name="cellValue">The cellValue.</param>
+            <param name="rowIndex">Index of the row.</param>
+            <param name="columnIndex">Index of the column.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.CreateCell(System.IO.Stream,System.Int32,System.String,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="inputStream"></param>
+            <param name="sheetIndex"></param>
+            <param name="cellValue"></param>
+            <param name="rowIndex"></param>
+            <param name="columnIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.CreateRow(System.IO.Stream,System.Int32,System.Int32,System.Int32,MISApi.Tools.NPOIHelper.Cell[])">
+            <summary>
+            设定储存格公式于位元流.
+            </summary>
+            <param name="inputStream">The input stream.</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+            <param name="sourceIndex">Index of the row.</param>
+            <param name="rowIndex">Index of the row.</param>
+            <param name="cells">Index of the column.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.CreateRow(System.IO.Stream,System.Int32,MISApi.Tools.NPOIHelper.RowStyle,MISApi.Tools.NPOIHelper.Cell[])">
+            <summary>
+            设定储存格公式于位元流.
+            </summary>
+            <param name="inputStream">The input stream.</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+            <param name="rowStyle">Index of the row.</param>
+            <param name="cells">Index of the column.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.CreateRow(System.IO.Stream,System.Int32,System.Int32,MISApi.Tools.NPOIHelper.Cell[])">
+            <summary>
+            设定储存格公式于位元流.
+            </summary>
+            <param name="inputStream">The input stream.</param>
+            <param name="sheetIndex">Index of the sheet.</param>
+            <param name="rowIndex">Index of the row.</param>
+            <param name="cells">Index of the column.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetRowDefaultStyle(NPOI.SS.UserModel.IRow,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="row"></param>
+            <param name="heightInPoints"></param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetRowDefaultStyle(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="sheetIndex"></param>
+            <param name="rowIndex"></param>
+            <param name="heightInPoints"></param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetRowStyle(System.Int32,System.Int32,NPOI.SS.UserModel.IRow)">
+            <summary>
+            
+            </summary>
+            <param name="sheetIndex"></param>
+            <param name="rowIndex"></param>
+            <param name="templateRow"></param>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.SetRowStyle(NPOI.SS.UserModel.IRow,NPOI.SS.UserModel.IRow)">
+            <summary>
+             复制指定行的样式
+            </summary>
+            <param name="row"></param>
+            <param name="templateRow"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISApi.Tools.NPOIHelper.Cell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Tools.NPOIHelper.Cell.Index">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Tools.NPOIHelper.Cell.Value">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Tools.NPOIHelper.Cell.Formula">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Tools.NPOIHelper.Cell.ForegroundColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Tools.NPOIHelper.Cell.IsBorder">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Tools.NPOIHelper.Cell.IsStyle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Tools.NPOIHelper.Cell.CellStyleIndex">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MISApi.Tools.NPOIHelper.RowStyle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Tools.NPOIHelper.RowStyle.Index">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MISApi.Tools.NPOIHelper.RowStyle.Height">
+            <summary>
+            /
+            </summary>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.NumericCellValue(System.IO.Stream,System.Int32,System.Int32,System.Int32,System.Double@)">
+            <summary>
+            
+            </summary>
+            <param name="inputStream"></param>
+            <param name="sheetIndex"></param>
+            <param name="rowIndex"></param>
+            <param name="columnIndex"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MISApi.Tools.NPOIHelper.ForceFormulaRecalculation(System.IO.Stream,System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="inputStream"></param>
+            <param name="sheetIndex"></param>
+            <param name="forceFormulaRecalculation"></param>
+            <returns></returns>
+        </member>
         <member name="T:MISApi.Tools.RandHelper">
             <summary>
             
@@ -24400,6 +25413,240 @@
             <param name="key">键</param>
             <param name="value">值</param>
             <param name="expireTime">过期时间 单位小时</param>
+        </member>
+        <member name="T:MISApi.Tools.RMSHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.IsExistDirectory(System.String)">
+            <summary>  
+            检测指定目录是否存在  
+            </summary>  
+            <param name="directoryPath">目录的绝对路径</param>          
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.IsExistFile(System.String)">
+            <summary>  
+            检测指定文件是否存在,如果存在则返回true。  
+            </summary>  
+            <param name="filePath">文件的绝对路径</param>       
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.IsEmptyDirectory(System.String)">
+            <summary>  
+            检测指定目录是否为空  
+            </summary>  
+            <param name="directoryPath">指定目录的绝对路径</param>          
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.Contains(System.String,System.String)">
+            <summary>  
+            检测指定目录中是否存在指定的文件,若要搜索子目录请使用重载方法.  
+            </summary>  
+            <param name="directoryPath">指定目录的绝对路径</param>  
+            <param name="searchPattern">模式字符串，"*"代表0或N个字符，"?"代表1个字符。  
+            范例："Log*.xml"表示搜索所有以Log开头的Xml文件。</param>          
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.Contains(System.String,System.String,System.Boolean)">
+            <summary>  
+            检测指定目录中是否存在指定的文件  
+            </summary>  
+            <param name="directoryPath">指定目录的绝对路径</param>  
+            <param name="searchPattern">模式字符串，"*"代表0或N个字符，"?"代表1个字符。  
+            范例："Log*.xml"表示搜索所有以Log开头的Xml文件。</param>   
+            <param name="isSearchChild">是否搜索子目录</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.CreateDirectory(System.String)">
+            <summary>  
+            创建一个目录  
+            </summary>  
+            <param name="directoryPath">目录的绝对路径</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.MoveDirectory(System.String,System.String)">
+            <summary>  
+            创建一个目录  
+            </summary>  
+            <param name="sourceDirectoryPath">原文件夹路径</param>  
+            <param name="destDirectoryPath">目标文件夹路径</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.MoveFile(System.String,System.String)">
+            <summary>  
+            移动一个文件
+            </summary>  
+            <param name="sourceFilePath">原文件路径</param>  
+            <param name="destFilePath">目标文件路径</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.CreateFile(System.String)">
+            <summary>  
+            创建一个文件。  
+            </summary>  
+            <param name="filePath">文件的绝对路径</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.CreateFile(System.String,System.Byte[])">
+            <summary>  
+            创建一个文件,并将字节流写入文件。  
+            </summary>  
+            <param name="filePath">文件的绝对路径</param>  
+            <param name="buffer">二进制流数据</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.GetLineCount(System.String)">
+            <summary>  
+            获取文本文件的行数  
+            </summary>  
+            <param name="filePath">文件的绝对路径</param>          
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.GetFileInfo(System.String)">
+            <summary>  
+            获取一个文件信息
+            </summary>  
+            <param name="filePath">文件的绝对路径</param>          
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.GetFileSize(System.String)">
+            <summary>  
+            获取一个文件的长度,单位为Byte  
+            </summary>  
+            <param name="filePath">文件的绝对路径</param>          
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.GetFileSizeByKB(System.String)">
+            <summary>  
+            获取一个文件的长度,单位为KB  
+            </summary>  
+            <param name="filePath">文件的路径</param>          
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.GetFileSizeByMB(System.String)">
+            <summary>  
+            获取一个文件的长度,单位为MB  
+            </summary>  
+            <param name="filePath">文件的路径</param>          
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.GetDirectoryInfo(System.String)">
+            <summary>  
+            获取一个文件信息
+            </summary>  
+            <param name="directoryPath">目录的绝对路径</param>          
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.GetFileNames(System.String)">
+            <summary>  
+            获取指定目录中所有文件列表  
+            </summary>  
+            <param name="directoryPath">指定目录的绝对路径</param>          
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.GetFileNames(System.String,System.String,System.Boolean)">
+            <summary>  
+            获取指定目录及子目录中所有文件列表  
+            </summary>  
+            <param name="directoryPath">指定目录的绝对路径</param>  
+            <param name="searchPattern">模式字符串，"*"代表0或N个字符，"?"代表1个字符。  
+            范例："Log*.xml"表示搜索所有以Log开头的Xml文件。</param>  
+            <param name="isSearchChild">是否搜索子目录</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.GetDirectories(System.String)">
+            <summary>  
+            获取指定目录中所有子目录列表,若要搜索嵌套的子目录列表,请使用重载方法.  
+            </summary>  
+            <param name="directoryPath">指定目录的绝对路径</param>          
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.GetDirectories(System.String,System.String,System.Boolean)">
+            <summary>  
+            获取指定目录及子目录中所有子目录列表  
+            </summary>  
+            <param name="directoryPath">指定目录的绝对路径</param>  
+            <param name="searchPattern">模式字符串，"*"代表0或N个字符，"?"代表1个字符。  
+            范例："Log*.xml"表示搜索所有以Log开头的Xml文件。</param>  
+            <param name="isSearchChild">是否搜索子目录</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.WriteText(System.String,System.String)">
+            <summary>  
+            向文本文件中写入内容  
+            </summary>  
+            <param name="filePath">文件的绝对路径</param>  
+            <param name="content">写入的内容</param>          
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.AppendText(System.String,System.String)">
+            <summary>  
+            向文本文件的尾部追加内容  
+            </summary>  
+            <param name="filePath">文件的绝对路径</param>  
+            <param name="content">写入的内容</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.Copy(System.String,System.String)">
+            <summary>  
+            将源文件的内容复制到目标文件中  
+            </summary>  
+            <param name="sourceFilePath">源文件的绝对路径</param>  
+            <param name="destFilePath">目标文件的绝对路径</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.Move(System.String,System.String)">
+            <summary>  
+            将文件移动到指定目录  
+            </summary>  
+            <param name="sourceFilePath">需要移动的源文件的绝对路径</param>  
+            <param name="descDirectoryPath">移动到的目录的绝对路径</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.StreamToBytes(System.IO.Stream)">
+            <summary>  
+            将流读取到缓冲区中  
+            </summary>  
+            <param name="stream">原始流</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.FileToBytes(System.String)">
+            <summary>  
+            将文件读取到缓冲区中  
+            </summary>  
+            <param name="filePath">文件的绝对路径</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.FileToString(System.String)">
+            <summary>  
+            将文件读取到字符串中  
+            </summary>  
+            <param name="filePath">文件的绝对路径</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.FileToString(System.String,System.Text.Encoding)">
+            <summary>  
+            将文件读取到字符串中  
+            </summary>  
+            <param name="filePath">文件的绝对路径</param>  
+            <param name="encoding">字符编码</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.GetFileName(System.String)">
+            <summary>  
+            从文件的绝对路径中获取文件名( 包含扩展名 )  
+            </summary>  
+            <param name="filePath">文件的绝对路径</param>          
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.GetFileNameNoExtension(System.String)">
+            <summary>  
+            从文件的绝对路径中获取文件名( 不包含扩展名 )  
+            </summary>  
+            <param name="filePath">文件的绝对路径</param>          
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.GetExtension(System.String)">
+            <summary>  
+            从文件的绝对路径中获取扩展名  
+            </summary>  
+            <param name="filePath">文件的绝对路径</param>          
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.ClearDirectory(System.String)">
+            <summary>  
+            清空指定目录下所有文件及子目录,但该目录依然保存.  
+            </summary>  
+            <param name="directoryPath">指定目录的绝对路径</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.ClearFile(System.String)">
+            <summary>  
+            清空文件内容  
+            </summary>  
+            <param name="filePath">文件的绝对路径</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.DeleteFile(System.String)">
+            <summary>  
+            删除指定文件  
+            </summary>  
+            <param name="filePath">文件的绝对路径</param>  
+        </member>
+        <member name="M:MISApi.Tools.RMSHelper.DeleteDirectory(System.String)">
+            <summary>  
+            删除指定目录及其所有子目录  
+            </summary>  
+            <param name="directoryPath">指定目录的绝对路径</param>  
         </member>
         <member name="T:MISApi.Tools.SMSHelper">
             <summary>

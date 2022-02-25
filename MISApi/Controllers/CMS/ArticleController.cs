@@ -6,6 +6,7 @@ using MISApi.Services.CMS;
 using MISApi.Tools;
 using System;
 using System.Collections.Generic;
+using static MISApi.Controllers.CMS.AuthController;
 using BaseMode = MISApi.HttpClients.HttpModes.BaseMode;
 
 namespace MISApi.Controllers.CMS
@@ -281,6 +282,25 @@ namespace MISApi.Controllers.CMS
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.CMS.ArticleController.Update_BatchToStatus", ex);
+            }
+        }
+        /// <summary>
+        /// 导出全量数据
+        /// </summary>
+        /// <returns></returns>
+        [Route("MIS/CMS/Article/Update/RMS", Name = "MIS_CMS_Article_Update_RMS")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_RMS()
+        {
+            try
+            {
+                string url = new ArticleService.UpdateService().RMS();
+                return new JsonResult(new DTO_Result_RMS { Url = url, Result = true, Message = "生成Excel数据成功。" });
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.ArticleController.Update_RMS", ex);
             }
         }
         #endregion

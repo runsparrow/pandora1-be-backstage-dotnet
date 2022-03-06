@@ -4236,6 +4236,12 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:MISApi.Controllers.CMS.CashOutController.Update_RMS">
+            <summary>
+            导出全量数据
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:MISApi.Controllers.CMS.CashOutController.Delete_Single(MISApi.Entities.CMS.CashOut)">
             <summary>
              删除一条提现信息
@@ -22585,6 +22591,11 @@
             <param name="entities"></param>
             <param name="statusKey"></param>
             <returns></returns>
+        </member>
+        <member name="M:MISApi.Services.CMS.CashOutService.UpdateService.RMS">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:MISApi.Services.CMS.CashOutService.DeleteService">
             <summary>

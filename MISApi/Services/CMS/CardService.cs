@@ -2,8 +2,10 @@
 using MISApi.Dal.EF;
 using MISApi.Entities.CMS;
 using MISApi.Entities.WFM;
+using MISApi.Tools;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace MISApi.Services.CMS
@@ -221,6 +223,40 @@ namespace MISApi.Services.CMS
                 {
                     throw new Exception("MISApi.Services.CMS.CardService.UpdateService.BatchToStatus", ex);
                 }
+            }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string RMS()
+            {
+                Stream stream = NPOIHelper.CreateFileStreamFromTemplate($"{ConfigurationHelper.GetRMS("Template")}\\Card.xls");
+                // 查询
+                var cardList = new CardService.RowsService().Page(
+                    new HttpClients.HttpModes.BaseMode.KeyWord(""),
+                    new HttpClients.HttpModes.BaseMode.Join[] { new HttpClients.HttpModes.BaseMode.Join("") },
+                    new HttpClients.HttpModes.BaseMode.Page(1, 10000),
+                    null,
+                    null,
+                    new HttpClients.HttpModes.BaseMode.Status(1, 2)
+                );
+                // 循环
+                for (int index = 0; index < cardList.Count; index++)
+                {
+                    stream = NPOIHelper.CreateRow(stream, 0, index + 1,
+                            new NPOIHelper.Cell { Index = 0, Value = cardList[index].CardNo },
+                            new NPOIHelper.Cell { Index = 1, Value = cardList[index].CardPrefix },
+                            new NPOIHelper.Cell { Index = 2, Value = cardList[index].CardDate.ToString() },
+                            new NPOIHelper.Cell { Index = 3, Value = cardList[index].DaysLimit },
+                            new NPOIHelper.Cell { Index = 4, Value = cardList[index].IsActivate.Value?"是":"否" },
+                            new NPOIHelper.Cell { Index = 5, Value = cardList[index].ActivateMemberName }
+                        );
+                }
+                // 文件路径
+                string filePath = $"{ConfigurationHelper.GetRMS("Result")}\\{DateTime.Now.ToString("yyyyMMdd")}_Card.xls";
+                // 创建文件
+                NPOIHelper.WriteSteamToFile(filePath, (MemoryStream)stream);
+                // 返回
+                return filePath;
             }
         }
         #endregion

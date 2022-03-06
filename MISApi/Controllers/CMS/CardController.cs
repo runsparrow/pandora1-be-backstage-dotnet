@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using static MISApi.Controllers.CMS.AuthController;
 using BaseMode = MISApi.HttpClients.HttpModes.BaseMode;
 
 namespace MISApi.Controllers.CMS
@@ -523,6 +524,25 @@ namespace MISApi.Controllers.CMS
             catch (Exception ex)
             {
                 throw new Exception("MISApi.Controllers.CMS.CardController.Update_BatchToStatus", ex);
+            }
+        }
+        /// <summary>
+        /// 导出全量数据
+        /// </summary>
+        /// <returns></returns>
+        [Route("MIS/CMS/Card/Update/RMS", Name = "MIS_CMS_Card_Update_RMS")]
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update_RMS()
+        {
+            try
+            {
+                string url = new CardService.UpdateService().RMS();
+                return new JsonResult(new DTO_Result_RMS { Url = url, Result = true, Message = "生成Excel数据成功。" });
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("MISApi.Controllers.CMS.CardController.Update_RMS", ex);
             }
         }
         #endregion

@@ -1,8 +1,10 @@
 ﻿using MISApi.CacheServices.WFM;
 using MISApi.Entities.CMS;
 using MISApi.Entities.WFM;
+using MISApi.Tools;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace MISApi.Services.CMS
 {
@@ -169,6 +171,40 @@ namespace MISApi.Services.CMS
                 {
                     throw new Exception("MISApi.Services.CMS.ArticleService.UpdateService.BatchToStatus", ex);
                 }
+            }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string RMS()
+            {
+                Stream stream = NPOIHelper.CreateFileStreamFromTemplate($"{ConfigurationHelper.GetRMS("Template")}\\Article.xls");
+                // 查询
+                var articleList = new ArticleService.RowsService().Page(
+                    new HttpClients.HttpModes.BaseMode.KeyWord(""), 
+                    new HttpClients.HttpModes.BaseMode.Join [] { new HttpClients.HttpModes.BaseMode.Join("")}, 
+                    new HttpClients.HttpModes.BaseMode.Page(1, 10000),
+                    null,
+                    null, 
+                    new HttpClients.HttpModes.BaseMode.Status(1,2)
+                );
+                // 循环
+                for(int index=0; index<articleList.Count; index++)
+                {
+                    stream = NPOIHelper.CreateRow(stream, 0, index + 1,
+                            new NPOIHelper.Cell { Index = 0, Value = articleList[index].NavigationName },
+                            new NPOIHelper.Cell { Index = 1, Value = articleList[index].Title },
+                            new NPOIHelper.Cell { Index = 2, Value = articleList[index].Publisher },
+                            new NPOIHelper.Cell { Index = 3, Value = articleList[index].PublishDateTime.ToString() },
+                            new NPOIHelper.Cell { Index = 4, Value = articleList[index].Source },
+                            new NPOIHelper.Cell { Index = 5, Value = articleList[index].SourceUrl }
+                        );
+                }
+                // 文件路径
+                string filePath = $"{ConfigurationHelper.GetRMS("Result")}\\{DateTime.Now.ToString("yyyyMMdd")}_Article.xls";
+                // 创建文件
+                NPOIHelper.WriteSteamToFile(filePath, (MemoryStream)stream);
+                // 返回
+                return filePath;
             }
         }
         #endregion

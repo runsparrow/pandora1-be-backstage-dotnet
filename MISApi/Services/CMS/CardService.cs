@@ -1,4 +1,5 @@
-﻿using MISApi.CacheServices.WFM;
+﻿using Microsoft.AspNetCore.Hosting;
+using MISApi.CacheServices.WFM;
 using MISApi.Dal.EF;
 using MISApi.Entities.CMS;
 using MISApi.Entities.WFM;
@@ -11,12 +12,12 @@ using System.Linq;
 namespace MISApi.Services.CMS
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class CardService
     {
-
         #region CreateService
+
         /// <summary>
         /// CreateService
         /// </summary>
@@ -26,6 +27,7 @@ namespace MISApi.Services.CMS
             /// 定义事务服务
             /// </summary>
             private TransService transService;
+
             /// <summary>
             /// 构造函数
             /// </summary>
@@ -33,6 +35,7 @@ namespace MISApi.Services.CMS
             {
                 transService = new TransService();
             }
+
             /// <summary>
             /// 创建指定状态
             /// </summary>
@@ -64,6 +67,7 @@ namespace MISApi.Services.CMS
                     throw new Exception("MISApi.Services.CMS.CardService.CreateService.ToStatus", ex);
                 }
             }
+
             /// <summary>
             /// 批量创建指定状态
             /// </summary>
@@ -97,9 +101,10 @@ namespace MISApi.Services.CMS
             }
         }
 
-        #endregion
+        #endregion CreateService
 
         #region UpdateService
+
         /// <summary>
         /// UpdateService
         /// </summary>
@@ -109,6 +114,7 @@ namespace MISApi.Services.CMS
             /// 定义事务服务
             /// </summary>
             private TransService transService;
+
             /// <summary>
             /// 构造函数
             /// </summary>
@@ -116,6 +122,7 @@ namespace MISApi.Services.CMS
             {
                 transService = new TransService();
             }
+
             /// <summary>
             /// 编辑指定状态
             /// </summary>
@@ -147,6 +154,7 @@ namespace MISApi.Services.CMS
                     throw new Exception("MISApi.Services.CMS.CardService.UpdateService.ToStatus", ex);
                 }
             }
+
             /// <summary>
             /// 批量编辑指定状态
             /// </summary>
@@ -178,8 +186,9 @@ namespace MISApi.Services.CMS
                     throw new Exception("MISApi.Services.CMS.CardService.UpdateService.BatchToStatus", ex);
                 }
             }
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             /// <param name="c"></param>
             /// <param name="m"></param>
@@ -210,7 +219,7 @@ namespace MISApi.Services.CMS
                             member.DownCount = card.DownLimit == -1 ? -1 : member.DownCount + card.DownLimit;
                             member.BuyCount = card.BuyLimit == -1 ? -1 : member.BuyCount + card.BuyLimit;
                             member.LevelDeadline = member.LevelDeadline < DateTime.Now ? DateTime.Now : member.LevelDeadline;
-                            member.LevelDeadline = member.LevelDeadline.Value.AddDays(card.DaysLimit??0);
+                            member.LevelDeadline = member.LevelDeadline.Value.AddDays(card.DaysLimit ?? 0);
                         }
                         new MemberService.UpdateService().Execute(member);
                     });
@@ -224,12 +233,13 @@ namespace MISApi.Services.CMS
                     throw new Exception("MISApi.Services.CMS.CardService.UpdateService.BatchToStatus", ex);
                 }
             }
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
-            public string RMS()
+            public string RMS(IWebHostEnvironment environment)
             {
-                Stream stream = NPOIHelper.CreateFileStreamFromTemplate($"{ConfigurationHelper.GetRMS("Template")}\\Card.xls");
+                Stream stream = NPOIHelper.CreateFileStreamFromTemplate($"{environment.WebRootPath}\\Template\\Card.xls");
                 // 查询
                 var cardList = new CardService.RowsService().Page(
                     new HttpClients.HttpModes.BaseMode.KeyWord(""),
@@ -247,50 +257,52 @@ namespace MISApi.Services.CMS
                             new NPOIHelper.Cell { Index = 1, Value = cardList[index].CardPrefix },
                             new NPOIHelper.Cell { Index = 2, Value = cardList[index].CardDate.ToString() },
                             new NPOIHelper.Cell { Index = 3, Value = cardList[index].DaysLimit },
-                            new NPOIHelper.Cell { Index = 4, Value = cardList[index].IsActivate.Value?"是":"否" },
+                            new NPOIHelper.Cell { Index = 4, Value = cardList[index].IsActivate.Value ? "是" : "否" },
                             new NPOIHelper.Cell { Index = 5, Value = cardList[index].ActivateMemberName }
                         );
                 }
                 // 文件路径
-                string filePath = $"{ConfigurationHelper.GetRMS("Result")}\\{DateTime.Now.ToString("yyyyMMdd")}_Card.xls";
+                string filePath = $"{environment.WebRootPath}\\Result\\{DateTime.Now.ToString("yyyyMMdd")}_Card.xls";
                 // 创建文件
                 NPOIHelper.WriteSteamToFile(filePath, (MemoryStream)stream);
                 // 返回
                 return filePath;
             }
         }
-        #endregion
+
+        #endregion UpdateService
 
         #region DeleteService
+
         /// <summary>
         /// DeleteService
         /// </summary>
         public class DeleteService : Base.CardService.DeleteService
         {
-
         }
-        #endregion
+
+        #endregion DeleteService
 
         #region ColumnsService
+
         /// <summary>
         /// ColumnsMode Service
         /// </summary>
         public class ColumnsService : Base.CardService.ColumnsService
         {
-
         }
 
-        #endregion
+        #endregion ColumnsService
 
         #region RowService
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public class RowService : Base.CardService.RowService
         {
             /// <summary>
-            /// 
+            ///
             /// </summary>
             /// <param name="cardNo"></param>
             /// <param name="cardPassword"></param>
@@ -316,18 +328,17 @@ namespace MISApi.Services.CMS
             }
         }
 
-        #endregion
+        #endregion RowService
 
         #region RowsService
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public class RowsService : Base.CardService.RowsService
         {
-
         }
 
-        #endregion
+        #endregion RowsService
     }
 }

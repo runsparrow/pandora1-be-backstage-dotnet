@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using MISApi.Controllers.HttpEntities;
 using MISApi.Entities.CMS;
@@ -21,6 +22,7 @@ namespace MISApi.Controllers.CMS
         #region RPC
 
         #region CreateMode
+
         /// <summary>
         /// 创建发卡
         /// </summary>
@@ -75,6 +77,7 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Create_Single", ex);
             }
         }
+
         /// <summary>
         /// 创建发卡
         /// </summary>
@@ -116,7 +119,8 @@ namespace MISApi.Controllers.CMS
                 // 默认值
                 if (entities != null)
                 {
-                    entities.ForEach(entity => {
+                    entities.ForEach(entity =>
+                    {
                         entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
                         entity.CreateDateTime = DateTime.Now;
                         entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -135,6 +139,7 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Create_Multiple", ex);
             }
         }
+
         /// <summary>
         /// 创建发卡并设置状态
         /// </summary>
@@ -189,6 +194,7 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Create_ToStatus", ex);
             }
         }
+
         /// <summary>
         /// 批量创建发卡并设置状态
         /// </summary>
@@ -230,7 +236,8 @@ namespace MISApi.Controllers.CMS
                 // 默认值
                 if (dto.Entities != null)
                 {
-                    dto.Entities.ForEach(entity => {
+                    dto.Entities.ForEach(entity =>
+                    {
                         entity.CreateUserId = AuthHelper.GetClaimFromToken(Token).Id;
                         entity.CreateDateTime = DateTime.Now;
                         entity.EditUserId = AuthHelper.GetClaimFromToken(Token).Id;
@@ -249,6 +256,7 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Create_BatchToStatus", ex);
             }
         }
+
         /// <summary>
         /// 批量发卡
         /// </summary>
@@ -265,7 +273,7 @@ namespace MISApi.Controllers.CMS
                 // 默认值
                 if (dto.Entity != null)
                 {
-                    for(var i=0; i<dto.CardQuantity; i++)
+                    for (var i = 0; i < dto.CardQuantity; i++)
                     {
                         entities.Add(new Card
                         {
@@ -301,9 +309,10 @@ namespace MISApi.Controllers.CMS
             }
         }
 
-        #endregion
+        #endregion CreateMode
 
         #region UpdateMode
+
         /// <summary>
         /// 编辑一条发卡
         /// </summary>
@@ -356,6 +365,7 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Update_Single", ex);
             }
         }
+
         /// <summary>
         /// 编辑多条发卡
         /// </summary>
@@ -415,6 +425,7 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Update_Multiple", ex);
             }
         }
+
         /// <summary>
         /// 编辑并设置状态
         /// </summary>
@@ -467,6 +478,7 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Update_ToStatus", ex);
             }
         }
+
         /// <summary>
         /// 批量编辑并设置状态
         /// </summary>
@@ -526,6 +538,7 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Update_BatchToStatus", ex);
             }
         }
+
         /// <summary>
         /// 导出全量数据
         /// </summary>
@@ -533,11 +546,11 @@ namespace MISApi.Controllers.CMS
         [Route("MIS/CMS/Card/Update/RMS", Name = "MIS_CMS_Card_Update_RMS")]
         [HttpPost]
         [Authorize]
-        public IActionResult Update_RMS()
+        public IActionResult Update_RMS([FromServices] IWebHostEnvironment environment)
         {
             try
             {
-                string url = new CardService.UpdateService().RMS();
+                string url = new CardService.UpdateService().RMS(environment);
                 return new JsonResult(new DTO_Result_RMS { Url = url, Result = true, Message = "生成Excel数据成功。" });
             }
             catch (Exception ex)
@@ -545,9 +558,11 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Update_RMS", ex);
             }
         }
-        #endregion
+
+        #endregion UpdateMode
 
         #region DeleteMode
+
         /// <summary>
         ///  删除一条发卡
         /// </summary>
@@ -571,6 +586,7 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Delete_Single", ex);
             }
         }
+
         /// <summary>
         /// 删除多条发卡
         /// </summary>
@@ -594,9 +610,11 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Delete_Multiple", ex);
             }
         }
-        #endregion
+
+        #endregion DeleteMode
 
         #region ColumnsMode
+
         /// <summary>
         /// 查询发卡的字段
         /// </summary>
@@ -619,9 +637,11 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Columns_Single", ex);
             }
         }
-        #endregion
+
+        #endregion ColumnsMode
 
         #region RowMode
+
         /// <summary>
         /// 根据Id查询发卡
         /// </summary>
@@ -645,6 +665,7 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Row_ById", ex);
             }
         }
+
         /// <summary>
         /// 根据Id查询发卡
         /// </summary>
@@ -668,9 +689,11 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Row_ById_Id", ex);
             }
         }
-        #endregion
+
+        #endregion RowMode
 
         #region RowsMode
+
         /// <summary>
         /// 根据关键字模糊查询发卡
         /// </summary>
@@ -694,6 +717,7 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Rows_ByKeyWord", ex);
             }
         }
+
         /// <summary>
         /// 根据关键字模糊查询发卡
         /// </summary>
@@ -717,9 +741,11 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Rows_ByKeyWord_KeyWord", ex);
             }
         }
-        #endregion
+
+        #endregion RowsMode
 
         #region SingleMode
+
         /// <summary>
         /// 根据Id查询发卡
         /// </summary>
@@ -743,9 +769,11 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Single_ById", ex);
             }
         }
-        #endregion
+
+        #endregion SingleMode
 
         #region QueryMode
+
         /// <summary>
         /// 分页查询发卡
         /// </summary>
@@ -771,9 +799,11 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Query_Page", ex);
             }
         }
-        #endregion
+
+        #endregion QueryMode
 
         #region TreeMode
+
         /// <summary>
         /// 模糊查询获得树型结构的发卡
         /// </summary>
@@ -806,6 +836,7 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Tree_ByKeyWord", ex);
             }
         }
+
         /// <summary>
         /// 根据Id查询获得树型结构的发卡
         /// </summary>
@@ -838,6 +869,7 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Tree_ById", ex);
             }
         }
+
         /// <summary>
         /// 树形结构的复杂查询
         /// </summary>
@@ -863,13 +895,15 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Tree", ex);
             }
         }
-        #endregion
 
-        #endregion
+        #endregion TreeMode
+
+        #endregion RPC
 
         #region Unauthorized
 
         #region ColumnsMode
+
         /// <summary>
         /// 查询发卡的字段
         /// </summary>
@@ -887,9 +921,11 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Unauthorized_Columns_Single", ex);
             }
         }
-        #endregion
+
+        #endregion ColumnsMode
 
         #region RowMode
+
         /// <summary>
         /// 根据Id查询发卡
         /// </summary>
@@ -908,6 +944,7 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Unauthorized_Row_ById", ex);
             }
         }
+
         /// <summary>
         /// 根据Id查询发卡
         /// </summary>
@@ -926,9 +963,11 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Unauthorized_Row_ById_Id", ex);
             }
         }
-        #endregion
+
+        #endregion RowMode
 
         #region RowsMode
+
         /// <summary>
         /// 根据关键字模糊查询发卡
         /// </summary>
@@ -947,6 +986,7 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Unauthorized_Rows_ByKeyWord", ex);
             }
         }
+
         /// <summary>
         /// 根据关键字模糊查询发卡
         /// </summary>
@@ -965,9 +1005,11 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Unauthorized_Rows_ByKeyWord_KeyWord", ex);
             }
         }
-        #endregion
+
+        #endregion RowsMode
 
         #region SingleMode
+
         /// <summary>
         /// 根据Id查询发卡
         /// </summary>
@@ -986,9 +1028,11 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Unauthorized_Single_ById", ex);
             }
         }
-        #endregion
+
+        #endregion SingleMode
 
         #region QueryMode
+
         /// <summary>
         /// 分页查询指定导航下的发卡
         /// </summary>
@@ -1016,6 +1060,7 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Unauthorized_Query_ByNavigationId", ex);
             }
         }
+
         /// <summary>
         /// 分页查询发卡
         /// </summary>
@@ -1034,29 +1079,27 @@ namespace MISApi.Controllers.CMS
                 throw new Exception("MISApi.Controllers.CMS.CardController.Unauthorized_Query_Page", ex);
             }
         }
-        #endregion
 
-        #region TreeMode
+        #endregion QueryMode
 
-        #endregion
-
-        #endregion
+        #endregion Unauthorized
 
         #region Mode
 
         #region Create
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public class CreateMode
         {
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Request : HttpClients.HttpModes.CreateMode.Request<Card>
             {
                 /// <summary>
-                /// 
+                ///
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
@@ -1064,8 +1107,9 @@ namespace MISApi.Controllers.CMS
                 {
                     return base.ToResponse(entity);
                 }
+
                 /// <summary>
-                /// 
+                ///
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
@@ -1074,29 +1118,31 @@ namespace MISApi.Controllers.CMS
                     return base.ToResponse(entityList);
                 }
             }
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Response : HttpClients.HttpModes.CreateMode.Response<Card>
             {
-
             }
         }
-        #endregion
+
+        #endregion Create
 
         #region Update
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public class UpdateMode
         {
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Request : HttpClients.HttpModes.UpdateMode.Request<Card>
             {
                 /// <summary>
-                /// 
+                ///
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
@@ -1104,8 +1150,9 @@ namespace MISApi.Controllers.CMS
                 {
                     return base.ToResponse(entity);
                 }
+
                 /// <summary>
-                /// 
+                ///
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
@@ -1114,29 +1161,31 @@ namespace MISApi.Controllers.CMS
                     return base.ToResponse(entityList);
                 }
             }
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Response : HttpClients.HttpModes.UpdateMode.Response<Card>
             {
-
             }
         }
-        #endregion
+
+        #endregion Update
 
         #region Delete
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public class DeleteMode
         {
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Request : HttpClients.HttpModes.DeleteMode.Request<Card>
             {
                 /// <summary>
-                /// 
+                ///
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
@@ -1144,8 +1193,9 @@ namespace MISApi.Controllers.CMS
                 {
                     return base.ToResponse(entity);
                 }
+
                 /// <summary>
-                /// 
+                ///
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
@@ -1154,29 +1204,31 @@ namespace MISApi.Controllers.CMS
                     return base.ToResponse(entityList);
                 }
             }
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Response : HttpClients.HttpModes.DeleteMode.Response<Card>
             {
-
             }
         }
-        #endregion
+
+        #endregion Delete
 
         #region Columns
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public class ColumnsMode
         {
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Request : HttpClients.HttpModes.ColumnsMode.Request<Card>
             {
                 /// <summary>
-                /// 
+                ///
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
@@ -1185,29 +1237,31 @@ namespace MISApi.Controllers.CMS
                     return base.ToResponse(entity);
                 }
             }
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Response : HttpClients.HttpModes.ColumnsMode.Response<Card>
             {
-
             }
         }
-        #endregion
+
+        #endregion Columns
 
         #region Row
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public class RowMode
         {
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Request : HttpClients.HttpModes.RowMode.Request<Card>
             {
                 /// <summary>
-                /// 
+                ///
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
@@ -1216,29 +1270,31 @@ namespace MISApi.Controllers.CMS
                     return base.ToResponse(entity);
                 }
             }
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Response : HttpClients.HttpModes.RowMode.Response<Card>
             {
-
             }
         }
-        #endregion
+
+        #endregion Row
 
         #region Rows
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public class RowsMode
         {
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Request : HttpClients.HttpModes.RowsMode.Request<Card>
             {
                 /// <summary>
-                /// 
+                ///
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
@@ -1247,29 +1303,31 @@ namespace MISApi.Controllers.CMS
                     return base.ToResponse(entityList);
                 }
             }
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Response : HttpClients.HttpModes.RowsMode.Response<Card>
             {
-
             }
         }
-        #endregion
+
+        #endregion Rows
 
         #region Single
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public class SingleMode
         {
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Request : HttpClients.HttpModes.SingleMode.Request<Card>
             {
                 /// <summary>
-                /// 
+                ///
                 /// </summary>
                 /// <param name="entity"></param>
                 /// <returns></returns>
@@ -1278,29 +1336,31 @@ namespace MISApi.Controllers.CMS
                     return base.ToResponse(entity);
                 }
             }
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Response : HttpClients.HttpModes.SingleMode.Response<Card>
             {
-
             }
         }
-        #endregion
+
+        #endregion Single
 
         #region Query
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public class QueryMode
         {
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Request : HttpClients.HttpModes.QueryMode.Request<Card>
             {
                 /// <summary>
-                /// 
+                ///
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
@@ -1309,29 +1369,31 @@ namespace MISApi.Controllers.CMS
                     return base.ToResponse(entityList);
                 }
             }
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Response : HttpClients.HttpModes.QueryMode.Response<Card>
             {
-
             }
         }
-        #endregion
+
+        #endregion Query
 
         #region Tree
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public class TreeMode
         {
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Request : HttpClients.HttpModes.TreeMode.AntdTreeRequest<Card>
             {
                 /// <summary>
-                /// 
+                ///
                 /// </summary>
                 /// <param name="entityList"></param>
                 /// <returns></returns>
@@ -1340,22 +1402,23 @@ namespace MISApi.Controllers.CMS
                     return base.ToResponse(entityList);
                 }
             }
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public class Response : HttpClients.HttpModes.TreeMode.AntdTreeRequest<Card>
             {
-
             }
         }
-        #endregion
 
-        #endregion
+        #endregion Tree
+
+        #endregion Mode
 
         #region HttpEntities
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public class DTO_Batch
         {
@@ -1365,6 +1428,7 @@ namespace MISApi.Controllers.CMS
             [Description("发卡信息")]
             [JsonProperty("entity")]
             public Card Entity { get; set; } = new Card();
+
             /// <summary>
             /// 发卡数量
             /// </summary>
@@ -1373,6 +1437,6 @@ namespace MISApi.Controllers.CMS
             public int CardQuantity { get; set; } = 0;
         }
 
-        #endregion
+        #endregion HttpEntities
     }
 }

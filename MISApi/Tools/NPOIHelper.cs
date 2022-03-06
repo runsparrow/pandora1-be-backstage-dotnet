@@ -15,41 +15,46 @@ using System.Text;
 
 namespace MISApi.Tools
 {
-
     /// <summary>
     /// NPOI操作excel辅助类
     /// </summary>
     public static class NPOIHelper
     {
         #region 定义与初始化
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static IWorkbook _workbook;
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ICellStyle _cellStyle;
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static OfficeVersion _officeVersion;
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public enum OfficeVersion
         {
             /// <summary>
-            /// 
+            ///
             /// </summary>
             OFFICE_03,
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             OFFICE_07
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [Flags]
         public enum LinkType
@@ -58,21 +63,25 @@ namespace MISApi.Tools
             /// 网址
             /// </summary>
             WEB_SITE,
+
             /// <summary>
             /// 文档
             /// </summary>
             DOCUMENT,
+
             /// <summary>
             /// 邮件
             /// </summary>
             MAIL,
+
             /// <summary>
             /// 内容
             /// </summary>
             CONTENT
         };
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private static IWorkbook CreateWorkbook()
         {
@@ -91,8 +100,9 @@ namespace MISApi.Tools
             }
             return _workbook;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="inputStream"></param>
         /// <returns></returns>
@@ -112,8 +122,9 @@ namespace MISApi.Tools
             }
             return _workbook;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="file"></param>
         /// <returns></returns>
@@ -133,8 +144,9 @@ namespace MISApi.Tools
             }
             return _workbook;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         private static void InitializeHSSFWorkbook()
@@ -151,19 +163,21 @@ namespace MISApi.Tools
             si.Comments = "感谢您的使用！";
             (_workbook as HSSFWorkbook).SummaryInformation = si;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         private static void InitializeXSSFWorkbook()
         {
-
         }
-        #endregion
+
+        #endregion 定义与初始化
 
         #region 构造函数
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         static NPOIHelper()
         {
@@ -176,11 +190,13 @@ namespace MISApi.Tools
                 _cellStyle = _workbook.CreateCellStyle();
             }
         }
-        #endregion
+
+        #endregion 构造函数
 
         #region 转换
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="fileUrl"></param>
         /// <param name="ms"></param>
@@ -188,8 +204,9 @@ namespace MISApi.Tools
         {
             RMSHelper.CreateFile(fileUrl, Encoding.GetEncoding("ISO-8859-1").GetBytes(Encoding.GetEncoding("ISO-8859-1").GetString(ms.ToArray())));
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="fileUrl"></param>
         /// <param name="buffer"></param>
@@ -197,8 +214,9 @@ namespace MISApi.Tools
         {
             RMSHelper.CreateFile(fileUrl, buffer);
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="inputWorkBook"></param>
         /// <returns></returns>
@@ -210,8 +228,9 @@ namespace MISApi.Tools
             ms.Position = 0;
             return ms;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="inputStream"></param>
         /// <returns></returns>
@@ -220,8 +239,9 @@ namespace MISApi.Tools
             HSSFWorkbook WorkBook = new HSSFWorkbook(inputStream);
             return WorkBook;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="inputStream"></param>
         /// <returns></returns>
@@ -230,8 +250,9 @@ namespace MISApi.Tools
             HSSFWorkbook WorkBook = new HSSFWorkbook(inputStream as Stream);
             return WorkBook;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="inputStream"></param>
         /// <returns></returns>
@@ -242,8 +263,9 @@ namespace MISApi.Tools
             inputStream.Write(file);
             return file;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
@@ -257,8 +279,9 @@ namespace MISApi.Tools
             }
             else return null;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="ms"></param>
         /// <returns></returns>
@@ -266,9 +289,11 @@ namespace MISApi.Tools
         {
             return ms as Stream;
         }
-        #endregion
+
+        #endregion 转换
 
         #region DataTable与Excel资料格式转换
+
         /// <summary>
         /// 将DataTable转成Stream输出.
         /// </summary>
@@ -389,7 +414,6 @@ namespace MISApi.Tools
             return table;
         }
 
-
         /// <summary>
         /// 從位元流讀取資料到DataTable.
         /// </summary>
@@ -436,11 +460,13 @@ namespace MISApi.Tools
             sheet = null;
             return table;
         }
-        #endregion
+
+        #endregion DataTable与Excel资料格式转换
 
         #region List<T>与Excel资料格式转换
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="sourceList"></param>
@@ -484,8 +510,9 @@ namespace MISApi.Tools
 
             return ms;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="sourceList"></param>
@@ -493,7 +520,6 @@ namespace MISApi.Tools
         /// <returns></returns>
         public static Stream RenderListToExcel<T>(List<T> sourceList, Dictionary<string, string> head)
         {
-
             MemoryStream ms = new MemoryStream();
             ISheet sheet = _workbook.CreateSheet();
             IRow headerRow = sheet.CreateRow(0);
@@ -531,8 +557,9 @@ namespace MISApi.Tools
 
             return ms;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="sourceList"></param>
@@ -567,8 +594,9 @@ namespace MISApi.Tools
 
             return _workbook;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="sourceList"></param>
@@ -604,8 +632,9 @@ namespace MISApi.Tools
 
             return _workbook;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="sourceList"></param>
@@ -615,8 +644,9 @@ namespace MISApi.Tools
             MemoryStream ms = RenderListToExcel(sourceList) as MemoryStream;
             WriteSteamToFile(fileName, ms);
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="sourceList"></param>
@@ -627,8 +657,9 @@ namespace MISApi.Tools
             MemoryStream ms = RenderListToExcel(sourceList, head) as MemoryStream;
             WriteSteamToFile(fileName, ms);
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="excelFileStream"></param>
@@ -667,8 +698,9 @@ namespace MISApi.Tools
             }
             return list;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="excelFileStream"></param>
@@ -707,8 +739,9 @@ namespace MISApi.Tools
             }
             return list;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="excelFileStream"></param>
@@ -748,8 +781,9 @@ namespace MISApi.Tools
             }
             return list;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="excelFileStream"></param>
@@ -789,8 +823,9 @@ namespace MISApi.Tools
             }
             return list;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="type"></param>
         /// <param name="value"></param>
@@ -822,9 +857,11 @@ namespace MISApi.Tools
 
             return parseMethod.Invoke(null, new object[] { value });
         }
-        #endregion
+
+        #endregion List<T>与Excel资料格式转换
 
         #region 字符串阵列与Excel资料格式转换
+
         /// <summary>
         /// 建立datatable
         /// </summary>
@@ -860,13 +897,13 @@ namespace MISApi.Tools
                     for (j = 0; j < TempColName.Length; j++)
                     {
                         newrow[j] = string.Copy(value[i, j].ToString());
-
                     }
                     ResultTable.Rows.Add(newrow);
                 }
             }
             return ResultTable;
         }
+
         /// <summary>
         /// Creates the string array.
         /// </summary>
@@ -886,6 +923,7 @@ namespace MISApi.Tools
             }
             return result;
         }
+
         /// <summary>
         /// 將陣列輸出成位元流.
         /// </summary>
@@ -897,6 +935,7 @@ namespace MISApi.Tools
             DataTable dt = CreateDataTable(ColumnName, sourceTable);
             return RenderDataTableToExcel(dt);
         }
+
         /// <summary>
         /// 將陣列輸出成DOCUMENT.
         /// </summary>
@@ -908,6 +947,7 @@ namespace MISApi.Tools
             DataTable dt = CreateDataTable(ColumnName, sourceTable);
             RenderDataTableToExcel(dt, fileName);
         }
+
         /// <summary>
         /// 將陣列輸出成WorkBook(自訂資料型態).
         /// </summary>
@@ -919,6 +959,7 @@ namespace MISApi.Tools
             DataTable dt = CreateDataTable(ColumnName, sourceTable);
             return RenderDataTableToWorkBook(dt);
         }
+
         /// <summary>
         /// 將位元流資料輸出成陣列.
         /// </summary>
@@ -960,6 +1001,7 @@ namespace MISApi.Tools
             sheet = null;
             return CreateStringArray(table);
         }
+
         /// <summary>
         /// 將位元流資料輸出成陣列.
         /// </summary>
@@ -1005,9 +1047,11 @@ namespace MISApi.Tools
             sheet = null;
             return CreateStringArray(table);
         }
-        #endregion
+
+        #endregion 字符串阵列与Excel资料格式转换
 
         #region 超链接
+
         /// <summary>
         /// 在位元流储存格中建立超連結.
         /// </summary>
@@ -1044,14 +1088,17 @@ namespace MISApi.Tools
                     link = new HSSFHyperlink(HyperlinkType.Url);
                     resultLinkValue = string.Copy(linkValueOrIndex);
                     break;
+
                 case "DOCUMENT":
                     link = new HSSFHyperlink(HyperlinkType.File);
                     resultLinkValue = string.Copy(linkValueOrIndex);
                     break;
+
                 case "MAIL":
                     link = new HSSFHyperlink(HyperlinkType.Email);
                     resultLinkValue = "mailto:" + linkValueOrIndex;
                     break;
+
                 case "CONTENT":
                     int result;
                     link = new HSSFHyperlink(HyperlinkType.Document);
@@ -1060,6 +1107,7 @@ namespace MISApi.Tools
                     else
                         resultLinkValue = "'" + linkValueOrIndex + "'!A1";
                     break;
+
                 default:
                     link = new HSSFHyperlink(HyperlinkType.Url);
                     break;
@@ -1071,6 +1119,7 @@ namespace MISApi.Tools
             ms.Flush();
             return ms;
         }
+
         /// <summary>
         /// 在DOCUMENT储存格中建立超連結.
         /// </summary>
@@ -1087,6 +1136,7 @@ namespace MISApi.Tools
             MemoryStream ms = MakeLink(inputStream, sheetNameOrIndex, linkName, linkValueOrIndex, s1, rowIndex, cellIndex) as MemoryStream;
             WriteSteamToFile(fileName, ms);
         }
+
         /// <summary>
         /// 建立新位元流并在储存格中建立超連結.
         /// </summary>
@@ -1123,15 +1173,18 @@ namespace MISApi.Tools
                     link = new HSSFHyperlink(HyperlinkType.Url);
                     resultLinkValue = string.Copy(linkValueOrIndex);
                     break;
+
                 case "DOCUMENT":
                     link = new HSSFHyperlink(HyperlinkType.File);
                     resultLinkValue = string.Copy(linkValueOrIndex);
                     break;
+
                 case "MAIL":
                     link = new HSSFHyperlink(HyperlinkType.Email);
-                    // resultLinkValue = string.Copy(LinkValue);   
+                    // resultLinkValue = string.Copy(LinkValue);
                     resultLinkValue = "mailto:" + linkValueOrIndex;
                     break;
+
                 case "CONTENT":
                     int result;
                     link = new HSSFHyperlink(HyperlinkType.Document);
@@ -1140,6 +1193,7 @@ namespace MISApi.Tools
                     else
                         resultLinkValue = "'" + linkValueOrIndex + "'!A1";
                     break;
+
                 default:
                     link = new HSSFHyperlink(HyperlinkType.Url);
                     break;
@@ -1151,6 +1205,7 @@ namespace MISApi.Tools
             ms.Flush();
             return ms;
         }
+
         /// <summary>
         /// 建立新DOCUMENT并在储存格中建立超連結.
         /// </summary>
@@ -1166,11 +1221,13 @@ namespace MISApi.Tools
             MemoryStream ms = MakeLinkFromEmpty(sheetNameOrIndex, linkName, linkValueOrIndex, s1, rowIndex, cellIndex) as MemoryStream;
             WriteSteamToFile(fileName, ms);
         }
-        #endregion
+
+        #endregion 超链接
 
         #region 设定默认Cell样式
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public static ICellStyle SetCellDefaultStyle()
@@ -1187,7 +1244,7 @@ namespace MISApi.Tools
             font.Boldweight = 400;
             font.IsItalic = false;
             style.SetFont(font);
-            // 边框  
+            // 边框
             style.BorderTop = BorderStyle.Thin;
             style.BorderRight = BorderStyle.Thin;
             style.BorderBottom = BorderStyle.Thin;
@@ -1208,12 +1265,13 @@ namespace MISApi.Tools
             }
             return style;
         }
-        #endregion
+
+        #endregion 设定默认Cell样式
 
         #region 设定单元格
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="colorIndex">例:NPOI.HSSF.Util.HSSFColor.Red.Index</param>
         /// <param name="isBorder"></param>
@@ -1258,8 +1316,9 @@ namespace MISApi.Tools
 
             return style;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="fontName"></param>
         /// <param name="color"></param>
@@ -1282,8 +1341,9 @@ namespace MISApi.Tools
             style.SetFont(font);
             return style;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="borderTop"></param>
         /// <param name="borderRight"></param>
@@ -1310,8 +1370,9 @@ namespace MISApi.Tools
             style.RightBorderColor = topBorderColor;
             return style;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="InputFont"></param>
         /// <returns></returns>
@@ -1321,6 +1382,7 @@ namespace MISApi.Tools
             style1.SetFont(InputFont);
             return style1;
         }
+
         /// <summary>
         /// 设定字體顏色大小到位元流.
         /// </summary>
@@ -1377,6 +1439,7 @@ namespace MISApi.Tools
             ms.Flush();
             return ms;
         }
+
         /// <summary>
         /// 设定字體顏色大小到位元流.
         /// </summary>
@@ -1432,6 +1495,7 @@ namespace MISApi.Tools
             ms.Flush();
             return ms;
         }
+
         /// <summary>
         /// 设定字體顏色大小到DOCUMENT.
         /// </summary>
@@ -1446,6 +1510,7 @@ namespace MISApi.Tools
             MemoryStream ms = ApplyStyleToFile(inputStream, fontName, fontSize, isAllSheet, sheetName) as MemoryStream;
             WriteSteamToFile(fileName, ms);
         }
+
         /// <summary>
         /// 设定字體顏色大小到DOCUMENT.
         /// </summary>
@@ -1460,9 +1525,11 @@ namespace MISApi.Tools
             MemoryStream ms = ApplyStyleToFile(inputStream, fontName, fontSize, isAllSheet, sheetIndex) as MemoryStream;
             WriteSteamToFile(fileName, ms);
         }
-        #endregion
+
+        #endregion 设定单元格
 
         #region 建立空白excel档
+
         /// <summary>
         /// 建立空白excel档到位元流.
         /// </summary>
@@ -1484,6 +1551,7 @@ namespace MISApi.Tools
             ms.Flush();
             return ms;
         }
+
         /// <summary>
         /// 建立空白excel档到DOCUMENT.
         /// </summary>
@@ -1494,9 +1562,11 @@ namespace MISApi.Tools
             MemoryStream ms = CreateEmptyFile(sheetName) as MemoryStream;
             WriteSteamToFile(fileName, ms);
         }
-        #endregion
+
+        #endregion 建立空白excel档
 
         #region 设定格线
+
         /// <summary>
         /// 设定格线到位元流.
         /// </summary>
@@ -1529,6 +1599,7 @@ namespace MISApi.Tools
             ms.Flush();
             return ms;
         }
+
         /// <summary>
         /// 设定格线到位元流.
         /// </summary>
@@ -1561,6 +1632,7 @@ namespace MISApi.Tools
             ms.Flush();
             return ms;
         }
+
         /// <summary>
         /// 设定格线到DOCUMENT.
         /// </summary>
@@ -1573,6 +1645,7 @@ namespace MISApi.Tools
             MemoryStream ms = SetGridLine(inputSteam, haveGridLine, sheetIndex) as MemoryStream;
             WriteSteamToFile(fileName, ms);
         }
+
         /// <summary>
         /// 设定格线到DOCUMENT.
         /// </summary>
@@ -1585,9 +1658,11 @@ namespace MISApi.Tools
             MemoryStream ms = SetGridLine(inputSteam, haveGridLine, sheetName) as MemoryStream;
             WriteSteamToFile(fileName, ms);
         }
-        #endregion
+
+        #endregion 设定格线
 
         #region 读取字串從excel
+
         /// <summary>
         /// 從位元流將資料轉成字串輸出
         /// </summary>
@@ -1599,6 +1674,7 @@ namespace MISApi.Tools
             ExcelExtractor extractor = new ExcelExtractor(HBook);
             return extractor.Text;
         }
+
         /// <summary>
         /// 從DOCUMENT將資料轉成字串輸出
         /// </summary>
@@ -1618,7 +1694,8 @@ namespace MISApi.Tools
             }
             else return null;
         }
-        #endregion
+
+        #endregion 读取字串從excel
 
         #region 设定群組
 
@@ -1647,8 +1724,8 @@ namespace MISApi.Tools
             _workbook.Write(ms);
             ms.Flush();
             return ms;
-
         }
+
         /// <summary>
         /// 建立群組到DOCUMENT.
         /// </summary>
@@ -1662,7 +1739,8 @@ namespace MISApi.Tools
             MemoryStream ms = CreateGroup(sheetName, IsRow, From, End) as MemoryStream;
             WriteSteamToFile(fileName, ms);
         }
-        #endregion
+
+        #endregion 设定群組
 
         #region 从模板简历DOCUMENT
 
@@ -1701,12 +1779,13 @@ namespace MISApi.Tools
             }
             else
             {
-
             }
         }
-        #endregion
+
+        #endregion 从模板简历DOCUMENT
 
         #region 嵌入图片
+
         /// <summary>
         /// Loads the image.
         /// </summary>
@@ -1719,8 +1798,8 @@ namespace MISApi.Tools
             byte[] buffer = new byte[file.Length];
             file.Read(buffer, 0, (int)file.Length);
             return wb.AddPicture(buffer, PictureType.JPEG);
-
         }
+
         /// <summary>
         /// 嵌入图片到位元流.
         /// </summary>
@@ -1752,6 +1831,7 @@ namespace MISApi.Tools
             ms.Flush();
             return ms;
         }
+
         /// <summary>
         /// 嵌入图片到DOCUMENT.
         /// </summary>
@@ -1766,6 +1846,7 @@ namespace MISApi.Tools
             MemoryStream ms = EmbedImage(inputStream, sheetIndex, picFileName, isOriginalSize, rowPosition) as MemoryStream;
             WriteSteamToFile(fileName, ms);
         }
+
         /// <summary>
         /// 建立新位元流并嵌入图片.
         /// </summary>
@@ -1795,6 +1876,7 @@ namespace MISApi.Tools
             ms.Flush();
             return ms;
         }
+
         /// <summary>
         /// 建立新DOCUMENT并嵌入图片.
         /// </summary>
@@ -1807,9 +1889,11 @@ namespace MISApi.Tools
             MemoryStream ms = EmbedImage(picFileName, isOriginalSize, rowPosition) as MemoryStream;
             WriteSteamToFile(excelfileName, ms);
         }
-        #endregion
+
+        #endregion 嵌入图片
 
         #region 合并储存格
+
         /// <summary>
         /// 合并储存格于位元流.
         /// </summary>
@@ -1830,6 +1914,7 @@ namespace MISApi.Tools
             ms.Flush();
             return ms;
         }
+
         /// <summary>
         /// 合并储存格于DOCUMENT.
         /// </summary>
@@ -1845,6 +1930,7 @@ namespace MISApi.Tools
             MemoryStream ms = MergeCell(inputStream, sheetIndex, rowFrom, columnFrom, rowTo, columnTo) as MemoryStream;
             WriteSteamToFile(fileName, ms);
         }
+
         /// <summary>
         /// 建立新位元流并合并储存格.
         /// </summary>
@@ -1863,6 +1949,7 @@ namespace MISApi.Tools
             ms.Flush();
             return ms;
         }
+
         /// <summary>
         /// 建立新DOCUMENT并合并储存格.
         /// </summary>
@@ -1876,9 +1963,11 @@ namespace MISApi.Tools
             MemoryStream ms = MergeCell(rowFrom, columnFrom, rowTo, columnTo) as MemoryStream;
             WriteSteamToFile(fileName, ms);
         }
-        #endregion
+
+        #endregion 合并储存格
 
         #region 设定储存格公式
+
         /// <summary>
         /// 设定储存格公式于位元流.
         /// </summary>
@@ -1898,6 +1987,7 @@ namespace MISApi.Tools
             ms.Flush();
             return ms;
         }
+
         /// <summary>
         /// 设定储存格公式于DOCUMENT.
         /// </summary>
@@ -1912,6 +2002,7 @@ namespace MISApi.Tools
             MemoryStream ms = SetFormula(inputStream, sheetIndex, formula, rowIndex, columnIndex) as MemoryStream;
             WriteSteamToFile(fileName, ms);
         }
+
         /// <summary>
         /// 建立新位元流并设定储存格公式.
         /// </summary>
@@ -1928,6 +2019,7 @@ namespace MISApi.Tools
             ms.Flush();
             return ms;
         }
+
         /// <summary>
         /// 建立新DOCUMENT并设定储存格公式.
         /// </summary>
@@ -1940,7 +2032,8 @@ namespace MISApi.Tools
             MemoryStream ms = Createformula(formula, rowIndex, columnIndex) as MemoryStream;
             WriteSteamToFile(fileName, ms);
         }
-        #endregion
+
+        #endregion 设定储存格公式
 
         #region 设定单元格
 
@@ -2029,7 +2122,7 @@ namespace MISApi.Tools
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="inputStream"></param>
         /// <param name="sheetIndex"></param>
@@ -2164,6 +2257,7 @@ namespace MISApi.Tools
             ms.Flush();
             return ms;
         }
+
         /// <summary>
         /// 设定储存格公式于位元流.
         /// </summary>
@@ -2221,8 +2315,9 @@ namespace MISApi.Tools
             ms.Flush();
             return ms;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="row"></param>
         /// <param name="heightInPoints"></param>
@@ -2234,8 +2329,9 @@ namespace MISApi.Tools
                 row.Cells[i].CellStyle = SetCellDefaultStyle();
             }
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="sheetIndex"></param>
         /// <param name="rowIndex"></param>
@@ -2244,8 +2340,9 @@ namespace MISApi.Tools
         {
             SetRowDefaultStyle(_workbook.GetSheetAt(sheetIndex).GetRow(rowIndex), heightInPoints);
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="sheetIndex"></param>
         /// <param name="rowIndex"></param>
@@ -2254,6 +2351,7 @@ namespace MISApi.Tools
         {
             SetRowStyle(_workbook.GetSheetAt(sheetIndex).GetRow(rowIndex), templateRow);
         }
+
         /// <summary>
         ///  复制指定行的样式
         /// </summary>
@@ -2267,59 +2365,70 @@ namespace MISApi.Tools
                 row.Cells[i].CellStyle = templateRow.Cells[i].CellStyle;
             }
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public class Cell
         {
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public int Index { get; set; }
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public object Value { get; set; }
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public string Formula { get; set; }
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public short ForegroundColor { get; set; } = _officeVersion == OfficeVersion.OFFICE_03 ? HSSFColor.White.Index : (short)new XSSFColor(Color.White).Tint;
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public bool IsBorder { get; set; } = false;
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public bool IsStyle { get; set; } = false;
+
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public short CellStyleIndex { get; set; } = 0;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public class RowStyle
         {
             /// <summary>
-            /// 
+            ///
             /// </summary>
             public int Index { get; set; }
+
             /// <summary>
             /// /
             /// </summary>
             public float Height { get; set; }
         }
-        #endregion
+
+        #endregion 设定单元格
 
         #region 查询
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="inputStream"></param>
         /// <param name="sheetIndex"></param>
@@ -2334,11 +2443,13 @@ namespace MISApi.Tools
             result = sheet1.GetRow(rowIndex).GetCell(columnIndex).NumericCellValue;
             return inputStream;
         }
-        #endregion
+
+        #endregion 查询
 
         #region 公式开关
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="inputStream"></param>
         /// <param name="sheetIndex"></param>
@@ -2354,7 +2465,7 @@ namespace MISApi.Tools
             ms.Flush();
             return ms;
         }
-        #endregion
 
+        #endregion 公式开关
     }
 }

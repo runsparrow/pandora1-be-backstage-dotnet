@@ -13,6 +13,7 @@
   <ItemGroup>
     <Folder Include="HttpClients\HttpModes\ColumnsMode\" />
     <Folder Include="CacheControllers\" />
+    <Folder Include="wwwroot\Result\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,5 +53,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

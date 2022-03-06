@@ -3795,7 +3795,7 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:MISApi.Controllers.CMS.CardController.Update_RMS">
+        <member name="M:MISApi.Controllers.CMS.CardController.Update_RMS(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
             <summary>
             导出全量数据
             </summary>
@@ -3942,228 +3942,228 @@
             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.CreateMode">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.CreateMode.Request">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:MISApi.Controllers.CMS.CardController.CreateMode.Request.ToResponse(MISApi.Entities.CMS.Card)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
+             </summary>
+             <param name="entity"></param>
+             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.CardController.CreateMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="entityList"></param>
-            <returns></returns>
+             </summary>
+             <param name="entityList"></param>
+             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.CreateMode.Response">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.UpdateMode">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.UpdateMode.Request">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:MISApi.Controllers.CMS.CardController.UpdateMode.Request.ToResponse(MISApi.Entities.CMS.Card)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
+             </summary>
+             <param name="entity"></param>
+             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.CardController.UpdateMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="entityList"></param>
-            <returns></returns>
+             </summary>
+             <param name="entityList"></param>
+             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.UpdateMode.Response">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.DeleteMode">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.DeleteMode.Request">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:MISApi.Controllers.CMS.CardController.DeleteMode.Request.ToResponse(MISApi.Entities.CMS.Card)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
+             </summary>
+             <param name="entity"></param>
+             <returns></returns>
         </member>
         <member name="M:MISApi.Controllers.CMS.CardController.DeleteMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="entityList"></param>
-            <returns></returns>
+             </summary>
+             <param name="entityList"></param>
+             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.DeleteMode.Response">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.ColumnsMode">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.ColumnsMode.Request">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:MISApi.Controllers.CMS.CardController.ColumnsMode.Request.ToResponse(MISApi.Entities.CMS.Card)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
+             </summary>
+             <param name="entity"></param>
+             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.ColumnsMode.Response">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.RowMode">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.RowMode.Request">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:MISApi.Controllers.CMS.CardController.RowMode.Request.ToResponse(MISApi.Entities.CMS.Card)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
+             </summary>
+             <param name="entity"></param>
+             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.RowMode.Response">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.RowsMode">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.RowsMode.Request">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:MISApi.Controllers.CMS.CardController.RowsMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="entityList"></param>
-            <returns></returns>
+             </summary>
+             <param name="entityList"></param>
+             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.RowsMode.Response">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.SingleMode">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.SingleMode.Request">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:MISApi.Controllers.CMS.CardController.SingleMode.Request.ToResponse(MISApi.Entities.CMS.Card)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
+             </summary>
+             <param name="entity"></param>
+             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.SingleMode.Response">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.QueryMode">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.QueryMode.Request">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:MISApi.Controllers.CMS.CardController.QueryMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="entityList"></param>
-            <returns></returns>
+             </summary>
+             <param name="entityList"></param>
+             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.QueryMode.Response">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.TreeMode">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.TreeMode.Request">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:MISApi.Controllers.CMS.CardController.TreeMode.Request.ToResponse(System.Collections.Generic.List{MISApi.Entities.CMS.Card})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="entityList"></param>
-            <returns></returns>
+             </summary>
+             <param name="entityList"></param>
+             <returns></returns>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.TreeMode.Response">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Controllers.CMS.CardController.DTO_Batch">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="P:MISApi.Controllers.CMS.CardController.DTO_Batch.Entity">
             <summary>
@@ -22418,9 +22418,9 @@
             </summary>
         </member>
         <member name="T:MISApi.Services.CMS.CardService">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Services.CMS.CardService.CreateService">
             <summary>
@@ -22485,17 +22485,17 @@
             <returns></returns>
         </member>
         <member name="M:MISApi.Services.CMS.CardService.UpdateService.Activate(MISApi.Entities.CMS.Card,MISApi.Entities.CMS.Member)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="c"></param>
-            <param name="m"></param>
-            <returns></returns>
+             </summary>
+             <param name="c"></param>
+             <param name="m"></param>
+             <returns></returns>
         </member>
-        <member name="M:MISApi.Services.CMS.CardService.UpdateService.RMS">
-            <summary>
+        <member name="M:MISApi.Services.CMS.CardService.UpdateService.RMS(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Services.CMS.CardService.DeleteService">
             <summary>
@@ -22508,22 +22508,22 @@
             </summary>
         </member>
         <member name="T:MISApi.Services.CMS.CardService.RowService">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:MISApi.Services.CMS.CardService.RowService.Verify(System.String,System.String)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="cardNo"></param>
-            <param name="cardPassword"></param>
-            <returns></returns>
+             </summary>
+             <param name="cardNo"></param>
+             <param name="cardPassword"></param>
+             <returns></returns>
         </member>
         <member name="T:MISApi.Services.CMS.CardService.RowsService">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:MISApi.Services.CMS.CashOutService">
             <summary>
@@ -24159,9 +24159,9 @@
             </summary>
         </member>
         <member name="T:MISApi.Startup">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:MISApi.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -24175,16 +24175,16 @@
             </summary>
         </member>
         <member name="M:MISApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="services"></param>
+             </summary>
+             <param name="services"></param>
         </member>
         <member name="M:MISApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="app"></param>
+             </summary>
+             <param name="app"></param>
         </member>
         <member name="T:MISApi.MISDocumentFilter">
             <summary>
@@ -24192,11 +24192,11 @@
             </summary>
         </member>
         <member name="M:MISApi.MISDocumentFilter.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="swaggerDoc"></param>
-            <param name="context"></param>
+             </summary>
+             <param name="swaggerDoc"></param>
+             <param name="context"></param>
         </member>
         <member name="T:MISApi.Tools.AuthHelper">
             <summary>

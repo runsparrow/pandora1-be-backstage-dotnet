@@ -2,8 +2,10 @@ using IdentityModel;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
@@ -20,7 +22,7 @@ using IDocumentFilter = Swashbuckle.AspNetCore.SwaggerGen.IDocumentFilter;
 namespace MISApi
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class Startup
     {
@@ -32,12 +34,14 @@ namespace MISApi
         {
             Configuration = configuration;
         }
+
         /// <summary>
         /// 属性
         /// </summary>
         public IConfiguration Configuration { get; }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
@@ -66,8 +70,8 @@ namespace MISApi
                     Description = "API for MIS",
                     Contact = new OpenApiContact() { Name = "wenzhutech", Email = "wenzhutech@163.com" }
                 });
-                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{typeof(Startup).Assembly.GetName().Name}.xml"), true); 
-                options.CustomSchemaIds(x =>x.FullName);
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{typeof(Startup).Assembly.GetName().Name}.xml"), true);
+                options.CustomSchemaIds(x => x.FullName);
                 options.EnableAnnotations();
 
                 var bearerScheme = new OpenApiSecurityScheme
@@ -101,10 +105,12 @@ namespace MISApi
                 });
             });
             // JWT
-            services.AddAuthentication(x => {
+            services.AddAuthentication(x =>
+            {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(x => {
+            }).AddJwtBearer(x =>
+            {
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     NameClaimType = JwtClaimTypes.Name,
@@ -114,10 +120,10 @@ namespace MISApi
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("This is ocelot security key"))
                 };
             });
-            
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="app"></param>
         public void Configure(IApplicationBuilder app)
@@ -132,9 +138,13 @@ namespace MISApi
                 options.DocumentTitle = "MIS API";
                 options.DocExpansion(DocExpansion.None);
             });
-          
+
             // 启用中间件服务进行异常处理
             app.UseMiddleware(typeof(ExceptionHandlerMiddleWare));
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot"))
+            });
             // 启用路由
             app.UseRouting();
             // 必须出于UseRouting与UseEndpoints之间
@@ -160,13 +170,14 @@ namespace MISApi
             });
         }
     }
+
     /// <summary>
     /// 用于swagger生成文档的标签描述
     /// </summary>
-    public class MISDocumentFilter: IDocumentFilter
+    public class MISDocumentFilter : IDocumentFilter
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="swaggerDoc"></param>
         /// <param name="context"></param>

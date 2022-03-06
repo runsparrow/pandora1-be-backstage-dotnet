@@ -43,6 +43,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="wwwroot\Result\20220306_Card.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Template\Article.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Template\Card.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Template\CashOut.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="fourlifecode-com-iis-0421170611.pfx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

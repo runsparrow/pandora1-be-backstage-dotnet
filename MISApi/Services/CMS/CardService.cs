@@ -239,7 +239,7 @@ namespace MISApi.Services.CMS
             /// </summary>
             public string RMS(IWebHostEnvironment environment)
             {
-                Stream stream = NPOIHelper.CreateFileStreamFromTemplate($"{environment.WebRootPath}\\Template\\Card.xls");
+                Stream stream = NPOIHelper.CreateFileStreamFromTemplate($"{environment.WebRootPath}/Template/Card.xls");
                 // 查询
                 var cardList = new CardService.RowsService().Page(
                     new HttpClients.HttpModes.BaseMode.KeyWord(""),
@@ -262,7 +262,7 @@ namespace MISApi.Services.CMS
                         );
                 }
                 // 文件路径
-                string filePath = $"{environment.WebRootPath}\\Result\\{DateTime.Now.ToString("yyyyMMdd")}_Card.xls";
+                string filePath = $"{environment.WebRootPath}/Result/{DateTime.Now.ToString("yyyyMMdd")}_Card.xls";
                 // 创建文件
                 NPOIHelper.WriteSteamToFile(filePath, (MemoryStream)stream);
                 // 返回

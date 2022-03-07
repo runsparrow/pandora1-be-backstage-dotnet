@@ -262,7 +262,7 @@ namespace MISApi.Services.CMS
                         );
                 }
                 // 文件路径
-                string filePath = $"{environment.WebRootPath}/Result/{DateTime.Now.ToString("yyyyMMdd")}_Card.xls";
+                string filePath = $"/Result/{DateTime.Now.ToString("yyyyMMdd")}_Card.xls";
                 // 创建文件
                 NPOIHelper.WriteSteamToFile(filePath, (MemoryStream)stream);
                 // 返回
